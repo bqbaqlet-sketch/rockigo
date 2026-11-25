@@ -2,6 +2,7 @@ FROM node:24-bookworm-slim
 
 WORKDIR /opt/rockigo
 ENV ROCKIGO_RUNTIME=/opt/rockigo-runtime \
+    ROCKIGO_MODEL_PATH=/opt/rockigo-runtime/Qwen3.5-0.8B-Q4_0.gguf \
     ROCKIGO_BIND=0.0.0.0 \
     PORT=8080
 
@@ -16,12 +17,12 @@ RUN mkdir -p /opt/rockigo-runtime/wasm \
     && tar -xzf /tmp/wllama.tgz -C /opt/rockigo-runtime/wasm \
     && rm /tmp/wllama.tgz \
     && curl --fail --show-error --location --retry 2 \
-      https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/resolve/main/qwen2.5-0.5b-instruct-q4_k_m.gguf \
-      -o /opt/rockigo-runtime/qwen2.5-0.5b-instruct-q4_k_m.gguf \
+      https://huggingface.co/ggml-org/Qwen3.5-0.8B-GGUF/resolve/main/Qwen3.5-0.8B-Q4_0.gguf \
+      -o /opt/rockigo-runtime/Qwen3.5-0.8B-Q4_0.gguf \
     && cd /opt/rockigo-runtime \
-    && echo '74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db  qwen2.5-0.5b-instruct-q4_k_m.gguf' | sha256sum --check --status
+    && echo '57d1997790d1744fba5b40a7317df71ea5e2acee28c47e78f0cce39c0703f8cf  Qwen3.5-0.8B-Q4_0.gguf' | sha256sum --check --status
 
-COPY server.mjs lessons.mjs wasm-runtime.mjs ./
+COPY server.mjs lessons.mjs curriculum.mjs science-questions.mjs wasm-runtime.mjs llama-api.mjs model-server.mjs ./
 USER node
 EXPOSE 8080
-CMD ["node", "--experimental-wasm-jspi", "server.mjs", "--api"]
+CMD ["node", "--experimental-wasm-jspi", "server.mjs", "--api", "--local-ai"]

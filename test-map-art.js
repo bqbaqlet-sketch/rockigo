@@ -107,13 +107,8 @@ function drawTestMapLandmarks(context,width,height,points,style) {
   context.lineWidth-=5;
   context.stroke();
 
-  const [,first]=points[0];
-  const [,second]=points[1];
-  const [,third]=points[2];
-  const [,fourth]=points[3];
-  const [,fifth]=points[4];
-  const [,sixth]=points[5];
-  const [,last]=points[6];
+  const [first,second,third,fourth,fifth,sixth,last]=Array.from({length:7},(_,index)=>
+    points[Math.round(index*(points.length-1)/6)][1]);
   const wide=width>720;
   const landmarks=wide?[
     [mapDerrick,.17,first-20,1.16],[mapDerrick,.24,first+14,.84],

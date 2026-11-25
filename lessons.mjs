@@ -1,11 +1,14 @@
+import { courseOrder, dayPlan, newTopics } from "./curriculum.mjs";
+import { cases, finalCases } from "./science-questions.mjs";
+
 export const books = {
-  lat: {author:"М. Г. Латышова", title:["Практическое руководство по интерпретации диаграмм ГИС","Ұңғыма каротажы диаграммаларын түсіндіру","Practical Guide to Well Log Interpretation"], range:"90–108"},
-  kuz: {author:"В. Г. Кузнецов", title:["Литология природных резервуаров нефти и газа","Мұнай мен газдың табиғи резервуарларының литологиясы","Lithology of Natural Oil and Gas Reservoirs"], range:"200–222"},
-  bas: {author:"К. С. Басниев и др.", title:["Нефтегазовая гидромеханика","Мұнай-газ гидромеханикасы","Oil and Gas Hydromechanics"], range:"474–500"}
+  lat: {author:"М. Г. Латышова", title:["Практическое руководство по интерпретации диаграмм ГИС","Ұңғыма каротажы диаграммаларын түсіндіру","Practical Guide to Well Log Interpretation"], range:"90–108",url:"https://drive.google.com/file/d/1z9b9wHv-_lkq8Xi1sn0xrsDOtuD6XH_e/view"},
+  kuz: {author:"В. Г. Кузнецов", title:["Литология природных резервуаров нефти и газа","Мұнай мен газдың табиғи резервуарларының литологиясы","Lithology of Natural Oil and Gas Reservoirs"], range:"200–222",url:"https://drive.google.com/file/d/1vAxeBTfyVS4hotgIX6YnKMvQ01n8CHQB/view"},
+  bas: {author:"К. С. Басниев и соавторы", title:["Нефтегазовая гидромеханика","Мұнай-газ гидромеханикасы","Oil and Gas Hydromechanics"], range:"474–500",url:"https://drive.google.com/file/d/1e5PXnHppagWNJ8utZ81TZd3Y9F865ycd/view"}
 };
 const fact = (page, term, quiz, explanation, plain, scene) => ({page,term,quiz,explanation,plain,scene});
 const track = (id, book, pages, title, facts, order) => ({id,book,pages,title,facts,order});
-export const units = [
+const existingTopics = [
   track("logs","lat","90–95",["Читаем каротаж","Каротажды оқимыз","Read well logs"],[
     fact(92,["Глинистость","Саздылық","Clay content"],
       ["Что помогает различать метод СП в терригенном разрезе?","Терригендік қимада ӨП әдісі нені ажыратуға көмектеседі?","What can spontaneous potential help distinguish in a terrigenous section?"],
@@ -29,10 +32,10 @@ export const units = [
       ["Какой результат соответствует Рн = 7 в примере 50 для αСП = 1?","αӨП = 1 болғанда, 50-мысалдағы Рн = 7 мәніне қандай нәтиже сәйкес келеді?","What outcome corresponds to Rn = 7 in Example 50 when αSP = 1?"],
       ["В примере 50 для чистого коллектора при Рн = 7 указана нефть с небольшим количеством воды. Это вывод для данной кривой.","50-мысалда таза коллектор үшін Рн = 7 мәніне аз мөлшерде суы бар мұнай сәйкес келеді. Бұл осы қисыққа қатысты.","For the clean reservoir in Example 50, Rn = 7 corresponds to oil with a small amount of water. This is specific to the stated curve."],
       ["В примере 50 находим Рн = 7 на кривой именно для чистого коллектора. В этой точке книга указывает нефть и немного воды. Для другой кривой вывод нужно проверить заново.","50-мысалда таза коллекторға арналған қисықтан Рн = 7 мәнін табамыз. Осы нүктеде кітап мұнай мен аздаған суды көрсетеді. Қисық басқа болса, қорытындыны қайта тексеру керек.","In Example 50, find Rn = 7 on the curve for the clean reservoir. At that point, the book shows oil with a little water. Check the interpretation again if you use a different curve."]),
-    fact(108,["Подходящее пороговое значение","Сәйкес шекті мән","An appropriate cut-off"],
-      ["Что особенно важно выбрать правильно при определении эффективной толщины карбонатного разреза?","Карбонатты қиманың тиімді қалыңдығын анықтауда нені дұрыс таңдау маңызды?","What must be chosen carefully when estimating effective thickness in a carbonate section?"],
-      ["Для изучаемых отложений нужен подходящий порог пористости. Чужой порог может дать серьёзную ошибку в толщине.","Зерттелетін шөгінділерге сәйкес кеуектілік шегі қажет. Сәйкес емес шек қалыңдықты бағалауда үлкен қатеге әкелуі мүмкін.","Choose a porosity cut-off appropriate to the deposits. An unsuitable cut-off can give a large thickness error."],
-      ["Порог помогает решить, какие прослои включить в полезную толщину. Если взять неподходящий порог из другого разреза, можно включить лишние прослои или пропустить нужные.","Шекті мән қай қабатшаларды тиімді қалыңдыққа қосу керегін анықтайды. Басқа қимадан сәйкес емес шек алсақ, артық қабатшаларды қосуымыз немесе керектілерін өткізіп алуымыз мүмкін.","The cut-off helps decide which beds count towards effective thickness. Borrowing an unsuitable cut-off can include extra beds or miss useful ones."])
+    {...fact(98,["Безводная нефть","Сусыз мұнай","Water-free oil"],
+      ["Какой характер притока указан в примере 46 для сопротивления пласта 20 Ом·м?","46-мысалда қабат кедергісі 20 Ом·м болса, қандай ағын көрсетілген?","What type of inflow does Example 46 associate with a formation resistivity of 20 Ω·m?"],
+      ["По данной палетке при сопротивлении 20 Ом·м и пористости 25% прогнозируют приток безводной нефти.","Берілген палеткада 20 Ом·м кедергі мен 25% кеуектілік сусыз мұнай ағынына сәйкес келеді.","On this chart, 20 Ω·m and 25% porosity indicate water-free oil inflow."],
+      ["Палетка в примере показывает, что из пласта должна поступать нефть без воды. Часть воды может оставаться в порах.","Мысалдағы палетка қабаттан сусыз мұнай келетінін көрсетеді. Судың бір бөлігі қуыстарда қалуы мүмкін.","On this example chart, the predicted oil inflow is water-free. Some water can still remain in the pores."]),id:"water-free"}
   ],[["Учти тип коллектора","Коллектор түрін ескер","Identify the reservoir type"],["Выбери подходящую кривую","Сәйкес қисықты таңда","Choose the applicable curve"],["Оцени насыщение по данным","Деректер бойынша қанығуды бағала","Interpret saturation from the data"]]),
   track("reef","kuz","200–204",["Как устроен риф","Рифтің құрылысы","Reef architecture"],[
     fact(200,["Биостром","Биостром","Biostrome"],
@@ -71,10 +74,10 @@ export const units = [
       ["Что ускоряет перераспределение давления при прочих равных?","Өзге жағдайлар бірдей болғанда, қысымның қайта таралуын не жылдамдатады?","All else equal, what speeds up pressure redistribution?"],
       ["В описанном режиме с большей проницаемостью неустановившийся процесс протекает быстрее.","Сипатталған режимде өткізгіштік артса, қалыптаспаған үдеріс жылдамырақ өтеді.","In this regime, higher permeability leads to a faster transient process."],
       ["Чем легче жидкости проходить через породу, тем быстрее в этой модели распространяется изменение давления при прочих равных.","Басқа жағдайлар бірдей болса, сұйықтық жыныс арқылы неғұрлым оңай өтсе, осы модельде қысым өзгерісі соғұрлым жылдам таралады.","All else being equal, the more easily fluid can move through the rock, the faster a pressure change spreads in this model."]),
-    fact(481,["Слабосжимаемая жидкость","Аз сығылатын сұйықтық","Slightly compressible fluid"],
-      ["Для какой жидкости применимо линейное уравнение пьезопроводности (23.16) в этой главе?","Осы тараудағы сызықтық пьезоөткізгіштік теңдеуі (23.16) қандай сұйықтыққа қолданылады?","What fluid assumption underlies the linear diffusivity equation (23.16) here?"],
-      ["Линейная форма предполагает слабую сжимаемость жидкости и малость соответствующего члена.","Сызықтық түр сұйықтықтың аз сығылуын және тиісті мүшенің кішілігін болжайды.","The linear form assumes a slightly compressible fluid and a small corresponding term."],
-      ["В этой модели объём жидкости меняется мало, даже когда меняется давление. При таком допущении и малом вкладе отброшенного члена расчёт можно упростить.","Бұл модельде қысым өзгергенде де сұйықтық көлемі аз өзгереді. Осы болжам орындалып, ескерілмеген мүшенің әсері аз болса, есепті жеңілдетуге болады.","In this model, changing the pressure changes the fluid volume only a little. With that assumption and a small contribution from the omitted term, the calculation can be simplified."])
+    {...fact(476,["Упругий запас","Серпімді қор","Elastic storage"],
+      ["Как называется объём жидкости, который выделяется за счёт упругости пласта и жидкости при снижении давления?","Қысым түскенде қабат пен сұйықтық серпімділігінен бөлінетін сұйықтық көлемі қалай аталады?","What is the volume of fluid released by formation and fluid elasticity during a pressure drop called?"],
+      ["Упругий запас связывает объём выделившейся жидкости со снижением давления при заданных объёме породы и упругоёмкости.","Серпімді қор бөлінген сұйықтық көлемін берілген жыныс көлемі мен серпімді сыйымдылықтағы қысым төмендеуімен байланыстырады.","Elastic storage relates released fluid volume to the pressure drop for a given rock volume and storage coefficient."],
+      ["При снижении давления жидкость немного расширяется, а поры могут сжиматься. Вместе эти эффекты вытесняют часть жидкости.","Қысым төмендесе, сұйықтық сәл кеңеюі, ал қуыстар тарылуы мүмкін. Бұл әсерлер сұйықтықтың бір бөлігін ығыстырады.","As pressure falls, fluid expands a little and pores can contract. Together, these effects drive some fluid out."]),id:"elastic-storage"}
   ],[["Измени отбор в скважине","Ұңғымадағы өндіруді өзгерт","Change the well rate"],["Заметь отклик рядом с забоем","Түп маңындағы өзгерісті байқа","Observe the near-well response"],["Проследи перераспределение дальше","Қысымның әрі қарай таралуын бақыла","Track redistribution farther away"]]),
   track("flow","bas","481–500",["Прогноз фильтрации","Сүзілу болжамы","Predict flow"],[
     fact(481,["Постоянное давление на галерее","Галереядағы тұрақты қысым","Constant gallery pressure"],
@@ -85,20 +88,15 @@ export const units = [
       ["Что на рис. 23.1 помогает увидеть неустановившееся распределение давления?","23.1-суретте қысымның уақыт бойынша өзгеруін не көрсетеді?","What shows transient pressure distribution in Figure 23.1?"],
       ["На рисунке приведены профили давления для разных моментов при постоянном забойном давлении.","Суретте тұрақты түптік қысым кезінде әртүрлі уақыттағы қысым профильдері көрсетілген.","The figure shows pressure profiles at different times with constant bottom-hole pressure."],
       ["Каждая кривая — снимок давления по разным точкам пласта в один момент. Чтобы увидеть изменение со временем, сравни две кривые в одной и той же точке.","Әр қисық бір мезетте қабаттың әр нүктесіндегі қысымды көрсетеді. Қысымның уақыт бойынша қалай өзгергенін көру үшін бір нүктедегі екі қисықты салыстыр.","Each curve is a snapshot of pressure at different points in the formation. Compare two curves at the same point to see how its pressure changes over time."]),
-    fact(496,["Приближённый метод","Жуық әдіс","Approximate method"],
-      ["Как следует трактовать расчёт по формуле (24.7), если книга сравнивает его с точным решением?","Кітап (24.7) нәтижесін дәл шешіммен салыстырса, оны қалай түсінеміз?","How should you treat the result of (24.7), given the book’s comparison with an exact solution?"],
-      ["Формула (24.7) даёт приближённый результат. В приведённом сравнении погрешность депрессии составляет 25%.","(24.7) формуласы жуық нәтиже береді. Кітаптағы салыстыруда депрессия қателігі 25% болған.","Equation (24.7) is approximate. In the reported comparison, the drawdown error is 25%."],
-      ["Формула даёт оценку снижения давления. В примере из книги эта оценка отличается от точного расчёта на 25%. При других условиях погрешность нужно оценивать отдельно.","Формула қысымның төмендеуін жуықтап бағалайды. Кітаптағы мысалда бұл баға дәл есептен 25% ауытқыған. Басқа жағдайда қателікті бөлек бағалау керек.","The formula estimates the pressure drop. In the book’s example, the estimate differs from the exact calculation by 25%. Check the error separately under other conditions."])
+    {...fact(488,["Радиальный приток","Радиал ағын","Radial flow"],
+      ["Как называется приток в модели, где давление одинаково на каждой окружности вокруг скважины?","Ұңғыма айналасындағы әр шеңберде қысым бірдей болатын ағын қалай аталады?","What is the flow geometry called when pressure is uniform on each circle around the well?"],
+      ["Для радиального притока в этой модели давление зависит от расстояния от оси скважины и времени.","Бұл радиал ағын моделінде қысым ұңғыма осінен қашықтық пен уақытқа тәуелді.","In this radial model, pressure depends on distance from the well axis and on time."],
+      ["Если условия во все стороны одинаковы, точки на одном расстоянии от скважины имеют одинаковое давление в один момент.","Барлық бағытта шарттар бірдей болса, ұңғымадан бірдей қашықтағы нүктелерде бір мезетте қысым бірдей.","In symmetric conditions, points the same distance from the well have the same pressure at a given time."]),id:"radial-flow"}
   ],[["Задай начальное давление и условия на границе","Бастапқы қысым мен шекаралық шарттарды бер","Set initial pressure and boundary conditions"],["Рассчитай давление в нужные моменты","Қажетті сәттердегі қысымды есепте","Compute pressure at the chosen times"],["Сопоставь профили","Профильдерді салыстыр","Compare the profiles"]])
 ];
 
-const generic = {
-  list:["Выбери два вывода, которые подтверждает раздел.","Бөлім растайтын екі қорытындыны таңда.","Choose two findings supported by the section."],
-  wrong:["Все признаки можно заменить одним универсальным правилом.","Барлық белгіні бір әмбебап ережемен алмастыруға болады.","One universal rule can replace all evidence."],
-  order:["Как лучше выполнить разбор по этому разделу?","Осы бөлім бойынша талдауды қалай жасаған дұрыс?","In what order should you work through this topic?"],
-  orderHelp:["Сначала установи исходные условия, затем сопоставь данные и сформулируй вывод.","Алдымен бастапқы шарттарды анықта, кейін деректерді салыстырып қорытынды жаса.","Establish the starting conditions, compare the evidence and then draw a conclusion."],
-  read:["Найди в разделе термин, который отвечает на вопрос.","Бөлімнен сұраққа жауап беретін терминді тап.","Use the section to identify the term."]
-};
+const topics = new Map([...existingTopics,...newTopics].map(unit=>[unit.id,unit]));
+export const units = courseOrder.map(id=>({...topics.get(id),...dayPlan[id]}));
 for (const unit of units) {
   const {facts, id} = unit;
   const questions = [];
@@ -106,26 +104,22 @@ for (const unit of units) {
     const order = [i,(i+1)%3,(i+2)%3];
     const options = order.map(j => facts[j].term);
     if (i % 2 === 0) options.reverse();
-    const original = {id:id+"-q"+i, page:item.page, prompt:item.quiz, help:item.explanation, unit:id};
+    const original = {id:id+"-q"+(item.id??i), page:item.page, prompt:item.quiz, help:item.explanation, unit:id};
     questions.push({...original,type:"single",options,key:options.indexOf(item.term)});
-    questions.push({...original,id:id+"-write"+i,type:"blank", key:item.term});
+    questions.push({...original,id:id+"-write"+(item.id??i),type:"blank", key:item.term});
   });
-  questions.push({id:id+"-multi",type:"multi",prompt:generic.list,options:[facts[1].explanation,generic.wrong,facts[0].explanation],key:[0,2],page:facts[0].page,extraPage:facts[1].page,help:facts[0].explanation,unit:id});
-  questions.push({id:id+"-order",type:"order",prompt:generic.order,options:[unit.order[2],unit.order[0],unit.order[1]],key:[1,2,0],page:facts[0].page,help:generic.orderHelp,unit:id});
-  unit.questions = questions;
+  unit.questions = [...questions,...cases[id].map((item,index)=>({...item,id:id+"-case"+index,unit:id}))];
 }
 
-units[1].questions.push({id:"saturation-calc",type:"numeric",prompt:["В задаче 100 толща имеет мощность 18 м. В учебном сценарии из неё 5 м отнесли к глине. Какова оставшаяся толщина в метрах?","100-есепте қабат қалыңдығы 18 м. Оқу мысалында оның 5 метрі сазға жатады. Қалған қалыңдық неше метр?","Problem 100 gives an 18 m interval. In this exercise, 5 m is classified as clay. How many metres are left?"], key:13, page:104, unit:"saturation",help:["Учебный расчёт: 18 − 5 = 13 м. Пять метров заданы в упражнении.","Оқу есебі: 18 − 5 = 13 м. Бес метр жаттығуда берілген.","Teaching calculation: 18 − 5 = 13 m. The 5 m is an exercise assumption."]});
-units[3].questions.push({id:"pores-calc",type:"numeric",prompt:["В примере рифа Рейнбоу «А» 90 м нефтенасыщены и 60 м газонасыщены. Сколько метров составляет их сумма?","Рейнбоу «А» рифінде 90 м мұнаймен, 60 м газбен қаныққан. Олардың қосындысы неше метр?","Rainbow A has 90 m oil-saturated and 60 m gas-saturated. What is their total in metres?"], key:150, page:205, unit:"pores",help:["Из данных примера складываем две мощности: 90 + 60 = 150 м.","Мысалдағы қалыңдықтарды қосамыз: 90 + 60 = 150 м.","Add the two thicknesses from the example: 90 + 60 = 150 m."]});
-units[5].questions.push({id:"flow-calc",type:"numeric",prompt:["Какую погрешность депрессии в процентах даёт сравнение приближённого и точного решений на стр. 496?","496-беттегі жуық және дәл шешімдерді салыстыруда депрессия қателігі неше пайыз?","What percentage drawdown error is reported in the comparison on page 496?"],key:25,page:496,unit:"flow",help:["В этом конкретном сравнении авторы приводят 25%.","Осы нақты салыстыруда 25% берілген.","The comparison reports 25% for this particular case."]});
-
+const assessment=finalCases.map(({drill,...task},index)=>({...task,id:"final-case"+index}));
 export const levels = [
-  ...units.map((unit,index)=>({id:unit.id,title:unit.title,threshold:index ? 2**(index+1):0,
+  ...units.map((unit,index)=>({id:unit.id,title:unit.title,threshold:index*4,
     quiz:unit.questions.filter(q=>q.type!=="blank").map(q=>q.id),
-    practice:unit.questions.filter(q=>q.type==="blank").map(q=>q.id)})),
-  {id:"final",title:["Смена геолога","Геолог ауысымы","Geologist’s shift"],threshold:128,
-    quiz:units.flatMap(unit=>unit.questions.filter(q=>q.type==="multi"||q.type==="numeric").map(q=>q.id)),
-    practice:["flow-order","pores-calc","saturation-calc"]}
+    practice:unit.questions.filter(q=>q.type==="blank"||q.drill).map(q=>q.id)})),
+  {id:"final",title:["Смена геолога","Геолог ауысымы","Geologist’s shift"],threshold:units.length*4,
+    quiz:assessment.map(q=>q.id),
+    practice:["thickness-case0","traps-case0","diffusion-case0"]}
 ];
-export const xpReward = [4,4,8,16,32,64,32];
+for(const unit of units)unit.questions.push(...assessment.filter(task=>task.unit===unit.id));
+export const xpReward = levels.map(()=>4);
 export const videos = Array(7).fill(null);

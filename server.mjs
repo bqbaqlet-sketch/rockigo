@@ -9,11 +9,15 @@ import { join, resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { units } from "./lessons.mjs";
 import { loadWasm } from "./wasm-runtime.mjs";
+import { createLlamaApi } from "./llama-api.mjs";
+import { startPrivateModel } from "./model-server.mjs";
 
 const here=dirname(fileURLToPath(import.meta.url));
-const runtime=process.env.ROCKIGO_RUNTIME||resolve(here,"../geology-ai-runtime");
-const model=join(runtime,"qwen2.5-0.5b-instruct-q4_k_m.gguf");
 const args=process.argv.slice(2);
+const localAI=args.includes("--local-ai");
+const localWeights=join(here,"source","ai");
+const runtime=process.env.ROCKIGO_RUNTIME||(localAI?localWeights:resolve(here,"../geology-ai-runtime"));
+const model=join(runtime,"qwen2.5-0.5b-instruct-q4_k_m.gguf");
 const apiMode=args.includes("--api");
 const juryMode=args.includes("--jury");
 if(apiMode&&juryMode)throw new Error("Choose either --api or --jury.");
@@ -28,6 +32,9 @@ function siteOrigin(value){
   return url.origin;
 }
 const pagesOrigin=apiMode?siteOrigin(process.env.ROCKIGO_SITE_ORIGIN??""):"";
+const llamaApi=createLlamaApi(localAI?await startPrivateModel(runtime,
+  process.env.ROCKIGO_MODEL_PATH||join(localWeights,"Qwen3.5-0.8B-Q4_0.gguf")):
+  {url:process.env.ROCKIGO_LLAMA_URL,key:process.env.ROCKIGO_LLAMA_KEY,model:process.env.ROCKIGO_LLAMA_MODEL});
 
 async function selectNetwork(){
   const choices=Object.entries(networkInterfaces()).flatMap(([name, addresses])=>
@@ -61,9 +68,9 @@ const accessSeconds=7200;
 const expires=Date.now()+accessSeconds*1000;
 const allowedSubnet=new BlockList();
 if(network)allowedSubnet.addSubnet(network.address,Number(network.cidr.split("/")[1]),"ipv4");
-const present=await Promise.all([access(model),access(join(runtime,"wasm","package","esm","wasm","wllama.wasm"))]).then(()=>true,()=>false);
+const present=llamaApi!==null||await Promise.all([access(model),access(join(runtime,"wasm","package","esm","wasm","wllama.wasm"))]).then(()=>true,()=>false);
 let engine, busy=false;
-const chatActions=["none","study","home","tests","books","videos","tasks","profile","lesson","resume","model","bookmark"];
+const chatActions=["none","study","home","course","tests","books","videos","tasks","profile","lesson","resume","model","bookmark"];
 const headers={"Cache-Control":"no-store","X-Content-Type-Options":"nosniff","Referrer-Policy":"no-referrer","X-Frame-Options":"DENY"};
 const rateWindow=60_000, peerLimit=12;
 const rate=new Map();
@@ -125,17 +132,17 @@ function printQr(url){
 }
 async function rockyChat(modelEngine, message, lang, history){
   const language={ru:"Russian",kk:"Kazakh",en:"English"}[lang];
-  const appTopic=/тест|книг|урок|задани|заклад|профил|раздел|бетбел|кітап|сабақ|тапсыр|бөлім|3\s*[dд]|\b(?:tests?|books?|lessons?|tasks?|practice|bookmarks?|profile|section|videos?)\b/i;
+  const appTopic=/тест|курс|расписан|книг|урок|задани|заклад|профил|раздел|бетбел|кітап|сабақ|тапсыр|бөлім|күнтізбе|3\s*[dд]|\b(?:tests?|course|schedule|books?|lessons?|tasks?|practice|bookmarks?|profile|section|videos?)\b/i;
   const asksForAction=/хоч|нужн|найд|посмотр|покаж|откро|отправь|помоги (?:попасть|найти)|керек|көргім|апар|тауып|\b(?:want|need|open|show|find|take|go|add|save)\b/i;
   const actionRequest=appTopic.test(message)&&asksForAction.test(message);
   const dialogueExample={
-    ru:["Как у тебя дела?","Хорошо! Рад, что ты заглянул. А как у тебя дела?"],
-    kk:["Қалың қалай?","Жақсы! Келгеніңе қуаныштымын. Өзің қалайсың?"],
-    en:["How are you today?","I’m doing well! I’m glad you stopped by. How’s your day going?"]
+    ru:["Как прошёл твой день?","Я провёл его здесь, в RockiGo. Рад, что ты заглянул!"],
+    kk:["Күнің қалай өтті?","Күнім осында, RockiGo-да өтті. Келгеніңе қуаныштымын!"],
+    en:["How was your day?","I spent it here in RockiGo. I’m glad you stopped by!"]
   }[lang];
   const guide=actionRequest?[
     "Only choose an action when the user asks you to do it. Use none otherwise.",
-    "Actions: home opens home, tests opens the test list, books opens the library, videos opens videos, tasks opens practice, profile opens settings, lesson opens the current lesson, resume continues progress, model opens a 3D example, bookmark saves the current lesson, study is a request for a factual lesson answer.",
+    "Actions: home opens home, course opens the schedule, tests opens the test list, books opens the library, videos opens videos, tasks opens practice, profile opens settings, lesson opens the current lesson, resume continues progress, model opens a 3D example, bookmark saves the current lesson, study is a request for a factual lesson answer.",
     "The app performs actions. Do not claim an action already happened."
   ].join(" "):[
     "Answer the user's latest question directly. Use simple, natural language. Skip greetings or an introduction when the user did not ask for them.",
@@ -148,14 +155,14 @@ async function rockyChat(modelEngine, message, lang, history){
       {role:"system",content:[
         "You are Rocky, the friendly mascot of the RockiGo geology course.",
         "Greet the learner and chat about ordinary, age-appropriate topics. Reply in "+language+" in one or two short, natural sentences.",
-        "Do not claim you attended real events or have a real body. Do not ask for personal details. Never invent geology facts, sources, homework answers or page numbers.",
+        "You live inside the RockiGo app. When asked about your own day, say you spent it here in RockiGo. Never claim you went anywhere in the physical world. Do not ask for personal details. Never invent geology facts, sources, homework answers or page numbers.",
         guide
       ].join(" ")},
       ...(!actionRequest&&!history.length?[
         {role:"user",content:dialogueExample[0]},
         {role:"assistant",content:JSON.stringify({reply:dialogueExample[1]})}
       ]:[]),
-      ...history,
+      ...(actionRequest?[]:history),
       {role:"user",content:message}
     ],
     response_format:{type:"json_schema",json_schema:{name:"rocky_reply",strict:true,schema:{
@@ -188,7 +195,10 @@ const server=createServer(async (req,res)=>{
   if(!apiMode&&req.method==="GET"&&req.url==="/"){
     res.writeHead(200,{...headers,"Content-Type":"text/html; charset=utf-8"});return res.end(page);
   }
-  if(req.method==="GET"&&req.url==="/capabilities")return reply(res,200,{rocky:present,chat:present});
+  if(req.method==="GET"&&req.url==="/capabilities"){
+    const ready=llamaApi?await llamaApi.ready():present;
+    return reply(res,200,{rocky:ready,chat:ready,...(ready&&llamaApi?{model:llamaApi.model}:{})});
+  }
   if(req.method!=="POST"||!rockyRoute||req.headers.origin!==(apiMode?pagesOrigin:origin))return reply(res,404,{error:"unknown route"});
   if(!/^application\/json(?:\s*;|$)/i.test(req.headers["content-type"]??""))return reply(res,415,{error:"expected json"});
   const bodyLimit=chatRoute?4000:2500;
@@ -219,8 +229,8 @@ const server=createServer(async (req,res)=>{
     if(busy)return reply(res,503,{error:"model busy"});
     busy=true;
     try{
-      engine??=loadWasm(runtime,model).catch(error=>{engine=null;throw error;});
-      const modelEngine=await engine;
+      if(!llamaApi)engine??=loadWasm(runtime,model).catch(error=>{engine=null;throw error;});
+      const modelEngine=llamaApi??await engine;
       if(chatRoute)return reply(res,200,await rockyChat(modelEngine,message,lang,history.map(({role,content})=>({role,content}))));
       const answer=await modelEngine.createChatCompletion({
         messages:[
@@ -255,6 +265,7 @@ server.listen(port,host,()=>{
     return;
   }
   console.log("RockiGo: "+origin);
+  if(llamaApi)console.log("Rocky model: "+llamaApi.model);
   if(args.includes("--open")&&process.platform==="win32"){
     const child=spawn("explorer.exe",[origin],{detached:true,windowsHide:true,stdio:"ignore"});
     child.on("error",()=>console.log(origin));child.unref();

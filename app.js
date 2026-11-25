@@ -1,19 +1,20 @@
 "use strict";
 const data = JSON.parse(document.getElementById("content").textContent);
-const {ui, assets, books, units, levels, xpReward, videos, chapter} = data;
+const {ui, assets, books, units, levels, xpReward, videos, modules, chapter} = data;
 const unitMap = new Map(units.map(unit => [unit.id,unit]));
 const questionMap = new Map(units.flatMap(unit => unit.questions.map(q => [q.id,q])));
 const storageKey = chapter?`rockigo.chapter.${chapter.id}.v1`:"rockigo.local.v1";
 const retryDelay = 60 * 60 * 1000;
 const languages = ["ru","kk","en"];
-const routes = chapter?{chapter:"▤",profile:"◉"}:{home:"⌂",tests:"✓",rocky:"✦",books:"▤",videos:"▷",tasks:"◇",profile:"◉"};
+const routes = chapter?{chapter:"▤",profile:"◉"}:{home:"⌂",course:"▥",tests:"✓",rocky:"✦",books:"▤",videos:"▷",tasks:"◇",profile:"◉"};
 const main = document.getElementById("main");
 const nav = document.getElementById("nav");
 if(chapter)nav.classList.add("chapter-nav");
 let state = load(), route = chapter?"chapter":"home", quiz, result, bookSelection, player;
 let assistantAvailable = false, assistantChat = false, assistantBusy = false, storageWorks = true;
+let assistantModel = "Qwen 2.5";
 const chat = [];
-const rockyActions = new Set(["home","tests","books","videos","tasks","profile","lesson","resume","model","bookmark"]);
+const rockyActions = new Set(["home","course","tests","books","videos","tasks","profile","lesson","resume","model","bookmark"]);
 let viewerRequested=false;
 let currentMascot;
 let testMapObserver;
@@ -38,7 +39,10 @@ function askServer(path, options = {}) {
 function load() {
   try {
     const saved = JSON.parse(localStorage.getItem(storageKey));
-    if (saved?.name && languages.includes(saved.lang) && saved.practice && saved.tests) return saved;
+    if (saved?.name && languages.includes(saved.lang) && saved.practice && saved.tests) {
+      if (!chapter && saved.resume && levels[saved.resume.index]?.id!==saved.resume.level) saved.resume=null;
+      return saved;
+    }
   } catch (_) {}
   return {name:"",lang:"ru",background:"beginner",theme:"light",practice:{},tests:{},bookmarks:[],resume:null};
 }
@@ -266,7 +270,7 @@ function home() {
   terrain.setAttribute("aria-hidden","true");
   const hero=div("hero",div("hero-copy",txt("span",t("level",{n:levelIndex()+1})+" · "+t("xp",{n:earned()}),"pill"),
     txt("h1",t("hello",{name:state.name})),txt("p",t("mainText")),
-    div("actions",btn(t("continue"),continueLearning,"positive"))),assets?.model?mascot("home"):terrain);
+    div("actions",btn(t("course"),()=>navigate("course"),"positive"),btn(t("continue"),continueLearning,"soft"))),assets?.model?mascot("home"):terrain);
   return [hero,div("grid card-block",progress(),div("card lesson-card",txt("h2",t("active")),txt("p",current.title),
     div("actions",btn(t("read"),()=>navigate("books",unitMap.has(current.id)?current.id:units[0].id),"soft"),btn(t("askHint"),()=>{navigate("rocky");sendChat(t("askHint"));}))))];
 }
@@ -296,7 +300,9 @@ function practiceList() {
     const stateText=past?txt("p",t("last")+" · "+past.score+"%"+(past.passed?" · "+t("done"):""),past.passed?"good":"bad"):null;
     const button=btn(index>current?t("locked",{n:index+1}):t(past?.passed?"tryPractice":"begin"),
       ()=>startQuiz("practice",index),"primary",index>current);
-    return row(title,count+" · +"+t("xp",{n:xpReward[index]}),button,stateText);
+    const unit=unitMap.get(item.id);
+    return row(title,count+" · +"+t("xp",{n:xpReward[index]}),button,
+      div("lesson-sources",stateText,unit?bookLink(unit,unit.pages):bookLibraryLinks()));
   }))];
 }
 
@@ -354,7 +360,8 @@ function testStop(item,index,current) {
 
   const marker=txt("span",passed?"✓":locked||waiting?"":"›","test-stop-marker");
   marker.setAttribute("aria-hidden","true");
-  const description=txt("span",t("level",{n:index+1})+" · "+t("questions",{n:item.quiz.length}),"test-stop-meta");
+  const unit=unitMap.get(item.id);
+  const description=txt("span",[t("level",{n:index+1}),unit?.chapter,t("questions",{n:item.quiz.length})].filter(Boolean).join(" · "),"test-stop-meta");
   const title=txt("span",item.title,"test-stop-title");
   const action=txt("span",passed?attempt.score+"% · "+t("review"):
     locked?t("testLocked"):waiting?t("wait",{time:timeText(ending)}):t(resumed?"testResume":"testStart"),"test-stop-state");
@@ -375,7 +382,7 @@ function testMap() {
   const summary=div("test-route-summary",txt("strong",`${passed} / ${levels.length}`),txt("span",t("testsCompleted")));
   const nextStep=missingXP>0?div("test-route-next",txt("p",t("testRouteXP",{n:missingXP})),
     btn(t("tasks"),()=>navigate("tasks"),"soft")):[];
-  const header=div("test-map-intro",div("test-route-header",heading("tests","testsText"),summary,nextStep),
+  const header=div("test-map-intro",div("test-route-header",heading("tests","testsText"),summary,nextStep,bookLibraryLinks()),
     assets?.model?mascot("tests",false):[]);
 
   const stops=levels.map((item,index)=>testStop(item,index,current));
@@ -388,12 +395,17 @@ function testMap() {
   drawTestTrail(map,canvas,stops);
   return map;
 }
-function bookLink(unit,page) {
-  if(!books[unit.book].id)return txt("span",t("pdf")+" "+page,"pill");
-  const link=txt("a",t("openPdf")+" · "+t("pdf")+" "+page,"btn soft");
-  link.href="https://drive.google.com/file/d/"+books[unit.book].id+"/view#page="+page;
+function bookReference(book,page,label=t("courseSource")) {
+  const pages=typeof page==="string"&&page.includes("–");
+  const link=txt("a",label+(page===undefined?"":" · "+t(pages?"coursePages":"pdf")+" "+page),"book-source");
+  link.href=book.url;
   link.target="_blank";link.rel="noopener noreferrer";
+  link.setAttribute("aria-label",link.textContent+" · "+local(book.title));
   return link;
+}
+function bookLink(unit,page) { return bookReference(books[unit.book],page); }
+function bookLibraryLinks() {
+  return div("lesson-sources",Object.values(books).map(book=>bookReference(book,undefined,t("courseSource")+" · "+book.author)));
 }
 function bookFact(unit, fact, index) {
   const id = "book-fact-" + unit.id + "-" + index;
@@ -428,17 +440,18 @@ function bookFact(unit, fact, index) {
 }
 function bookView() {
   const content = Object.entries(books).map(([id,book])=>div("card read",txt("h2",book.title),
-    txt("p",book.author+" · PDF "+book.range,"muted"),...units.filter(unit=>unit.book===id).map(unit=>{
+    txt("p",book.author+" · PDF "+book.range,"muted"),bookReference(book),...units.filter(unit=>unit.book===id).map(unit=>{
       const detail=txt("details");
       detail.open=bookSelection===unit.id;
-      const summary=txt("summary",unit.title);
+      const summary=txt("summary",unit.chapter+" · "+local(unit.title));
       const attempt=state.tests[unit.id];
       if(attempt) summary.append(txt("small"," · "+status(attempt.score)+" ("+attempt.score+"%)","book-note "+(attempt.passed?"good":"bad")));
-      detail.append(summary,...unit.facts.map((fact,index)=>bookFact(unit,fact,index)),
+      detail.append(summary,div("book-chapter-context",txt("p",unit.outcome,"muted"),bookLink(unit,unit.pages)),
+        ...unit.facts.map((fact,index)=>bookFact(unit,fact,index)),bookFormulas(unit),
         div("actions",btn(t("askBookmark"),()=>bookmark(unit.id),"soft")));
       return detail;
     })));
-  return [heading("books","bookText"),div("stack",content)];
+  return [heading("books","bookText"),txt("p",t("coursePageNote"),"hint source-page-note"),div("stack",content)];
 }
 function bookmark(id) {
   if (!unitMap.has(id)) return;
@@ -479,7 +492,8 @@ function startQuiz(kind,index) {
   const ids=kind==="test"?level.quiz:level.practice;
   const resume=state.resume;
   quiz={kind,index,ids,pos:0,answers:[],checked:false,choice:undefined};
-  if(resume?.kind===kind&&resume.index===index&&Array.isArray(resume.answers)&&resume.answers.length<ids.length) {
+  if(resume?.kind===kind&&resume.index===index&&Array.isArray(resume.answers)&&resume.answers.length<ids.length
+      &&resume.answers.every((answer,position)=>answer?.id===ids[position])) {
     quiz.answers=resume.answers;
     quiz.pos=resume.answers.length;
   }
@@ -488,7 +502,7 @@ function startQuiz(kind,index) {
 }
 function saveResume() {
   if (!quiz) return;
-  state.resume={kind:quiz.kind,index:quiz.index,answers:quiz.answers.slice(0,quiz.pos)};
+  state.resume={kind:quiz.kind,index:quiz.index,level:levels[quiz.index].id,answers:quiz.answers.slice(0,quiz.pos)};
   save();
 }
 function normal(s) {
@@ -614,20 +628,21 @@ function questionScreen() {
     const savedQuiz=quiz;
     navigate("books",q.unit);
     if(savedQuiz.checked){
-      state.resume={kind:savedQuiz.kind,index:savedQuiz.index,answers:savedQuiz.answers.slice(0,savedQuiz.pos)};
+      state.resume={kind:savedQuiz.kind,index:savedQuiz.index,level:levels[savedQuiz.index].id,answers:savedQuiz.answers.slice(0,savedQuiz.pos)};
       save();
     }
   },"soft")):[];
   const instructions=q.type==="multi"?txt("p",t("multi"),"hint"):q.type==="order"?txt("p",t("order"),"hint"):[];
+  const source=div("lesson-sources question-source",bookLink(unitMap.get(q.unit),q.page));
   if(isTest){
     const prompt=txt("h1",q.prompt);
     prompt.id="test-prompt";
     fields.setAttribute("role","group");
     fields.setAttribute("aria-labelledby",prompt.id);
-    return div("quiz test-quiz",testQuestionHeader(title),div("card test-question",prompt,instructions,form,tip));
+    return div("quiz test-quiz",testQuestionHeader(title),div("card test-question",prompt,instructions,form,source,tip));
   }
   return div("card quiz",txt("p",title,"pill"),txt("p",t("quizStep",{n:quiz.pos+1,total:quiz.ids.length}),"muted"),
-    txt("h2",q.prompt),instructions,form,tip);
+    txt("h2",q.prompt),instructions,form,source,tip);
 }
 function complete() {
   const {kind,index,answers}=quiz;
@@ -683,10 +698,11 @@ function localIntent(input) {
   if(/(?:^|\s)(?:не|don't|do not)\s+(?:откр|показ|постав|сохраня|сохрани|продолж|перей|open|show|go|add|save|continue)|ашпа|көрсетпе|қойма|жалғастырма|өтпе/.test(s))return "decline";
   if(/(?:удал|сними|убери|remove|delete|алып таста).*(?:заклад|bookmark|бетбел)|(?:бетбел).*(?:өшір|жой|алып таста)/.test(s))return "decline";
   if(/(?:где|қай жерде).*остано|(?:где|куда).*(?:тест|урок|задани)|where (?:are|is|can i find|do i find)|қайда/.test(s)
-    || /откро[йе]|открыть|перей[дт]|покаж|показать|\bopen\b|\bshow\b|go to|take me to|(?:^|\s)аш(?:[ығ]\p{L}*)?(?=$|[^\p{L}])|көрсет|(?:^|\s)өт(?=$|[^\p{L}])|қайда/.test(s)){
+    || /откро[йе]|открыть|перей[дт]|покаж|показать|(?:нужно|хочу) (?:найти|посмотреть)|\bopen\b|\bshow\b|go to|take me to|(?:^|\s)аш(?:[ығ]\p{L}*)?(?=$|[^\p{L}])|көрсет|(?:^|\s)өт(?=$|[^\p{L}])|қайда/.test(s)){
     if(/где.*останов|where (?:i|we) left off|тоқтаған/.test(s))return "resume";
     if(/3\s*[dд]|трехмер|three.dimensi|үш өлшем/.test(s))return "model";
     if(/тест|\btests?\b/.test(s))return "tests";
+    if(/курс|расписан|күнтізбе|\bcourse\b|\bschedule\b/.test(s))return "course";
     if(/книг|кітап|\bbooks?\b/.test(s))return "books";
     if(/видео|бейне|\bvideos?\b/.test(s))return "videos";
     if(/урок|сабақ|сабағ|\blessons?\b/.test(s))return "lesson";
@@ -807,7 +823,7 @@ function rockySuggestion(record) {
 function rocky() {
   const log=div("chat-log",div("bubble",txt("strong",t("rocky")),txt("p",t("rockyIntro"))),...chat.map(record=>
     div("bubble "+(record.who==="me"?"me":""),txt("span",record.text),
-      record.conversation&&record.who==="rocky"?txt("p","Qwen","hint"):[],
+      record.conversation&&record.who==="rocky"?txt("p",assistantModel,"hint"):[],
       record.link?div("actions",bookLink(unitMap.get(record.link.id),record.link.page)):[],
       record.suggestion?div("actions",rockySuggestion(record)):[])));
   log.setAttribute("role","log");
@@ -846,7 +862,7 @@ function render(draft) {
   if(quiz)main.replaceChildren(questionScreen());
   else if(result)main.replaceChildren(resultView());
   else {
-    const views={home,tasks:practiceList,tests:testMap,rocky,books:bookView,videos:videoView,profile};
+    const views={home,course:courseView,tasks:practiceList,tests:testMap,rocky,books:bookView,videos:videoView,profile};
     main.replaceChildren(...[route==="chapter"?chapterView():views[route]()].flat(2));
   }
   if(!storageWorks)main.append(txt("p",t("offline"),"hint"));
@@ -867,6 +883,7 @@ if(remoteApi||location.protocol==="http:"||location.protocol==="https:"){
   askServer("/capabilities").then(r=>r.ok?r.json():null).then(features=>{
     assistantAvailable=!!features?.rocky;
     assistantChat=assistantAvailable&&features?.chat===true;
+    if(typeof features?.model==="string"&&features.model.length<=80)assistantModel=features.model;
     if(route==="rocky")render();
     else updateMode();
   }).catch(()=>{});

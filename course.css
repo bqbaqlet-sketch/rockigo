@@ -1,0 +1,89 @@
+:root { font-family: Arial, "Segoe UI", sans-serif; }
+.screen-header h1, .setup h1, .hero h1, .test-question h1 { letter-spacing: -.025em; }
+.nav-inner { grid-template-columns: repeat(8,minmax(0,1fr)); }
+.nav-inner .nav-label { white-space: nowrap; }
+.course-screen { display: grid; gap: 22px; }
+.course-overview {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: clamp(20px,4.5vw,36px);
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-top: 5px solid var(--accent);
+}
+.course-overview-copy { max-width: 530px; }
+.course-overview h1 {
+  margin: 0 0 12px;
+  font-size: clamp(1.8rem,4vw,2.65rem);
+  letter-spacing: -.025em;
+  line-height: 1.14;
+}
+.course-overview-copy p, .course-module-header p, .course-outcome { margin: 0; line-height: 1.52; }
+.course-overview-copy p { color: var(--muted); }
+.course-controls { display: grid; align-content: start; gap: 10px; min-width: 150px; }
+.course-controls .field { min-height: 42px; }
+.course-status { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: .88rem; color: var(--muted); }
+.course-status strong { color: var(--accent); font-size: 1.14rem; white-space: nowrap; }
+.course-module {
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: var(--paper);
+  overflow: hidden;
+}
+.course-module-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  background: var(--accent-2);
+  padding: 18px clamp(14px,3vw,23px);
+}
+.course-module-header h2 { margin: 4px 0 6px; font-size: 1.35rem; }
+.course-module-label { font-size: .82rem; color: var(--accent); font-weight: 700; }
+.course-days { margin: 0; padding: 0; list-style: none; }
+.course-day {
+  display: grid;
+  grid-template-columns: max(80px,14%) minmax(0,1fr);
+  gap: 8px 14px;
+  padding: 17px clamp(14px,3vw,23px);
+}
+.course-day + .course-day { border-top: 1px solid var(--line); }
+.course-day-time { display: grid; align-content: start; gap: 5px; font-size: .92rem; }
+.course-day-time time { color: var(--muted); }
+.course-day-heading { display: flex; flex-wrap: wrap; align-items: center; gap: 5px 9px; }
+.course-day-heading h3 { margin: 0; font-size: 1.13rem; }
+.course-meta { font-size: .86rem; margin: 5px 0; }
+.course-complete { border-radius: 10px; padding: 4px 8px; background: var(--ok-bg); color: var(--ok); font-weight: 700; }
+.course-actions.actions { margin: 10px 0 5px; }
+.course-actions .btn { min-height: 37px; padding: 6px 10px; font-size: .88rem; font-weight: 600; }
+.course-day .hint { margin: 4px 0 0; }
+.lesson-sources { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 13px; }
+.book-source { color: var(--accent); font-size: .86rem; font-weight: 600; text-decoration: underline; text-underline-offset: .18em; }
+.book-chapter-context { margin: 0 0 12px; }
+.book-chapter-context p { margin: 0 0 5px; }
+.source-page-note { margin: 0 0 12px; }
+.question-source { margin-top: 12px; }
+.book-formulas { display: grid; gap: 10px; padding: 12px 0; border-top: 1px solid var(--line); }
+.book-formulas h3, .formula-card p { margin: 0; }
+.formula-card { display: grid; gap: 8px; background: var(--bg); border-radius: 10px; padding: 14px; line-height: 1.45; }
+.formula-equation { font: 700 clamp(1rem,4vw,1.3rem)/1.4 "Cambria Math", "Times New Roman", serif; overflow-wrap: anywhere; }
+.formula-symbols { display: grid; grid-template-columns: fit-content(35%) 1fr; gap: 4px 12px; margin: 0; }
+.formula-symbols dt { font-weight: 700; overflow-wrap: anywhere; }
+.formula-symbols dd { margin: 0; }
+.formula-example { font-weight: 600; }
+.test-route-header .book-source { color: inherit; }
+.test-route-header .lesson-sources { margin-top: 8px; }
+@media (max-width: 590px) {
+  .course-overview { display: grid; gap: 14px; }
+  .course-controls { grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items: end; }
+  .course-day { grid-template-columns: minmax(0,1fr); }
+  .course-day-time { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+}
+@media (max-width: 360px) {
+  .nav-inner { grid-template-columns: repeat(4,minmax(0,1fr)); }
+  .nav-inner button { min-height: 38px; gap: 1px; }
+  .nav-icon { font-size: 1rem; }
+}

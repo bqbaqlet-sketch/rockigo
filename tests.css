@@ -120,12 +120,12 @@
 .test-map-trail { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; pointer-events: none; }
 .test-map-list { list-style: none; max-width: 920px; margin: 0 auto; padding: 0 20px 15px; }
 .test-stop { --node-x: 28%; --node-size: 65px; }
-.test-stop:nth-child(2) { --node-x: 69%; }
-.test-stop:nth-child(3) { --node-x: 78%; }
-.test-stop:nth-child(4) { --node-x: 48%; }
-.test-stop:nth-child(5) { --node-x: 22%; }
-.test-stop:nth-child(6) { --node-x: 41%; }
-.test-stop:nth-child(7) { --node-x: 68%; }
+.test-stop:nth-child(7n + 2) { --node-x: 69%; }
+.test-stop:nth-child(7n + 3) { --node-x: 78%; }
+.test-stop:nth-child(7n + 4) { --node-x: 48%; }
+.test-stop:nth-child(7n + 5) { --node-x: 22%; }
+.test-stop:nth-child(7n + 6) { --node-x: 41%; }
+.test-stop:nth-child(7n + 7) { --node-x: 68%; }
 
 .test-stop-action {
   all: unset;

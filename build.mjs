@@ -4,20 +4,31 @@ import { fileURLToPath } from "node:url";
 import assert from "node:assert/strict";
 import { ui } from "./ui.mjs";
 import { books, units, levels, xpReward, videos } from "./lessons.mjs";
+import { modules } from "./curriculum.mjs";
 
-const files = ["template.html","style.css","brand.css","tests.css","app.js","book-models.js","test-map-art.js"];
-const [template, style, brand, tests, script, bookModels, mapArt] = await Promise.all(files.map(file => readFile(new URL(file,import.meta.url),"utf8")));
+const files = ["template.html","style.css","brand.css","tests.css","app.js","book-models.js","test-map-art.js","course.css","course-ui.js"];
+const [template, style, brand, tests, script, bookModels, mapArt, courseStyle, courseScript] = await Promise.all(files.map(file => readFile(new URL(file,import.meta.url),"utf8")));
 const questions = units.flatMap(unit => unit.questions);
 assert.equal(new Set(questions.map(q=>q.id)).size,questions.length);
-assert.deepEqual(levels.map(l=>l.threshold),[0,4,8,16,32,64,128]);
-assert.equal(videos.length,7);
-for (const {facts} of units) for (const fact of facts) {
-  assert.ok(fact.plain?.length === 3 && fact.plain.every(Boolean), `Missing simple explanation for PDF page ${fact.page}`);
+assert.deepEqual(levels.map(l=>l.threshold),xpReward.map((_,index)=>xpReward.slice(0,index).reduce((sum,points)=>sum+points,0)));
+assert.ok(videos.length<=levels.length);
+assert.deepEqual(modules.map(module=>module.book),Object.keys(books));
+for (const {facts,formulas,pages,outcome,minutes,id} of units) {
+  assert.ok(outcome.length===3&&minutes>0);
+  const [first,last]=pages.split("–").map(Number);
+  for (const fact of facts) {
+    assert.ok(fact.plain?.length === 3 && fact.plain.every(Boolean), `Missing simple explanation for PDF page ${fact.page}`);
+    assert.ok(fact.page>=first&&fact.page<=last,`Fact source outside ${id}: ${fact.page}`);
+  }
+  for (const recipe of formulas) {
+    assert.ok(recipe.equation&&recipe.page>=first&&recipe.page<=last,`Formula source outside ${id}`);
+    assert.ok(recipe.use.length===3&&recipe.example.length===3&&recipe.symbols.every(symbol=>symbol.description.length===3));
+  }
 }
 for (const [id, book] of Object.entries(books)) {
   const bank=questions.filter(q=>units.find(u=>u.id===q.unit).book===id);
   const [first,last]=book.range.split("–").map(Number);
-  assert.ok(bank.length>=15 && new Set(bank.map(q=>q.type)).size>=4);
+  assert.ok(new URL(book.url).protocol==="https:"&&bank.length>=15&&new Set(bank.map(q=>q.type)).size>=3);
   assert.ok(bank.every(q=>q.page>=first&&q.page<=last));
 }
 for (const level of levels) {
@@ -55,7 +66,7 @@ for(const [key,[file,mime]] of Object.entries(assetFiles)){
 }
 if(publicPage)await copyFile(new URL("assets/LICENSE-model-viewer.txt",import.meta.url),join(dirname(output),"assets","LICENSE-model-viewer.txt"));
 const publicBooks=Object.fromEntries(Object.entries(books).map(([key,{id,...book}])=>[key,book]));
-const model = JSON.stringify({ui,assets,books:publicPage?publicBooks:books,units,levels,xpReward,...(chapter?{chapter}:{}),
+const model = JSON.stringify({ui,assets,books:publicPage?publicBooks:books,units,levels,xpReward,modules,...(chapter?{chapter}:{}),
   videos:publicPage?Array(videos.length).fill(null):videos}).replaceAll("<","\\u003c");
 const api=chapter?null:process.env.ROCKIGO_API_URL?.trim();
 let apiMeta="";
@@ -64,9 +75,9 @@ if(api){
   assert.ok(url.protocol==="https:"&&!url.username&&!url.password&&!url.search&&!url.hash,"The Rocky API address must be an HTTPS base URL.");
   apiMeta=url.href.replace(/"/g,"&quot;");
 }
-const html=template.replace("/* ROCKIGO_STYLE */",()=>[style,brand,tests,chapterStyle].filter(Boolean).join("\n"))
+const html=template.replace("/* ROCKIGO_STYLE */",()=>[style,brand,tests,courseStyle,chapterStyle].filter(Boolean).join("\n"))
   .replace('name="rockigo-api" content=""',()=>`name="rockigo-api" content="${apiMeta}"`)
-  .replace("/* ROCKIGO_DATA */",()=>model).replace("/* ROCKIGO_UI */",()=>[chapterScript,script,bookModels,mapArt].filter(Boolean).join("\n"));
+  .replace("/* ROCKIGO_DATA */",()=>model).replace("/* ROCKIGO_UI */",()=>[chapterScript,courseScript,script,bookModels,mapArt].filter(Boolean).join("\n"));
 if(chapter)assert.ok(Buffer.byteLength(html,"utf8")<=30_000_000,"Offline course exceeds the 30 MB chapter budget.");
 await mkdir(dirname(output),{recursive:true});
 await writeFile(output,html,"utf8");
