@@ -1,20 +1,23 @@
 "use strict";
 const data = JSON.parse(document.getElementById("content").textContent);
-const {ui, assets, books, units, levels, xpReward, videos} = data;
+const {ui, assets, books, units, levels, xpReward, videos, chapter} = data;
 const unitMap = new Map(units.map(unit => [unit.id,unit]));
 const questionMap = new Map(units.flatMap(unit => unit.questions.map(q => [q.id,q])));
-const storageKey = "rockigo.local.v1";
+const storageKey = chapter?`rockigo.chapter.${chapter.id}.v1`:"rockigo.local.v1";
 const retryDelay = 60 * 60 * 1000;
 const languages = ["ru","kk","en"];
-const routes = {home:"⌂",tests:"✓",rocky:"✦",books:"▤",videos:"▷",tasks:"◇",profile:"◉"};
+const routes = chapter?{chapter:"▤",profile:"◉"}:{home:"⌂",tests:"✓",rocky:"✦",books:"▤",videos:"▷",tasks:"◇",profile:"◉"};
 const main = document.getElementById("main");
 const nav = document.getElementById("nav");
-let state = load(), route = "home", quiz, result, bookSelection, player;
+if(chapter)nav.classList.add("chapter-nav");
+let state = load(), route = chapter?"chapter":"home", quiz, result, bookSelection, player;
 let assistantAvailable = false, assistantChat = false, assistantBusy = false, storageWorks = true;
 const chat = [];
 const rockyActions = new Set(["home","tests","books","videos","tasks","profile","lesson","resume","model","bookmark"]);
 let viewerRequested=false;
-const mascots=new Map();
+let currentMascot;
+let testMapObserver;
+const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
 const configuredApi = document.querySelector('meta[name="rockigo-api"]')?.content?.trim();
 let remoteApi = null;
 try {
@@ -74,47 +77,56 @@ function requestViewer() {
   document.head.append(script);
 }
 
-function playRocky(entry,name,once=false) {
+function playRocky(entry) {
   const {model}=entry;
-  if(window.matchMedia?.("(prefers-reduced-motion: reduce)").matches){
-    model.pause?.();
+  if(!model.isConnected||!model.loaded||!model.availableAnimations.length)return;
+  if(reducedMotion.matches){
+    model.pause();
     return;
   }
-  if(!model.availableAnimations?.includes(name))return;
-  model.animationName=name;
-  model.currentTime=0;
-  if(typeof model.play==="function")model.play({repetitions:once?1:Infinity,pingpong:false});
+  model.animationName=model.availableAnimations[0];
+  model.play({repetitions:Infinity});
 }
 
-function mascot(place) {
-  let entry=mascots.get(place);
-  if(!entry){
+function pulseRocky(entry) {
+  if(reducedMotion.matches)return;
+  entry.glow?.animate([{opacity:1},{opacity:.62},{opacity:1}],{duration:680,easing:"ease-in-out"});
+}
+
+reducedMotion.addEventListener("change",()=>{
+  if(currentMascot)playRocky(currentMascot);
+});
+
+function mascot(place, showGreeting=true) {
+  let entry=currentMascot;
+  if(entry?.place!==place||!entry.card.isConnected){
     const fallback=div("mascot-poster",logoMark());
+    const glow=showGreeting?div("mascot-glow"):null;
     const model=txt("model-viewer");
     model.setAttribute("src",assets.model);
     model.setAttribute("loading","eager");
     model.setAttribute("interaction-prompt","none");
-    model.setAttribute("camera-orbit","0deg 79deg 115%");
-    model.setAttribute("field-of-view","33deg");
+    model.setAttribute("camera-orbit","0deg 83deg 112%");
+    model.setAttribute("field-of-view","32deg");
     model.setAttribute("environment-image","neutral");
     model.setAttribute("exposure","1.15");
-    const wave=btn(t("greetRocky"),()=>{
-      playRocky(entry,"Hello",true);
+    if(!showGreeting)model.setAttribute("shadow-intensity","0.65");
+    const wave=showGreeting?btn(t("greetRocky"),()=>{
+      pulseRocky(entry);
       notify(t("rockyHello"));
-    },"mascot-button");
-    const card=div("mascot mascot-"+place,div("mascot-glow"),fallback,model,wave);
-    entry={card,model,wave};
-    mascots.set(place,entry);
+    },"mascot-button"):null;
+    const card=div("mascot mascot-"+place,glow??[],fallback,model,wave??[]);
+    entry={place,card,model,wave,glow};
+    currentMascot=entry;
     model.addEventListener("load",()=>{
       fallback.hidden=true;
       card.dataset.ready="true";
-      playRocky(entry,"Idle");
+      playRocky(entry);
     });
-    model.addEventListener("finished",()=>playRocky(entry,"Idle"));
     model.addEventListener("error",()=>{fallback.hidden=false;card.dataset.ready="false";});
     requestViewer();
   }
-  entry.wave.textContent=t("greetRocky");
+  if(entry.wave)entry.wave.textContent=t("greetRocky");
   entry.model.setAttribute("alt",t("rockyModel"));
   return entry.card;
 }
@@ -228,7 +240,7 @@ function bottom() {
 }
 function progress() {
   const current=levelIndex(), next=levels[current+1], xp=earned();
-  const panel=div("card",txt("h2",t(next ? "nextLevel":"max")));
+  const panel=div("card progress-card",txt("h2",t(next ? "nextLevel":"max")));
   if (!next) return panel;
   const bar=txt("span");
   bar.style.width=Math.min(100,100*xp/next.threshold)+"%";
@@ -255,7 +267,7 @@ function home() {
   const hero=div("hero",div("hero-copy",txt("span",t("level",{n:levelIndex()+1})+" · "+t("xp",{n:earned()}),"pill"),
     txt("h1",t("hello",{name:state.name})),txt("p",t("mainText")),
     div("actions",btn(t("continue"),continueLearning,"positive"))),assets?.model?mascot("home"):terrain);
-  return [hero,div("grid card-block",progress(),div("card",txt("h2",t("active")),txt("p",current.title),
+  return [hero,div("grid card-block",progress(),div("card lesson-card",txt("h2",t("active")),txt("p",current.title),
     div("actions",btn(t("read"),()=>navigate("books",unitMap.has(current.id)?current.id:units[0].id),"soft"),btn(t("askHint"),()=>{navigate("rocky");sendChat(t("askHint"));}))))];
 }
 function timeText(ending) {
@@ -275,21 +287,106 @@ function status(score) { return t(score>=90?"statusGreat":score>=70?"statusGood"
 function row(title, subtitle, action, tail) {
   return div("row-card",div("",txt("h3",title),txt("p",subtitle,"muted"),tail ?? []),action ?? []);
 }
-function collection(kind) {
-  const isTest=kind==="tests";
-  return [heading(kind,isTest?"testsText":"tasksText"),div("stack",levels.map((item,index)=>{
-    const past=isTest?state.tests[item.id]:state.practice[item.id];
-    const ending=isTest?readyAt(index):0;
-    const timing=ending>Date.now();
-    const count=t("questions",{n:item[isTest?"quiz":"practice"].length});
+function practiceList() {
+  const current=levelIndex();
+  return [heading("tasks","tasksText"),div("stack",levels.map((item,index)=>{
+    const past=state.practice[item.id];
+    const count=t("questions",{n:item.practice.length});
     const title=t("level",{n:index+1})+" · "+local(item.title);
     const stateText=past?txt("p",t("last")+" · "+past.score+"%"+(past.passed?" · "+t("done"):""),past.passed?"good":"bad"):null;
-    const button=isTest&&past?.passed ? btn(t("review"),()=>oldResult(index),"soft")
-      : btn(index>levelIndex()?t("locked",{n:index+1}):timing?t("wait",{time:timeText(ending)}):t(kind==="tasks"&&past?.passed?"tryPractice":"begin"),
-        ()=>startQuiz(isTest?"test":"practice",index),"primary",index>levelIndex()||timing);
-    if (timing) button.dataset.until=ending;
-    return row(title,count+(isTest?"":" · +"+t("xp",{n:xpReward[index]})),button,stateText);
+    const button=btn(index>current?t("locked",{n:index+1}):t(past?.passed?"tryPractice":"begin"),
+      ()=>startQuiz("practice",index),"primary",index>current);
+    return row(title,count+" · +"+t("xp",{n:xpReward[index]}),button,stateText);
   }))];
+}
+
+function drawTestTrail(map,canvas,stops) {
+  const context=canvas.getContext("2d");
+  if(!context)return;
+  const draw=()=>{
+    const {width,height,left,top}=map.getBoundingClientRect();
+    if(!width||!height)return;
+    const scale=Math.min(devicePixelRatio||1,2);
+    canvas.width=Math.ceil(width*scale);
+    canvas.height=Math.ceil(height*scale);
+    context.scale(scale,scale);
+    context.lineCap="round";
+    const style=getComputedStyle(map);
+    const trail=style.getPropertyValue("--trail");
+    const reached=style.getPropertyValue("--trail-reached");
+    const inset=style.getPropertyValue("--trail-inset");
+    const points=stops.map(stop=>{
+      const rect=stop.querySelector(".test-stop-marker").getBoundingClientRect();
+      return [rect.left-left+rect.width/2,rect.top-top+rect.height/2];
+    });
+    drawTestMapLandmarks(context,width,height,points,style);
+    for(let i=1;i<points.length;i++){
+      const [x,y]=points[i-1], [nextX,nextY]=points[i];
+      const middle=(y+nextY)/2;
+      context.beginPath();
+      context.moveTo(x,y);
+      context.bezierCurveTo(x,middle,nextX,middle,nextX,nextY);
+      context.setLineDash([]);
+      context.lineWidth=11;
+      context.strokeStyle=stops[i].dataset.state==="locked"?trail:reached;
+      context.stroke();
+      context.setLineDash([1,8]);
+      context.lineWidth=2;
+      context.strokeStyle=inset;
+      context.stroke();
+    }
+  };
+  testMapObserver=new ResizeObserver(draw);
+  testMapObserver.observe(map);
+}
+
+function testStop(item,index,current) {
+  const attempt=state.tests[item.id];
+  const ending=readyAt(index);
+  const passed=!!attempt?.passed;
+  const locked=index>current&&!passed;
+  const waiting=!locked&&ending>Date.now();
+  const resumed=state.resume?.kind==="test"&&state.resume.index===index;
+  const stateKey=passed?"passed":locked?"locked":waiting?"waiting":"ready";
+  const itemNode=txt("li","","test-stop");
+  itemNode.dataset.state=stateKey;
+  if(index===current&&!passed)itemNode.setAttribute("aria-current","step");
+
+  const marker=txt("span",passed?"✓":locked||waiting?"":"›","test-stop-marker");
+  marker.setAttribute("aria-hidden","true");
+  const description=txt("span",t("level",{n:index+1})+" · "+t("questions",{n:item.quiz.length}),"test-stop-meta");
+  const title=txt("span",item.title,"test-stop-title");
+  const action=txt("span",passed?attempt.score+"% · "+t("review"):
+    locked?t("testLocked"):waiting?t("wait",{time:timeText(ending)}):t(resumed?"testResume":"testStart"),"test-stop-state");
+  if(waiting)action.dataset.until=ending;
+  const info=txt("span","","test-stop-info");
+  info.append(description,title,action);
+  const control=btn("",()=>passed?oldResult(index):startQuiz("test",index),"test-stop-action",locked||waiting);
+  control.append(marker,info);
+  itemNode.append(control);
+  return itemNode;
+}
+
+function testMap() {
+  const current=levelIndex();
+  const passed=levels.filter(level=>state.tests[level.id]?.passed).length;
+  const next=levels[current+1];
+  const missingXP=next&&state.tests[levels[current].id]?.passed?next.threshold-earned():0;
+  const summary=div("test-route-summary",txt("strong",`${passed} / ${levels.length}`),txt("span",t("testsCompleted")));
+  const nextStep=missingXP>0?div("test-route-next",txt("p",t("testRouteXP",{n:missingXP})),
+    btn(t("tasks"),()=>navigate("tasks"),"soft")):[];
+  const header=div("test-map-intro",div("test-route-header",heading("tests","testsText"),summary,nextStep),
+    assets?.model?mascot("tests",false):[]);
+
+  const stops=levels.map((item,index)=>testStop(item,index,current));
+  const list=txt("ol","","test-map-list");
+  list.setAttribute("aria-label",t("testRoute"));
+  list.append(...stops);
+  const canvas=txt("canvas","","test-map-trail");
+  canvas.setAttribute("aria-hidden","true");
+  const map=div("test-map-board",canvas,header,list);
+  drawTestTrail(map,canvas,stops);
+  return map;
 }
 function bookLink(unit,page) {
   if(!books[unit.book].id)return txt("span",t("pdf")+" "+page,"pill");
@@ -418,9 +515,28 @@ function answerPanel(q,valid) {
     txt("p",t("reference")+" · "+rightAnswer(q)),txt("p",q.help),
     bookLink(unit,q.page),q.extraPage!==undefined&&q.extraPage!==q.page?bookLink(unit,q.extraPage):[]);
 }
+function testQuestionHeader(title) {
+  const total=quiz.ids.length;
+  const step=t("quizStep",{n:quiz.pos+1,total});
+  const segments=div("test-question-progress",quiz.ids.map((_,index)=>{
+    const segment=txt("span");
+    const answer=quiz.answers[index];
+    if(answer)segment.dataset.state=answer.ok?"correct":"incorrect";
+    else if(index===quiz.pos)segment.dataset.state="current";
+    return segment;
+  }));
+  segments.setAttribute("role","progressbar");
+  segments.setAttribute("aria-label",step);
+  segments.setAttribute("aria-valuemin","0");
+  segments.setAttribute("aria-valuemax",total);
+  segments.setAttribute("aria-valuenow",quiz.pos+Number(quiz.checked));
+  return div("test-question-header",div("test-question-nav",btn(t("testBack"),()=>navigate("tests"),"soft test-back"),
+    txt("span",step,"test-question-step")),segments,txt("p",title,"test-question-topic"));
+}
 function questionScreen() {
   const q=questionMap.get(quiz.ids[quiz.pos]);
   const title=levels[quiz.index].title;
+  const isTest=quiz.kind==="test";
   const form=txt("form");
   const fields=div("answers");
   const submit=txt("button",t(quiz.checked?(quiz.pos===quiz.ids.length-1?"finish":"next"):"check"),"btn primary");
@@ -434,6 +550,10 @@ function questionScreen() {
       input.checked=q.type==="single"?quiz.choice===index:quiz.choice?.includes(index)??false;
       input.addEventListener("change",()=>update(q.type==="single"?index:[...fields.querySelectorAll("input:checked")].map(i=>Number(i.value))));
       const label=txt("label","","option");
+      if(isTest&&quiz.checked){
+        const correct=q.type==="single"?q.key===index:q.key.includes(index);
+        if(correct||input.checked)label.dataset.feedback=correct?"correct":"incorrect";
+      }
       label.append(input,txt("span",option)); fields.append(label);
     });
   } else if(q.type==="order"){
@@ -441,15 +561,17 @@ function questionScreen() {
     const list=txt("ol","","order-list");
     function draw() {
       list.replaceChildren(...quiz.choice.map((key,position)=>{
-        const item=txt("li",q.options[key]);
+        const item=txt("li",isTest?"":q.options[key]);
+        const tools=isTest?div("test-order-tools"):item;
+        if(isTest)item.append(txt("span",q.options[key],"test-order-copy"),tools);
         for (const [direction,label] of [[-1,"moveUp"],[1,"moveDown"]]) {
           const target=position+direction;
-          const move=btn(t(label),()=>{
+          const move=btn(isTest?(direction<0?"↑":"↓"):t(label),()=>{
             [quiz.choice[position],quiz.choice[target]]=[quiz.choice[target],quiz.choice[position]];
             draw();list.children[target].querySelector("button:not(:disabled)")?.focus();
           },"soft",quiz.checked||target<0||target>=q.options.length);
           move.setAttribute("aria-label",t(label)+" · "+local(q.options[key]));
-          item.append(move);
+          tools.append(move);
         }
         if(!quiz.checked){
           item.draggable=true;
@@ -474,7 +596,7 @@ function questionScreen() {
     fields.append(labeled(t("answer"),input));
   }
   if(!quiz.checked) update(quiz.choice);
-  const back=btn(t("back"),()=>navigate(route),"soft");
+  const back=isTest?[]:btn(t("back"),()=>navigate(route),"soft");
   form.append(fields,quiz.checked?answerPanel(q,quiz.answers[quiz.pos].ok):[],
     div("actions",submit,back));
   form.addEventListener("submit",event=>{
@@ -486,6 +608,7 @@ function questionScreen() {
     }
     if(quiz.pos===quiz.ids.length-1){complete();return;}
     quiz.pos++;quiz.choice=undefined;quiz.checked=false;saveResume();render();main.focus();
+    if(isTest)window.scrollTo({top:0,behavior:"instant"});
   });
   const tip=quiz.kind==="practice"||state.background==="beginner"?div("actions",btn(t("seeBook"),()=>{
     const savedQuiz=quiz;
@@ -495,8 +618,16 @@ function questionScreen() {
       save();
     }
   },"soft")):[];
+  const instructions=q.type==="multi"?txt("p",t("multi"),"hint"):q.type==="order"?txt("p",t("order"),"hint"):[];
+  if(isTest){
+    const prompt=txt("h1",q.prompt);
+    prompt.id="test-prompt";
+    fields.setAttribute("role","group");
+    fields.setAttribute("aria-labelledby",prompt.id);
+    return div("quiz test-quiz",testQuestionHeader(title),div("card test-question",prompt,instructions,form,tip));
+  }
   return div("card quiz",txt("p",title,"pill"),txt("p",t("quizStep",{n:quiz.pos+1,total:quiz.ids.length}),"muted"),
-    txt("h2",q.prompt),q.type==="multi"?txt("p",t("multi"),"hint"):q.type==="order"?txt("p",t("order"),"hint"):[],form,tip);
+    txt("h2",q.prompt),instructions,form,tip);
 }
 function complete() {
   const {kind,index,answers}=quiz;
@@ -512,23 +643,35 @@ function complete() {
   quiz=null;
   result={kind,index,attempt:{...attempt,passed},gain:kind==="practice"&&passed&&!alreadyPassed?xpReward[index]:0};
   const saved=save();render();main.focus();
+  if(kind==="test")window.scrollTo({top:0,behavior:"instant"});
   if(result.gain&&saved)notify(t("gained",{n:result.gain}));
 }
 function oldResult(index) {
   result={kind:"test",index,attempt:state.tests[levels[index].id],gain:0};quiz=null;render();main.focus();
+  window.scrollTo({top:0,behavior:"instant"});
 }
 function resultView() {
   const {kind,index,attempt,gain}=result;
-  const label=kind==="test"?(attempt.passed?"testPassed":"testFailed"):(attempt.passed?"practicePassed":"practiceFailed");
+  const answers=(attempt.answers??[]).filter(item=>questionMap.has(item.id));
+  const reviews=answers.map(item=>{
+    const q=questionMap.get(item.id);
+    return div("card",txt("h3",q.prompt),answerPanel(q,item.ok),btn(t("seeBook"),()=>navigate("books",q.unit),"soft"));
+  });
+  if(kind==="test"){
+    const score=div("test-score",txt("strong",attempt.score+"%"));
+    score.style.setProperty("--score",attempt.score+"%");
+    const header=div("test-result-header",score,div("test-result-copy",txt("p",levels[index].title,"test-question-topic"),
+      txt("h1",t(attempt.passed?"testPassed":"testFailed")),answers.length?txt("p",t("testCorrectCount",{n:answers.filter(answer=>answer.ok).length,total:answers.length})):[],
+      !attempt.passed&&readyAt(index)>Date.now()?timerText(readyAt(index)):[],btn(t("testBack"),()=>navigate("tests"),"positive")));
+    header.dataset.result=attempt.passed?"passed":"retry";
+    return div("quiz test-results",header,reviews.length?div("test-review-list",txt("h2",t("testReview")),div("stack",reviews)):[]);
+  }
+  const label=attempt.passed?"practicePassed":"practiceFailed";
   return div("quiz",div("card",txt("p",levels[index].title,"pill"),txt("h1",t(label)),
     txt("div",attempt.score+"%","metric"),txt("p",status(attempt.score),attempt.passed?"good":"bad"),
     gain?txt("p",t("gained",{n:gain})) : [],
-    kind==="test"&&!attempt.passed&&readyAt(index)>Date.now()?timerText(readyAt(index)):[],
     div("actions",btn(t("back"),()=>navigate(route),"soft"),btn(t("continue"),()=>navigate("home"),"primary"))),
-    div("stack card-block",(attempt.answers??[]).filter(item=>questionMap.has(item.id)).map(item=>{
-      const q=questionMap.get(item.id);
-      return div("card",txt("h3",q.prompt),answerPanel(q,item.ok),btn(t("seeBook"),()=>navigate("books",q.unit),"soft"));
-    })));
+    div("stack card-block",reviews));
 }
 function timerText(ending) {
   const text=txt("p",t("wait",{time:timeText(ending)}),"muted");
@@ -633,7 +776,7 @@ async function sendChat(value, shortcut) {
         reply=t("rockyNoSource");
       }else if(rockyActions.has(ai.action)){
         suggestion=ai.action;
-        reply=t("moved");
+        reply=t("rockyConfirm");
       }else if(ai.action==="none"&&typeof ai.reply==="string"&&ai.reply.trim()){
         reply=ai.reply.trim().slice(0,600);
         conversation=true;
@@ -648,8 +791,7 @@ async function sendChat(value, shortcut) {
   chat.push({who:"rocky",text:reply,conversation,link,suggestion,unit:unit.id,message});
   if(route==="rocky"){
     render();
-    const entry=mascots.get("rocky");
-    if(entry&&evidence)playRocky(entry,"Celebrate",true);
+    if(currentMascot?.place==="rocky"&&evidence)pulseRocky(currentMascot);
   }
 }
 function rockySuggestion(record) {
@@ -680,27 +822,36 @@ function rocky() {
   const commands={askHint:"hint",askXP:"xp",askNext:"lesson",askTests:"tests",askBookmark:"bookmark",continue:"resume"};
   const mode=assistantChat?(remoteApi?"rockyServer":"rockyAI"):assistantAvailable?"rockyLegacy":"rockyLocal";
   const intro=assets?.model?div("rocky-banner",heading("rocky","rockyText"),mascot("rocky")):heading("rocky","rockyText");
-  return [intro,div("card chat",txt("p",t(mode),"hint"),log,
-    div("actions",Object.entries(commands).map(([key,intent])=>btn(t(key),()=>sendChat(t(key),intent),"soft",assistantBusy))),form)];
+  const status=txt("p",t(mode),"hint chat-status");
+  status.classList.toggle("is-connected",assistantChat);
+  return [intro,div("card chat",status,log,form,
+    div("actions chat-commands",Object.entries(commands).map(([key,intent])=>btn(t(key),()=>sendChat(t(key),intent),"soft",assistantBusy))))];
+}
+
+function updateMode() {
+  document.getElementById("top-right").replaceChildren(txt("span","КазМунайГаз","camp"),txt("span",t(assistantChat?"online":"offline"),"pill"));
 }
 
 function render(draft) {
+  testMapObserver?.disconnect();
+  testMapObserver=null;
+  main.classList.toggle("test-map-screen",!!state.name&&route==="tests"&&!quiz&&!result);
   document.documentElement.lang=state.lang;
   document.documentElement.dataset.theme=state.theme;
   document.getElementById("skip").textContent=t("skip");
-  document.getElementById("top-right").replaceChildren(txt("span","КазМунайГаз","camp"),txt("span",t("offline"),"pill"));
+  updateMode();
   nav.hidden=!state.name;
   if(!state.name){main.replaceChildren(onboarding(draft));return;}
   bottom();
   if(quiz)main.replaceChildren(questionScreen());
   else if(result)main.replaceChildren(resultView());
   else {
-    const views={home,tasks:()=>collection("tasks"),tests:()=>collection("tests"),rocky,books:bookView,videos:videoView,profile};
-    main.replaceChildren(...[views[route]()].flat(2));
+    const views={home,tasks:practiceList,tests:testMap,rocky,books:bookView,videos:videoView,profile};
+    main.replaceChildren(...[route==="chapter"?chapterView():views[route]()].flat(2));
   }
   if(!storageWorks)main.append(txt("p",t("offline"),"hint"));
 }
-document.querySelector(".brand").addEventListener("click",event=>{event.preventDefault();if(state.name)navigate("home");});
+document.querySelector(".brand").addEventListener("click",event=>{event.preventDefault();if(state.name)navigate(chapter?"chapter":"home");});
 if(assets?.logo)document.getElementById("brand-mark")?.append(logoMark());
 window.addEventListener("storage",event=>{
   if(event.key===storageKey&&!quiz){state=load();render();}
@@ -717,6 +868,7 @@ if(remoteApi||location.protocol==="http:"||location.protocol==="https:"){
     assistantAvailable=!!features?.rocky;
     assistantChat=assistantAvailable&&features?.chat===true;
     if(route==="rocky")render();
+    else updateMode();
   }).catch(()=>{});
 }
 render();

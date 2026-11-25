@@ -1,0 +1,56 @@
+.chapter-view { max-width: 850px; margin-inline: auto; }
+.chapter-nav .nav-inner { grid-template-columns: repeat(2,minmax(0,1fr)); max-width: 430px; }
+.chapter-nav .nav-inner button { font-size: .9rem; }
+.chapter-view h1 { margin: 4px 0 10px; font-size: clamp(1.8rem,5vw,3rem); letter-spacing: -.045em; line-height: 1.12; }
+.chapter-view h2 { font-size: 1.25rem; }
+.chapter-hero { padding: clamp(20px,4vw,36px); border-radius: 23px; color: #fff; background: linear-gradient(120deg,#301752,#532b96); }
+.chapter-hero p { max-width: 65ch; line-height: 1.45; }
+.chapter-kicker { margin: 0; color: #b4ffe9; font-weight: 740; }
+.chapter-hero .positive { background: #bcfbe8; border-color: #bcfbe8; }
+.chapter-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 13px; }
+.chapter-path-header { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; margin: 20px 0 12px; }
+.chapter-path-header h2 { margin: 0; }
+.chapter-path { padding-inline-start: 24px; margin: 0; }
+.chapter-path li { padding-inline-start: 6px; margin-bottom: 10px; }
+.chapter-path li::marker { color: var(--accent); font-weight: 750; }
+.chapter-path-card { padding: 12px 14px; background: var(--paper); border: 1px solid var(--line); border-radius: 13px; }
+.chapter-path-card .btn { text-align: left; }
+.chapter-path-card p { margin: 6px 0 0; }
+.chapter-path-card .chapter-done { background: var(--ok-bg); color: var(--ok); }
+.chapter-path-card .chapter-done::before { content: "✓"; margin-inline-end: .5em; }
+.chapter-dependency { color: var(--muted); }
+.chapter-lesson-header, .chapter-view .card { margin-bottom: 14px; }
+.chapter-lesson-header .muted { margin: 9px 0 5px; }
+.chapter-view p, .chapter-view blockquote { overflow-wrap: anywhere; }
+.chapter-source-label, .chapter-source-review { color: var(--muted); font-weight: 650; }
+.chapter-summary blockquote { max-width: 70ch; margin: 14px 0 7px; padding: 8px 12px; border-inline-start: 3px solid var(--accent); background: var(--accent-2); line-height: 1.5; }
+.chapter-view summary { cursor: pointer; color: var(--accent); font-weight: 780; }
+.chapter-doc[open] summary { margin-bottom: 12px; }
+.chapter-source-unit { padding: 10px 0; border-top: 1px solid var(--line); }
+.chapter-source-text { max-width: 70ch; white-space: pre-wrap; }
+.chapter-table { overflow: auto; max-width: 100%; margin-top: 7px; }
+.chapter-table table { border-collapse: collapse; min-width: 100%; }
+.chapter-table td, .chapter-table th { padding: 7px; border: 1px solid var(--line); min-width: 84px; text-align: left; vertical-align: top; }
+.chapter-table th { background: var(--accent-2); }
+.chapter-diagram { margin: 17px 0 0; padding: 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--lesson-surface); }
+.chapter-diagram figcaption { font-weight: 730; }
+.chapter-diagram-points { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 6px; margin-top: 8px; }
+.chapter-diagram-points span { display: grid; place-items: center; min-height: 44px; padding: 5px 4px; border-radius: 8px; background: var(--paper); text-align: center; }
+.chapter-question + .chapter-question { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+.chapter-question fieldset { min-width: 0; border: 0; padding: 0; margin: 0 0 8px; }
+.chapter-question legend { padding: 0; font-weight: 750; }
+.chapter-question .field { margin-top: 8px; }
+.chapter-question .chapter-decision { color: var(--accent); }
+.chapter-feedback:not(:empty) { margin-top: 9px; padding: 10px 12px; border-radius: 9px; }
+.chapter-order { list-style: none; margin: 8px 0 0; padding: 0; }
+.chapter-order li { display: grid; grid-template-columns: auto minmax(0,1fr) auto; gap: 7px; align-items: center; border: 1px solid var(--line); border-radius: 8px; margin-top: 6px; padding: 5px; }
+.chapter-drag-handle { display: grid; place-items: center; min-width: 32px; min-height: 42px; touch-action: none; cursor: grab; color: var(--accent); font-size: 1.25rem; }
+.chapter-dragging { background: var(--accent-2); }
+.chapter-order-actions { display: grid; grid-template-columns: 40px 40px; gap: 4px; }
+.chapter-order-actions .btn { min-width: 0; padding: 5px; }
+.chapter-print { display: none; }
+@media print {
+  body:has(.chapter-print) .top, body:has(.chapter-print) .bottom, .chapter-view { display: none; }
+  .chapter-print { display: block; color: #222; }
+  .chapter-print-item { break-inside: avoid; }
+}
