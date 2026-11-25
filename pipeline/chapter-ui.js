@@ -302,7 +302,7 @@ function chapterLesson(step,index) {
     if(next)openChapterStep(next.id);
     else{save();openChapterStep(null);}
   };
-  return [header,summary,chapterExtras(step),chapterVideo(step),chapterSourceUnits(step),chapterFlashcard(step),tasks,
+  return [header,summary,...chapterExtras(step),chapterVideo(step),chapterSourceUnits(step),chapterFlashcard(step),tasks,
     div("chapter-actions",previous?btn("Назад",()=>openChapterStep(previous.id),"soft"):[],
       btn(next?"Сохранить и дальше":"Завершить главу",finish,"primary"))];
 }
