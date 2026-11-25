@@ -66,6 +66,8 @@ for(const [key,[file,mime]] of Object.entries(assetFiles)){
 }
 if(publicPage)await copyFile(new URL("assets/LICENSE-model-viewer.txt",import.meta.url),join(dirname(output),"assets","LICENSE-model-viewer.txt"));
 const publicBooks=Object.fromEntries(Object.entries(books).map(([key,{id,...book}])=>[key,book]));
+if(publicPage)assert.ok(Object.values(publicBooks).every(book=>new URL(book.url).hostname!=="drive.google.com"),
+  "Competition files must stay out of the public build.");
 const model = JSON.stringify({ui,assets,books:publicPage?publicBooks:books,units,levels,xpReward,modules,...(chapter?{chapter}:{}),
   videos:publicPage?Array(videos.length).fill(null):videos}).replaceAll("<","\\u003c");
 const api=chapter?null:process.env.ROCKIGO_API_URL?.trim();

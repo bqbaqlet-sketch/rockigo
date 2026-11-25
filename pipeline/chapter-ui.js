@@ -16,6 +16,122 @@ function chapterPages(pages) {
   return "PDF "+(pages.length===1?pages[0]:pages[0]+"–"+pages.at(-1));
 }
 
+function chapterImage(step) {
+  if(bookScenes[step.scene])return bookModel({scene:step.scene,term:step.title});
+  if(!step.scene)return [];
+  const figure=txt("figure","","chapter-science");
+  const canvas=txt("canvas");
+  canvas.width=680; canvas.height=260;
+  canvas.setAttribute("role","img");
+  const context=canvas.getContext("2d");
+  const details={
+    invasion:["Фильтрат у стенки скважины","При давлении в скважине выше пластового фильтрат может проникать в проницаемую породу."],
+    contact:["Контакт и переходная зона","Показаны нефтяная часть, условная переходная зона и вода. Границы переходной зоны нельзя подменять одной отметкой."],
+    crossplot:["Точка на осях палетки","Точка соответствует пористости 25% и сопротивлению 20 Ом·м. Границы областей на схеме опущены."],
+    storage:["Упругий запас","При одинаковом снижении давления большему коэффициенту упругоёмкости соответствует больший высвобожденный объём."],
+    diffusion:["Выравнивание давления","Гладкие профили показывают распространение изменения давления в линейной модели."],
+    gallery:["Линейный приток к галерее","В линейной модели движение направлено к прямой границе отбора."],
+    radial:["Радиальный приток к скважине","При осевой симметрии линии равного давления образуют кольца, а жидкость движется к скважине."],
+    radius:["Расчётная длина области","При постоянном отборе из галереи длина условной зоны пропорциональна квадратному корню из времени."],
+    trap:["Кровля ловушки и контакт","В показанной массивной ловушке высота залежи уменьшается от свода к крыльям."]
+  }[step.scene];
+  if(!details||!context)return [];
+  canvas.setAttribute("aria-label",details[1]);
+  figure.append(canvas,txt("figcaption",details[0]),txt("p",details[1]),txt("small","Схема · не в масштабе · стр. PDF "+step.evidence.page_pdf));
+  const line=(points,color="#8ee7d5",width=4)=>{
+    context.beginPath(); context.strokeStyle=color;context.lineWidth=width;
+    points.forEach(([x,y],i)=>i?context.lineTo(x,y):context.moveTo(x,y));context.stroke();
+  };
+  const label=(text,x,y)=>{
+    context.fillStyle="#f2f9ff";context.font="19px system-ui";context.fillText(text,x,y);
+  };
+  const dot=(x,y)=>{context.beginPath();context.arc(x,y,7,0,2*Math.PI);context.fillStyle="#ffc576";context.fill();};
+  const arrow=(x,y,toX,toY)=>{
+    const angle=Math.atan2(toY-y,toX-x);
+    line([[x,y],[toX,toY],[toX-10*Math.cos(angle-.5),toY-10*Math.sin(angle-.5)]]);
+    line([[toX,toY],[toX-10*Math.cos(angle+.5),toY-10*Math.sin(angle+.5)]]);
+  };
+  context.fillStyle="#13263a";context.fillRect(0,0,680,260);
+  if(step.scene==="crossplot"){
+    line([[92,32],[92,207],[623,207]],"#cbd9ed",2); label("Сопротивление, Ом·м",105,46);
+    label("Пористость, %",447,244);
+    line([[92,106],[411,106],[411,207]],"#6c91ad",2);dot(411,106);label("20",55,112);label("25",400,231);
+  }else if(step.scene==="radial"){
+    for(const radius of [42,74,109]){
+      context.beginPath();context.arc(210,130,radius,0,2*Math.PI);context.strokeStyle="#7e9db8";context.lineWidth=3;context.stroke();
+    }
+    dot(210,130);arrow(390,130,234,130);arrow(35,130,186,130);
+    label("Скважина",426,127);label("Изобары на плане",426,156);
+  }else if(step.scene==="radius"||step.scene==="diffusion"){
+    line([[72,45],[72,206],[604,206]],"#cbd9ed",2);
+    if(step.scene==="radius"){
+      for(const [x,y,width,text] of [[95,94,186,"t"],[95,152,372,"4t"]]){
+        line([[x,y],[x+width,y]]);dot(x+width,y);label(text,x+width+14,y+6);
+      }
+      label("Расстояние от галереи",395,239);
+    }else{
+      for(const span of [90,180,270]){
+        line(Array.from({length:75},(_,i)=>[73+i*7,79+110*Math.exp(-((i*7/span)**2))]));
+      }
+      label("Давление",93,48);label("Расстояние",495,239);
+    }
+  }else if(step.scene==="trap"||step.scene==="contact"){
+    context.fillStyle="#397c9f";context.fillRect(49,156,578,54);
+    if(step.scene==="trap"){
+      context.fillStyle="#b99058";context.beginPath();context.moveTo(49,156);
+      context.bezierCurveTo(230,45,404,32,627,156);context.fill();
+      line([[350,63],[350,156]],"#f7deac",2);label("Свод",323,52);
+    }else{
+      context.fillStyle="#b99058";context.fillRect(49,76,578,56);
+      context.fillStyle="#688d90";context.fillRect(49,132,578,24);label("Переходная зона",65,150);
+    }
+    label("Вода",64,193);
+  }else if(step.scene==="storage"){
+    context.fillStyle="#69bea8";context.fillRect(150,104,140,76); context.fillRect(379,55,140,125);
+    label("Меньше β*",158,212);label("Больше β*",386,212);label("Высвобожденный объём",209,36);
+  }else{
+    context.fillStyle="#325879";context.fillRect(49,58,105,153);
+    context.fillStyle="#af865c";context.fillRect(154,58,476,153);
+    for(const y of [94,134,174]){
+      if(step.scene==="invasion")arrow(106,y,334,y);
+      else arrow(397,y,143,y);
+    }
+    label(step.scene==="invasion"?"Ствол скважины":"Галерея",60,39);
+    label("Проницаемая порода",374,39);
+  }
+  return figure;
+}
+
+function chapterExtras(step) {
+  const formulas=(step.formulaUnits??[]).map(id=>unitMap.get(id)).filter(Boolean);
+  return [
+    step.practice?div("card",txt("h2","Практика"),txt("p",step.practice),txt("p",chapterPages(step.pages),"muted")):[],
+    step.nuance?div("card",txt("h2","Условия применимости"),txt("p",step.nuance),txt("p",chapterPages(step.pages),"muted")):[],
+    formulas.length?div("card",formulas.map(bookFormulas)):[],
+    step.examples?.length?div("card",txt("h2","Разбор из главы"),step.examples.map(example=>{
+      const list=txt("ol");list.append(...example.steps.map(item=>txt("li",item)));
+      return div("chapter-example",txt("h3","Условие"),txt("p",example.condition),list,
+        txt("strong",example.result),txt("p","PDF "+example.page_pdf+(example.figure?" · "+example.figure:""),"muted"));
+    })):[],
+    step.decision?div("card",txt("h2","Решение на данных"),txt("p",step.decision.rule),txt("p",step.decision.conclusion)):[],
+  ];
+}
+
+function chapterVideo(step) {
+  if(!step.media?.file)return [];
+  const video=txt("video","","chapter-video "+(step.media.orientation==="portrait"?"portrait":"landscape"));
+  video.controls=true; video.playsInline=true; video.preload="metadata";
+  video.src=step.media.file;
+  const captions=txt("track");
+  captions.kind="captions"; captions.srclang="ru"; captions.label="Русские субтитры";
+  captions.src=step.media.captions; video.append(captions);
+  const link=(name,href)=>{
+    const a=txt("a",name,"book-source");a.href=href;return a;
+  };
+  return div("card",txt("h2",step.media.title), video,
+    div("lesson-sources",link("Паспорт ролика",step.media.passport),link("Спецификация сцены",step.media.specification)));
+}
+
 function chapterReadable(text) {
   return text.replace(/\$+|\\\[|\\\]|\\\(|\\\)/g, "").replaceAll("\\%", "%");
 }
@@ -163,7 +279,10 @@ function chapterQuestion(task, pages) {
     if(correct){chapterProgress().solved[task.id]=true;save();}
     feedback.className="chapter-feedback "+(correct?"correct-note":"wrong-note");
     const source=[...new Set(task.claim_ids.map(id=>pages[id]))].join(", ");
-    feedback.replaceChildren(txt("strong",correct?"Верно":"Разбор ответа"),txt("p",task.explanation),txt("span","Источник · стр. "+source,"chapter-source-label"));
+    const expected=task.options?(Array.isArray(key)?key:[key]).map(id=>task.options.find(item=>item.id===id)?.text).join(" → "):
+      Array.isArray(key)?key[0]:key;
+    feedback.replaceChildren(txt("strong",correct?"Верно":"Разбор ответа"),txt("p","Ответ — "+expected),
+      txt("p",task.explanation),txt("span","Источник · стр. "+source,"chapter-source-label"));
   });
   return form;
 }
@@ -172,12 +291,10 @@ function chapterLesson(step,index) {
   const previous=chapter.steps[index-1], next=chapter.steps[index+1];
   const header=div("chapter-lesson-header",btn("К пути по главе",()=>openChapterStep(null),"soft"),
     txt("p",`Шаг ${index+1} из ${chapter.steps.length} · ${step.minutes} мин · ${chapterPages(step.pages)}`,"muted"),txt("h1",step.title));
-  const figure=txt("figure","","chapter-diagram");
-  figure.append(txt("figcaption","Схема чтения шага"),div("chapter-diagram-points",txt("span","Вопрос"),txt("span","Источник"),txt("span","Проверка вывода")));
   const evidence=txt("blockquote",chapterReadable(step.evidence.quote));
   const summary=div("card chapter-summary",txt("h2","Суть"),txt("p",step.summary),
     txt("p",step.summaryByModel?"Учебное пояснение · ИИ":"Фрагмент источника","chapter-source-label"),
-    evidence,txt("p",`стр. ${step.evidence.page_pdf} · автор`,"chapter-source-label"),figure);
+    evidence,txt("p",`стр. ${step.evidence.page_pdf} · автор`,"chapter-source-label"),chapterImage(step));
   summary.append(txt("h3","Ключевое понятие"),txt("p",step.term));
   const tasks=div("card chapter-tasks",txt("h2","Проверка понимания"),...step.tasks.map(task=>chapterQuestion(task,step.taskSources)));
   const finish=()=>{
@@ -185,7 +302,7 @@ function chapterLesson(step,index) {
     if(next)openChapterStep(next.id);
     else{save();openChapterStep(null);}
   };
-  return [header,summary,chapterSourceUnits(step),chapterFlashcard(step),tasks,
+  return [header,summary,chapterExtras(step),chapterVideo(step),chapterSourceUnits(step),chapterFlashcard(step),tasks,
     div("chapter-actions",previous?btn("Назад",()=>openChapterStep(previous.id),"soft"):[],
       btn(next?"Сохранить и дальше":"Завершить главу",finish,"primary"))];
 }

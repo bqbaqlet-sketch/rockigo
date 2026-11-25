@@ -6,3 +6,4 @@ node_modules/
 RockiGo.html
 source/
 output/
+__pycache__/

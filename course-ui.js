@@ -2,6 +2,18 @@ function dateForCourse(date = new Date()) {
   return [date.getFullYear(), date.getMonth()+1, date.getDate()].map(part=>String(part).padStart(2,"0")).join("-");
 }
 
+function projectView() {
+  const cards=modules.map(module=>{
+    const unit=units.find(item=>item.book===module.book);
+    return div("card",txt("h2",module.title),txt("p",books[module.book].author,"muted"),
+      div("actions",btn(t("courseRead"),()=>navigate("books",unit.id),"soft")));
+  });
+  return [heading("projectTitle","projectContext"),
+    div("actions project-actions",btn(t("course"),()=>navigate("course"),"positive"),
+      btn(t("tests"),()=>navigate("tests"),"soft")),
+    div("grid card-block",cards)];
+}
+
 function bookFormulas(unit) {
   if (!unit.formulas.length) return [];
   return div("book-formulas",txt("h3",t("courseFormulas")),unit.formulas.map(recipe=>{

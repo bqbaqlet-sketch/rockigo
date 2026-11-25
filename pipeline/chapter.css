@@ -22,6 +22,16 @@
 .chapter-lesson-header, .chapter-view .card { margin-bottom: 14px; }
 .chapter-lesson-header .muted { margin: 9px 0 5px; }
 .chapter-view p, .chapter-view blockquote { overflow-wrap: anywhere; }
+.chapter-science { margin: 14px 0; }
+.chapter-science canvas { width: 100%; height: auto; display: block; border-radius: 12px; }
+.chapter-science figcaption { font-weight: 700; margin-top: 8px; }
+.chapter-science p { margin: 5px 0; }
+.chapter-science small { color: var(--muted); }
+.chapter-example ol { padding-inline-start: 23px; }
+.chapter-example li { margin-bottom: 8px; }
+.chapter-video { display: block; max-width: 100%; margin: 0 auto 10px; background: #13263a; border-radius: 10px; }
+.chapter-video.portrait { max-height: min(65vh,600px); }
+.chapter-video.landscape { width: 100%; }
 .chapter-source-label, .chapter-source-review { color: var(--muted); font-weight: 650; }
 .chapter-summary blockquote { max-width: 70ch; margin: 14px 0 7px; padding: 8px 12px; border-inline-start: 3px solid var(--accent); background: var(--accent-2); line-height: 1.5; }
 .chapter-view summary { cursor: pointer; color: var(--accent); font-weight: 780; }

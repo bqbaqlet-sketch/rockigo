@@ -2,9 +2,9 @@ import { courseOrder, dayPlan, newTopics } from "./curriculum.mjs";
 import { cases, finalCases } from "./science-questions.mjs";
 
 export const books = {
-  lat: {author:"М. Г. Латышова", title:["Практическое руководство по интерпретации диаграмм ГИС","Ұңғыма каротажы диаграммаларын түсіндіру","Practical Guide to Well Log Interpretation"], range:"90–108",url:"https://drive.google.com/file/d/1z9b9wHv-_lkq8Xi1sn0xrsDOtuD6XH_e/view"},
-  kuz: {author:"В. Г. Кузнецов", title:["Литология природных резервуаров нефти и газа","Мұнай мен газдың табиғи резервуарларының литологиясы","Lithology of Natural Oil and Gas Reservoirs"], range:"200–222",url:"https://drive.google.com/file/d/1vAxeBTfyVS4hotgIX6YnKMvQ01n8CHQB/view"},
-  bas: {author:"К. С. Басниев и соавторы", title:["Нефтегазовая гидромеханика","Мұнай-газ гидромеханикасы","Oil and Gas Hydromechanics"], range:"474–500",url:"https://drive.google.com/file/d/1e5PXnHppagWNJ8utZ81TZd3Y9F865ycd/view"}
+  lat: {author:"М. Г. Латышова", title:["Практическое руководство по интерпретации диаграмм ГИС","Ұңғыма каротажы диаграммаларын түсіндіру","Practical Guide to Well Log Interpretation"], range:"90–108",url:"https://urss.ru/cgi-bin/db.pl?blang=ru&id=96638&lang=Ru&page=Book"},
+  kuz: {author:"В. Г. Кузнецов", title:["Литология природных резервуаров нефти и газа","Мұнай мен газдың табиғи резервуарларының литологиясы","Lithology of Natural Oil and Gas Reservoirs"], range:"200–222",url:"https://enb.gubkin.ru/en/content/19182"},
+  bas: {author:"К. С. Басниев и соавторы", title:["Нефтегазовая гидромеханика","Мұнай-газ гидромеханикасы","Oil and Gas Hydromechanics"], range:"474–500",url:"https://www.mce.su/rus/books/cat35574/book38814/"}
 };
 const fact = (page, term, quiz, explanation, plain, scene) => ({page,term,quiz,explanation,plain,scene});
 const track = (id, book, pages, title, facts, order) => ({id,book,pages,title,facts,order});

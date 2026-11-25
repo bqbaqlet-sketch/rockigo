@@ -6,11 +6,11 @@ const questionMap = new Map(units.flatMap(unit => unit.questions.map(q => [q.id,
 const storageKey = chapter?`rockigo.chapter.${chapter.id}.v1`:"rockigo.local.v1";
 const retryDelay = 60 * 60 * 1000;
 const languages = ["ru","kk","en"];
-const routes = chapter?{chapter:"▤",profile:"◉"}:{home:"⌂",course:"▥",tests:"✓",rocky:"✦",books:"▤",videos:"▷",tasks:"◇",profile:"◉"};
+const routes = chapter?{chapter:"▤",profile:"◉"}:{home:"⌂",course:"▥",tests:"✓",rocky:"✦",books:"▤",videos:"▷",tasks:"◇",profile:"◉",project:"⌘"};
 const main = document.getElementById("main");
 const nav = document.getElementById("nav");
 if(chapter)nav.classList.add("chapter-nav");
-let state = load(), route = chapter?"chapter":"home", quiz, result, bookSelection, player;
+let state = load(), route = chapter?"chapter":location.hash==="#project"?"project":"home", quiz, result, bookSelection, player;
 let assistantAvailable = false, assistantChat = false, assistantBusy = false, storageWorks = true;
 let assistantModel = "Qwen 2.5";
 const chat = [];
@@ -862,7 +862,7 @@ function render(draft) {
   if(quiz)main.replaceChildren(questionScreen());
   else if(result)main.replaceChildren(resultView());
   else {
-    const views={home,course:courseView,tasks:practiceList,tests:testMap,rocky,books:bookView,videos:videoView,profile};
+    const views={home,course:courseView,tasks:practiceList,tests:testMap,rocky,books:bookView,videos:videoView,profile,project:projectView};
     main.replaceChildren(...[route==="chapter"?chapterView():views[route]()].flat(2));
   }
   if(!storageWorks)main.append(txt("p",t("offline"),"hint"));

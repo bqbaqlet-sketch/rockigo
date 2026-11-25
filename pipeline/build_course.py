@@ -30,13 +30,21 @@ def plain(text):
     return re.sub(r"(?m)^\s*#{1,6}\s+", "", text).replace("**", "").strip()
 
 
+def whole_excerpt(text, start, end):
+    while start > 0 and not text[start - 1].isspace():
+        start -= 1
+    while end < len(text) and not text[end].isspace():
+        end += 1
+    return re.sub(r"\s+", " ", text[start:end]).strip()
+
+
 def excerpt(text, anchor=None):
     if not anchor:
-        return re.sub(r"\s+", " ", text).strip()[:160].rstrip()
+        return whole_excerpt(text, 0, min(160,len(text)))
     index = text.casefold().find(anchor.casefold())
     if index < 0:
         raise ValueError(f"Не найден фрагмент: {anchor}")
-    return re.sub(r"\s+", " ", text[max(0, index - 45):index + len(anchor) + 110]).strip()
+    return whole_excerpt(text, max(0, index - 45), index + len(anchor) + 110)
 
 
 def field(text, by_model=False):
@@ -161,7 +169,7 @@ def draft_steps(pages, ranges):
             if evidence is None:
                 raise ValueError(f"Страницы {first}–{last}: нет текста для автоматического урока")
             summary = excerpt(evidence["raw"])
-            term = re.search(r"[А-Яа-яЁё]{4,}", summary)
+            term = re.search(r"[^\W\d_]{4,}", summary)
             if term is None:
                 raise ValueError(f"Страницы {first}–{last}: не найдено понятие для карточки")
             steps.append({"from": first, "to": last, "title": f"Фрагмент главы, страницы {first}–{last}",
@@ -194,9 +202,11 @@ def build(config, chapter, pages):
             links.append({"type": "prerequisite", "target": nodes[-1]["id"], "note": "Предыдущий шаг того же фрагмента."})
         node = {"id": node_id, "order": index + 1, "title": plan["title"], "pages": step_pages,
                 "why_here": field("Порядок источника; внутри фрагмента шаг продолжает предыдущий."),
-                "difficulty": {"primary": plan["difficulty"], "secondary": None}, "threshold": False,
+                "difficulty": {"primary": plan["difficulty"], "secondary": plan.get("secondary")}, "threshold": bool(plan.get("formulaUnits")),
                 "layers": {"topic": field(plan["title"], True), "main": field(plan["summary"], not plan.get("extractive")),
-                           "mechanism": field(""), "practice": field(""), "nuances": field(""), "deeper": []},
+                           "mechanism": field(plan.get("mechanism",""), bool(plan.get("mechanism"))),
+                           "practice": field(plan.get("practice",""), bool(plan.get("practice"))),
+                           "nuances": field(plan.get("nuance",""), bool(plan.get("nuance"))), "deeper": []},
                 "claims": claims, "links": links, "misconception": None,
                 "data_meaning": {"from_chapter": field(""), "breaks": field(""), "hypotheses": []},
                 "it_analogy": {"text": "", "breaks_where": "", "by_model": False}, "now_practice": None,
@@ -204,6 +214,12 @@ def build(config, chapter, pages):
                 "book_tasks": book_exercises(units),
                 "needs_scan": [{"page": u["page"], "what": f"{u['id']}: {u['review']}"} for u in units if u["review"]]}
         nodes.append(node)
+        node["scene"] = plan.get("scene") or config.get("scenes",{}).get(str(step_pages[0]))
+        node["formula_units"] = plan.get("formulaUnits", [])
+        node["worked_examples"] = [example for example in config.get("worked_examples",[])
+                                   if example["page_pdf"] in step_pages]
+        if config.get("media", {}).get("step") == step_pages[0]:
+            node["media"] = config["media"]
         rows.extend({"unit_id": u["id"], "kind": u["kind"], "page_pdf": u["page"],
                      "excerpt": excerpt(u["raw"]), "node_ids": [node_id], "reason": None,
                      "needs_review": u["review"]} for u in units)
@@ -232,12 +248,16 @@ def build(config, chapter, pages):
                 ["Условия, при которых применимо правило", "Гарантию того же результата во всех скважинах", "Страницу, на которой описан пример"],
                 ["0", "2"], "У вывода должны быть условия применения и проверяемый источник."))
         tasks.extend(step_tasks)
-        route_format = "практикум на данных" if "decision_on_data" in node else "текст"
+        route_format = {"portrait":"шортс","landscape":"длинное видео"}[node["media"]["orientation"]] if node.get("media") else (
+            "практикум на данных" if "decision_on_data" in node else "интерактив" if node["scene"] else "текст")
         routes.append({"node_id": node_id, "format": route_format,
-                       "video_scores": {"time": 0, "invisible": int(plan["difficulty"] == "И"), "scale": 0,
-                                        "counterintuitive": int(plan["difficulty"] == "Н"), "cause_effect": 0},
-                       "why": "Проверка решения по признакам из источника." if "decision_on_data" in node else
-                       "Чтение с проверкой понимания; учебное медиа пока не подготовлено."})
+                       "video_scores": {"time": int(plan["difficulty"] in {"М","В"}), "invisible": int(plan["difficulty"] in {"И","М"}),
+                                        "scale": int(plan["difficulty"] == "П"), "counterintuitive": int(plan["difficulty"] == "Н"),
+                                        "cause_effect": int(bool(node.get("media")) or plan["difficulty"] in {"М","И"})},
+                       "why": {"шортс":"Изменение зоны давления во времени.","длинное видео":"Чтение двух измерений и решение по палетке.",
+                               "практикум на данных":"Решение по признакам из источника.",
+                               "интерактив":"Сопоставление параметров, геометрии или измерений.",
+                               "текст":"Чтение и проверка понимания."}[route_format]})
         words = sum(len(item["raw"].split()) for item in units if item["kind"] == "paragraph")
         node["estimated_minutes"] = max(3, (words + 179) // 180 + 2)
         node["source_units"] = [{"id": item["id"], "kind": item["kind"], "page": item["page"],
@@ -260,6 +280,7 @@ def render_data(docs):
     for task in docs["task"]["tasks"]:
         by_node.setdefault(task["step_id"], []).append(task)
     lessons = []
+    routes = {route["node_id"]:route["format"] for route in docs["routing"]["routes"]}
     for node in layer["nodes"]:
         main = node["layers"]["main"]
         lessons.append({"id": node["id"], "title": node["title"], "pages": node["pages"],
@@ -268,7 +289,10 @@ def render_data(docs):
                         "prerequisite": node["links"][0]["target"] if node["links"] else None,
                         "evidence": node["claims"][0], "tasks": by_node.get(node["id"], []),
                         "taskSources": {claim["id"]: claim["page_pdf"] for claim in node["claims"]},
-                        "units": node["source_units"]})
+                        "units": node["source_units"], "scene": node["scene"], "formulaUnits":node["formula_units"],
+                        "practice":node["layers"]["practice"]["text"], "nuance":node["layers"]["nuances"]["text"],
+                        "examples":node["worked_examples"], "decision":node.get("decision_on_data"),
+                        "media":node.get("media"), "format":routes[node["id"]]})
     return {"id": layer["chapter"], **layer["metadata"], "steps": lessons}
 
 
@@ -314,7 +338,7 @@ def write_json(path, contents):
     path.write_text(json.dumps(contents, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def run(chapter, source, official, output, node, manifest):
+def run(chapter, source, official, output, node, manifest, ffmpeg=None, voice="powershell.exe"):
     started = time.monotonic()
     configs = json.loads(manifest.read_text(encoding="utf-8-sig"))
     config = configs[chapter]
@@ -322,8 +346,11 @@ def run(chapter, source, official, output, node, manifest):
     pages = read_pages(markdown, pdf, config["ranges"])
     docs = build(config, chapter, pages)
     report = verify(docs, pages, official)
-    course = render_data(docs)
     output.mkdir(parents=True, exist_ok=True)
+    if ffmpeg and config.get("media"):
+        from render_media import render_media
+        render_media(docs, output, official / "passport.schema.json", ffmpeg, voice)
+    course = render_data(docs)
     for name, artifact in docs.items():
         write_json(output / f"{name}.json", artifact)
     write_json(output / "course.json", course)
@@ -352,6 +379,8 @@ if __name__ == "__main__":
     parser.add_argument("--manifest", type=Path, default=ROOT / "pipeline/chapters.json")
     parser.add_argument("--output", type=Path)
     parser.add_argument("--node", default="node")
+    parser.add_argument("--ffmpeg", help="Render the assigned video beside the offline HTML")
+    parser.add_argument("--voice", default="powershell.exe")
     args = parser.parse_args()
     run(args.chapter, args.source.resolve(), args.schemas.resolve(),
-        (args.output or ROOT / "output" / args.chapter).resolve(), args.node, args.manifest.resolve())
+        (args.output or ROOT / "output" / args.chapter).resolve(), args.node, args.manifest.resolve(), args.ffmpeg, args.voice)
