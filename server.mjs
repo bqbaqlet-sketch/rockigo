@@ -128,12 +128,17 @@ async function rockyChat(modelEngine, message, lang, history){
   const appTopic=/тест|книг|урок|задани|заклад|профил|раздел|бетбел|кітап|сабақ|тапсыр|бөлім|3\s*[dд]|\b(?:tests?|books?|lessons?|tasks?|practice|bookmarks?|profile|section|videos?)\b/i;
   const asksForAction=/хоч|нужн|найд|посмотр|покаж|откро|отправь|помоги (?:попасть|найти)|керек|көргім|апар|тауып|\b(?:want|need|open|show|find|take|go|add|save)\b/i;
   const actionRequest=appTopic.test(message)&&asksForAction.test(message);
+  const dialogueExample={
+    ru:["Как у тебя дела?","Хорошо! Рад, что ты заглянул. А как у тебя дела?"],
+    kk:["Қалың қалай?","Жақсы! Келгеніңе қуаныштымын. Өзің қалайсың?"],
+    en:["How are you today?","I’m doing well! I’m glad you stopped by. How’s your day going?"]
+  }[lang];
   const guide=actionRequest?[
     "Only choose an action when the user asks you to do it. Use none otherwise.",
     "Actions: home opens home, tests opens the test list, books opens the library, videos opens videos, tasks opens practice, profile opens settings, lesson opens the current lesson, resume continues progress, model opens a 3D example, bookmark saves the current lesson, study is a request for a factual lesson answer.",
     "The app performs actions. Do not claim an action already happened."
   ].join(" "):[
-    "Have a friendly, ordinary conversation. If asked how your day is, answer naturally as an AI mascot.",
+    "Answer the user's latest question directly. Use simple, natural language. Skip greetings or an introduction when the user did not ask for them.",
     "For a question about geology or the course, say that you can look it up if the learner names a topic from a lesson."
   ].join(" ");
   const properties={reply:{type:"string"}};
@@ -146,6 +151,10 @@ async function rockyChat(modelEngine, message, lang, history){
         "Do not claim you attended real events or have a real body. Do not ask for personal details. Never invent geology facts, sources, homework answers or page numbers.",
         guide
       ].join(" ")},
+      ...(!actionRequest&&!history.length?[
+        {role:"user",content:dialogueExample[0]},
+        {role:"assistant",content:JSON.stringify({reply:dialogueExample[1]})}
+      ]:[]),
       ...history,
       {role:"user",content:message}
     ],
