@@ -63,6 +63,7 @@ const allowedSubnet=new BlockList();
 if(network)allowedSubnet.addSubnet(network.address,Number(network.cidr.split("/")[1]),"ipv4");
 const present=await Promise.all([access(model),access(join(runtime,"wasm","package","esm","wasm","wllama.wasm"))]).then(()=>true,()=>false);
 let engine, busy=false;
+const chatActions=["none","study","home","tests","books","videos","tasks","profile","lesson","resume","model","bookmark"];
 const headers={"Cache-Control":"no-store","X-Content-Type-Options":"nosniff","Referrer-Policy":"no-referrer","X-Frame-Options":"DENY"};
 const rateWindow=60_000, peerLimit=12;
 const rate=new Map();
@@ -122,13 +123,51 @@ function printQr(url){
     console.log(output+"\x1b[0m");
   }
 }
+async function rockyChat(modelEngine, message, lang, history){
+  const language={ru:"Russian",kk:"Kazakh",en:"English"}[lang];
+  const appTopic=/тест|книг|урок|задани|заклад|профил|раздел|бетбел|кітап|сабақ|тапсыр|бөлім|3\s*[dд]|\b(?:tests?|books?|lessons?|tasks?|practice|bookmarks?|profile|section|videos?)\b/i;
+  const asksForAction=/хоч|нужн|найд|посмотр|покаж|откро|отправь|помоги (?:попасть|найти)|керек|көргім|апар|тауып|\b(?:want|need|open|show|find|take|go|add|save)\b/i;
+  const actionRequest=appTopic.test(message)&&asksForAction.test(message);
+  const guide=actionRequest?[
+    "Only choose an action when the user asks you to do it. Use none otherwise.",
+    "Actions: home opens home, tests opens the test list, books opens the library, videos opens videos, tasks opens practice, profile opens settings, lesson opens the current lesson, resume continues progress, model opens a 3D example, bookmark saves the current lesson, study is a request for a factual lesson answer.",
+    "The app performs actions. Do not claim an action already happened."
+  ].join(" "):[
+    "Have a friendly, ordinary conversation. If asked how your day is, answer naturally as an AI mascot.",
+    "For a question about geology or the course, say that you can look it up if the learner names a topic from a lesson."
+  ].join(" ");
+  const properties={reply:{type:"string"}};
+  if(actionRequest)properties.action={type:"string",enum:chatActions};
+  const answer=await modelEngine.createChatCompletion({
+    messages:[
+      {role:"system",content:[
+        "You are Rocky, the friendly mascot of the RockiGo geology course.",
+        "Greet the learner and chat about ordinary, age-appropriate topics. Reply in "+language+" in one or two short, natural sentences.",
+        "Do not claim you attended real events or have a real body. Do not ask for personal details. Never invent geology facts, sources, homework answers or page numbers.",
+        guide
+      ].join(" ")},
+      ...history,
+      {role:"user",content:message}
+    ],
+    response_format:{type:"json_schema",json_schema:{name:"rocky_reply",strict:true,schema:{
+      type:"object",properties,required:Object.keys(properties),additionalProperties:false
+    }}},
+    temperature:0.2,max_tokens:150,abortSignal:AbortSignal.timeout(75000)
+  });
+  const result=JSON.parse(answer.choices[0].message.content);
+  const action=actionRequest?result.action:"none";
+  if(!chatActions.includes(action)||typeof result.reply!=="string"||result.reply.length>600)throw new Error("Invalid chat reply");
+  return {action,reply:result.reply};
+}
 const server=createServer(async (req,res)=>{
+  const chatRoute=req.url==="/rocky/chat";
+  const rockyRoute=chatRoute||req.url==="/rocky";
   if(apiMode){
     res.setHeader("Vary","Origin");
-    if(req.url!=="/capabilities"&&req.url!=="/rocky")return reply(res,404,{error:"unknown route"});
+    if(req.url!=="/capabilities"&&!rockyRoute)return reply(res,404,{error:"unknown route"});
     if(req.headers.origin!==pagesOrigin)return reply(res,403,{error:"unapproved site"});
     res.setHeader("Access-Control-Allow-Origin",pagesOrigin);
-    if(req.method==="OPTIONS"&&req.url==="/rocky"){
+    if(req.method==="OPTIONS"&&rockyRoute){
       if(req.headers["access-control-request-method"]!=="POST")return reply(res,405,{error:"method not allowed"});
       res.writeHead(204,{...headers,"Access-Control-Allow-Methods":"POST","Access-Control-Allow-Headers":"Content-Type","Access-Control-Max-Age":"600"});
       return res.end();
@@ -140,33 +179,41 @@ const server=createServer(async (req,res)=>{
   if(!apiMode&&req.method==="GET"&&req.url==="/"){
     res.writeHead(200,{...headers,"Content-Type":"text/html; charset=utf-8"});return res.end(page);
   }
-  if(req.method==="GET"&&req.url==="/capabilities")return reply(res,200,{rocky:present});
-  if(req.method!=="POST"||req.url!=="/rocky"||req.headers.origin!==(apiMode?pagesOrigin:origin))return reply(res,404,{error:"unknown route"});
+  if(req.method==="GET"&&req.url==="/capabilities")return reply(res,200,{rocky:present,chat:present});
+  if(req.method!=="POST"||!rockyRoute||req.headers.origin!==(apiMode?pagesOrigin:origin))return reply(res,404,{error:"unknown route"});
   if(!/^application\/json(?:\s*;|$)/i.test(req.headers["content-type"]??""))return reply(res,415,{error:"expected json"});
-  if(Number(req.headers["content-length"])>2500)return reply(res,413,{error:"request too large"});
+  const bodyLimit=chatRoute?4000:2500;
+  if(Number(req.headers["content-length"])>bodyLimit)return reply(res,413,{error:"request too large"});
   if(apiMode&&limited(req.socket.remoteAddress??"unknown")){
     res.setHeader("Retry-After","60");
     return reply(res,429,{error:"too many requests"});
   }
   if(!present||busy)return reply(res,503,{error:"model unavailable"});
   let body="";
+  let bytes=0;
   req.setEncoding("utf8");
   try{
     for await(const chunk of req){
+      bytes+=Buffer.byteLength(chunk);
+      if(bytes>bodyLimit)return reply(res,413,{error:"request too large"});
       body+=chunk;
-      if(body.length>2500)return reply(res,413,{error:"request too large"});
     }
     let parsed;
     try{parsed=JSON.parse(body);}catch(_){return reply(res,400,{error:"invalid json"});}
-    const {message,lang,unit}=parsed??{};
+    const {message,lang,unit,history=[]}=parsed??{};
     const locale=["ru","kk","en"].indexOf(lang);
     const section=units.find(item=>item.id===unit);
-    if(typeof message!=="string"||!message.trim()||message.length>500||locale<0||!section)return reply(res,400,{error:"invalid request"});
+    if(typeof message!=="string"||!message.trim()||message.length>500||locale<0||(!chatRoute&&!section))return reply(res,400,{error:"invalid request"});
+    if(chatRoute&&(!Array.isArray(history)||history.length>4||history.some(turn=>
+      !turn||!["user","assistant"].includes(turn.role)||typeof turn.content!=="string"||turn.content.length>115
+    )))return reply(res,400,{error:"invalid chat history"});
     if(busy)return reply(res,503,{error:"model busy"});
     busy=true;
     try{
       engine??=loadWasm(runtime,model).catch(error=>{engine=null;throw error;});
-      const answer=await (await engine).createChatCompletion({
+      const modelEngine=await engine;
+      if(chatRoute)return reply(res,200,await rockyChat(modelEngine,message,lang,history.map(({role,content})=>({role,content}))));
+      const answer=await modelEngine.createChatCompletion({
         messages:[
           {role:"system",content:"Pick the evidence item that most directly answers the learner's geology question. Match the topic and technical terms. Return only the item number in the fact field."},
           {role:"user",content:JSON.stringify({question:message,evidence:section.facts.map((f,i)=>({number:i,topic:f.term[locale],text:f.explanation[locale]}))})}

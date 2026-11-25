@@ -10,8 +10,9 @@ const routes = {home:"⌂",tests:"✓",rocky:"✦",books:"▤",videos:"▷",task
 const main = document.getElementById("main");
 const nav = document.getElementById("nav");
 let state = load(), route = "home", quiz, result, bookSelection, player;
-let assistantAvailable = false, assistantBusy = false, storageWorks = true;
+let assistantAvailable = false, assistantChat = false, assistantBusy = false, storageWorks = true;
 const chat = [];
+const rockyActions = new Set(["home","tests","books","videos","tasks","profile","lesson","resume","model","bookmark"]);
 let viewerRequested=false;
 const mascots=new Map();
 const configuredApi = document.querySelector('meta[name="rockigo-api"]')?.content?.trim();
@@ -242,16 +243,18 @@ function progress() {
     div("actions",btn(t("tests"),()=>navigate("tests"),"soft")));
   return panel;
 }
+function continueLearning() {
+  const current=levels[levelIndex()];
+  if (state.resume && canUse(state.resume.kind,state.resume.index)) startQuiz(state.resume.kind,state.resume.index);
+  else navigate(state.practice[current.id]?.passed?"tests":"tasks");
+}
 function home() {
   const current=levels[levelIndex()];
   const terrain=div("terrain",Array.from({length:4},()=>txt("i")));
   terrain.setAttribute("aria-hidden","true");
   const hero=div("hero",div("hero-copy",txt("span",t("level",{n:levelIndex()+1})+" · "+t("xp",{n:earned()}),"pill"),
     txt("h1",t("hello",{name:state.name})),txt("p",t("mainText")),
-    div("actions",btn(t("continue"),()=>{
-      if (state.resume && canUse(state.resume.kind,state.resume.index)) startQuiz(state.resume.kind,state.resume.index);
-      else navigate(state.practice[current.id]?.passed?"tests":"tasks");
-    },"positive"))),assets?.model?mascot("home"):terrain);
+    div("actions",btn(t("continue"),continueLearning,"positive"))),assets?.model?mascot("home"):terrain);
   return [hero,div("grid card-block",progress(),div("card",txt("h2",t("active")),txt("p",current.title),
     div("actions",btn(t("read"),()=>navigate("books",unitMap.has(current.id)?current.id:units[0].id),"soft"),btn(t("askHint"),()=>{navigate("rocky");sendChat(t("askHint"));}))))];
 }
@@ -314,6 +317,7 @@ function bookFact(unit, fact, index) {
       }
       if (open && !panel.firstChild) panel.append(renderContent());
     }, "soft");
+    button.id = panel.id + "-button";
     button.setAttribute("aria-controls", panel.id);
     button.setAttribute("aria-expanded", "false");
     controls.push({button, panel});
@@ -532,63 +536,138 @@ function timerText(ending) {
 }
 
 function localIntent(input) {
-  const s=input.toLowerCase();
-  if(/заклад|bookmark|бетбел/.test(s))return "bookmark";
-  if(/(открой|перейди|покажи|open|go to|аш|көрсет).*(тест|test)/.test(s))return "tests";
-  if(/(открой|перейди|покажи|open|go to|аш|көрсет).*(книг|book|кітап)/.test(s))return "books";
-  if(/(открой|перейди|покажи|open|go to|аш|көрсет).*(видео|video|бейне)/.test(s))return "videos";
-  if(/(открой|перейди|покажи|open|go to|аш|көрсет).*(урок|lesson|сабақ)/.test(s))return "lesson";
-  if(/(открой|перейди|покажи|open|go to|аш|көрсет).*(задани|practice|тапсыр)/.test(s))return "tasks";
-  if(/(опыт|тәжірибе|ұпай|\bxp\b)/.test(s))return "xp";
-  if(/тест|test|70%|таймер|retry/.test(s))return "testHelp";
-  return "hint";
+  const s=input.toLowerCase().replaceAll("ё","е").replaceAll("’","'");
+  if(/(?:^|\s)(?:не|don't|do not)\s+(?:откр|показ|постав|сохраня|сохрани|продолж|перей|open|show|go|add|save|continue)|ашпа|көрсетпе|қойма|жалғастырма|өтпе/.test(s))return "decline";
+  if(/(?:удал|сними|убери|remove|delete|алып таста).*(?:заклад|bookmark|бетбел)|(?:бетбел).*(?:өшір|жой|алып таста)/.test(s))return "decline";
+  if(/(?:где|қай жерде).*остано|(?:где|куда).*(?:тест|урок|задани)|where (?:are|is|can i find|do i find)|қайда/.test(s)
+    || /откро[йе]|открыть|перей[дт]|покаж|показать|\bopen\b|\bshow\b|go to|take me to|(?:^|\s)аш(?:[ығ]\p{L}*)?(?=$|[^\p{L}])|көрсет|(?:^|\s)өт(?=$|[^\p{L}])|қайда/.test(s)){
+    if(/где.*останов|where (?:i|we) left off|тоқтаған/.test(s))return "resume";
+    if(/3\s*[dд]|трехмер|three.dimensi|үш өлшем/.test(s))return "model";
+    if(/тест|\btests?\b/.test(s))return "tests";
+    if(/книг|кітап|\bbooks?\b/.test(s))return "books";
+    if(/видео|бейне|\bvideos?\b/.test(s))return "videos";
+    if(/урок|сабақ|сабағ|\blessons?\b/.test(s))return "lesson";
+    if(/задани|практик|тапсыр|жаттығ|\bpractice\b|\btasks?\b/.test(s))return "tasks";
+    if(/профил|бейін|\bprofile\b/.test(s))return "profile";
+    if(/главн|басты бет|\bhome\b/.test(s))return "home";
+  }
+  if(/продолж[иа]|верни меня.*останов|pick up where|\bresume (?:my|the|learning)\b|^resume[!?.\s]*$|continue (?:learning|my|the)|жалғастыр|тоқтаған\s+жер.*апар/.test(s))return "resume";
+  if(/заклад|bookmark|бетбел/.test(s)&&/постав|добав|сохран|\badd\b|\bsave\b|\bbookmark (?:this|the|my)\b|қой|қос|сақта/.test(s))return "bookmark";
+  if(/как (?:получ|заработ|набрат).*опыт|\b(?:earn|get|gain) xp\b|ұпайды қалай/.test(s))return "xp";
+  if(/как (?:сдать|пересдать).*тест|how (?:do i|to).*(?:pass|retry).*test|тест.*қалай тап|пересдач/.test(s))return "testHelp";
+  if(/^(?:подскажи по теме|дай подсказку|тақырып бойынша көмек|give me a lesson hint)[!?.\s]*$/.test(s))return "hint";
+  if(/^(?:привет|сәлем|салем|hello|hi|hey)[!?.\s]*$/.test(s))return "hello";
+  if(/^(?:спасибо(?:,? роки)?|рақмет|рахмет|thanks?(?: you)?)[!?.\s]*$/.test(s))return "thanks";
+  return "free";
 }
-async function sendChat(value) {
+function rockyEvidence(message, current, scenesOnly=false) {
+  const tokenize=text=>text.toLowerCase().replaceAll("ё","е").match(/\p{L}+/gu)??[];
+  const generic=/^(?:покаж|показ|прост|слов|пример|модел|вообщ|көрсе|мысал|түсін|please|expla|show|examp|could|would|learn|about|today)/;
+  const tokens=[...new Set(tokenize(message).filter(word=>word.length>=4&&!generic.test(word)).map(word=>word.slice(0,5)))];
+  let best=null;
+  for(const unit of units) for(const [index,fact] of unit.facts.entries()){
+    if(scenesOnly&&!fact.scene)continue;
+    const hits=words=>tokens.filter(token=>words.some(word=>word.startsWith(token))).length;
+    const title=hits(tokenize(local(fact.term)));
+    const text=hits(tokenize(local(fact.explanation)));
+    if(title===0&&text<2)continue;
+    const score=title*5+text+(unit===current?0.5:0);
+    if(!best||score>best.score)best={unit,fact,index,score};
+  }
+  return best;
+}
+function rockyDefinition(message) {
+  const s=message.trim().toLowerCase();
+  if(!/^(?:(?:что такое|объясни) )?пористость[?!.\s]*$|^кеуектілік(?: деген не)?[?!.\s]*$|^(?:what is )?porosity[?!.\s]*$/.test(s))return null;
+  return {unit:unitMap.get("saturation"),fact:{page:97,plain:[
+    "Пористость показывает, какая доля объёма породы приходится на пустоты. Пустоты могут быть заполнены водой, нефтью или газом.",
+    "Кеуектілік жыныс көлемінің қандай үлесін қуыстар алатынын көрсетеді. Қуыстарда су, мұнай немесе газ болуы мүмкін.",
+    "Porosity is the fraction of a rock’s volume made up of pores. Those spaces can hold water, oil, or gas."
+  ]}};
+}
+function runRockyAction(action, unit, message) {
+  if(action==="bookmark"){bookmark(unit.id);return t("bookmarked");}
+  if(action==="resume"){continueLearning();return t("moved");}
+  if(action==="model"){
+    const matching=rockyEvidence(message,unit,true);
+    const index=matching?.index??unit.facts.findIndex(item=>item.scene);
+    if(index<0)return t("rockyNoModel");
+    const section=matching?.unit??unit;
+    navigate("books",section.id);
+    const button=document.getElementById("book-fact-"+section.id+"-"+index+"-scene-button");
+    button?.click();
+    button?.focus();
+    return t("moved");
+  }
+  navigate(action==="lesson"?"books":action,action==="lesson"?unit.id:null);
+  return t("moved");
+}
+async function sendChat(value, shortcut) {
   const message=String(value??"").trim().slice(0,500);
   if(!message||assistantBusy)return;
+  const history=chat.filter(record=>record.conversation).slice(-4).map(record=>({
+    role:record.who==="me"?"user":"assistant",content:record.text.slice(0,115)
+  }));
   chat.push({who:"me",text:message}); assistantBusy=true;render();
-  const intent=localIntent(message);
-  let factIndex=0, usedModel=false;
+  const intent=shortcut??localIntent(message);
   const unit=units[Math.min(levelIndex(),units.length-1)];
-  if(intent==="hint"){
-    const tokens=message.toLowerCase().split(/[^\p{L}]+/u).filter(word=>word.length>=5).map(word=>word.slice(0,6));
-    const scores=unit.facts.map(f=>{
-      const term=local(f.term).toLowerCase();
-      const wording=local(f.explanation).toLowerCase();
-      return tokens.reduce((score,w)=>score+(term.includes(w)?2:wording.includes(w)?1:0),0);
-    });
-    const best=Math.max(...scores);
-    factIndex=scores.indexOf(best);
-    if(assistantAvailable){
-      try{
-        const response=await askServer("/rocky",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message,lang:state.lang,unit:unit.id})});
-        const ai=await response.json();
-        if(!response.ok)throw new Error();
-        if(Number.isInteger(ai.fact)&&unit.facts[ai.fact]&&scores[ai.fact]>=best-1){
-          factIndex=ai.fact;
-          usedModel=true;
-        }
-      }catch(_){notify(t("aiFallback"));}
-    }
+  const matching=intent==="free"?(rockyDefinition(message)??rockyEvidence(message,unit)):null;
+  const evidence=intent==="hint"?{unit,fact:unit.facts[0]}:matching;
+  const preset={hello:"rockyHi",thanks:"rockyThanks",xp:"helpXP",testHelp:"helpTest",decline:"rockyNoAction"};
+  let reply=t("rockyOfflineChat"), action=rockyActions.has(intent)?intent:null, suggestion=null, conversation=false;
+  let link;
+  if(evidence){
+    reply=local(evidence.fact.plain??evidence.fact.explanation);
+    link={id:evidence.unit.id,page:evidence.fact.page};
+  }else if(Object.hasOwn(preset,intent)){
+    reply=t(preset[intent]);
+  }else if(intent==="free"&&/геолог|порист|проницаем|каротаж|скважин|коллектор|риф|пластов|фаци|кеуек|өткізгіш|ұңғым|poros|permeab|geolog|well\s*log|reservoir|reef|facies/.test(message.toLowerCase())){
+    reply=t("rockyNoSource");
+  }else if(intent==="free"&&assistantChat){
+    try{
+      const response=await askServer("/rocky/chat",{method:"POST",headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({message,lang:state.lang,history}),signal:AbortSignal.timeout(85000)});
+      if(!response.ok)throw new Error();
+      const ai=await response.json();
+      if(ai.action==="study"){
+        reply=t("rockyNoSource");
+      }else if(rockyActions.has(ai.action)){
+        suggestion=ai.action;
+        reply=t("moved");
+      }else if(ai.action==="none"&&typeof ai.reply==="string"&&ai.reply.trim()){
+        reply=ai.reply.trim().slice(0,600);
+        conversation=true;
+        chat.at(-1).conversation=true;
+      }else{
+        reply=t("rockyAIUnavailable");
+      }
+    }catch(_){reply=t("rockyAIUnavailable");}
   }
-  let reply=intent==="xp"?t("helpXP"):intent==="testHelp"?t("helpTest"):t("moved");
-  if(intent==="hint")reply=local(unit.facts[factIndex].explanation)+" · "+t("pdf")+" "+unit.facts[factIndex].page;
-  if(intent==="bookmark"){bookmark(unit.id);reply=t("bookmarked");}
-  const destination=["tests","books","videos","tasks"].includes(intent)?intent:intent==="lesson"?"books":null;
-  chat.push({who:"rocky",text:reply,usedModel,link:intent==="hint"?{id:unit.id,page:unit.facts[factIndex].page}:null});
   assistantBusy=false;
-  if(route==="rocky"&&destination) navigate(destination,intent==="lesson"?unit.id:null);
-  else if(route==="rocky"){
+  if(action&&route==="rocky")reply=runRockyAction(action,unit,message);
+  chat.push({who:"rocky",text:reply,conversation,link,suggestion,unit:unit.id,message});
+  if(route==="rocky"){
     render();
     const entry=mascots.get("rocky");
-    if(entry&&intent==="hint")playRocky(entry,"Celebrate",true);
+    if(entry&&evidence)playRocky(entry,"Celebrate",true);
   }
+}
+function rockySuggestion(record) {
+  const labels={lesson:"askNext",resume:"continue",model:"example3D",bookmark:"askBookmark"};
+  const action=record.suggestion;
+  const label=labels[action]?t(labels[action]):t("rockyOpen",{section:t(action)});
+  return btn(label,()=>{
+    record.suggestion=null;
+    record.text=runRockyAction(action,unitMap.get(record.unit),record.message);
+    if(route==="rocky")render();
+  },"soft");
 }
 function rocky() {
   const log=div("chat-log",div("bubble",txt("strong",t("rocky")),txt("p",t("rockyIntro"))),...chat.map(record=>
     div("bubble "+(record.who==="me"?"me":""),txt("span",record.text),
-      record.usedModel?txt("p","Qwen · "+t("source"),"hint"):[],
-      record.link?div("actions",bookLink(unitMap.get(record.link.id),record.link.page)):[])));
+      record.conversation&&record.who==="rocky"?txt("p","Qwen","hint"):[],
+      record.link?div("actions",bookLink(unitMap.get(record.link.id),record.link.page)):[],
+      record.suggestion?div("actions",rockySuggestion(record)):[])));
   log.setAttribute("role","log");
   if(assistantBusy)log.append(div("bubble",txt("span",t("thinking"))));
   requestAnimationFrame(()=>{log.scrollTop=log.scrollHeight;});
@@ -598,11 +677,11 @@ function rocky() {
   const submit=txt("button",t("send"),"btn primary");submit.type="submit";submit.disabled=assistantBusy;
   form.append(input,submit);
   form.addEventListener("submit",event=>{event.preventDefault();sendChat(input.value);});
-  const commands=["askHint","askXP","askNext","askTests","askBookmark"];
-  const mode=assistantAvailable?(remoteApi?"rockyServer":"rockyAI"):"rockyLocal";
+  const commands={askHint:"hint",askXP:"xp",askNext:"lesson",askTests:"tests",askBookmark:"bookmark",continue:"resume"};
+  const mode=assistantChat?(remoteApi?"rockyServer":"rockyAI"):assistantAvailable?"rockyLegacy":"rockyLocal";
   const intro=assets?.model?div("rocky-banner",heading("rocky","rockyText"),mascot("rocky")):heading("rocky","rockyText");
   return [intro,div("card chat",txt("p",t(mode),"hint"),log,
-    div("actions",commands.map(key=>btn(t(key),()=>sendChat(t(key)),"soft",assistantBusy))),form)];
+    div("actions",Object.entries(commands).map(([key,intent])=>btn(t(key),()=>sendChat(t(key),intent),"soft",assistantBusy))),form)];
 }
 
 function render(draft) {
@@ -635,7 +714,9 @@ setInterval(()=>{
 },1000);
 if(remoteApi||location.protocol==="http:"||location.protocol==="https:"){
   askServer("/capabilities").then(r=>r.ok?r.json():null).then(features=>{
-    assistantAvailable=!!features?.rocky;if(route==="rocky")render();
+    assistantAvailable=!!features?.rocky;
+    assistantChat=assistantAvailable&&features?.chat===true;
+    if(route==="rocky")render();
   }).catch(()=>{});
 }
 render();
