@@ -202,8 +202,9 @@ function bookMesh() {
 
 function logX(track,y) {
   const base = track===0 ? 0.68 : 1.87;
-  const clayResponse = 0.15*Math.tanh(14*(y+.31)) - 0.14*Math.tanh(14*(y-.21));
-  return base + (track===0 ? -clayResponse : clayResponse*.87)
+  // Table 21 gives relatively high SP and gamma readings for clay under the stated conditions.
+  const clayResponse = 0.15*Math.tanh(19*(y+.20)) - 0.15*Math.tanh(19*(y-.22));
+  return base + (track===0 ? clayResponse : clayResponse*.78)
     + .049*Math.sin(y*13+track*2)+.022*Math.cos(y*31+track);
 }
 
