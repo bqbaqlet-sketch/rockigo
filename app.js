@@ -10,7 +10,8 @@ const routes = chapter?{chapter:"▤",profile:"◉"}:{home:"⌂",course:"▥",te
 const main = document.getElementById("main");
 const nav = document.getElementById("nav");
 if(chapter)nav.classList.add("chapter-nav");
-let state = load(), route = chapter?"chapter":location.hash==="#project"?"project":"home", quiz, result, bookSelection, player;
+const landingRoute = location.hash.slice(1);
+let state = load(), route = chapter?"chapter":["project","rocky"].includes(landingRoute)?landingRoute:"home", quiz, result, bookSelection, player;
 let assistantAvailable = false, assistantChat = false, assistantBusy = false, storageWorks = true;
 let assistantModel = "Qwen 2.5";
 const chat = [];
@@ -20,6 +21,8 @@ let currentMascot;
 let testMapObserver;
 const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
 const configuredApi = document.querySelector('meta[name="rockigo-api"]')?.content?.trim();
+const browserRocky = data.browserAI && window.isSecureContext ? createBrowserRocky(data.browserAI):null;
+let browserLoading = false;
 let remoteApi = null;
 try {
   const url = new URL(configuredApi);
@@ -34,6 +37,21 @@ function askServer(path, options = {}) {
     credentials: remoteApi ? "omit" : "same-origin",
     redirect: "error"
   });
+}
+
+async function activateBrowserRocky() {
+  if(!browserRocky||browserLoading||browserRocky.ready)return;
+  browserLoading=true;render();
+  try{
+    await browserRocky.load(({loaded,total})=>{
+      const status=document.querySelector(".chat-status");
+      if(status&&total>0)status.textContent=t("rockyLoadingProgress",{n:Math.min(100,Math.floor(100*loaded/total))});
+    });
+    assistantModel=browserRocky.model;
+  }catch(error){
+    console.warn("Rocky browser model:",error);
+    notify(t("rockyBrowserUnavailable"));
+  }finally{browserLoading=false;render();}
 }
 
 function load() {
@@ -737,6 +755,13 @@ function rockyEvidence(message, current, scenesOnly=false) {
 }
 function rockyDefinition(message) {
   const s=message.trim().toLowerCase();
+  if(/пористост/.test(s)&&/проницаемост/.test(s)||/кеуектілік/.test(s)&&/өткізгіштік/.test(s)||/porosity/.test(s)&&/permeability/.test(s)){
+    return {unit:unitMap.get("pores"),fact:{page:205,plain:[
+      "Пористость показывает, какую долю объёма породы занимают пустоты. Проницаемость показывает, насколько легко жидкость проходит через связанные поры. Даже при одинаковой пористости две породы могут пропускать жидкость с разной скоростью.",
+      "Кеуектілік тау жынысы көлемінің қандай үлесін қуыстар алып жатқанын көрсетеді. Өткізгіштік сұйықтықтың байланысқан қуыстар арқылы қаншалықты оңай өтетінін сипаттайды.",
+      "Porosity is the fraction of rock volume occupied by pores. Permeability describes how easily fluid flows through connected pores. Rocks with equal porosity can have different permeability."
+    ]}};
+  }
   if(!/^(?:(?:что такое|объясни) )?пористость[?!.\s]*$|^кеуектілік(?: деген не)?[?!.\s]*$|^(?:what is )?porosity[?!.\s]*$/.test(s))return null;
   return {unit:unitMap.get("saturation"),fact:{page:97,plain:[
     "Пористость показывает, какая доля объёма породы приходится на пустоты. Пустоты могут быть заполнены водой, нефтью или газом.",
@@ -782,12 +807,17 @@ async function sendChat(value, shortcut) {
     reply=t(preset[intent]);
   }else if(intent==="free"&&/геолог|порист|проницаем|каротаж|скважин|коллектор|риф|пластов|фаци|кеуек|өткізгіш|ұңғым|poros|permeab|geolog|well\s*log|reservoir|reef|facies/.test(message.toLowerCase())){
     reply=t("rockyNoSource");
-  }else if(intent==="free"&&assistantChat){
+  }else if(intent==="free"&&(assistantChat||browserRocky?.ready)){
     try{
-      const response=await askServer("/rocky/chat",{method:"POST",headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({message,lang:state.lang,history}),signal:AbortSignal.timeout(85000)});
-      if(!response.ok)throw new Error();
-      const ai=await response.json();
+      let ai;
+      if(browserRocky?.ready){
+        ai=await browserRocky.reply(message,state.lang,history);
+      }else{
+        const response=await askServer("/rocky/chat",{method:"POST",headers:{"Content-Type":"application/json"},
+          body:JSON.stringify({message,lang:state.lang,history}),signal:AbortSignal.timeout(85000)});
+        if(!response.ok)throw new Error();
+        ai=await response.json();
+      }
       if(ai.action==="study"){
         reply=t("rockyNoSource");
       }else if(rockyActions.has(ai.action)){
@@ -801,6 +831,8 @@ async function sendChat(value, shortcut) {
         reply=t("rockyAIUnavailable");
       }
     }catch(_){reply=t("rockyAIUnavailable");}
+  }else if(intent==="free"&&browserRocky){
+    reply=t("rockyBrowserPrompt");
   }
   assistantBusy=false;
   if(action&&route==="rocky")reply=runRockyAction(action,unit,message);
@@ -836,16 +868,20 @@ function rocky() {
   form.append(input,submit);
   form.addEventListener("submit",event=>{event.preventDefault();sendChat(input.value);});
   const commands={askHint:"hint",askXP:"xp",askNext:"lesson",askTests:"tests",askBookmark:"bookmark",continue:"resume"};
-  const mode=assistantChat?(remoteApi?"rockyServer":"rockyAI"):assistantAvailable?"rockyLegacy":"rockyLocal";
+  const mode=browserRocky?.ready?"rockyBrowserReady":assistantChat?(remoteApi?"rockyServer":"rockyAI"):
+    browserLoading?"rockyLoading":browserRocky?"rockyBrowserPrompt":assistantAvailable?"rockyLegacy":"rockyLocal";
   const intro=assets?.model?div("rocky-banner",heading("rocky","rockyText"),mascot("rocky")):heading("rocky","rockyText");
   const status=txt("p",t(mode),"hint chat-status");
-  status.classList.toggle("is-connected",assistantChat);
-  return [intro,div("card chat",status,log,form,
+  status.classList.toggle("is-connected",assistantChat||!!browserRocky?.ready);
+  status.setAttribute("aria-live","polite");
+  const activate=browserRocky&&!browserRocky.ready&&!assistantChat?
+    div("actions",btn(t("rockyEnableAI"),activateBrowserRocky,"primary",browserLoading)):null;
+  return [intro,div("card chat",status,activate??[],log,form,
     div("actions chat-commands",Object.entries(commands).map(([key,intent])=>btn(t(key),()=>sendChat(t(key),intent),"soft",assistantBusy))))];
 }
 
 function updateMode() {
-  document.getElementById("top-right").replaceChildren(txt("span","КазМунайГаз","camp"),txt("span",t(assistantChat?"online":"offline"),"pill"));
+  document.getElementById("top-right").replaceChildren(txt("span","КазМунайГаз","camp"),txt("span",t(browserRocky?.ready?"rockyBrowserBadge":assistantChat?"online":"offline"),"pill"));
 }
 
 function render(draft) {
@@ -879,11 +915,11 @@ setInterval(()=>{
     timer.textContent=t("wait",{time:timeText(ending)});
   }
 },1000);
-if(remoteApi||location.protocol==="http:"||location.protocol==="https:"){
-  askServer("/capabilities").then(r=>r.ok?r.json():null).then(features=>{
+if(remoteApi||(!data.browserAI&&(location.protocol==="http:"||location.protocol==="https:"))){
+  askServer("/capabilities",{signal:AbortSignal.timeout(8000)}).then(r=>r.ok?r.json():null).then(features=>{
     assistantAvailable=!!features?.rocky;
     assistantChat=assistantAvailable&&features?.chat===true;
-    if(typeof features?.model==="string"&&features.model.length<=80)assistantModel=features.model;
+    if(!browserRocky?.ready&&typeof features?.model==="string"&&features.model.length<=80)assistantModel=features.model;
     if(route==="rocky")render();
     else updateMode();
   }).catch(()=>{});

@@ -6,8 +6,8 @@ import { ui } from "./ui.mjs";
 import { books, units, levels, xpReward, videos } from "./lessons.mjs";
 import { modules } from "./curriculum.mjs";
 
-const files = ["template.html","style.css","brand.css","tests.css","app.js","book-models.js","test-map-art.js","course.css","course-ui.js"];
-const [template, style, brand, tests, script, bookModels, mapArt, courseStyle, courseScript] = await Promise.all(files.map(file => readFile(new URL(file,import.meta.url),"utf8")));
+const files = ["template.html","style.css","brand.css","tests.css","app.js","book-models.js","test-map-art.js","course.css","course-ui.js","browser-ai.js"];
+const [template, style, brand, tests, script, bookModels, mapArt, courseStyle, courseScript, browserScript] = await Promise.all(files.map(file => readFile(new URL(file,import.meta.url),"utf8")));
 const questions = units.flatMap(unit => unit.questions);
 assert.equal(new Set(questions.map(q=>q.id)).size,questions.length);
 assert.deepEqual(levels.map(l=>l.threshold),xpReward.map((_,index)=>xpReward.slice(0,index).reduce((sum,points)=>sum+points,0)));
@@ -68,8 +68,13 @@ if(publicPage)await copyFile(new URL("assets/LICENSE-model-viewer.txt",import.me
 const publicBooks=Object.fromEntries(Object.entries(books).map(([key,{id,...book}])=>[key,book]));
 if(publicPage)assert.ok(Object.values(publicBooks).every(book=>new URL(book.url).hostname!=="drive.google.com"),
   "Competition files must stay out of the public build.");
+const browserAI=publicPage?{
+  runtime:"https://cdn.jsdelivr.net/npm/@wllama/wllama@4.0.0/esm",
+  weights:"https://huggingface.co/ggml-org/Qwen3.5-0.8B-GGUF/resolve/004fd086eccea9f7cf867aa07ba328773beef81d/Qwen3.5-0.8B-Q4_0.gguf",
+  model:"Qwen3.5-0.8B"
+}:null;
 const model = JSON.stringify({ui,assets,books:publicPage?publicBooks:books,units,levels,xpReward,modules,...(chapter?{chapter}:{}),
-  videos:publicPage?Array(videos.length).fill(null):videos}).replaceAll("<","\\u003c");
+  ...(browserAI?{browserAI}:{}),videos:publicPage?Array(videos.length).fill(null):videos}).replaceAll("<","\\u003c");
 const api=chapter?null:process.env.ROCKIGO_API_URL?.trim();
 let apiMeta="";
 if(api){
@@ -79,7 +84,7 @@ if(api){
 }
 const html=template.replace("/* ROCKIGO_STYLE */",()=>[style,brand,tests,courseStyle,chapterStyle].filter(Boolean).join("\n"))
   .replace('name="rockigo-api" content=""',()=>`name="rockigo-api" content="${apiMeta}"`)
-  .replace("/* ROCKIGO_DATA */",()=>model).replace("/* ROCKIGO_UI */",()=>[chapterScript,courseScript,script,bookModels,mapArt].filter(Boolean).join("\n"));
+  .replace("/* ROCKIGO_DATA */",()=>model).replace("/* ROCKIGO_UI */",()=>[chapterScript,courseScript,publicPage&&browserScript,script,bookModels,mapArt].filter(Boolean).join("\n"));
 if(chapter)assert.ok(Buffer.byteLength(html,"utf8")<=30_000_000,"Offline course exceeds the 30 MB chapter budget.");
 await mkdir(dirname(output),{recursive:true});
 await writeFile(output,html,"utf8");
