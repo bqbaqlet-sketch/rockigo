@@ -30,6 +30,7 @@ try {
     remoteApi = url.href.replace(/\/$/, "");
   }
 } catch (_) {}
+let checkingRemoteApi=!!remoteApi;
 
 function askServer(path, options = {}) {
   return fetch((remoteApi ?? "") + path, {
@@ -815,15 +816,16 @@ async function sendChat(value, shortcut) {
       }else{
         const response=await askServer("/rocky/chat",{method:"POST",headers:{"Content-Type":"application/json"},
           body:JSON.stringify({message,lang:state.lang,history}),signal:AbortSignal.timeout(85000)});
-        if(!response.ok)throw new Error();
-        ai=await response.json();
+        ai=response.status===429?{action:"limit"}:response.ok?await response.json():null;
       }
-      if(ai.action==="study"){
+      if(ai?.action==="limit"){
+        reply=t("rockyRateLimited");
+      }else if(ai?.action==="study"){
         reply=t("rockyNoSource");
-      }else if(rockyActions.has(ai.action)){
+      }else if(rockyActions.has(ai?.action)){
         suggestion=ai.action;
         reply=t("rockyConfirm");
-      }else if(ai.action==="none"&&typeof ai.reply==="string"&&ai.reply.trim()){
+      }else if(ai?.action==="none"&&typeof ai.reply==="string"&&ai.reply.trim()){
         reply=ai.reply.trim().slice(0,600);
         conversation=true;
         chat.at(-1).conversation=true;
@@ -832,7 +834,7 @@ async function sendChat(value, shortcut) {
       }
     }catch(_){reply=t("rockyAIUnavailable");}
   }else if(intent==="free"&&browserRocky){
-    reply=t("rockyBrowserPrompt");
+    reply=t(checkingRemoteApi?"rockyConnecting":"rockyBrowserPrompt");
   }
   assistantBusy=false;
   if(action&&route==="rocky")reply=runRockyAction(action,unit,message);
@@ -868,13 +870,13 @@ function rocky() {
   form.append(input,submit);
   form.addEventListener("submit",event=>{event.preventDefault();sendChat(input.value);});
   const commands={askHint:"hint",askXP:"xp",askNext:"lesson",askTests:"tests",askBookmark:"bookmark",continue:"resume"};
-  const mode=browserRocky?.ready?"rockyBrowserReady":assistantChat?(remoteApi?"rockyServer":"rockyAI"):
+  const mode=browserRocky?.ready?"rockyBrowserReady":assistantChat?(remoteApi?"rockyServer":"rockyAI"):checkingRemoteApi?"rockyConnecting":
     browserLoading?"rockyLoading":browserRocky?"rockyBrowserPrompt":assistantAvailable?"rockyLegacy":"rockyLocal";
   const intro=assets?.model?div("rocky-banner",heading("rocky","rockyText"),mascot("rocky")):heading("rocky","rockyText");
   const status=txt("p",t(mode),"hint chat-status");
   status.classList.toggle("is-connected",assistantChat||!!browserRocky?.ready);
   status.setAttribute("aria-live","polite");
-  const activate=browserRocky&&!browserRocky.ready&&!assistantChat?
+  const activate=browserRocky&&!browserRocky.ready&&!assistantChat&&!checkingRemoteApi?
     div("actions",btn(t("rockyEnableAI"),activateBrowserRocky,"primary",browserLoading)):null;
   return [intro,div("card chat",status,activate??[],log,form,
     div("actions chat-commands",Object.entries(commands).map(([key,intent])=>btn(t(key),()=>sendChat(t(key),intent),"soft",assistantBusy))))];
@@ -920,8 +922,10 @@ if(remoteApi||(!data.browserAI&&(location.protocol==="http:"||location.protocol=
     assistantAvailable=!!features?.rocky;
     assistantChat=assistantAvailable&&features?.chat===true;
     if(!browserRocky?.ready&&typeof features?.model==="string"&&features.model.length<=80)assistantModel=features.model;
-    if(route==="rocky")render();
+  }).catch(()=>{}).finally(()=>{
+    checkingRemoteApi=false;
+    if(route==="rocky"&&state.name)render();
     else updateMode();
-  }).catch(()=>{});
+  });
 }
 render();

@@ -1,0 +1,18 @@
+{
+  "name": "rockigo-chat",
+  "main": "rocky-worker.mjs",
+  "compatibility_date": "2026-11-25",
+  "workers_dev": true,
+  "preview_urls": false,
+  "ai": { "binding": "AI" },
+  "vars": {
+    "ROCKIGO_SITE_ORIGIN": "https://bqbaqlet-sketch.github.io",
+    "ROCKIGO_MODEL": "@cf/qwen/qwen3.8-27b",
+    "ROCKIGO_MODEL_LABEL": "Qwen 3.8 27B"
+  },
+  "ratelimits": [{
+    "name": "CHAT_LIMIT",
+    "namespace_id": "877601",
+    "simple": { "limit": 6, "period": 60 }
+  }]
+}

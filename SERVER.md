@@ -17,6 +17,18 @@ node --experimental-wasm-jspi server.mjs --local-ai
 
 В сборке `--public` Роки может работать прямо в браузере. Кнопка «Включить ИИ Роки» загружает Qwen 3.5 0.8B (563 МБ) и среду Wllama. Запросы к модели обрабатываются на устройстве. Лучше использовать свежий Chrome или Edge.
 
+### Cloudflare Workers AI
+
+Worker из `cloudflare/` обрабатывает свободный диалог через Qwen 3.8 27B. `AI` — привязка Workers AI, поэтому ключ модели в браузере не нужен. Сайт передаёт текст сообщения, язык и до четырёх коротких реплик. Команды и ответы по материалам курса выполняются в браузере.
+
+Из корня репозитория после входа в Cloudflare:
+
+```sh
+npx wrangler deploy --config cloudflare/wrangler.jsonc
+```
+
+Укажите выданный HTTPS-адрес `workers.dev` в `ROCKIGO_API_URL` при сборке `node build.mjs index.html --public`. Worker принимает только настроенный origin GitHub Pages и ограничивает число запросов. Для бесплатной работы используйте тариф Workers Free. [Лимиты Workers AI](https://developers.cloudflare.com/workers-ai/platform/pricing/).
+
 ### Отдельный сервер для GitHub Pages
 
 1. Запустите API из корня репозитория. Задайте `ROCKIGO_SITE_ORIGIN` равным адресу GitHub Pages без пути к репозиторию, например `https://my-team.github.io`.
