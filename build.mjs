@@ -5,12 +5,15 @@ import assert from "node:assert/strict";
 import { ui } from "./ui.mjs";
 import { books, units, levels, xpReward, videos } from "./lessons.mjs";
 
-const files = ["template.html","style.css","brand.css","app.js"];
-const [template, style, brand, script] = await Promise.all(files.map(file => readFile(new URL(file,import.meta.url),"utf8")));
+const files = ["template.html","style.css","brand.css","app.js","book-models.js"];
+const [template, style, brand, script, bookModels] = await Promise.all(files.map(file => readFile(new URL(file,import.meta.url),"utf8")));
 const questions = units.flatMap(unit => unit.questions);
 assert.equal(new Set(questions.map(q=>q.id)).size,questions.length);
 assert.deepEqual(levels.map(l=>l.threshold),[0,4,8,16,32,64,128]);
 assert.equal(videos.length,7);
+for (const {facts} of units) for (const fact of facts) {
+  assert.ok(fact.plain?.length === 3 && fact.plain.every(Boolean), `Missing simple explanation for PDF page ${fact.page}`);
+}
 for (const [id, book] of Object.entries(books)) {
   const bank=questions.filter(q=>units.find(u=>u.id===q.unit).book===id);
   const [first,last]=book.range.split("–").map(Number);
@@ -56,6 +59,6 @@ if(api){
 }
 const html=template.replace("/* ROCKIGO_STYLE */",()=>style+"\n"+brand)
   .replace('name="rockigo-api" content=""',()=>`name="rockigo-api" content="${apiMeta}"`)
-  .replace("/* ROCKIGO_DATA */",()=>model).replace("/* ROCKIGO_UI */",()=>script);
+  .replace("/* ROCKIGO_DATA */",()=>model).replace("/* ROCKIGO_UI */",()=>script+"\n"+bookModels);
 await writeFile(output,html,"utf8");
 console.log(`RockiGo: ${questions.length} items, ${Object.keys(books).length} books, ${levels.length} levels.`);

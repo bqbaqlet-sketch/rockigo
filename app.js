@@ -295,6 +295,36 @@ function bookLink(unit,page) {
   link.target="_blank";link.rel="noopener noreferrer";
   return link;
 }
+function bookFact(unit, fact, index) {
+  const id = "book-fact-" + unit.id + "-" + index;
+  const actions = div("book-fact-actions", bookLink(unit, fact.page));
+  const content = div("book-fact-content");
+  const controls = [];
+
+  function disclosure(key, name, renderContent) {
+    const panel = div("book-fact-panel");
+    panel.id = id + "-" + name;
+    panel.hidden = true;
+    const button = btn(t(key), () => {
+      const open = panel.hidden;
+      for (const item of controls) {
+        const active = open && item.panel === panel;
+        item.panel.hidden = !active;
+        item.button.setAttribute("aria-expanded", String(active));
+      }
+      if (open && !panel.firstChild) panel.append(renderContent());
+    }, "soft");
+    button.setAttribute("aria-controls", panel.id);
+    button.setAttribute("aria-expanded", "false");
+    controls.push({button, panel});
+    actions.append(button);
+    content.append(panel);
+  }
+
+  disclosure("plainWords", "plain", () => txt("p", fact.plain));
+  if (fact.scene) disclosure("example3D", "scene", () => bookModel(fact));
+  return div("read-fact", txt("p", fact.explanation), actions, content);
+}
 function bookView() {
   const content = Object.entries(books).map(([id,book])=>div("card read",txt("h2",book.title),
     txt("p",book.author+" · PDF "+book.range,"muted"),...units.filter(unit=>unit.book===id).map(unit=>{
@@ -303,7 +333,7 @@ function bookView() {
       const summary=txt("summary",unit.title);
       const attempt=state.tests[unit.id];
       if(attempt) summary.append(txt("small"," · "+status(attempt.score)+" ("+attempt.score+"%)","book-note "+(attempt.passed?"good":"bad")));
-      detail.append(summary,...unit.facts.map(f=>div("read-fact",txt("p",f.explanation),bookLink(unit,f.page))),
+      detail.append(summary,...unit.facts.map((fact,index)=>bookFact(unit,fact,index)),
         div("actions",btn(t("askBookmark"),()=>bookmark(unit.id),"soft")));
       return detail;
     })));
