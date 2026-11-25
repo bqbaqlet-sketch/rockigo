@@ -126,7 +126,7 @@ function bookModelGeometry(scene) {
       box(-.45, .85, 0, 3.25, .14, 1.7, teal);
       for (const [x, color] of [[.30, "#57efd0"], [.78, "#ff9d5b"]]) {
         box(x, -.12, .98, .055, 2, .07, "#a8c5da");
-        box(x, -.30, 1, .23, .15, .13, color);
+        box(x, -.30, 1.08, .23, .15, .10, color);
       }
       break;
     case "lens":
@@ -162,27 +162,32 @@ function bookModelGeometry(scene) {
 
 function paintBookModel(canvas, context, faces, yaw, tilt) {
   const {width, height} = canvas;
-  const zoom = height * .30;
   const cosYaw = Math.cos(yaw);
   const sinYaw = Math.sin(yaw);
   const cosTilt = Math.cos(tilt);
   const sinTilt = Math.sin(tilt);
+  let maxX = 0;
+  let maxY = 0;
   const polygons = faces.map(({vertices, color}) => {
     const points = vertices.map(([x, y, z]) => {
       const forward = x * sinYaw + z * cosYaw;
-      return [width * .5 + (x * cosYaw - z * sinYaw) * zoom,
-        height * .48 + (forward * sinTilt - y * cosTilt) * zoom,
-        forward * cosTilt + y * sinTilt];
+      const screenX = x * cosYaw - z * sinYaw;
+      const screenY = forward * sinTilt - y * cosTilt;
+      maxX = Math.max(maxX, Math.abs(screenX));
+      maxY = Math.max(maxY, Math.abs(screenY));
+      return [screenX, screenY, forward * cosTilt + y * sinTilt];
     });
     const depth = points.reduce((sum, point) => sum + point[2], 0) / points.length;
     return {points, color, depth};
   });
+  const zoom = Math.min(height * .30, width * .44 / maxX, height * .43 / maxY);
 
   context.clearRect(0, 0, width, height);
   for (const {points, color} of polygons.sort((a,b) => a.depth - b.depth)) {
     context.beginPath();
-    context.moveTo(points[0][0], points[0][1]);
-    for (const [x,y] of points.slice(1)) context.lineTo(x,y);
+    const [startX, startY] = points[0];
+    context.moveTo(width / 2 + startX * zoom, height / 2 + startY * zoom);
+    for (const [x,y] of points.slice(1)) context.lineTo(width / 2 + x * zoom, height / 2 + y * zoom);
     context.closePath();
     context.fillStyle = context.strokeStyle = color;
     context.lineWidth = 0.8;
