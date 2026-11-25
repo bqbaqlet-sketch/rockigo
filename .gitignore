@@ -1,0 +1,8 @@
+node_modules/
+.env
+.env.*
+*.gguf
+*.log
+RockiGo.html
+source/
+output/
