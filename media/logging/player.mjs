@@ -1,3 +1,5 @@
+import {mountLesson} from "../timeline.mjs";
+
 const intervals = [
   {id:"А", depth:"2040–2042", gamma:34, resistance:22, porosity:24},
   {id:"Б", depth:"2042–2044", gamma:108, resistance:4, porosity:16},
@@ -28,14 +30,11 @@ const cues = [
   [35.08,38.63,3,"Сочетание показателей делает его кандидатом на опробование."],
   [39.00,45.64,3,"Чтобы проверить насыщение, уточним свойства пластовой воды и посмотрим, какой приток даст интервал."]
 ];
-const sceneStarts = [0, 9.52, 21.13, 32.94];
 const get = id => document.getElementById(id);
-const audio = get("audio");
 const fallback = get("fallback");
 const readout = get("readout");
-const captions = get("captions");
 const markers = [...document.querySelectorAll(".scale span")];
-let renderWell, animation = 0, lastCue = -1;
+let renderWell;
 const format = new Intl.NumberFormat("ru-RU");
 
 function node(tag,text,className) {
@@ -85,66 +84,22 @@ function actions(active) {
   });
 }
 
-const controls=sceneInfo.map(([label],index)=>{
-  const button=node("button",label);
-  button.type="button";
-  button.addEventListener("click",()=>{
-    audio.currentTime=sceneStarts[index];
-    tryPlay();
-    update();
-  });
-  return button;
-});
-get("scenes").append(...controls);
-
-function update() {
-  const time=audio.currentTime;
-  let index=cues.findLastIndex(([start])=>time>=start);
-  if(index<0) index=0;
-  const [,end,scene,text]=cues[index];
+const update=mountLesson(sceneInfo,cues,({time,index,scene,changed})=>{
   const focus=index===7?3:index===6||index>=8?0:null;
-  if(index!==lastCue) {
-    lastCue=index;
-    document.body.dataset.scene=String(scene);
-    document.body.dataset.cue=String(index);
-    const [label,title]=sceneInfo[scene];
-    get("phase").textContent=label;
-    get("headline").textContent=title;
+  if(changed) {
     readout.replaceChildren(...(
       scene===0?[node("p",index<2?"Сопоставь интервалы по общей шкале глубины.":"Сравним гамма-каротаж, сопротивление и оценку пористости.","hint")]:
       scene===1?measureCards(index-3):
       scene===2?comparisons(focus):
       actions(index===10?2:0)
     ));
-    controls.forEach((button,i)=>{
-      if(i===scene) button.setAttribute("aria-current","true");
-      else button.removeAttribute("aria-current");
-    });
     markers.forEach((marker,i)=>{
       marker.classList.toggle("highlight",focus===i);
       fallback.children[i].classList.toggle("highlight",focus===i);
     });
   }
-  const line=time<=end?text:"";
-  if(captions.textContent!==line) captions.textContent=line;
   renderWell?.(time,focus);
-}
-
-function frame() {
-  update();
-  animation=audio.paused||audio.ended?0:requestAnimationFrame(frame);
-}
-
-function tryPlay() {
-  audio.play().catch(()=>{
-    if (audio.error) get("audio-error").hidden=false;
-  });
-}
-
-audio.addEventListener("playing",()=>{if(!animation) frame();});
-for(const event of ["loadedmetadata","seeking","seeked","timeupdate","pause","ended"]) audio.addEventListener(event,update);
-audio.addEventListener("error",()=>{get("audio-error").hidden=false;});
-
+});
 for(const interval of intervals) {
   const row=node("tr");
   const header=node("th",interval.id);
@@ -152,10 +107,6 @@ for(const interval of intervals) {
   row.append(header,node("td",interval.depth),...[interval.gamma, interval.resistance, interval.porosity].map(n=>node("td",format.format(n))));
   get("dataset").append(row);
 }
-for(let scene=0;scene<sceneInfo.length;scene++) {
-  get("transcript").append(node("p",cues.filter(cue=>cue[2]===scene).map(cue=>cue[3]).join(" ")));
-}
-update();
 import("./well.mjs").then(({buildWell})=>{
   renderWell=buildWell(get("render"),fallback);
   update();

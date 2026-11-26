@@ -16,6 +16,7 @@ export const videos = [
     id: "pressure",
     unit: "diffusion",
     mark: "Δp",
+    player: "media/pressure/index.html",
     title: ["Как заметить отклик по давлению", "Қысым өзгерісі арқылы әсерді байқау", "How to detect a pressure response"],
     script: [
       "В одной скважине начали отбор. В двух соседних записали давление. Сравним эти учебные ряды и посмотрим, где снижение стало заметным раньше.",

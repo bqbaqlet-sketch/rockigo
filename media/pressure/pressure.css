@@ -1,0 +1,22 @@
+.pressure-stage .visual { grid-template-rows: auto minmax(165px,1fr) auto auto; }
+.well-key { display: flex; justify-content: space-around; gap: 6px; flex-wrap: wrap; }
+.well-key span { border: 1px solid var(--border); border-radius: 7px; padding: 4px 7px; font-size: .79rem; }
+.well-key span::before { content:""; display:inline-block; width:.54em; height:.54em; margin-right:.35em; border-radius:50%; background:var(--well); }
+.well-key [data-well="active"] { --well: #ffcd8c; }
+.well-key [data-well="near"] { --well: #7ee6dd; }
+.well-key [data-well="far"] { --well: #c4b3fe; }
+.well-key span.is-active { color: var(--well); border-color: var(--well); }
+.pressure-fallback { position: absolute; inset: 31% 8% 15%; border-radius: 7px; background: linear-gradient(to bottom,#4e6b55 0 29%,#6f614d 29% 55%,#57665c 55% 78%,#3c4f4c 78%); }
+.pressure-fallback i { position: absolute; bottom:18%; height:131%; width:3%; border-radius:6px; background: #ffcd8c; left:17%; }
+.pressure-fallback i:nth-child(2) { left:49%; background:#7ee6dd; }
+.pressure-fallback i:nth-child(3) { left:81%; background:#c4b3fe; }
+.pressure-figure { margin: 0 0 8px; padding: 7px 7px 4px; border: 1px solid #3c5850; border-radius: 9px; background: #132720; }
+.pressure-figure figcaption, .graph-note { color: var(--muted); font-size: .78rem; padding-inline: 5px; }
+.pressure-figure canvas { display:block; width:100%; height:178px; }
+.pressure-stage .hint { min-height: 3.2em; }
+@media (max-width: 560px) {
+  .pressure-stage .visual { grid-template-rows: auto minmax(145px,1fr) auto auto; }
+  .pressure-stage .analysis { min-height: 0; }
+  .pressure-figure canvas { height:140px; }
+  .pressure-stage h2 { margin-bottom: 7px; }
+}
