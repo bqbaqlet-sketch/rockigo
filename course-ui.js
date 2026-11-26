@@ -3,6 +3,8 @@ function dateForCourse(date = new Date()) {
 }
 
 function projectView() {
+  const pipeline=txt("a",t("pipeline"),"btn soft");
+  pipeline.href=data.browserAI?"./pipeline/":"https://bqbaqlet-sketch.github.io/rockigo/pipeline/";
   const cards=modules.map(module=>{
     const unit=units.find(item=>item.book===module.book);
     return div("card",txt("h2",module.title),txt("p",books[module.book].author,"muted"),
@@ -10,7 +12,7 @@ function projectView() {
   });
   return [heading("projectTitle","projectContext"),
     div("actions project-actions",btn(t("course"),()=>navigate("course"),"positive"),
-      btn(t("tests"),()=>navigate("tests"),"soft")),
+      btn(t("tests"),()=>navigate("tests"),"soft"),pipeline),
     div("grid card-block",cards)];
 }
 

@@ -13,7 +13,7 @@ from pypdf import PdfReader
 
 
 ROOT = Path(__file__).resolve().parent.parent
-PAGE_MARKER = re.compile(r"<!--\s*page\s+(\d+)\s*-->")
+PAGE_MARKER = re.compile(r"<!--\s*page\s+(\d+)\s*-->", re.I)
 NUMBER = re.compile(r"(?<![\w])\d+(?:[.,]\d+)?(?![\w])")
 EXERCISE = re.compile(r"^(?:задача\s*)?(\d{2,3})\s*\.\s+", re.I)
 FIGURE = re.compile(r"^(?:рис\s*\.\s*\d+|рисунок\s+\d+)", re.I)
@@ -56,14 +56,18 @@ def numbers(text):
     return {match.group().replace(",", ".") for match in NUMBER.finditer(normalized)}
 
 
-def read_pages(path, pdf, ranges):
-    tokens = PAGE_MARKER.split(path.read_text(encoding="utf-8-sig"))
-    book = {int(tokens[i]): tokens[i + 1] for i in range(1, len(tokens), 2)}
+def split_book(text):
+    tokens = PAGE_MARKER.split(text)
+    return {int(tokens[i]): tokens[i + 1] for i in range(1, len(tokens), 2)}
+
+
+def read_pages(path, pdf, ranges, pdf_offset=0):
+    book = split_book(path.read_text(encoding="utf-8-sig"))
     pdf_length = len(PdfReader(pdf).pages)
     pages = {}
     for span in ranges:
         for number in range(span["from"], span["to"] + 1):
-            if number not in book or number > pdf_length:
+            if number not in book or not 1 <= number - pdf_offset <= pdf_length:
                 raise ValueError(f"Страница {number} отсутствует в паре Markdown/PDF")
             lines = book[number].splitlines()
             start, end = 0, len(lines)
@@ -160,21 +164,32 @@ def edition_task(node, kind, key, prompt, options=None, answer=None, explanation
 
 
 def draft_steps(pages, ranges):
+    pack_path = Path(__file__).with_name("domain-pack.json")
+    pack = json.loads(pack_path.read_text(encoding="utf-8"))
     steps = []
     for span in ranges:
         for first in range(span["from"], span["to"] + 1, 2):
             last = min(first + 1, span["to"])
             items = [item for page in range(first, last + 1) for item in page_units(page, pages[page])]
-            evidence = next((item for item in items if item["kind"] == "paragraph" and len(item["raw"]) > 40), None)
+            useful = [item for item in items if item["kind"] == "paragraph" and len(item["raw"]) > 40]
+            useful += [item for item in items if item["kind"] in {"table","formula","worked_example","heading"} and len(item["raw"]) > 12]
+            evidence = next((item for item in useful if re.search(r"[^\W\d_]{4,}", excerpt(item["raw"]))), None)
             if evidence is None:
                 raise ValueError(f"Страницы {first}–{last}: нет текста для автоматического урока")
             summary = excerpt(evidence["raw"])
             term = re.search(r"[^\W\d_]{4,}", summary)
             if term is None:
                 raise ValueError(f"Страницы {first}–{last}: не найдено понятие для карточки")
-            steps.append({"from": first, "to": last, "title": f"Фрагмент главы, страницы {first}–{last}",
-                          "difficulty": "Ф" if any(item["kind"] == "formula" for item in items) else "И",
-                          "term": term.group().lower(), "summary": summary, "anchor": evidence["raw"].split()[0],
+            body = " ".join(item["raw"].lower() for item in items)
+            scores = {kind:sum(word in body for word in words) for kind,words in pack["cues"].items()}
+            scores["Ф"] += 2 * any(item["kind"] == "formula" for item in items)
+            ranked = sorted(scores,key=scores.get,reverse=True)
+            difficulty = ranked[0] if scores[ranked[0]] else "И"
+            secondary = next((kind for kind in ranked if kind != difficulty and scores[kind]), None)
+            heading = next((plain(item["raw"]) for item in items if item["kind"] == "heading" and len(plain(item["raw"])) > 10),None)
+            steps.append({"from": first, "to": last, "title": heading or f"Фрагмент главы, страницы {first}–{last}",
+                          "difficulty": difficulty, "secondary":secondary,
+                          "term": term.group().lower(), "summary": summary, "lead_unit": evidence["id"],
                           "extractive": True})
     return steps
 
@@ -192,8 +207,9 @@ def build(config, chapter, pages):
         assigned.update(step_pages)
         units = [u for p in step_pages for u in by_page[p]]
         node_id = f"{chapter}.p{step_pages[0]:03d}"
-        lead = locate(units, plan["anchor"])
-        claims = [to_claim(node_id, 1, lead, plan["anchor"])]
+        lead = (next(unit for unit in units if unit["id"] == plan["lead_unit"])
+                if plan.get("extractive") else locate(units, plan["anchor"]))
+        claims = [to_claim(node_id, 1, lead, plan.get("anchor"))]
         claims.extend(to_claim(node_id, i, item) for i, item in enumerate((
             u for u in units if u is not lead and len(u["raw"]) >= 8 and not (u["kind"] == "figure" and FORMAT_HEADER.match(u["raw"]))
         ), 2))
@@ -224,8 +240,11 @@ def build(config, chapter, pages):
                      "excerpt": excerpt(u["raw"]), "node_ids": [node_id], "reason": None,
                      "needs_review": u["review"]} for u in units)
 
-        choice_pool = [plans[(index + i) % len(plans)]["summary"] for i in (1, 2)]
-        correct_slot = index % 3
+        choice_pool = list(dict.fromkeys(candidate["summary"] for candidate in plans
+                                         if candidate["summary"] != plan["summary"]))[:2]
+        if not choice_pool:
+            choice_pool = ["Этот вопрос не рассматривается в источнике."]
+        correct_slot = index % (len(choice_pool) + 1)
         choice_pool.insert(correct_slot, plan["summary"])
         step_tasks = [edition_task(node, "single", "idea", "Какой вывод относится к этому шагу?", choice_pool, str(correct_slot)),
                       edition_task(node, "gap", "term", "Впиши ключевое понятие этого шага.",
@@ -248,8 +267,13 @@ def build(config, chapter, pages):
                 ["Условия, при которых применимо правило", "Гарантию того же результата во всех скважинах", "Страницу, на которой описан пример"],
                 ["0", "2"], "У вывода должны быть условия применения и проверяемый источник."))
         tasks.extend(step_tasks)
-        route_format = {"portrait":"шортс","landscape":"длинное видео"}[node["media"]["orientation"]] if node.get("media") else (
-            "практикум на данных" if "decision_on_data" in node else "интерактив" if node["scene"] else "текст")
+        route_format = "карточки" if plan.get("extractive") and plan["difficulty"] in {"Р", "Н"} else "текст"
+        if node.get("media"):
+            route_format = {"portrait": "шортс", "landscape": "длинное видео"}[node["media"]["orientation"]]
+        elif "decision_on_data" in node:
+            route_format = "практикум на данных"
+        elif node["scene"]:
+            route_format = "интерактив"
         routes.append({"node_id": node_id, "format": route_format,
                        "video_scores": {"time": int(plan["difficulty"] in {"М","В"}), "invisible": int(plan["difficulty"] in {"И","М"}),
                                         "scale": int(plan["difficulty"] == "П"), "counterintuitive": int(plan["difficulty"] == "Н"),
@@ -257,6 +281,7 @@ def build(config, chapter, pages):
                        "why": {"шортс":"Изменение зоны давления во времени.","длинное видео":"Чтение двух измерений и решение по палетке.",
                                "практикум на данных":"Решение по признакам из источника.",
                                "интерактив":"Сопоставление параметров, геометрии или измерений.",
+                               "карточки":"Повторение признака, термина или ограничения по фрагменту источника.",
                                "текст":"Чтение и проверка понимания."}[route_format]})
         words = sum(len(item["raw"].split()) for item in units if item["kind"] == "paragraph")
         node["estimated_minutes"] = max(3, (words + 179) // 180 + 2)
@@ -265,7 +290,33 @@ def build(config, chapter, pages):
                                 for item in units if not FORMAT_HEADER.match(item["raw"])]
     if assigned != set(pages):
         raise ValueError(f"Покрытие страниц расходится: {sorted(set(pages) ^ assigned)}")
-    if len(tasks) < 15 or len({task["type"] for task in tasks}) < 4:
+    if not config.get("steps") and len(tasks) < 15:
+        for node in nodes:
+            terms = set(node["terms_introduced"])
+            for claim in node["claims"]:
+                if claim["source_kind"] != "text":
+                    continue
+                words = list(re.finditer(r"[^\W\d_]{6,}", claim["text"]))
+                if len(words) < 4:
+                    continue
+                for match in words[1:-1]:
+                    term = match.group()
+                    if term.lower() in terms:
+                        continue
+                    terms.add(term.lower())
+                    passage = claim["text"][:match.start()] + "…" + claim["text"][match.end():]
+                    task = edition_task(node, "gap", f"quote{len(tasks) + 1}",
+                                        "Восстанови слово из фрагмента. " + passage, answer=[term],
+                                        explanation=claim["text"])
+                    task["claim_ids"] = [claim["id"]]
+                    tasks.append(task)
+                    if len(tasks) == 15:
+                        break
+                if len(tasks) == 15:
+                    break
+            if len(tasks) == 15:
+                break
+    if config.get("steps") and (len(tasks) < 15 or len({task["type"] for task in tasks}) < 4):
         raise ValueError("Курс требует 15 заданий и 4 типа")
     layer = {"chapter": chapter, "source": config["source"], "pdf_pages": [str(i) for i in pages],
              "generated_by": "RockiGo, разметка Markdown" + (" и учебные заметки" if config.get("steps") else ""),
@@ -331,6 +382,7 @@ def verify(docs, pages, official):
             "verified_quotes": len(all_claims), "units_by_type": dict(Counter(row["kind"] for row in stable_rows)),
             "needs_visual_review": sum(bool(row["needs_review"]) for row in stable_rows),
             "tasks": len(docs["task"]["tasks"]), "task_types": sorted({task["type"] for task in docs["task"]["tasks"]}),
+            "task_minimum_met": len(docs["task"]["tasks"]) >= 15 and len({task["type"] for task in docs["task"]["tasks"]}) >= 4,
             "scope": "Дословность и числа сверены с выданным Markdown. PDF проверен по охвату страниц; предметная оценка и сканы отмечаются отдельно."}
 
 
@@ -338,19 +390,7 @@ def write_json(path, contents):
     path.write_text(json.dumps(contents, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def run(chapter, source, official, output, node, manifest, ffmpeg=None, voice="powershell.exe"):
-    started = time.monotonic()
-    configs = json.loads(manifest.read_text(encoding="utf-8-sig"))
-    config = configs[chapter]
-    pdf, markdown = source / config["pdf"], source / config["source"]
-    pages = read_pages(markdown, pdf, config["ranges"])
-    docs = build(config, chapter, pages)
-    report = verify(docs, pages, official)
-    output.mkdir(parents=True, exist_ok=True)
-    if ffmpeg and config.get("media"):
-        from render_media import render_media
-        render_media(docs, output, official / "passport.schema.json", ffmpeg, voice)
-    course = render_data(docs)
+def write_records(output, docs, course):
     for name, artifact in docs.items():
         write_json(output / f"{name}.json", artifact)
     write_json(output / "course.json", course)
@@ -360,6 +400,22 @@ def run(chapter, source, official, output, node, manifest, ffmpeg=None, voice="p
             writer = csv.DictWriter(handle, fieldnames=list(coverage[0]), delimiter=";")
             writer.writeheader()
             writer.writerows(dict(row, node_ids=", ".join(row["node_ids"])) for row in rows)
+
+
+def run(chapter, source, official, output, node, manifest, ffmpeg=None, voice="powershell.exe"):
+    started = time.monotonic()
+    configs = json.loads(manifest.read_text(encoding="utf-8-sig"))
+    config = configs[chapter]
+    pdf, markdown = source / config["pdf"], source / config["source"]
+    pages = read_pages(markdown, pdf, config["ranges"], config.get("pdf_offset",0))
+    docs = build(config, chapter, pages)
+    report = verify(docs, pages, official)
+    output.mkdir(parents=True, exist_ok=True)
+    if ffmpeg and config.get("media"):
+        from render_media import render_media
+        render_media(docs, output, official / "passport.schema.json", ffmpeg, voice)
+    course = render_data(docs)
+    write_records(output, docs, course)
     subprocess.run([node, str(ROOT / "build.mjs"), str(output / "RockiGo.html"),
                     "--chapter=" + str(output / "course.json")], check=True, cwd=ROOT)
     report.update(chapter=chapter, html_bytes=(output / "RockiGo.html").stat().st_size,

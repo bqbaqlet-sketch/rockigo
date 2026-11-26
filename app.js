@@ -58,7 +58,7 @@ async function activateBrowserRocky() {
 function load() {
   try {
     const saved = JSON.parse(localStorage.getItem(storageKey));
-    if (saved?.name && languages.includes(saved.lang) && saved.practice && saved.tests) {
+    if (saved && (chapter || saved.name) && languages.includes(saved.lang) && saved.practice && saved.tests) {
       if (!chapter && saved.resume && levels[saved.resume.index]?.id!==saved.resume.level) saved.resume=null;
       return saved;
     }
@@ -894,8 +894,8 @@ function render(draft) {
   document.documentElement.dataset.theme=state.theme;
   document.getElementById("skip").textContent=t("skip");
   updateMode();
-  nav.hidden=!state.name;
-  if(!state.name){main.replaceChildren(onboarding(draft));return;}
+  nav.hidden=!chapter&&!state.name;
+  if(nav.hidden){main.replaceChildren(onboarding(draft));return;}
   bottom();
   if(quiz)main.replaceChildren(questionScreen());
   else if(result)main.replaceChildren(resultView());
@@ -905,7 +905,7 @@ function render(draft) {
   }
   if(!storageWorks)main.append(txt("p",t("offline"),"hint"));
 }
-document.querySelector(".brand").addEventListener("click",event=>{event.preventDefault();if(state.name)navigate(chapter?"chapter":"home");});
+document.querySelector(".brand").addEventListener("click",event=>{event.preventDefault();if(chapter||state.name)navigate(chapter?"chapter":"home");});
 if(assets?.logo)document.getElementById("brand-mark")?.append(logoMark());
 window.addEventListener("storage",event=>{
   if(event.key===storageKey&&!quiz){state=load();render();}
@@ -917,7 +917,7 @@ setInterval(()=>{
     timer.textContent=t("wait",{time:timeText(ending)});
   }
 },1000);
-if(remoteApi||(!data.browserAI&&(location.protocol==="http:"||location.protocol==="https:"))){
+if(!chapter&&(remoteApi||(!data.browserAI&&(location.protocol==="http:"||location.protocol==="https:")))){
   askServer("/capabilities",{signal:AbortSignal.timeout(8000)}).then(r=>r.ok?r.json():null).then(features=>{
     assistantAvailable=!!features?.rocky;
     assistantChat=assistantAvailable&&features?.chat===true;
