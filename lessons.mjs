@@ -2,10 +2,9 @@ import { courseOrder, dayPlan, newTopics } from "./curriculum.mjs";
 import { cases, finalCases } from "./science-questions.mjs";
 
 export const books = {
-  lat: {author:"М. Г. Латышова", title:["Практическое руководство по интерпретации диаграмм ГИС","Ұңғыма каротажы диаграммаларын түсіндіру","Practical Guide to Well Log Interpretation"], range:"90–108",url:"https://sci.ru/disk/file/81290"},
-  kuz: {author:"В. Г. Кузнецов", title:["Литология природных резервуаров нефти и газа","Мұнай мен газдың табиғи резервуарларының литологиясы","Lithology of Natural Oil and Gas Reservoirs"], range:"200–222",url:"https://enb.gubkin.ru/en/content/19182"},
-  bas: {author:"К. С. Басниев и соавторы", title:["Нефтегазовая гидромеханика","Мұнай-газ гидромеханикасы","Oil and Gas Hydromechanics"], range:"474–500",
-    url:"https://emedia.enu.kz/sites/default/files/"+encodeURIComponent("Басниев Нефтегазовая гидромеханика.pdf"), directPdf:true}
+  lat: {author:"М. Г. Латышова", title:["Практическое руководство по интерпретации диаграмм ГИС","Ұңғыма каротажы диаграммаларын түсіндіру","Practical Guide to Well Log Interpretation"], range:"90–108",file:"latyshova.pdf"},
+  kuz: {author:"В. Г. Кузнецов", title:["Литология природных резервуаров нефти и газа","Мұнай мен газдың табиғи резервуарларының литологиясы","Lithology of Natural Oil and Gas Reservoirs"], range:"200–222",file:"kuznetsov.pdf"},
+  bas: {author:"К. С. Басниев и соавторы", title:["Нефтегазовая гидромеханика","Мұнай-газ гидромеханикасы","Oil and Gas Hydromechanics"], range:"474–500",file:"basniev.pdf"}
 };
 const fact = (page, term, quiz, explanation, plain, scene) => ({page,term,quiz,explanation,plain,scene});
 const track = (id, book, pages, title, facts, order) => ({id,book,pages,title,facts,order});

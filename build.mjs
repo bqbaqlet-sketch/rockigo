@@ -1,4 +1,4 @@
-import { copyFile, mkdir, readFile, writeFile } from "node:fs/promises";
+import { access, copyFile, mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import assert from "node:assert/strict";
@@ -32,7 +32,7 @@ for (const {facts,formulas,pages,outcome,minutes,id} of units) {
 for (const [id, book] of Object.entries(books)) {
   const bank=questions.filter(q=>units.find(u=>u.id===q.unit).book===id);
   const [first,last]=book.range.split("–").map(Number);
-  assert.ok(new URL(book.url).protocol==="https:"&&bank.length>=15&&new Set(bank.map(q=>q.type)).size>=3);
+  assert.ok(bank.length>=15&&new Set(bank.map(q=>q.type)).size>=3);
   assert.ok(bank.every(q=>q.page>=first&&q.page<=last));
 }
 for (const level of levels) {
@@ -69,15 +69,19 @@ for(const [key,[file,mime]] of Object.entries(assetFiles)){
   }
 }
 if(publicPage)await copyFile(new URL("assets/LICENSE-model-viewer.txt",import.meta.url),join(dirname(output),"assets","LICENSE-model-viewer.txt"));
-const publicBooks=Object.fromEntries(Object.entries(books).map(([key,{id,...book}])=>[key,book]));
-if(publicPage)assert.ok(Object.values(publicBooks).every(book=>new URL(book.url).hostname!=="drive.google.com"),
-  "Competition files must stay out of the public build.");
+const siteBooks=Object.fromEntries(await Promise.all(Object.entries(books).map(async([key,{file,...book}])=>{
+  const path=`./source/${file}`;
+  if(!publicPage && !chapter && await access(resolve(dirname(output),path)).then(()=>true,()=>false)){
+    return [key,{...book,path}];
+  }
+  return [key,book];
+})));
 const browserAI=publicPage?{
   runtime:"https://cdn.jsdelivr.net/npm/@wllama/wllama@4.0.0/esm",
   weights:"https://huggingface.co/ggml-org/Qwen3.5-0.8B-GGUF/resolve/004fd086eccea9f7cf867aa07ba328773beef81d/Qwen3.5-0.8B-Q4_0.gguf",
   model:"Qwen3.5-0.8B"
 }:null;
-const model = JSON.stringify({ui,assets,books:publicPage?publicBooks:books,units,levels,xpReward,modules,...(chapter?{chapter}:{}),
+const model = JSON.stringify({ui,assets,books:siteBooks,units,levels,xpReward,modules,...(chapter?{chapter}:{}),
   ...(browserAI?{browserAI}:{}),videos:chapter?[]:videos}).replaceAll("<","\\u003c");
 const publicApi="https://rockigo-chat.bqbaqlet.workers.dev";
 const api=chapter?null:(process.env.ROCKIGO_API_URL?.trim()??(publicPage?publicApi:""));

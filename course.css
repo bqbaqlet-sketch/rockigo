@@ -60,11 +60,7 @@
 .course-day .hint { margin: 4px 0 0; }
 .lesson-sources { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 13px; }
 .book-source { color: var(--accent); font-size: .86rem; font-weight: 600; text-decoration: underline; text-underline-offset: .18em; }
-.book-source-button { background: none; border: 0; padding: 4px 0; text-align: start; }
-.book-dialog { color: var(--ink); width: min(480px, calc(100% - 28px)); max-height: calc(100% - 28px); }
-.book-dialog::backdrop { background: #1610249b; }
-.book-file-picker { display: grid; gap: 6px; margin-top: 14px; font-weight: 650; }
-.book-dialog p { overflow-wrap: anywhere; }
+.book-page-ref { color: var(--muted); font-size: .86rem; font-weight: 600; }
 .book-chapter-context { margin: 0 0 12px; }
 .book-chapter-context p { margin: 0 0 5px; }
 .source-page-note { margin: 0 0 12px; }
