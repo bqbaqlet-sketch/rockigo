@@ -1,7 +1,5 @@
 :root { font-family: Arial, "Segoe UI", sans-serif; }
 .screen-header h1, .setup h1, .hero h1, .test-question h1 { letter-spacing: -.025em; }
-.nav-inner { grid-template-columns: repeat(9,minmax(0,1fr)); }
-.nav-inner .nav-label { white-space: nowrap; }
 .course-screen { display: grid; gap: 22px; }
 .course-overview {
   display: flex;
@@ -81,9 +79,4 @@
   .course-controls { grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items: end; }
   .course-day { grid-template-columns: minmax(0,1fr); }
   .course-day-time { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
-}
-@media (max-width: 490px) {
-  .nav-inner { grid-template-columns: repeat(5,minmax(0,1fr)); }
-  .nav-inner button { min-height: 38px; gap: 1px; }
-  .nav-icon { font-size: 1rem; }
 }

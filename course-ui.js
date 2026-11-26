@@ -4,7 +4,7 @@ function dateForCourse(date = new Date()) {
 
 function projectView() {
   const pipeline=txt("a",t("pipeline"),"btn soft");
-  pipeline.href=data.browserAI?"./pipeline/":"https://bqbaqlet-sketch.github.io/rockigo/pipeline/";
+  pipeline.href="https://bqbaqlet-sketch.github.io/rockigo/pipeline/";
   const cards=modules.map(module=>{
     const unit=units.find(item=>item.book===module.book);
     return div("card",txt("h2",module.title),txt("p",books[module.book].author,"muted"),

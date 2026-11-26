@@ -248,19 +248,103 @@ function navigate(next, detail) {
 function onboarding(draft) {
   return div("setup",div("card",assets?.logo?div("setup-logo",logoMark()):[],txt("h1",t("welcome")),txt("p",t("welcomeText"),"lead"),setup(false,draft),txt("p",t("mode"),"hint")));
 }
-function bottom() {
-  nav.replaceChildren(div("nav-inner",Object.entries(routes).map(([id,icon])=>{
-    const node = txt("button");
-    node.type="button";
-    if (id===route) node.setAttribute("aria-current","page");
-    const symbol=txt("span",icon,"nav-icon");
-    symbol.setAttribute("aria-hidden","true");
-    node.append(symbol,txt("span",t(id),"nav-label"));
-    node.addEventListener("click",()=>navigate(id));
-    return node;
-  })));
-  nav.setAttribute("aria-label",t("nav"));
+const mainTabs = ["home", "course", "tests", "rocky"];
+let navLanguage, navRoute, navRail, moreToggle, morePanel;
+
+function navButton(label, icon, className) {
+  const button = txt("button", "", className);
+  button.type = "button";
+  const symbol = txt("span", icon, "nav-icon");
+  symbol.setAttribute("aria-hidden", "true");
+  button.append(symbol, txt("span", label, "nav-label"));
+  return button;
 }
+
+function closeMore(returnFocus = false) {
+  if (!morePanel || morePanel.hidden) return;
+  morePanel.hidden = true;
+  moreToggle.setAttribute("aria-expanded", "false");
+  if (returnFocus) moreToggle.focus();
+}
+
+function routeButton(id) {
+  const button = navButton(t(id), routes[id]);
+  button.dataset.route = id;
+  button.addEventListener("click", () => {
+    closeMore();
+    navigate(id);
+  });
+  return button;
+}
+
+function buildNavigation() {
+  navLanguage = state.lang;
+  nav.setAttribute("aria-label", t("nav"));
+  if (chapter) {
+    nav.replaceChildren(div("nav-inner", Object.keys(routes).map(routeButton)));
+    return;
+  }
+
+  const extraTabs = Object.keys(routes).filter(id => !mainTabs.includes(id));
+  navRail = div("nav-rail", [...mainTabs, ...extraTabs].map(routeButton));
+  navRail.addEventListener("wheel", event => {
+    if (event.ctrlKey || event.shiftKey || event.deltaX || !event.deltaY) return;
+    const limit = navRail.scrollWidth - navRail.clientWidth;
+    if (event.deltaY > 0 ? navRail.scrollLeft >= limit - 1 : navRail.scrollLeft <= 1) return;
+    const unit = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? navRail.clientWidth : 1;
+    navRail.scrollLeft += event.deltaY * unit;
+    event.preventDefault();
+  }, {passive:false});
+
+  moreToggle = navButton(t("navMore"), "⋯", "nav-more");
+  moreToggle.setAttribute("aria-controls", "nav-more-panel");
+  moreToggle.setAttribute("aria-expanded", "false");
+  morePanel = div("nav-more-panel", extraTabs.map(routeButton));
+  morePanel.id = "nav-more-panel";
+  morePanel.hidden = true;
+  moreToggle.addEventListener("click", () => {
+    if (!morePanel.hidden) {
+      closeMore(true);
+      return;
+    }
+    morePanel.hidden = false;
+    moreToggle.setAttribute("aria-expanded", "true");
+    (morePanel.querySelector("[aria-current='page']") ?? morePanel.firstElementChild).focus();
+  });
+  nav.replaceChildren(div("nav-inner nav-scrollable", navRail, moreToggle, morePanel));
+}
+
+function bottom() {
+  const rebuilt = navLanguage !== state.lang;
+  if (rebuilt) buildNavigation();
+  for (const button of nav.querySelectorAll("[data-route]")) {
+    if (button.dataset.route === route) button.setAttribute("aria-current", "page");
+    else button.removeAttribute("aria-current");
+  }
+  if (moreToggle) moreToggle.classList.toggle("nav-more-active", !mainTabs.includes(route));
+  if (navRail && (rebuilt || navRoute !== route)) {
+    closeMore();
+    const current = navRail.querySelector("[aria-current='page']");
+    const rail = navRail.getBoundingClientRect();
+    const tab = current.getBoundingClientRect();
+    if (tab.left < rail.left) navRail.scrollLeft += tab.left - rail.left - 4;
+    else if (tab.right > rail.right) navRail.scrollLeft += tab.right - rail.right + 4;
+  }
+  navRoute = route;
+}
+
+nav.addEventListener("keydown", event => {
+  if (event.key === "Escape" && morePanel && !morePanel.hidden) {
+    event.preventDefault();
+    closeMore(true);
+  }
+});
+nav.addEventListener("focusout", event => {
+  if (!nav.contains(event.relatedTarget)) closeMore();
+});
+document.addEventListener("pointerdown", event => {
+  if (!nav.contains(event.target)) closeMore();
+});
 function progress() {
   const current=levelIndex(), next=levels[current+1], xp=earned();
   const panel=div("card progress-card",txt("h2",t(next ? "nextLevel":"max")));

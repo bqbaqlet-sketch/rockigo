@@ -12,6 +12,7 @@ export const ui = {
   coursePages:["Страницы PDF","PDF беттері","PDF pages"],
   coursePageNote:["Номера страниц даны по экземплярам, использованным в курсе.","Бет нөмірлері курста қолданылған даналарға сәйкес.","Page numbers follow the editions used in the course."],
   project:["Проект","Жоба","Project"],
+  navMore:["Ещё","Қосымша","More"],
   projectTitle:["Глава → курс","Тарау → курс","Chapter → course"],
   pipeline:["Открыть конвейер","Конвейерді ашу","Open pipeline"],
   projectContext:["RockiGo — практикум по нефтегазовой геологии для специалистов по данным. Три модуля посвящены каротажу, рифовым коллекторам и движению жидкости в пласте.","RockiGo — деректер мамандарына арналған мұнай-газ геологиясы практикумы. Үш модуль каротаж, риф коллекторлары және қабаттағы сұйықтық қозғалысын қамтиды.","RockiGo is an applied geology course for data specialists, covering well logs, reef reservoirs and fluid flow."],
