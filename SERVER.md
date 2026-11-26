@@ -27,7 +27,7 @@ Worker из `cloudflare/` обрабатывает свободный диало
 npx wrangler deploy --config cloudflare/wrangler.jsonc
 ```
 
-Укажите выданный HTTPS-адрес `workers.dev` в `ROCKIGO_API_URL` при сборке `node build.mjs index.html --public`. Worker принимает только настроенный origin GitHub Pages и ограничивает число запросов. Для бесплатной работы используйте тариф Workers Free. [Лимиты Workers AI](https://developers.cloudflare.com/workers-ai/platform/pricing/).
+Публичная сборка `node build.mjs index.html --public` подключается к `https://rockigo-chat.bqbaqlet.workers.dev`. Для другого развёртывания задайте `ROCKIGO_API_URL` с адресом своего Worker. Пустая строка отключает внешнее подключение при сборке. Worker принимает только настроенный origin GitHub Pages и ограничивает число запросов. Для бесплатной работы используйте тариф Workers Free. [Лимиты Workers AI](https://developers.cloudflare.com/workers-ai/platform/pricing/).
 
 ### Отдельный сервер для GitHub Pages
 

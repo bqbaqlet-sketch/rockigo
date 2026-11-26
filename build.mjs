@@ -75,7 +75,8 @@ const browserAI=publicPage?{
 }:null;
 const model = JSON.stringify({ui,assets,books:publicPage?publicBooks:books,units,levels,xpReward,modules,...(chapter?{chapter}:{}),
   ...(browserAI?{browserAI}:{}),videos:publicPage?Array(videos.length).fill(null):videos}).replaceAll("<","\\u003c");
-const api=chapter?null:process.env.ROCKIGO_API_URL?.trim();
+const publicApi="https://rockigo-chat.bqbaqlet.workers.dev";
+const api=chapter?null:(process.env.ROCKIGO_API_URL?.trim()??(publicPage?publicApi:""));
 let apiMeta="";
 if(api){
   const url=new URL(api);
