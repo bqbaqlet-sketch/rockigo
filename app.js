@@ -11,7 +11,7 @@ const main = document.getElementById("main");
 const nav = document.getElementById("nav");
 if(chapter)nav.classList.add("chapter-nav");
 const landingRoute = location.hash.slice(1);
-let state = load(), route = chapter?"chapter":["project","rocky"].includes(landingRoute)?landingRoute:"home", quiz, result, bookSelection, player;
+let state = load(), route = chapter?"chapter":["project","rocky","videos"].includes(landingRoute)?landingRoute:"home", quiz, result, bookSelection;
 let assistantAvailable = false, assistantChat = false, assistantBusy = false, storageWorks = true;
 let assistantModel = "Qwen 2.5";
 const chat = [];
@@ -239,7 +239,7 @@ function setup(isProfile=false, draft=state.name) {
 }
 function navigate(next, detail) {
   if (!Object.hasOwn(routes,next)) return;
-  route = next; quiz=null; result=null; player=null;
+  route = next; quiz=null; result=null;
   if (next==="books") bookSelection=detail ?? null;
   render();
   main.focus();
@@ -563,22 +563,29 @@ function bookmark(id) {
   notify(t("bookmarked"));
 }
 function videoView() {
-  return [heading("videoTitle","videoText"),div("video-list",videos.map((video,index)=>{
-    const permitted=index<=levelIndex();
-    const title=t("videoN",{n:index+1});
-    return div("card",div("video-cover",txt("span",permitted?"▷":"◌")),txt("h3",title),
-      txt("p",permitted?(video?t("watch"):t("coming")):t("locked",{n:index+1}),"muted"),
-      permitted&&video?btn(t("watch"),()=>{player=index;render();},"soft"):[]);
-  })),player!==null?videoPlayer(player):[]];
-}
-function videoPlayer(index) {
-  if (index>levelIndex()||!videos[index]) return div("");
-  const video=txt("video");
-  video.controls=true;
-  video.preload="metadata";
-  video.playsInline=true;
-  video.src=videos[index].src;
-  return div("card card-block",txt("h2",videos[index].title),video,btn(t("close"),()=>{player=null;render();}));
+  return [heading("videoTitle","videoText"),div("video-list",videos.map(lesson=>{
+    const script=txt("details","","video-transcript");
+    script.append(txt("summary",t("videoScript")));
+    for (const paragraph of lesson.script) {
+      const line=txt("p",paragraph);
+      line.lang="ru";
+      script.append(line);
+    }
+    let preview;
+    if (lesson.src) {
+      preview=txt("video");
+      preview.controls=true;
+      preview.preload="metadata";
+      preview.playsInline=true;
+      preview.src=lesson.src;
+    } else {
+      preview=div("video-cover",txt("span",lesson.mark));
+      preview.setAttribute("aria-hidden","true");
+    }
+    return div("card video-lesson",preview,txt("h3",lesson.title),
+      lesson.src?[]:txt("p",t("videoPending"),"muted"),
+      btn(t("seeBook"),()=>navigate("books",lesson.unit),"soft"),script);
+  }))];
 }
 function profile() {
   const links=(state.bookmarks??[]).filter(id=>unitMap.has(id)).map(id=>

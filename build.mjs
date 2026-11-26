@@ -3,16 +3,20 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import assert from "node:assert/strict";
 import { ui } from "./ui.mjs";
-import { books, units, levels, xpReward, videos } from "./lessons.mjs";
+import { books, units, levels, xpReward } from "./lessons.mjs";
 import { modules } from "./curriculum.mjs";
+import { videos } from "./video-lessons.mjs";
 
 const files = ["template.html","style.css","brand.css","tests.css","app.js","book-models.js","test-map-art.js","course.css","course-ui.js","browser-ai.js"];
 const [template, style, brand, tests, script, bookModels, mapArt, courseStyle, courseScript, browserScript] = await Promise.all(files.map(file => readFile(new URL(file,import.meta.url),"utf8")));
 const questions = units.flatMap(unit => unit.questions);
 assert.equal(new Set(questions.map(q=>q.id)).size,questions.length);
 assert.deepEqual(levels.map(l=>l.threshold),xpReward.map((_,index)=>xpReward.slice(0,index).reduce((sum,points)=>sum+points,0)));
-assert.ok(videos.length<=levels.length);
 assert.deepEqual(modules.map(module=>module.book),Object.keys(books));
+assert.deepEqual(new Set(videos.map(video=>units.find(unit=>unit.id===video.unit)?.book)),new Set(Object.keys(books)));
+assert.equal(new Set(videos.map(video=>video.id)).size,videos.length);
+assert.equal(videos.length,modules.length);
+assert.ok(videos.every(video=>video.title.length===3&&video.script.length&&video.script.every(Boolean)));
 for (const {facts,formulas,pages,outcome,minutes,id} of units) {
   assert.ok(outcome.length===3&&minutes>0);
   const [first,last]=pages.split("–").map(Number);
@@ -74,7 +78,7 @@ const browserAI=publicPage?{
   model:"Qwen3.5-0.8B"
 }:null;
 const model = JSON.stringify({ui,assets,books:publicPage?publicBooks:books,units,levels,xpReward,modules,...(chapter?{chapter}:{}),
-  ...(browserAI?{browserAI}:{}),videos:publicPage?Array(videos.length).fill(null):videos}).replaceAll("<","\\u003c");
+  ...(browserAI?{browserAI}:{}),videos:chapter?[]:videos}).replaceAll("<","\\u003c");
 const publicApi="https://rockigo-chat.bqbaqlet.workers.dev";
 const api=chapter?null:(process.env.ROCKIGO_API_URL?.trim()??(publicPage?publicApi:""));
 let apiMeta="";

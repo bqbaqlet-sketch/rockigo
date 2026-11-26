@@ -122,4 +122,3 @@ export const levels = [
 ];
 for(const unit of units)unit.questions.push(...assessment.filter(task=>task.unit===unit.id));
 export const xpReward = levels.map(()=>4);
-export const videos = Array(7).fill(null);
