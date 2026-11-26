@@ -11,7 +11,7 @@ const main = document.getElementById("main");
 const nav = document.getElementById("nav");
 if(chapter)nav.classList.add("chapter-nav");
 const landingRoute = location.hash.slice(1);
-let state = load(), route = chapter?"chapter":["project","rocky","videos"].includes(landingRoute)?landingRoute:"home", quiz, result, bookSelection;
+let state = load(), route = chapter?"chapter":["project","rocky","videos","books"].includes(landingRoute)?landingRoute:"home", quiz, result, bookSelection;
 let assistantAvailable = false, assistantChat = false, assistantBusy = false, storageWorks = true;
 let assistantModel = "Qwen 2.5";
 const chat = [];
@@ -498,13 +498,71 @@ function testMap() {
   drawTestTrail(map,canvas,stops);
   return map;
 }
-function bookReference(book,page,label=t("courseSource")) {
-  const pages=typeof page==="string"&&page.includes("–");
-  const link=txt("a",label+(page===undefined?"":" · "+t(pages?"coursePages":"pdf")+" "+page),"book-source");
-  link.href=book.url;
-  link.target="_blank";link.rel="noopener noreferrer";
-  link.setAttribute("aria-label",link.textContent+" · "+local(book.title));
+const localBooks = new Map();
+let bookDialog;
+
+function bookAnchor(label, url, book) {
+  const link=txt("a",label,"book-source");
+  link.href=url;
+  link.target="_blank";
+  link.rel="noopener noreferrer";
+  link.setAttribute("aria-label",label+" · "+local(book.title));
   return link;
+}
+
+function bookHref(url, page) {
+  return page===undefined?url:url+"#page="+parseInt(page,10);
+}
+
+function openBookDialog(book,page,label) {
+  bookDialog?.remove();
+  const dialog=txt("dialog","","card book-dialog");
+  bookDialog=dialog;
+  dialog.setAttribute("aria-labelledby","book-dialog-title");
+  const title=txt("h2",book.title);
+  title.id="book-dialog-title";
+  const input=txt("input","","field");
+  input.type="file";
+  input.accept=".pdf,application/pdf";
+  const picker=txt("label",t("bookChoosePdf"),"book-file-picker");
+  picker.append(input);
+  const stored=localBooks.get(book);
+  const message=txt("p",stored?.name??"","muted");
+  message.setAttribute("role","status");
+  const open=bookAnchor(t("openPdf"),stored?bookHref(stored.url,page):"",book);
+  open.classList.add("btn","primary");
+  open.hidden=!stored;
+  input.addEventListener("change",async()=>{
+    const file=input.files[0];
+    if(!file)return;
+    const isPdf=await file.slice(0,1024).text().then(header=>header.includes("%PDF-"),()=>false);
+    if(!dialog.open || file!==input.files[0])return;
+    if(!isPdf){
+      message.textContent=t("bookInvalidPdf");
+      return;
+    }
+    const previous=localBooks.get(book);
+    if(previous)URL.revokeObjectURL(previous.url);
+    const url=URL.createObjectURL(new Blob([file],{type:"application/pdf"}));
+    localBooks.set(book,{url,name:file.name});
+    message.textContent=file.name;
+    open.href=bookHref(url,page);
+    open.hidden=false;
+  });
+  dialog.append(title,txt("p",label,"muted"),txt("p",t("bookLocalHint")),picker,message,
+    div("actions",open,bookAnchor(t("bookLibrary"),book.url,book),
+      btn(t("close"),()=>dialog.close(),"soft")));
+  dialog.addEventListener("close",()=>dialog.remove());
+  document.body.append(dialog);
+  dialog.showModal();
+}
+
+function bookReference(book,page,label=page===undefined?t("courseSource"):t(String(page).includes("–")?"coursePages":"pdf")+" "+page) {
+  if(book.directPdf)return bookAnchor(label,bookHref(book.url,page),book);
+  const button=btn(label,()=>openBookDialog(book,page,label));
+  button.className="book-source book-source-button";
+  button.setAttribute("aria-label",label+" · "+local(book.title));
+  return button;
 }
 function bookLink(unit,page) { return bookReference(books[unit.book],page); }
 function bookLibraryLinks() {
