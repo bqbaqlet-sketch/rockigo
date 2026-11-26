@@ -582,8 +582,10 @@ function videoView() {
       preview=div("video-cover",txt("span",lesson.mark));
       preview.setAttribute("aria-hidden","true");
     }
+    const watch=lesson.player?txt("a",t("videoPlay"),"btn primary"):null;
+    if(watch)watch.href=(data.browserAI?"./":"https://bqbaqlet-sketch.github.io/rockigo/")+lesson.player;
     return div("card video-lesson",preview,txt("h3",lesson.title),
-      lesson.src?[]:txt("p",t("videoPending"),"muted"),
+      watch??(lesson.src?[]:txt("p",t("videoPending"),"muted")),
       btn(t("seeBook"),()=>navigate("books",lesson.unit),"soft"),script);
   }))];
 }

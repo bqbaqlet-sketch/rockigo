@@ -3,6 +3,7 @@ export const videos = [
     id: "logging",
     unit: "logs",
     mark: "ГИС",
+    player: "media/logging/index.html",
     title: ["Как читать каротаж", "Каротажды қалай оқу керек", "How to read well logs"],
     script: [
       "Перед нами учебные данные одной скважины. Нужно выбрать интервал для опробования. Сравним три показателя на одной и той же глубине.",

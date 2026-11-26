@@ -52,6 +52,7 @@ export const ui = {
   sharedDepth:["Линия глубины","Тереңдік сызығы","Depth line"],
   syntheticLogs:["Условные кривые по мотивам таблицы 21 · без масштаба","21-кесте негізіндегі шартты қисықтар · масштабсыз","Illustrative curves based on Table 21 · not to scale"],
   locked:["С уровня {n}","{n}-деңгейден бастап","Unlocks at level {n}"],
+  videoPlay:["Смотреть урок","Сабақты көру","Watch lesson"],
   videoPending:["Готовится озвучка","Дыбыстау дайындалып жатыр","Voiceover in progress"],
   videoScript:["Текст урока","Сабақ мәтіні (орысша)","Lesson transcript (Russian)"],
   questions:["Вопросов: {n}","Сұрақтар: {n}","{n} questions"], wait:["Пересдача через {time}","Қайта тапсыру: {time}","Retry in {time}"], begin:["Начать","Бастау","Start"], review:["Разобрать результат","Нәтижені қарау","Review result"], testPassed:["Тест сдан","Тест тапсырылды","Test passed"], testFailed:["Тест пока не сдан","Тест әлі тапсырылмады","Test not passed yet"],

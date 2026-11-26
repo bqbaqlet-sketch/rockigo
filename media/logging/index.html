@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0d1818">
+<title>Как читать каротаж · RockiGo</title>
+<link rel="stylesheet" href="./player.css">
+<script type="module" src="./player.mjs"></script>
+</head>
+<body>
+<main>
+  <header class="top">
+    <a href="../../#videos">← Видеоуроки</a>
+    <span class="brand">RockiGo</span>
+  </header>
+  <div class="lead">
+    <div><p class="subject">Интерпретация каротажа</p><h1>Как читать каротаж</h1></div>
+    <p class="dataset">Учебная скважина · смоделированные данные</p>
+  </div>
+
+  <section class="player" aria-label="Видеоурок с озвучкой">
+    <div class="stage">
+      <div class="visual">
+        <div class="visual-head"><span>Разрез скважины</span><span>Глубина, м</span></div>
+        <div class="figure">
+          <div id="render" aria-hidden="true">
+            <div class="fallback" id="fallback"><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="scale" aria-label="Интервалы по глубине">
+            <span>А <b>2040–2042</b></span><span>Б <b>2042–2044</b></span>
+            <span>В <b>2044–2046</b></span><span>Д <b>2046–2048</b></span>
+          </div>
+        </div>
+        <p class="figure-note">Схема слоёв · условные цвета</p>
+      </div>
+      <div class="analysis">
+        <p class="phase" id="phase">Данные скважины</p>
+        <h2 id="headline">Найди интервал для опробования</h2>
+        <div id="readout"></div>
+      </div>
+    </div>
+    <div class="transport">
+      <p class="captions" id="captions" aria-label="Субтитры"></p>
+      <audio id="audio" src="./narration.mp3" controls preload="metadata" aria-label="Озвучка урока"></audio>
+      <p id="audio-error" role="alert" hidden>Не удалось загрузить озвучку. <a href="./narration.mp3">Открыть MP3</a></p>
+      <div class="scene-nav" aria-label="Сцены урока" id="scenes"></div>
+    </div>
+  </section>
+
+  <details class="notes">
+    <summary>Текст урока и данные</summary>
+    <div id="transcript"></div>
+    <div class="table-wrap">
+      <table>
+        <caption>Смоделированные данные четырёх интервалов</caption>
+        <thead><tr><th scope="col">Интервал</th><th scope="col">Глубина, м</th><th scope="col">ГК, API</th><th scope="col">Rₜ, Ом·м</th><th scope="col">φ, %</th></tr></thead>
+        <tbody id="dataset"></tbody>
+      </table>
+    </div>
+    <p><a href="https://bqbaqlet-sketch.github.io/training-freeze-2026-11-26/geology.html#logs">Практика на тех же данных</a></p>
+  </details>
+  <noscript><p>Озвучку можно включить в плеере. Для показа сцен включи JavaScript.</p></noscript>
+</main>
+</body>
+</html>

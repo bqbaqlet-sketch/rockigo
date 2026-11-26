@@ -75,7 +75,7 @@ a{color:var(--accent);text-underline-offset:3px}button:focus-visible,a:focus-vis
 }
 
 .video-list { align-items: start; }
-.video-lesson .btn { margin-block: 6px; }
+.video-lesson .btn { margin: 6px 6px 6px 0; }
 .video-transcript { margin-top: 8px; border-top: 1px solid var(--line); }
 .video-transcript summary { min-height: 42px; padding-block: 9px; cursor: pointer; font-weight: 700; }
 .video-transcript p { color: var(--ink); }
