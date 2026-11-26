@@ -1,0 +1,59 @@
+{
+  "freeze_commit": "b180740e45938e2bcc995dab655b02aa6fb9f3ed",
+  "chapters": {
+    "asquith": {
+      "pages": 18,
+      "units": 378,
+      "nodes": 10,
+      "tasks": 22,
+      "needs_visual_review": 59,
+      "build_seconds": 2.41,
+      "markdown_sha256": "62159e4b8e8bbe35b1108eb77104c3adf6c17d1542e034fe140d9bc8040e6d8b",
+      "pdf_sha256": "0096840f0ec2b4a042db27657ddab4bacd7102a75702803b6b2a7633ed1f16f5",
+      "routes": {
+        "текст": 10
+      }
+    },
+    "dake": {
+      "pages": 8,
+      "units": 216,
+      "nodes": 5,
+      "tasks": 15,
+      "needs_visual_review": 62,
+      "build_seconds": 2.2,
+      "markdown_sha256": "9a177966869d294035b02bc76c2dcff053e9782df4aad69fe827fc2eb8f7919c",
+      "pdf_sha256": "0fbff7aaf215e1e1352026542d6249399b887190020308197f0336923fe7ec4b",
+      "routes": {
+        "текст": 5
+      }
+    },
+    "slatt": {
+      "pages": 14,
+      "units": 85,
+      "nodes": 7,
+      "tasks": 16,
+      "needs_visual_review": 18,
+      "build_seconds": 2.62,
+      "markdown_sha256": "2175e7d572eca46b5f2967389bb7310c4a16432aac3ea8ba3978db33be6fa320",
+      "pdf_sha256": "4b473ed04f4764041fd2c80d7b8071fcc3bf9a7cdde174322c013d499241b1a1",
+      "routes": {
+        "текст": 6,
+        "карточки": 1
+      }
+    },
+    "basarygin": {
+      "pages": 16,
+      "units": 133,
+      "nodes": 9,
+      "tasks": 20,
+      "needs_visual_review": 10,
+      "build_seconds": 1.64,
+      "markdown_sha256": "8b85bdfc257b938ca542f96dc4a51c51c9531546d4709e4a24dd50bab08a3dbb",
+      "pdf_sha256": "3b1145c8f2636e793dc9945a58aa94b4956fdb8aa1868c5656db737b11a4e50f",
+      "routes": {
+        "текст": 9
+      }
+    }
+  },
+  "input_manifest": "manifest.json"
+}

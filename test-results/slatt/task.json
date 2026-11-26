@@ -1,0 +1,328 @@
+{
+  "chapter": "slatt",
+  "tasks": [
+    {
+      "id": "slatt.p410.idea",
+      "step_id": "slatt.p410",
+      "claim_ids": [
+        "slatt.p410#c1"
+      ],
+      "type": "single",
+      "prompt": "Какой вывод относится к этому шагу?",
+      "answer": "0",
+      "explanation": "Chapter | 9 Deltaic Deposits and Reservoirs",
+      "options": [
+        {
+          "id": "0",
+          "text": "Chapter | 9 Deltaic Deposits and Reservoirs"
+        },
+        {
+          "id": "1",
+          "text": "FIGURE 9.14 Schematic illustration of the distribution of facies and environments in the modern Mississippi bird-foot delta. Modified from Fisk (1961). Reprinted"
+        },
+        {
+          "id": "2",
+          "text": "FIGURE 9.20 Part of a north–south wire line log correlation across the Sadlerochit Sand at Prudhoe Bay field. Tan is floodplain facies. Yellow is fluvial/distributary-channel"
+        }
+      ]
+    },
+    {
+      "id": "slatt.p410.term",
+      "step_id": "slatt.p410",
+      "claim_ids": [
+        "slatt.p410#c1"
+      ],
+      "type": "gap",
+      "prompt": "Впиши ключевое понятие этого шага.",
+      "answer": [
+        "chapter"
+      ],
+      "explanation": "Ключевое понятие: chapter."
+    },
+    {
+      "id": "slatt.p410.process",
+      "step_id": "slatt.p410",
+      "claim_ids": [
+        "slatt.p410#c1"
+      ],
+      "type": "order",
+      "prompt": "Расставь этапы работы с источником.",
+      "answer": [
+        "1",
+        "2",
+        "0"
+      ],
+      "explanation": "Сначала нужны признаки, затем правило и только потом вывод.",
+      "options": [
+        {
+          "id": "0",
+          "text": "Записать вывод и его ограничение"
+        },
+        {
+          "id": "1",
+          "text": "Найти исходные признаки"
+        },
+        {
+          "id": "2",
+          "text": "Применить правило из книги"
+        }
+      ]
+    },
+    {
+      "id": "slatt.p410.limits",
+      "step_id": "slatt.p410",
+      "claim_ids": [
+        "slatt.p410#c1"
+      ],
+      "type": "multiple",
+      "prompt": "Что нужно сохранить вместе с выводом?",
+      "answer": [
+        "0",
+        "2"
+      ],
+      "explanation": "У вывода должны быть условия применения и проверяемый источник.",
+      "options": [
+        {
+          "id": "0",
+          "text": "Условия, при которых применимо правило"
+        },
+        {
+          "id": "1",
+          "text": "Гарантию того же результата во всех скважинах"
+        },
+        {
+          "id": "2",
+          "text": "Страницу, на которой описан пример"
+        }
+      ]
+    },
+    {
+      "id": "slatt.p412.idea",
+      "step_id": "slatt.p412",
+      "claim_ids": [
+        "slatt.p412#c1"
+      ],
+      "type": "single",
+      "prompt": "Какой вывод относится к этому шагу?",
+      "answer": "1",
+      "explanation": "Chapter | 9 Deltaic Deposits and Reservoirs",
+      "options": [
+        {
+          "id": "0",
+          "text": "FIGURE 9.14 Schematic illustration of the distribution of facies and environments in the modern Mississippi bird-foot delta. Modified from Fisk (1961). Reprinted"
+        },
+        {
+          "id": "1",
+          "text": "Chapter | 9 Deltaic Deposits and Reservoirs"
+        },
+        {
+          "id": "2",
+          "text": "FIGURE 9.20 Part of a north–south wire line log correlation across the Sadlerochit Sand at Prudhoe Bay field. Tan is floodplain facies. Yellow is fluvial/distributary-channel"
+        }
+      ]
+    },
+    {
+      "id": "slatt.p412.term",
+      "step_id": "slatt.p412",
+      "claim_ids": [
+        "slatt.p412#c1"
+      ],
+      "type": "gap",
+      "prompt": "Впиши ключевое понятие этого шага.",
+      "answer": [
+        "chapter"
+      ],
+      "explanation": "Ключевое понятие: chapter."
+    },
+    {
+      "id": "slatt.p414.idea",
+      "step_id": "slatt.p414",
+      "claim_ids": [
+        "slatt.p414#c1"
+      ],
+      "type": "single",
+      "prompt": "Какой вывод относится к этому шагу?",
+      "answer": "2",
+      "explanation": "FIGURE 9.14 Schematic illustration of the distribution of facies and environments in the modern Mississippi bird-foot delta. Modified from Fisk (1961). Reprinted",
+      "options": [
+        {
+          "id": "0",
+          "text": "Chapter | 9 Deltaic Deposits and Reservoirs"
+        },
+        {
+          "id": "1",
+          "text": "FIGURE 9.20 Part of a north–south wire line log correlation across the Sadlerochit Sand at Prudhoe Bay field. Tan is floodplain facies. Yellow is fluvial/distributary-channel"
+        },
+        {
+          "id": "2",
+          "text": "FIGURE 9.14 Schematic illustration of the distribution of facies and environments in the modern Mississippi bird-foot delta. Modified from Fisk (1961). Reprinted"
+        }
+      ]
+    },
+    {
+      "id": "slatt.p414.term",
+      "step_id": "slatt.p414",
+      "claim_ids": [
+        "slatt.p414#c1"
+      ],
+      "type": "gap",
+      "prompt": "Впиши ключевое понятие этого шага.",
+      "answer": [
+        "figure"
+      ],
+      "explanation": "Ключевое понятие: figure."
+    },
+    {
+      "id": "slatt.p416.idea",
+      "step_id": "slatt.p416",
+      "claim_ids": [
+        "slatt.p416#c1"
+      ],
+      "type": "single",
+      "prompt": "Какой вывод относится к этому шагу?",
+      "answer": "0",
+      "explanation": "Chapter | 9 Deltaic Deposits and Reservoirs",
+      "options": [
+        {
+          "id": "0",
+          "text": "Chapter | 9 Deltaic Deposits and Reservoirs"
+        },
+        {
+          "id": "1",
+          "text": "FIGURE 9.14 Schematic illustration of the distribution of facies and environments in the modern Mississippi bird-foot delta. Modified from Fisk (1961). Reprinted"
+        },
+        {
+          "id": "2",
+          "text": "FIGURE 9.20 Part of a north–south wire line log correlation across the Sadlerochit Sand at Prudhoe Bay field. Tan is floodplain facies. Yellow is fluvial/distributary-channel"
+        }
+      ]
+    },
+    {
+      "id": "slatt.p416.term",
+      "step_id": "slatt.p416",
+      "claim_ids": [
+        "slatt.p416#c1"
+      ],
+      "type": "gap",
+      "prompt": "Впиши ключевое понятие этого шага.",
+      "answer": [
+        "chapter"
+      ],
+      "explanation": "Ключевое понятие: chapter."
+    },
+    {
+      "id": "slatt.p418.idea",
+      "step_id": "slatt.p418",
+      "claim_ids": [
+        "slatt.p418#c1"
+      ],
+      "type": "single",
+      "prompt": "Какой вывод относится к этому шагу?",
+      "answer": "1",
+      "explanation": "Chapter | 9 Deltaic Deposits and Reservoirs",
+      "options": [
+        {
+          "id": "0",
+          "text": "FIGURE 9.14 Schematic illustration of the distribution of facies and environments in the modern Mississippi bird-foot delta. Modified from Fisk (1961). Reprinted"
+        },
+        {
+          "id": "1",
+          "text": "Chapter | 9 Deltaic Deposits and Reservoirs"
+        },
+        {
+          "id": "2",
+          "text": "FIGURE 9.20 Part of a north–south wire line log correlation across the Sadlerochit Sand at Prudhoe Bay field. Tan is floodplain facies. Yellow is fluvial/distributary-channel"
+        }
+      ]
+    },
+    {
+      "id": "slatt.p418.term",
+      "step_id": "slatt.p418",
+      "claim_ids": [
+        "slatt.p418#c1"
+      ],
+      "type": "gap",
+      "prompt": "Впиши ключевое понятие этого шага.",
+      "answer": [
+        "chapter"
+      ],
+      "explanation": "Ключевое понятие: chapter."
+    },
+    {
+      "id": "slatt.p420.idea",
+      "step_id": "slatt.p420",
+      "claim_ids": [
+        "slatt.p420#c1"
+      ],
+      "type": "single",
+      "prompt": "Какой вывод относится к этому шагу?",
+      "answer": "2",
+      "explanation": "FIGURE 9.20 Part of a north–south wire line log correlation across the Sadlerochit Sand at Prudhoe Bay field. Tan is floodplain facies. Yellow is fluvial/distributary-channel",
+      "options": [
+        {
+          "id": "0",
+          "text": "Chapter | 9 Deltaic Deposits and Reservoirs"
+        },
+        {
+          "id": "1",
+          "text": "FIGURE 9.14 Schematic illustration of the distribution of facies and environments in the modern Mississippi bird-foot delta. Modified from Fisk (1961). Reprinted"
+        },
+        {
+          "id": "2",
+          "text": "FIGURE 9.20 Part of a north–south wire line log correlation across the Sadlerochit Sand at Prudhoe Bay field. Tan is floodplain facies. Yellow is fluvial/distributary-channel"
+        }
+      ]
+    },
+    {
+      "id": "slatt.p420.term",
+      "step_id": "slatt.p420",
+      "claim_ids": [
+        "slatt.p420#c1"
+      ],
+      "type": "gap",
+      "prompt": "Впиши ключевое понятие этого шага.",
+      "answer": [
+        "figure"
+      ],
+      "explanation": "Ключевое понятие: figure."
+    },
+    {
+      "id": "slatt.p422.idea",
+      "step_id": "slatt.p422",
+      "claim_ids": [
+        "slatt.p422#c1"
+      ],
+      "type": "single",
+      "prompt": "Какой вывод относится к этому шагу?",
+      "answer": "0",
+      "explanation": "Chapter | 9 Deltaic Deposits and Reservoirs",
+      "options": [
+        {
+          "id": "0",
+          "text": "Chapter | 9 Deltaic Deposits and Reservoirs"
+        },
+        {
+          "id": "1",
+          "text": "FIGURE 9.14 Schematic illustration of the distribution of facies and environments in the modern Mississippi bird-foot delta. Modified from Fisk (1961). Reprinted"
+        },
+        {
+          "id": "2",
+          "text": "FIGURE 9.20 Part of a north–south wire line log correlation across the Sadlerochit Sand at Prudhoe Bay field. Tan is floodplain facies. Yellow is fluvial/distributary-channel"
+        }
+      ]
+    },
+    {
+      "id": "slatt.p422.term",
+      "step_id": "slatt.p422",
+      "claim_ids": [
+        "slatt.p422#c1"
+      ],
+      "type": "gap",
+      "prompt": "Впиши ключевое понятие этого шага.",
+      "answer": [
+        "chapter"
+      ],
+      "explanation": "Ключевое понятие: chapter."
+    }
+  ]
+}

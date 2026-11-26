@@ -1,0 +1,60 @@
+﻿unit_id;kind;page_pdf;excerpt;node_ids;reason;needs_review
+p126-u014;formula;126;$$ S_w = \left( \frac{a \times R_w}{R_t \times \phi^m} \right)^{\frac{1}{n}} \tag{7.1} $$;asquith.p126;;Проверить обозначения, индексы и единицы по PDF.
+p127-u008;formula;127;$$ S_{xo} = \left( \frac{a \times R_{mf}}{R_{xo} \times \phi^m} \right)^{\frac{1}{n}} \tag{7.2} $$;asquith.p126;;Проверить обозначения, индексы и единицы по PDF.
+p127-u020;formula;127;$$ \left( \frac{S_w}{S_{xo}} \right)^2 = \frac{R_{xo} / R_t}{R_{mf} / R_w} \tag{7.3} $$;asquith.p126;;Проверить обозначения, индексы и единицы по PDF.
+p127-u030;formula;127;$$ \frac{S_w}{S_{xo}} = \left( \frac{R_{xo} / R_t}{R_{mf} / R_w} \right)^{\frac{1}{2}} \tag{7.4} $$;asquith.p126;;Проверить обозначения, индексы и единицы по PDF.
+p128-u003;formula;128;$$S_{xo} = (S_w)^{\frac{1}{2}} \tag{7.5}$$;asquith.p128;;Проверить обозначения, индексы и единицы по PDF.
+p128-u008;formula;128;$$S_{wr} = \left( \frac{R_{xo} / R_t}{R_{mf} / R_w} \right)^{\frac{5}{8}} \tag{7.6}$$;asquith.p128;;Проверить обозначения, индексы и единицы по PDF.
+p128-u010;formula;128;$$S_{wr} = \left( \frac{R_{xo} / R_t}{R_{mf} / R_w} \right)^{0.625} \tag{7.7}$$;asquith.p128;;Проверить обозначения, индексы и единицы по PDF.
+p128-u022;formula;128;$$(S_w)_{COR} = S_{wa} \times \left( \frac{S_{wa}}{S_{wr}} \right)^{0.25} \tag{7.8}$$;asquith.p128;;Проверить обозначения, индексы и единицы по PDF.
+p129-u005;formula;129;$$SP = -K \times \log\left(\frac{R_{mf}}{R_w}\right) \tag{7.9}$$;asquith.p128;;Проверить обозначения, индексы и единицы по PDF.
+p129-u007;formula;129;$$R_{xo} = F \times R_{mf} \quad (\text{flushed zone}) \tag{7.10}$$;asquith.p128;;Проверить обозначения, индексы и единицы по PDF.
+p129-u008;formula;129;$$R_o = F \times R_w \quad (\text{uninvaded zone}) \tag{7.11}$$;asquith.p128;;Проверить обозначения, индексы и единицы по PDF.
+p129-u010;formula;129;$$SP = -K \times \log\left(\frac{R_{xo}}{R_o}\right) \tag{7.12}$$;asquith.p128;;Проверить обозначения, индексы и единицы по PDF.
+p129-u024;formula;129;$$R_o = F \times R_w \tag{7.13}$$;asquith.p128;;Проверить обозначения, индексы и единицы по PDF.
+p129-u026;formula;129;$$F = \frac{a}{\phi^m} \tag{7.14}$$;asquith.p128;;Проверить обозначения, индексы и единицы по PDF.
+p129-u028;formula;129;$$R_w = \frac{R_o \times \phi^m}{a} \tag{7.15}$$;asquith.p128;;Проверить обозначения, индексы и единицы по PDF.
+p129-u030;formula;129;$$R_{wa} = \frac{R_t \times \phi^m}{a} \tag{7.16}$$;asquith.p128;;Проверить обозначения, индексы и единицы по PDF.
+p130-u006;formula;130;$$S_w = \sqrt{\frac{R_{wa\ minimum}}{R_{wa\ zone}}} \tag{7.17}$$;asquith.p130;;Проверить обозначения, индексы и единицы по PDF.
+p130-u023;formula;130;$$\phi = \left(\frac{a \times R_w}{R_t \times S_w^n}\right)^{\frac{1}{m}} \tag{7.18}$$;asquith.p130;;Проверить обозначения, индексы и единицы по PDF.
+p130-u025;formula;130;$$\phi = \left(\frac{a \times R_w}{R_t}\right)^{\frac{1}{m}} \tag{7.19}$$;asquith.p130;;Проверить обозначения, индексы и единицы по PDF.
+p130-u029;formula;130;$$S_w = \frac{\phi_{conductivity}}{\phi_{actual}} \tag{7.20}$$;asquith.p130;;Проверить обозначения, индексы и единицы по PDF.
+p131-u013;formula;131;$$R_o = F \times R_w = \frac{a \times R_w}{\phi^m} \tag{7.21}$$;asquith.p130;;Проверить обозначения, индексы и единицы по PDF.
+p131-u017;formula;131;$$BVW = S_w \times \phi \tag{7.22}$$;asquith.p130;;Проверить обозначения, индексы и единицы по PDF.
+p131-u027;table;131;| Lithology | Grain Size (millimeters) | Bulk Volume Water ($BVW$) | | --- | --- | --- | | *Clastics* | | | | Coarse | 1.0 to 0.5 | 0.02 to 0.025 | |;asquith.p130;;Проверить разметку и значения таблицы по PDF.
+p132-u008;formula;132;$$R_t = \frac{a \times R_o}{\phi^m \times S_w^n} \tag{7.23}$$;asquith.p132;;Проверить обозначения, индексы и единицы по PDF.
+p132-u010;formula;132;$$\log(R_t) = \log(a \times R_w) - m \log(\phi) - n \log(S_w) \tag{7.24}$$;asquith.p132;;Проверить обозначения, индексы и единицы по PDF.
+p132-u012;formula;132;$$\log(R_t) = \log(a \times R_w) - m \log(\phi) \tag{7.25}$$;asquith.p132;;Проверить обозначения, индексы и единицы по PDF.
+p132-u016;formula;132;$$\log(\phi) = \log(a \times R_w) - \frac{1}{m} \log(R_t) - n \log(S_w) \tag{7.26}$$;asquith.p132;;Проверить обозначения, индексы и единицы по PDF.
+p133-u004;formula;133;$$(\Delta t - \Delta t_{ma})$$ instead of the sonic porosity where:;asquith.p132;;Проверить обозначения, индексы и единицы по PDF.
+p133-u005;formula;133;$$\Delta t =$$ formation sonic travel time (from the log);asquith.p132;;Проверить обозначения, индексы и единицы по PDF.
+p133-u006;formula;133;$$\Delta t_{ma} =$$ formation matrix travel time;asquith.p132;;Проверить обозначения, индексы и единицы по PDF.
+p133-u009;formula;133;$$S_w = \left(\frac{R_o}{R_t}\right)^{\frac{1}{n}} \tag{7.27}$$;asquith.p132;;Проверить обозначения, индексы и единицы по PDF.
+p133-u015;table;133;| Multiplier | $$S_w$$ (for n = 2.0) | | --- | --- | | 1.56 | 0.80 | | 2.04 | 0.70 | | 2.78 | 0.60 | | 4 | 0.50 | | 6.25 | 0.40 | | 11.11 | 0.30 |;asquith.p132;;Проверить разметку и значения таблицы по PDF.
+p133-u019;formula;133;$$\left(\frac{a}{R_t}\right)^{\frac{1}{m}} = \left(\frac{S_w^n}{R_w}\right)^{\frac{1}{m}} \times \phi \tag{7.28}$$;asquith.p132;;Проверить обозначения, индексы и единицы по PDF.
+p134-u006;formula;134;$$R_w = \frac{R_o \times \phi^m}{a} \tag{7.29}$$;asquith.p134;;Проверить обозначения, индексы и единицы по PDF.
+p135-u004;table;135;| | *Pickett plots* | *Hingle plots* | | --- | --- | --- | | Advantages | Water saturation can be predicted without prior knowledge of $R_w$, $a$, or $m$. $R_w$;asquith.p134;;Проверить разметку и значения таблицы по PDF.
+p135-u006;table;135;| Zone number | Depth (ft) | $\rho_b$ (g/cm³) | $\phi_D$ (decimal) | $R_t$ (ohm-m) | | --- | --- | --- | --- | --- | | 1 | 4400 | 2.38 | 0.163 | 1.7 | | 2 |;asquith.p134;;Проверить разметку и значения таблицы по PDF.
+p135-u009;formula;135;$$ K = \left( 250 \times \frac{\phi^3}{S_{\text{wirr}}} \right)^2 \text{ (medium-gravity oils)} \tag{7.30} $$;asquith.p134;;Проверить обозначения, индексы и единицы по PDF.
+p135-u010;formula;135;$$ K = \left( 79 \times \frac{\phi^3}{S_{\text{wirr}}} \right)^2 \text{ dry gas)} \tag{7.31} $$;asquith.p134;;Проверить обозначения, индексы и единицы по PDF.
+p135-u016;formula;135;$$ K = \left( \frac{93 \times \phi^{2.2}}{S_{\text{wirr}}} \right)^2 \tag{7.32} $$;asquith.p134;;Проверить обозначения, индексы и единицы по PDF.
+p136-u006;formula;136;$$ C = 23 + 465 \times \rho_{h} - 188 \times \rho_{h}^{2} \tag{7.33} $$;asquith.p136;;Проверить обозначения, индексы и единицы по PDF.
+p136-u010;formula;136;$$ W = \left\{(3.75 - \phi) + \left[ \frac{(\log(R_{w} / R_{t \text{ irr}}) + 2.2)^{2}}{2.0} \right] \right\}^{\frac{1}{2}} \tag{7.34} $$;asquith.p136;;Проверить обозначения, индексы и единицы по PDF.
+p136-u017;formula;136;$$ K = \left[ \frac{C \times \phi^{2W}}{W^{4} \times (R_{w} / R_{t \text{ irr}})} \right]^{2} \tag{7.35} $$;asquith.p136;;Проверить обозначения, индексы и единицы по PDF.
+p140-u003;figure;140;━━━ FORMAT 11: FLOW / PROCESS DIAGRAM ━━━ ```mermaid graph TD A[Look for clean zones] --> B{Classics} A --> C{Carbonates} B --> D[Look for resistivity];asquith.p140;;"Описание рисунка подготовлено моделью; сверить со сканом и перерисовать."
+p140-u012;figure;140;━━━ FORMAT 11: FLOW / PROCESS DIAGRAM ━━━ ```mermaid graph TD A[Data Source] --> B[Deep-reading resistivity (ILD, LL D)] A --> C[Shallow-reading resistivity;asquith.p140;;"Описание рисунка подготовлено моделью; сверить со сканом и перерисовать."
+p142-u003;figure;142;━━━ FORMAT 6: XY PLOT / CHART WITH DATA ━━━ - X-axis: True resistivity, Rt, logarithmic scale, range 0.10 to 100.00 (Ω·m). - Y-axis: Density porosity, DPHI, logarithmic;asquith.p141;;"Описание рисунка подготовлено моделью; сверить со сканом и перерисовать."
+p142-u008;formula;142;$$ R _ {w} = \frac {R _ {a} \times \phi^ {m}}{a} $$;asquith.p141;;Проверить обозначения, индексы и единицы по PDF.
+p142-u015;formula;142;$$ R _ {w} = \frac {4 . 6 \times 0 . 1 0 ^ {3 . 0}}{1 . 0} $$;asquith.p141;;Проверить обозначения, индексы и единицы по PDF.
+p142-u019;formula;142;$$ S _ {w} = \left(\frac {R _ {a}}{R _ {r}}\right) ^ {\frac {1}{n}} $$;asquith.p141;;Проверить обозначения, индексы и единицы по PDF.
+p142-u021;formula;142;$$ S _ {w} = \left(\frac {0 . 8}{4 0}\right) ^ {\frac {1}{2 . 0}} $$;asquith.p141;;Проверить обозначения, индексы и единицы по PDF.
+p142-u022;formula;142;$$ S _ {w} = 0. 1 4 $$;asquith.p141;;Проверить обозначения, индексы и единицы по PDF.
+p143-u003;figure;143;━━━ FORMAT 7: NOMOGRAM / ПАЛЕТКА ━━━ Палетка для определения пористости по удельной проводимости и удельному сопротивлению. Ось абсцисс (горизонтальная): Пористость,;asquith.p143;;"Описание рисунка подготовлено моделью; сверить со сканом и перерисовать."
+p144-u003;figure;144;━━━ FORMAT 7: NOMOGRAM / ПАЛЕТКА ━━━ Палетка для определения удельного сопротивления и проводимости. Ось абсцисс (горизонтальная): не указана, но предполагается,;asquith.p143;;"Описание рисунка подготовлено моделью; сверить со сканом и перерисовать."
+p145-u007;formula;145;$$R_w = \frac{R_c \times \phi^m}{a}$$;asquith.p145;;Проверить обозначения, индексы и единицы по PDF.
+p145-u011;formula;145;$$R_w = \frac{4.1 \times 0.10^{2.0}}{1.0}$$;asquith.p145;;Проверить обозначения, индексы и единицы по PDF.
+p145-u014;figure;145;━━━ FORMAT 6: XY PLOT / CHART WITH DATA ━━━ This is a crossplot of bulk density versus conductivity (or resistivity) with water saturation contours. Left Y-axis:;asquith.p145;;"Описание рисунка подготовлено моделью; сверить со сканом и перерисовать."
+p145-u017;formula;145;$$S_w = \left(\frac{R_a}{R_s}\right)^{\frac{1}{n}}$$;asquith.p145;;Проверить обозначения, индексы и единицы по PDF.
+p145-u019;formula;145;$$S_w = \left(\frac{0.83}{40}\right)^{\frac{1}{2.0}}$$;asquith.p145;;Проверить обозначения, индексы и единицы по PDF.
+p145-u020;formula;145;$$S_w = 0.144$$;asquith.p145;;Проверить обозначения, индексы и единицы по PDF.
+p146-u003;figure;146;━━━ FORMAT 7: NOMOGRAM / ПАЛЕТКА ━━━ Палетка для определения насыщенности воды в зоне перехода выше водоносного горизонта (S_w, water saturation above transition;asquith.p145;;"Описание рисунка подготовлено моделью; сверить со сканом и перерисовать."

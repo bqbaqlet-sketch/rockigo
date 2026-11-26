@@ -1,0 +1,35 @@
+{
+  "schemas": [
+    "node",
+    "coverage",
+    "routing",
+    "task"
+  ],
+  "pages": 18,
+  "nodes": 10,
+  "units": 378,
+  "verified_quotes": 338,
+  "units_by_type": {
+    "paragraph": 287,
+    "heading": 32,
+    "formula": 48,
+    "table": 4,
+    "figure": 7
+  },
+  "needs_visual_review": 59,
+  "tasks": 22,
+  "task_types": [
+    "gap",
+    "multiple",
+    "order",
+    "single"
+  ],
+  "task_minimum_met": true,
+  "scope": "Дословность и числа сверены с выданным Markdown. PDF проверен по охвату страниц; предметная оценка и сканы отмечаются отдельно.",
+  "chapter": "asquith",
+  "html_bytes": 11301814,
+  "build_seconds": 2.41,
+  "teaching_notes": false,
+  "pdf_sha256": "0096840f0ec2b4a042db27657ddab4bacd7102a75702803b6b2a7633ed1f16f5",
+  "markdown_sha256": "62159e4b8e8bbe35b1108eb77104c3adf6c17d1542e034fe140d9bc8040e6d8b"
+}

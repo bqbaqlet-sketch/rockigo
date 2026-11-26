@@ -1,0 +1,291 @@
+{
+  "chapter": "dake",
+  "tasks": [
+    {
+      "id": "dake.p075.idea",
+      "step_id": "dake.p075",
+      "claim_ids": [
+        "dake.p075#c1"
+      ],
+      "type": "single",
+      "prompt": "Какой вывод относится к этому шагу?",
+      "answer": "0",
+      "explanation": "9) Amyx, J.W., Bass, D.M. and Whiting, R.L., 1960. Petroleum Reservoir Engineering — Physical Properties. McGraw-Hill: 86-96.",
+      "options": [
+        {
+          "id": "0",
+          "text": "9) Amyx, J.W., Bass, D.M. and Whiting, R.L., 1960. Petroleum Reservoir Engineering — Physical Properties. McGraw-Hill: 86-96."
+        },
+        {
+          "id": "1",
+          "text": "RADIAL DIFFERENTIAL EQUATION FOR FLUID FLOW"
+        },
+        {
+          "id": "2",
+          "text": "The constant terminal rate solution is therefore the equation of $p_{\\text{ref}}$ versus t for constant rate production for any value of the flowing time. The pressure"
+        }
+      ]
+    },
+    {
+      "id": "dake.p075.term",
+      "step_id": "dake.p075",
+      "claim_ids": [
+        "dake.p075#c1"
+      ],
+      "type": "gap",
+      "prompt": "Впиши ключевое понятие этого шага.",
+      "answer": [
+        "amyx"
+      ],
+      "explanation": "Ключевое понятие: amyx."
+    },
+    {
+      "id": "dake.p075.process",
+      "step_id": "dake.p075",
+      "claim_ids": [
+        "dake.p075#c1"
+      ],
+      "type": "order",
+      "prompt": "Расставь этапы работы с источником.",
+      "answer": [
+        "1",
+        "2",
+        "0"
+      ],
+      "explanation": "Сначала нужны признаки, затем правило и только потом вывод.",
+      "options": [
+        {
+          "id": "0",
+          "text": "Записать вывод и его ограничение"
+        },
+        {
+          "id": "1",
+          "text": "Найти исходные признаки"
+        },
+        {
+          "id": "2",
+          "text": "Применить правило из книги"
+        }
+      ]
+    },
+    {
+      "id": "dake.p075.limits",
+      "step_id": "dake.p075",
+      "claim_ids": [
+        "dake.p075#c1"
+      ],
+      "type": "multiple",
+      "prompt": "Что нужно сохранить вместе с выводом?",
+      "answer": [
+        "0",
+        "2"
+      ],
+      "explanation": "У вывода должны быть условия применения и проверяемый источник.",
+      "options": [
+        {
+          "id": "0",
+          "text": "Условия, при которых применимо правило"
+        },
+        {
+          "id": "1",
+          "text": "Гарантию того же результата во всех скважинах"
+        },
+        {
+          "id": "2",
+          "text": "Страницу, на которой описан пример"
+        }
+      ]
+    },
+    {
+      "id": "dake.p077.idea",
+      "step_id": "dake.p077",
+      "claim_ids": [
+        "dake.p077#c1"
+      ],
+      "type": "single",
+      "prompt": "Какой вывод относится к этому шагу?",
+      "answer": "1",
+      "explanation": "RADIAL DIFFERENTIAL EQUATION FOR FLUID FLOW",
+      "options": [
+        {
+          "id": "0",
+          "text": "9) Amyx, J.W., Bass, D.M. and Whiting, R.L., 1960. Petroleum Reservoir Engineering — Physical Properties. McGraw-Hill: 86-96."
+        },
+        {
+          "id": "1",
+          "text": "RADIAL DIFFERENTIAL EQUATION FOR FLUID FLOW"
+        },
+        {
+          "id": "2",
+          "text": "The constant terminal rate solution is therefore the equation of $p_{\\text{ref}}$ versus t for constant rate production for any value of the flowing time. The pressure"
+        }
+      ]
+    },
+    {
+      "id": "dake.p077.term",
+      "step_id": "dake.p077",
+      "claim_ids": [
+        "dake.p077#c1"
+      ],
+      "type": "gap",
+      "prompt": "Впиши ключевое понятие этого шага.",
+      "answer": [
+        "radial"
+      ],
+      "explanation": "Ключевое понятие: radial."
+    },
+    {
+      "id": "dake.p079.idea",
+      "step_id": "dake.p079",
+      "claim_ids": [
+        "dake.p079#c1"
+      ],
+      "type": "single",
+      "prompt": "Какой вывод относится к этому шагу?",
+      "answer": "2",
+      "explanation": "RADIAL DIFFERENTIAL EQUATION FOR FLUID FLOW",
+      "options": [
+        {
+          "id": "0",
+          "text": "9) Amyx, J.W., Bass, D.M. and Whiting, R.L., 1960. Petroleum Reservoir Engineering — Physical Properties. McGraw-Hill: 86-96."
+        },
+        {
+          "id": "1",
+          "text": "The constant terminal rate solution is therefore the equation of $p_{\\text{ref}}$ versus t for constant rate production for any value of the flowing time. The pressure"
+        },
+        {
+          "id": "2",
+          "text": "RADIAL DIFFERENTIAL EQUATION FOR FLUID FLOW"
+        }
+      ]
+    },
+    {
+      "id": "dake.p079.term",
+      "step_id": "dake.p079",
+      "claim_ids": [
+        "dake.p079#c1"
+      ],
+      "type": "gap",
+      "prompt": "Впиши ключевое понятие этого шага.",
+      "answer": [
+        "radial"
+      ],
+      "explanation": "Ключевое понятие: radial."
+    },
+    {
+      "id": "dake.p087.idea",
+      "step_id": "dake.p087",
+      "claim_ids": [
+        "dake.p087#c1"
+      ],
+      "type": "single",
+      "prompt": "Какой вывод относится к этому шагу?",
+      "answer": "0",
+      "explanation": "The constant terminal rate solution is therefore the equation of $p_{\\text{ref}}$ versus t for constant rate production for any value of the flowing time. The pressure",
+      "options": [
+        {
+          "id": "0",
+          "text": "The constant terminal rate solution is therefore the equation of $p_{\\text{ref}}$ versus t for constant rate production for any value of the flowing time. The pressure"
+        },
+        {
+          "id": "1",
+          "text": "9) Amyx, J.W., Bass, D.M. and Whiting, R.L., 1960. Petroleum Reservoir Engineering — Physical Properties. McGraw-Hill: 86-96."
+        },
+        {
+          "id": "2",
+          "text": "RADIAL DIFFERENTIAL EQUATION FOR FLUID FLOW"
+        }
+      ]
+    },
+    {
+      "id": "dake.p087.term",
+      "step_id": "dake.p087",
+      "claim_ids": [
+        "dake.p087#c1"
+      ],
+      "type": "gap",
+      "prompt": "Впиши ключевое понятие этого шага.",
+      "answer": [
+        "constant"
+      ],
+      "explanation": "Ключевое понятие: constant."
+    },
+    {
+      "id": "dake.p089.idea",
+      "step_id": "dake.p089",
+      "claim_ids": [
+        "dake.p089#c1"
+      ],
+      "type": "single",
+      "prompt": "Какой вывод относится к этому шагу?",
+      "answer": "1",
+      "explanation": "Fig. 7.2 The exponential integral function ei(x).",
+      "options": [
+        {
+          "id": "0",
+          "text": "9) Amyx, J.W., Bass, D.M. and Whiting, R.L., 1960. Petroleum Reservoir Engineering — Physical Properties. McGraw-Hill: 86-96."
+        },
+        {
+          "id": "1",
+          "text": "Fig. 7.2 The exponential integral function ei(x)."
+        },
+        {
+          "id": "2",
+          "text": "RADIAL DIFFERENTIAL EQUATION FOR FLUID FLOW"
+        }
+      ]
+    },
+    {
+      "id": "dake.p089.term",
+      "step_id": "dake.p089",
+      "claim_ids": [
+        "dake.p089#c1"
+      ],
+      "type": "gap",
+      "prompt": "Впиши ключевое понятие этого шага.",
+      "answer": [
+        "exponential"
+      ],
+      "explanation": "Ключевое понятие: exponential."
+    },
+    {
+      "id": "dake.p075.quote13",
+      "step_id": "dake.p075",
+      "claim_ids": [
+        "dake.p075#c1"
+      ],
+      "type": "gap",
+      "prompt": "Восстанови слово из фрагмента. 9) Amyx, J.W., Bass, D.M. and Whiting, R.L., 1960. … Reservoir Engineering — Physical Properties. McGraw-Hill: 86-96.",
+      "answer": [
+        "Petroleum"
+      ],
+      "explanation": "9) Amyx, J.W., Bass, D.M. and Whiting, R.L., 1960. Petroleum Reservoir Engineering — Physical Properties. McGraw-Hill: 86-96."
+    },
+    {
+      "id": "dake.p075.quote14",
+      "step_id": "dake.p075",
+      "claim_ids": [
+        "dake.p075#c1"
+      ],
+      "type": "gap",
+      "prompt": "Восстанови слово из фрагмента. 9) Amyx, J.W., Bass, D.M. and Whiting, R.L., 1960. Petroleum … Engineering — Physical Properties. McGraw-Hill: 86-96.",
+      "answer": [
+        "Reservoir"
+      ],
+      "explanation": "9) Amyx, J.W., Bass, D.M. and Whiting, R.L., 1960. Petroleum Reservoir Engineering — Physical Properties. McGraw-Hill: 86-96."
+    },
+    {
+      "id": "dake.p075.quote15",
+      "step_id": "dake.p075",
+      "claim_ids": [
+        "dake.p075#c1"
+      ],
+      "type": "gap",
+      "prompt": "Восстанови слово из фрагмента. 9) Amyx, J.W., Bass, D.M. and Whiting, R.L., 1960. Petroleum Reservoir … — Physical Properties. McGraw-Hill: 86-96.",
+      "answer": [
+        "Engineering"
+      ],
+      "explanation": "9) Amyx, J.W., Bass, D.M. and Whiting, R.L., 1960. Petroleum Reservoir Engineering — Physical Properties. McGraw-Hill: 86-96."
+    }
+  ]
+}

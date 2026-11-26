@@ -1,0 +1,442 @@
+{
+  "chapter": "asquith",
+  "tasks": [
+    {
+      "id": "asquith.p126.idea",
+      "step_id": "asquith.p126",
+      "claim_ids": [
+        "asquith.p126#c1"
+      ],
+      "type": "single",
+      "prompt": "Какой вывод относится к этому шагу?",
+      "answer": "0",
+      "explanation": "Asquith, G., and D. Krygowski, 2004, Log Interpretation, in G. Asquith and D. Krygowski, Basic Well Log Analysis: AAPG Methods in Exploration 16, p. 115-135.",
+      "options": [
+        {
+          "id": "0",
+          "text": "Asquith, G., and D. Krygowski, 2004, Log Interpretation, in G. Asquith and D. Krygowski, Basic Well Log Analysis: AAPG Methods in Exploration 16, p. 115-135."
+        },
+        {
+          "id": "1",
+          "text": "$(S_{wr})$, you must know the flushed zone's water saturation. In the flushed zone of formations with moderate invasion and average residual hydrocarbon saturation,"
+        },
+        {
+          "id": "2",
+          "text": "some hydrocarbons, then the other zones contain even more hydrocarbons than anticipated."
+        }
+      ]
+    },
+    {
+      "id": "asquith.p126.term",
+      "step_id": "asquith.p126",
+      "claim_ids": [
+        "asquith.p126#c1"
+      ],
+      "type": "gap",
+      "prompt": "Впиши ключевое понятие этого шага.",
+      "answer": [
+        "asquith"
+      ],
+      "explanation": "Ключевое понятие: asquith."
+    },
+    {
+      "id": "asquith.p126.process",
+      "step_id": "asquith.p126",
+      "claim_ids": [
+        "asquith.p126#c1"
+      ],
+      "type": "order",
+      "prompt": "Расставь этапы работы с источником.",
+      "answer": [
+        "1",
+        "2",
+        "0"
+      ],
+      "explanation": "Сначала нужны признаки, затем правило и только потом вывод.",
+      "options": [
+        {
+          "id": "0",
+          "text": "Записать вывод и его ограничение"
+        },
+        {
+          "id": "1",
+          "text": "Найти исходные признаки"
+        },
+        {
+          "id": "2",
+          "text": "Применить правило из книги"
+        }
+      ]
+    },
+    {
+      "id": "asquith.p126.limits",
+      "step_id": "asquith.p126",
+      "claim_ids": [
+        "asquith.p126#c1"
+      ],
+      "type": "multiple",
+      "prompt": "Что нужно сохранить вместе с выводом?",
+      "answer": [
+        "0",
+        "2"
+      ],
+      "explanation": "У вывода должны быть условия применения и проверяемый источник.",
+      "options": [
+        {
+          "id": "0",
+          "text": "Условия, при которых применимо правило"
+        },
+        {
+          "id": "1",
+          "text": "Гарантию того же результата во всех скважинах"
+        },
+        {
+          "id": "2",
+          "text": "Страницу, на которой описан пример"
+        }
+      ]
+    },
+    {
+      "id": "asquith.p128.idea",
+      "step_id": "asquith.p128",
+      "claim_ids": [
+        "asquith.p128#c1"
+      ],
+      "type": "single",
+      "prompt": "Какой вывод относится к этому шагу?",
+      "answer": "1",
+      "explanation": "$(S_{wr})$, you must know the flushed zone's water saturation. In the flushed zone of formations with moderate invasion and average residual hydrocarbon saturation,",
+      "options": [
+        {
+          "id": "0",
+          "text": "Asquith, G., and D. Krygowski, 2004, Log Interpretation, in G. Asquith and D. Krygowski, Basic Well Log Analysis: AAPG Methods in Exploration 16, p. 115-135."
+        },
+        {
+          "id": "1",
+          "text": "$(S_{wr})$, you must know the flushed zone's water saturation. In the flushed zone of formations with moderate invasion and average residual hydrocarbon saturation,"
+        },
+        {
+          "id": "2",
+          "text": "some hydrocarbons, then the other zones contain even more hydrocarbons than anticipated."
+        }
+      ]
+    },
+    {
+      "id": "asquith.p128.term",
+      "step_id": "asquith.p128",
+      "claim_ids": [
+        "asquith.p128#c1"
+      ],
+      "type": "gap",
+      "prompt": "Впиши ключевое понятие этого шага.",
+      "answer": [
+        "must"
+      ],
+      "explanation": "Ключевое понятие: must."
+    },
+    {
+      "id": "asquith.p130.idea",
+      "step_id": "asquith.p130",
+      "claim_ids": [
+        "asquith.p130#c1"
+      ],
+      "type": "single",
+      "prompt": "Какой вывод относится к этому шагу?",
+      "answer": "2",
+      "explanation": "some hydrocarbons, then the other zones contain even more hydrocarbons than anticipated.",
+      "options": [
+        {
+          "id": "0",
+          "text": "Asquith, G., and D. Krygowski, 2004, Log Interpretation, in G. Asquith and D. Krygowski, Basic Well Log Analysis: AAPG Methods in Exploration 16, p. 115-135."
+        },
+        {
+          "id": "1",
+          "text": "$(S_{wr})$, you must know the flushed zone's water saturation. In the flushed zone of formations with moderate invasion and average residual hydrocarbon saturation,"
+        },
+        {
+          "id": "2",
+          "text": "some hydrocarbons, then the other zones contain even more hydrocarbons than anticipated."
+        }
+      ]
+    },
+    {
+      "id": "asquith.p130.term",
+      "step_id": "asquith.p130",
+      "claim_ids": [
+        "asquith.p130#c1"
+      ],
+      "type": "gap",
+      "prompt": "Впиши ключевое понятие этого шага.",
+      "answer": [
+        "some"
+      ],
+      "explanation": "Ключевое понятие: some."
+    },
+    {
+      "id": "asquith.p132.idea",
+      "step_id": "asquith.p132",
+      "claim_ids": [
+        "asquith.p132#c1"
+      ],
+      "type": "single",
+      "prompt": "Какой вывод относится к этому шагу?",
+      "answer": "0",
+      "explanation": "Saturation crossplots, also called resistivity-porosity crossplots (or specifically, Pickett plots and Hingle plots) are similar to the porosity crossplots discussed",
+      "options": [
+        {
+          "id": "0",
+          "text": "Saturation crossplots, also called resistivity-porosity crossplots (or specifically, Pickett plots and Hingle plots) are similar to the porosity crossplots discussed"
+        },
+        {
+          "id": "1",
+          "text": "Asquith, G., and D. Krygowski, 2004, Log Interpretation, in G. Asquith and D. Krygowski, Basic Well Log Analysis: AAPG Methods in Exploration 16, p. 115-135."
+        },
+        {
+          "id": "2",
+          "text": "$(S_{wr})$, you must know the flushed zone's water saturation. In the flushed zone of formations with moderate invasion and average residual hydrocarbon saturation,"
+        }
+      ]
+    },
+    {
+      "id": "asquith.p132.term",
+      "step_id": "asquith.p132",
+      "claim_ids": [
+        "asquith.p132#c1"
+      ],
+      "type": "gap",
+      "prompt": "Впиши ключевое понятие этого шага.",
+      "answer": [
+        "saturation"
+      ],
+      "explanation": "Ключевое понятие: saturation."
+    },
+    {
+      "id": "asquith.p134.idea",
+      "step_id": "asquith.p134",
+      "claim_ids": [
+        "asquith.p134#c1"
+      ],
+      "type": "single",
+      "prompt": "Какой вывод относится к этому шагу?",
+      "answer": "1",
+      "explanation": "zero. If the bulk density or acoustic travel time of the formation, instead of the porosity, is plotted along the x-axis, the x-intercept predicts the matrix value",
+      "options": [
+        {
+          "id": "0",
+          "text": "Asquith, G., and D. Krygowski, 2004, Log Interpretation, in G. Asquith and D. Krygowski, Basic Well Log Analysis: AAPG Methods in Exploration 16, p. 115-135."
+        },
+        {
+          "id": "1",
+          "text": "zero. If the bulk density or acoustic travel time of the formation, instead of the porosity, is plotted along the x-axis, the x-intercept predicts the matrix value"
+        },
+        {
+          "id": "2",
+          "text": "$(S_{wr})$, you must know the flushed zone's water saturation. In the flushed zone of formations with moderate invasion and average residual hydrocarbon saturation,"
+        }
+      ]
+    },
+    {
+      "id": "asquith.p134.term",
+      "step_id": "asquith.p134",
+      "claim_ids": [
+        "asquith.p134#c1"
+      ],
+      "type": "gap",
+      "prompt": "Впиши ключевое понятие этого шага.",
+      "answer": [
+        "zero"
+      ],
+      "explanation": "Ключевое понятие: zero."
+    },
+    {
+      "id": "asquith.p136.idea",
+      "step_id": "asquith.p136",
+      "claim_ids": [
+        "asquith.p136#c1"
+      ],
+      "type": "single",
+      "prompt": "Какой вывод относится к этому шагу?",
+      "answer": "2",
+      "explanation": "$\\rho_{h} =$ hydrocarbon density in $\\mathrm{g / cm^3}$",
+      "options": [
+        {
+          "id": "0",
+          "text": "Asquith, G., and D. Krygowski, 2004, Log Interpretation, in G. Asquith and D. Krygowski, Basic Well Log Analysis: AAPG Methods in Exploration 16, p. 115-135."
+        },
+        {
+          "id": "1",
+          "text": "$(S_{wr})$, you must know the flushed zone's water saturation. In the flushed zone of formations with moderate invasion and average residual hydrocarbon saturation,"
+        },
+        {
+          "id": "2",
+          "text": "$\\rho_{h} =$ hydrocarbon density in $\\mathrm{g / cm^3}$"
+        }
+      ]
+    },
+    {
+      "id": "asquith.p136.term",
+      "step_id": "asquith.p136",
+      "claim_ids": [
+        "asquith.p136#c1"
+      ],
+      "type": "gap",
+      "prompt": "Впиши ключевое понятие этого шага.",
+      "answer": [
+        "hydrocarbon"
+      ],
+      "explanation": "Ключевое понятие: hydrocarbon."
+    },
+    {
+      "id": "asquith.p140.idea",
+      "step_id": "asquith.p140",
+      "claim_ids": [
+        "asquith.p140#c1"
+      ],
+      "type": "single",
+      "prompt": "Какой вывод относится к этому шагу?",
+      "answer": "0",
+      "explanation": "KEYWORDS: flowchart, reservoir evaluation, pay zone identification, clean zones, resistivity, porosity, baseline comparison, tight zones, detailed analysis",
+      "options": [
+        {
+          "id": "0",
+          "text": "KEYWORDS: flowchart, reservoir evaluation, pay zone identification, clean zones, resistivity, porosity, baseline comparison, tight zones, detailed analysis"
+        },
+        {
+          "id": "1",
+          "text": "Asquith, G., and D. Krygowski, 2004, Log Interpretation, in G. Asquith and D. Krygowski, Basic Well Log Analysis: AAPG Methods in Exploration 16, p. 115-135."
+        },
+        {
+          "id": "2",
+          "text": "$(S_{wr})$, you must know the flushed zone's water saturation. In the flushed zone of formations with moderate invasion and average residual hydrocarbon saturation,"
+        }
+      ]
+    },
+    {
+      "id": "asquith.p140.term",
+      "step_id": "asquith.p140",
+      "claim_ids": [
+        "asquith.p140#c1"
+      ],
+      "type": "gap",
+      "prompt": "Впиши ключевое понятие этого шага.",
+      "answer": [
+        "keywords"
+      ],
+      "explanation": "Ключевое понятие: keywords."
+    },
+    {
+      "id": "asquith.p141.idea",
+      "step_id": "asquith.p141",
+      "claim_ids": [
+        "asquith.p141#c1"
+      ],
+      "type": "single",
+      "prompt": "Какой вывод относится к этому шагу?",
+      "answer": "1",
+      "explanation": "Figure 7.3. Buckles plots (porosity vs. water saturation).",
+      "options": [
+        {
+          "id": "0",
+          "text": "Asquith, G., and D. Krygowski, 2004, Log Interpretation, in G. Asquith and D. Krygowski, Basic Well Log Analysis: AAPG Methods in Exploration 16, p. 115-135."
+        },
+        {
+          "id": "1",
+          "text": "Figure 7.3. Buckles plots (porosity vs. water saturation)."
+        },
+        {
+          "id": "2",
+          "text": "$(S_{wr})$, you must know the flushed zone's water saturation. In the flushed zone of formations with moderate invasion and average residual hydrocarbon saturation,"
+        }
+      ]
+    },
+    {
+      "id": "asquith.p141.term",
+      "step_id": "asquith.p141",
+      "claim_ids": [
+        "asquith.p141#c1"
+      ],
+      "type": "gap",
+      "prompt": "Впиши ключевое понятие этого шага.",
+      "answer": [
+        "figure"
+      ],
+      "explanation": "Ключевое понятие: figure."
+    },
+    {
+      "id": "asquith.p143.idea",
+      "step_id": "asquith.p143",
+      "claim_ids": [
+        "asquith.p143#c1"
+      ],
+      "type": "single",
+      "prompt": "Какой вывод относится к этому шагу?",
+      "answer": "2",
+      "explanation": "Figure 7.5. Hingle plot (saturation crossplot or resistivity-porosity crossplot) generally used for sandstones. (Western Atlas International, Inc., 1995, Chart 7-79)",
+      "options": [
+        {
+          "id": "0",
+          "text": "Asquith, G., and D. Krygowski, 2004, Log Interpretation, in G. Asquith and D. Krygowski, Basic Well Log Analysis: AAPG Methods in Exploration 16, p. 115-135."
+        },
+        {
+          "id": "1",
+          "text": "$(S_{wr})$, you must know the flushed zone's water saturation. In the flushed zone of formations with moderate invasion and average residual hydrocarbon saturation,"
+        },
+        {
+          "id": "2",
+          "text": "Figure 7.5. Hingle plot (saturation crossplot or resistivity-porosity crossplot) generally used for sandstones. (Western Atlas International, Inc., 1995, Chart 7-79)"
+        }
+      ]
+    },
+    {
+      "id": "asquith.p143.term",
+      "step_id": "asquith.p143",
+      "claim_ids": [
+        "asquith.p143#c1"
+      ],
+      "type": "gap",
+      "prompt": "Впиши ключевое понятие этого шага.",
+      "answer": [
+        "figure"
+      ],
+      "explanation": "Ключевое понятие: figure."
+    },
+    {
+      "id": "asquith.p145.idea",
+      "step_id": "asquith.p145",
+      "claim_ids": [
+        "asquith.p145#c1"
+      ],
+      "type": "single",
+      "prompt": "Какой вывод относится к этому шагу?",
+      "answer": "0",
+      "explanation": "Figure 7.7. Hingle plot (saturation crossplot or resistivity-porosity crossplot) illustrating water-bearing and hydrocarbon-bearing zones in a well. Data are from",
+      "options": [
+        {
+          "id": "0",
+          "text": "Figure 7.7. Hingle plot (saturation crossplot or resistivity-porosity crossplot) illustrating water-bearing and hydrocarbon-bearing zones in a well. Data are from"
+        },
+        {
+          "id": "1",
+          "text": "Asquith, G., and D. Krygowski, 2004, Log Interpretation, in G. Asquith and D. Krygowski, Basic Well Log Analysis: AAPG Methods in Exploration 16, p. 115-135."
+        },
+        {
+          "id": "2",
+          "text": "$(S_{wr})$, you must know the flushed zone's water saturation. In the flushed zone of formations with moderate invasion and average residual hydrocarbon saturation,"
+        }
+      ]
+    },
+    {
+      "id": "asquith.p145.term",
+      "step_id": "asquith.p145",
+      "claim_ids": [
+        "asquith.p145#c1"
+      ],
+      "type": "gap",
+      "prompt": "Впиши ключевое понятие этого шага.",
+      "answer": [
+        "figure"
+      ],
+      "explanation": "Ключевое понятие: figure."
+    }
+  ]
+}

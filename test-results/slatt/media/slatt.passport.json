@@ -1,0 +1,158 @@
+{
+  "video_id": "slatt",
+  "node_id": "slatt.p410",
+  "node_card": {
+    "title": "9.4 RIVER-DOMINATED DELTA DEPOSITS AND RESERVOIRS",
+    "pages": [
+      410,
+      411
+    ],
+    "difficulty": {
+      "primary": "В",
+      "secondary": "П"
+    },
+    "related_nodes": [
+      "slatt.p412",
+      "slatt.p414",
+      "slatt.p416"
+    ]
+  },
+  "script": [
+    {
+      "t_start": 0,
+      "t_end": 14.312,
+      "text": "Представь керн, в котором вверх по разрезу осадки становятся крупнее. Как такое могло получиться? Проследим путь речного песка от русла до устьевого бара.",
+      "claim_id": "slatt.p412#c6",
+      "on_screen": "Что увидит геолог в керне?"
+    },
+    {
+      "t_start": 16.167,
+      "t_end": 29.339,
+      "text": "К морю вода и осадки поступают по распределительным рукавам. На плане видно несколько таких русел. Между ними лежат заливы и участки дельтовой равнины.",
+      "claim_id": "slatt.p410#c11",
+      "on_screen": "Река делится на рукава"
+    },
+    {
+      "t_start": 32.333,
+      "t_end": 48.085,
+      "text": "Когда поток выходит из русла в водоём и рассеивается, часть песка оседает у устья. Так формируется устьевой бар. Дальше от устья в нашем примере оседает более тонкий материал.",
+      "claim_id": "slatt.p414#c3",
+      "on_screen": "Песок накапливается в устье"
+    },
+    {
+      "t_start": 48.667,
+      "t_end": 63.819,
+      "text": "Если осадка поступает достаточно и есть место для его накопления, дельта продвигается в сторону моря. Вместе с ней смещаются русла и участки, где накапливаются устьевые бары.",
+      "claim_id": "slatt.p416#c3",
+      "on_screen": "Фронт смещается к морю"
+    },
+    {
+      "t_start": 64.833,
+      "t_end": 79.795,
+      "text": "Зафиксируем одну точку на разрезе. Сначала здесь оседал тонкий материал продельты. Затем фронт приблизился. Как изменится размер зёрен в следующем слое?",
+      "claim_id": "slatt.p412#c6",
+      "on_screen": "Какие осадки окажутся сверху?"
+    },
+    {
+      "t_start": 82.708,
+      "t_end": 95.431,
+      "text": "В этой схеме над тонкими осадками продельты откладывается песок устьевого бара. Поэтому в одной колонке от основания к кровле зёрна становятся крупнее.",
+      "claim_id": "slatt.p414#c3",
+      "on_screen": "Грубение вверх по разрезу"
+    },
+    {
+      "t_start": 98.875,
+      "t_end": 116.487,
+      "text": "В керне посмотри на размер зёрен и осадочные структуры. Затем сопоставь этот интервал с каротажем и соседними скважинами. Так можно проверить, согласуется ли грубение вверх с геометрией устьевого бара.",
+      "claim_id": "slatt.p412#c6",
+      "on_screen": "Как проверить интерпретацию?"
+    }
+  ],
+  "sources": [
+    {
+      "claim_id": "slatt.p410#c11",
+      "page_or_dataset": "Markdown 411",
+      "quote": "The main facies of a river-dominated delta, and their distribution in space, are shown in Fig. 9.14. Sandy reservoir facies are deposits of distributary channels"
+    },
+    {
+      "claim_id": "slatt.p412#c6",
+      "page_or_dataset": "Markdown 413",
+      "quote": "facies can be recognized in outcrop by facies relationships and by a distinctive coarsening-upward grain size with a characteristic assemblage of sedimentary structures"
+    },
+    {
+      "claim_id": "slatt.p414#c3",
+      "page_or_dataset": "Markdown 415",
+      "quote": "FIGURE 9.15 (a) Pennsylvanian-age distributary-channel sandstone. (b) Schematic facies cross-sections of a progradational channel mouth bar and distributary-channel-fill"
+    },
+    {
+      "claim_id": "slatt.p416#c3",
+      "page_or_dataset": "Markdown 416",
+      "quote": "Over a long period of time, repeated bifurcation of distributary mouth channels during progradation led to the development of a broad, strike-parallel sheet composed"
+    }
+  ],
+  "scene_spec": "slatt.scene.json",
+  "frames": [
+    {
+      "t": 0.2,
+      "class": "A",
+      "label": "схема"
+    },
+    {
+      "t": 16.367,
+      "class": "A",
+      "label": "схема"
+    },
+    {
+      "t": 32.533,
+      "class": "A",
+      "label": "схема"
+    },
+    {
+      "t": 48.867,
+      "class": "B",
+      "label": "схема"
+    },
+    {
+      "t": 65.033,
+      "class": "B",
+      "label": "схема"
+    },
+    {
+      "t": 82.908,
+      "class": "A",
+      "label": "схема"
+    },
+    {
+      "t": 99.075,
+      "class": "A",
+      "label": "схема"
+    }
+  ],
+  "exaggerations": [
+    "Схема речной дельты при достаточном поступлении осадка и наличии пространства для накопления.",
+    "Геометрия, цвета, развитие во времени и размер условных зёрен даны без масштаба.",
+    "Грубение вверх интерпретируют вместе с осадочными структурами и пространственным положением."
+  ],
+  "prediction_question": "Какая фация окажется верхней в колонке, если фронт продолжит наступать?",
+  "transfer_question": "Что проверить в керне и каротажных кривых, чтобы связать грубение вверх с устьевым баром?",
+  "data_it_bridge": "Связать координату и отметку глубины с фацией, гранулометрией и осадочными структурами. Сопоставить несколько кернов и каротажных кривых.",
+  "physics_checklist": [
+    {
+      "item": "Инварианты сцены сверены с указанными страницами Markdown",
+      "answer": "да",
+      "note": "Авторская схематизация; не полевые данные."
+    },
+    {
+      "item": "Предрендерное подтверждение ментора",
+      "answer": "н/п",
+      "note": "Подтверждение не получено."
+    }
+  ],
+  "audio_check": {
+    "engine": "Microsoft Irina Desktop",
+    "target_lufs": -16,
+    "speech_recognition_checked": false,
+    "duration_seconds": 117.17,
+    "measured_lufs": -16.3
+  }
+}

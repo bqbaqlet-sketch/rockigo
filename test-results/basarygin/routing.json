@@ -1,0 +1,113 @@
+{
+  "chapter": "basarygin",
+  "routes": [
+    {
+      "node_id": "basarygin.p231",
+      "format": "текст",
+      "video_scores": {
+        "time": 0,
+        "invisible": 0,
+        "scale": 0,
+        "counterintuitive": 0,
+        "cause_effect": 0
+      },
+      "why": "Чтение и проверка понимания."
+    },
+    {
+      "node_id": "basarygin.p233",
+      "format": "текст",
+      "video_scores": {
+        "time": 1,
+        "invisible": 1,
+        "scale": 0,
+        "counterintuitive": 0,
+        "cause_effect": 1
+      },
+      "why": "Чтение и проверка понимания."
+    },
+    {
+      "node_id": "basarygin.p235",
+      "format": "текст",
+      "video_scores": {
+        "time": 0,
+        "invisible": 0,
+        "scale": 0,
+        "counterintuitive": 0,
+        "cause_effect": 0
+      },
+      "why": "Чтение и проверка понимания."
+    },
+    {
+      "node_id": "basarygin.p237",
+      "format": "текст",
+      "video_scores": {
+        "time": 1,
+        "invisible": 1,
+        "scale": 0,
+        "counterintuitive": 0,
+        "cause_effect": 1
+      },
+      "why": "Чтение и проверка понимания."
+    },
+    {
+      "node_id": "basarygin.p239",
+      "format": "текст",
+      "video_scores": {
+        "time": 0,
+        "invisible": 1,
+        "scale": 0,
+        "counterintuitive": 0,
+        "cause_effect": 1
+      },
+      "why": "Чтение и проверка понимания."
+    },
+    {
+      "node_id": "basarygin.p312",
+      "format": "текст",
+      "video_scores": {
+        "time": 1,
+        "invisible": 0,
+        "scale": 0,
+        "counterintuitive": 0,
+        "cause_effect": 0
+      },
+      "why": "Чтение и проверка понимания."
+    },
+    {
+      "node_id": "basarygin.p314",
+      "format": "текст",
+      "video_scores": {
+        "time": 0,
+        "invisible": 0,
+        "scale": 0,
+        "counterintuitive": 0,
+        "cause_effect": 0
+      },
+      "why": "Чтение и проверка понимания."
+    },
+    {
+      "node_id": "basarygin.p316",
+      "format": "текст",
+      "video_scores": {
+        "time": 0,
+        "invisible": 0,
+        "scale": 0,
+        "counterintuitive": 0,
+        "cause_effect": 0
+      },
+      "why": "Чтение и проверка понимания."
+    },
+    {
+      "node_id": "basarygin.p318",
+      "format": "текст",
+      "video_scores": {
+        "time": 1,
+        "invisible": 1,
+        "scale": 0,
+        "counterintuitive": 0,
+        "cause_effect": 1
+      },
+      "why": "Чтение и проверка понимания."
+    }
+  ]
+}

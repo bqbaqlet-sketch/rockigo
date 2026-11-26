@@ -1,0 +1,33 @@
+{
+  "schemas": [
+    "node",
+    "coverage",
+    "routing",
+    "task"
+  ],
+  "pages": 14,
+  "nodes": 7,
+  "units": 85,
+  "verified_quotes": 56,
+  "units_by_type": {
+    "paragraph": 61,
+    "figure": 18,
+    "heading": 6
+  },
+  "needs_visual_review": 18,
+  "tasks": 16,
+  "task_types": [
+    "gap",
+    "multiple",
+    "order",
+    "single"
+  ],
+  "task_minimum_met": true,
+  "scope": "Дословность и числа сверены с выданным Markdown. PDF проверен по охвату страниц; предметная оценка и сканы отмечаются отдельно.",
+  "chapter": "slatt",
+  "html_bytes": 11224408,
+  "build_seconds": 2.62,
+  "teaching_notes": false,
+  "pdf_sha256": "4b473ed04f4764041fd2c80d7b8071fcc3bf9a7cdde174322c013d499241b1a1",
+  "markdown_sha256": "2175e7d572eca46b5f2967389bb7310c4a16432aac3ea8ba3978db33be6fa320"
+}

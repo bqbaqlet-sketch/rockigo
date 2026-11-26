@@ -1,0 +1,4163 @@
+{
+  "chapter": "asquith",
+  "rows": [
+    {
+      "unit_id": "p126-u001",
+      "kind": "paragraph",
+      "page_pdf": 126,
+      "excerpt": "7",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p126-u002",
+      "kind": "paragraph",
+      "page_pdf": 126,
+      "excerpt": "Asquith, G., and D. Krygowski, 2004, Log Interpretation, in G. Asquith and D. Krygowski, Basic Well Log Analysis: AAPG Methods in Exploration 16, p. 115-135.",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p126-u003",
+      "kind": "heading",
+      "page_pdf": 126,
+      "excerpt": "# Log Interpretation",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p126-u004",
+      "kind": "heading",
+      "page_pdf": 126,
+      "excerpt": "## GENERAL",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p126-u005",
+      "kind": "paragraph",
+      "page_pdf": 126,
+      "excerpt": "As shown in the previous chapters, determining the porosity and true resistivity of a zone is the first step in converting the raw log data into estimated quantities",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p126-u006",
+      "kind": "paragraph",
+      "page_pdf": 126,
+      "excerpt": "As important as this log-derived information is, however, it should not be applied without the inclusion of other data. This statement is, perhaps, obvious to the",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p126-u007",
+      "kind": "heading",
+      "page_pdf": 126,
+      "excerpt": "## SCANNING THE LOGS: A RECONNAISSANCE TECHNIQUE",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p126-u008",
+      "kind": "paragraph",
+      "page_pdf": 126,
+      "excerpt": "It is an exceedingly rare log that contains more reservoir than nonreservoir, and when one is unfamiliar with an area or wants to broadly reconnoiter an area, a",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p126-u009",
+      "kind": "paragraph",
+      "page_pdf": 126,
+      "excerpt": "comparison of the two helps clearly identify both the presence and amount of the hydrocarbons.",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p126-u010",
+      "kind": "paragraph",
+      "page_pdf": 126,
+      "excerpt": "Figure 7.1 is a flowchart for one such scanning technique. Note that it has two paths, one for clastics and one for carbonates. In the clastic case, the resistivity",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p126-u011",
+      "kind": "paragraph",
+      "page_pdf": 126,
+      "excerpt": "Figure 7.2 shows the details of a log interpretation, once zones of interest are identified, with references to the chapters in which the information is discussed.",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p126-u012",
+      "kind": "heading",
+      "page_pdf": 126,
+      "excerpt": "## ARCHIE WATER SATURATIONS: $S_W$ AND $S_{XO}$",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p126-u013",
+      "kind": "paragraph",
+      "page_pdf": 126,
+      "excerpt": "Water saturation ($S_w$) of a reservoir's uninvaded zone is calculated by the Archie (1942) formula:",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p126-u014",
+      "kind": "formula",
+      "page_pdf": 126,
+      "excerpt": "$$ S_w = \\left( \\frac{a \\times R_w}{R_t \\times \\phi^m} \\right)^{\\frac{1}{n}} \\tag{7.1} $$",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p126-u015",
+      "kind": "paragraph",
+      "page_pdf": 126,
+      "excerpt": "where:",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p126-u016",
+      "kind": "paragraph",
+      "page_pdf": 126,
+      "excerpt": "$S_w =$ water saturation of the uninvaded zone",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p126-u017",
+      "kind": "paragraph",
+      "page_pdf": 126,
+      "excerpt": "$R_w =$ resistivity of formation water at formation temperature",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p126-u018",
+      "kind": "paragraph",
+      "page_pdf": 126,
+      "excerpt": "$R_t =$ true formation resistivity (i.e., deep induction or deep laterolog corrected for invasion)",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p126-u019",
+      "kind": "paragraph",
+      "page_pdf": 126,
+      "excerpt": "$\\phi =$ porosity",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p126-u020",
+      "kind": "paragraph",
+      "page_pdf": 126,
+      "excerpt": "$a =$ tortuosity factor (Table 1.1; Chapter 1)",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p126-u021",
+      "kind": "paragraph",
+      "page_pdf": 126,
+      "excerpt": "115",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u001",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "116",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u002",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "ASQUITH AND KRYGOWSKI",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u003",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "$m =$ cementation exponent (Table 1.1; Chapter 1)",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u004",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "$n =$ saturation exponent",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u005",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "The uninvaded zone's water saturation ($S_w$), determined by the Archie equation, is the most fundamental quantity used in log evaluation. But merely knowing a zone's",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u006",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "- the water saturation is low enough for a water-free completion the hydrocarbons are moveable the zone is permeable - there is an commercial volume of recoverable",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u007",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "Water saturation of a formation's flushed zone ($S_{xo}$) is also based on the Archie equation, but two variables are changed: mud filtrate resistivity ($R_{mf}$)",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u008",
+      "kind": "formula",
+      "page_pdf": 127,
+      "excerpt": "$$ S_{xo} = \\left( \\frac{a \\times R_{mf}}{R_{xo} \\times \\phi^m} \\right)^{\\frac{1}{n}} \\tag{7.2} $$",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p127-u009",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "where:",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u010",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "$S_{xo} =$ water saturation of the flushed zone",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u011",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "$R_{mf} =$ resistivity of the mud filtrate at formation temperature",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u012",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "$R_{xo} =$ shallow resistivity from a very shallow reading device, such as laterolog-8, microspherically focused log, or microlaterolog",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u013",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "$\\phi =$ porosity",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u014",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "$a =$ tortuosity factor (Table 1.1; Chapter 1)",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u015",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "$m =$ cementation exponent (Table 1.1; Chapter 1)",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u016",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "$n =$ saturation exponent",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u017",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "Water saturation of the flushed zone ($S_{xo}$) can be used as an *indicator of hydrocarbon moveability*. For example, if the value of $S_{xo}$ is much larger than",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u018",
+      "kind": "heading",
+      "page_pdf": 127,
+      "excerpt": "## Ratio Method",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u019",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "The ratio method identifies hydrocarbons from the difference between water saturations in the flushed zone ($S_{xo}$) and the uninvaded zone ($S_w$). When the uninvaded",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u020",
+      "kind": "formula",
+      "page_pdf": 127,
+      "excerpt": "$$ \\left( \\frac{S_w}{S_{xo}} \\right)^2 = \\frac{R_{xo} / R_t}{R_{mf} / R_w} \\tag{7.3} $$",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p127-u021",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "where:",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u022",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "$S_w =$ water saturation in the uninvaded zone",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u023",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "$S_{xo} =$ water saturation in the flushed zone",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u024",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "$R_{xo} =$ formation's shallow resistivity from a measurement such as laterolog-8, microspherically focused log, or microlaterolog",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u025",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "$R_t =$ true formation resistivity (i.e., deep induction or deep laterolog corrected for invasion)",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u026",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "$R_{mf} =$ resistivity of the mud filtrate at formation temperature",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u027",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "$R_w =$ resistivity of formation water at formation temperature",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u028",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "When $S_w$ is divided by $S_{xo}$, the formation factor ($F = a/\\phi^m$) is cancelled out of the equation because the same formation factor is used to calculate",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u029",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "The moveable hydrocarbon index by the ratio method is:",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u030",
+      "kind": "formula",
+      "page_pdf": 127,
+      "excerpt": "$$ \\frac{S_w}{S_{xo}} = \\left( \\frac{R_{xo} / R_t}{R_{mf} / R_w} \\right)^{\\frac{1}{2}} \\tag{7.4} $$",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p127-u031",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "where:",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u032",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "$S_w/S_{xo} =$ moveable hydrocarbon index",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u033",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "$R_{xo} =$ shallow resistivity from measurements such as laterolog-8, microspherically focused log, or microlaterolog",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u034",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "$R_t =$ true formation resistivity (i.e., deep induction or deep laterolog corrected for invasion)",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u035",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "$R_{mf} =$ resistivity of mud filtrate at formation temperature",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u036",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "$R_w =$ resistivity of formation water at formation temperature",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u037",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "The cementation exponent ($n$) is assumed to be 2.0",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u038",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "If the ratio $S_w/S_{xo}$ is equal to or greater than 1.0, then hydrocarbons were not moved during invasion. This is true regardless of whether or not a formation",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p127-u039",
+      "kind": "paragraph",
+      "page_pdf": 127,
+      "excerpt": "To determine water saturation by the ratio method",
+      "node_ids": [
+        "asquith.p126"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u001",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "Log Interpretation 117",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u002",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "$(S_{wr})$, you must know the flushed zone's water saturation. In the flushed zone of formations with moderate invasion and average residual hydrocarbon saturation,",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u003",
+      "kind": "formula",
+      "page_pdf": 128,
+      "excerpt": "$$S_{xo} = (S_w)^{\\frac{1}{2}} \\tag{7.5}$$",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p128-u004",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "where:",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u005",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "$S_{xo}$ = water saturation of the flushed zone",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u006",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "$S_w$ = water saturation of the uninvaded zone",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u007",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "Substituting Equation 7.5 in Equation 7.4 and solving for $S_w$, the ratio method water saturation ($S_{wr}$) is:",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u008",
+      "kind": "formula",
+      "page_pdf": 128,
+      "excerpt": "$$S_{wr} = \\left( \\frac{R_{xo} / R_t}{R_{mf} / R_w} \\right)^{\\frac{5}{8}} \\tag{7.6}$$",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p128-u009",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "or:",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u010",
+      "kind": "formula",
+      "page_pdf": 128,
+      "excerpt": "$$S_{wr} = \\left( \\frac{R_{xo} / R_t}{R_{mf} / R_w} \\right)^{0.625} \\tag{7.7}$$",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p128-u011",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "where:",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u012",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "$S_{wr}$ = moveable hydrocarbon index",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u013",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "$R_{xo}$ = shallow resistivity from measurements such as laterolog-8, microspherically focused log, or microlaterolog",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u014",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "$R_t$ = true formation resistivity (i.e., deep induction or deep laterolog corrected for invasion)",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u015",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "$R_{mf}$ = resistivity of mud filtrate at formation temperature",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u016",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "$R_w$ = resistivity of formation water at formation temperature",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u017",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "To use the ratio method in an interpretation process, the water saturation of the uninvaded zone should be calculated by both the Archie equation ($S_{wa}$) and",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u018",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "1. If $S_{wa} \\sim S_{wr}$, the assumption of a step-contact invasion profile is indicated to be correct, and all values determined ($S_w$, $R_t$, $R_{xo}$, and",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u019",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "2. If $S_{wa} > S_{wr}$, then the value for $R_{xo}/R_t$ is too low. $R_{xo}$ is too low because invasion is very shallow, or $R_t$ is too high because invasion",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u020",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "3. If $S_{wa} < S_{wr}$, then the value for $R_{xo}/R_t$ is too high. $R_{xo}$ is too high because of the effect of adjacent, high-resistivity beds, or $R_t$ estimated",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u021",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "can be estimated using the following equation (from Schlumberger, 1977):",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u022",
+      "kind": "formula",
+      "page_pdf": 128,
+      "excerpt": "$$(S_w)_{COR} = S_{wa} \\times \\left( \\frac{S_{wa}}{S_{wr}} \\right)^{0.25} \\tag{7.8}$$",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p128-u023",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "where:",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u024",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "$(S_w)_{COR}$ = corrected water saturation of the uninvaded zone",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u025",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "$S_{wa}$ = water saturation of the uninvaded zone (Archie method)",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u026",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "$S_{wr}$ = water saturation of the uninvaded zone (ratio method)",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u027",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "4. If $S_{wa} < S_{wr}$, the reservoir might be a carbonate with moldic (i.e., oomoldic, fossil-moldic, etc.) porosity and low permeability.",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u028",
+      "kind": "heading",
+      "page_pdf": 128,
+      "excerpt": "### QUICK-LOOK METHODS",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u029",
+      "kind": "heading",
+      "page_pdf": 128,
+      "excerpt": "#### General",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u030",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "Quick-look methods are helpful to the geologist because they provide flags, or indicators, that point to possible hydrocarbon zones requiring further investigation.",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u031",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "- $R_{xo}/R_t$ - apparent water resistivity ($R_{wa}$) - conductivity-derived porosity - Wet resistivity ($R_o$)",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u032",
+      "kind": "heading",
+      "page_pdf": 128,
+      "excerpt": "#### $R_{xo}/R_t$",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u033",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "The $R_{xo}/R_t$ technique relies on the comparison of the resistivity ratio, plotted as a curve on the log display, to the SP curve.",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u034",
+      "kind": "heading",
+      "page_pdf": 128,
+      "excerpt": "#### Procedure",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u035",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "1. Calculate the $R_{xo}/R_t$ ratio from the deep and shallow reading resistivity measurements; 2. Plot the ratio in the same track as the SP, and look for the following",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u036",
+      "kind": "heading",
+      "page_pdf": 128,
+      "excerpt": "#### Patterns to observe",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p128-u037",
+      "kind": "paragraph",
+      "page_pdf": 128,
+      "excerpt": "1. In a shale, the ratio is relatively constant, like the SP, and usually close to 1. 2. In a water-bearing zone, the $R_{xo}/R_t$ ratio tracks the SP. 3. In a hydrocarbon-bearing",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p129-u001",
+      "kind": "paragraph",
+      "page_pdf": 129,
+      "excerpt": "118",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p129-u002",
+      "kind": "paragraph",
+      "page_pdf": 129,
+      "excerpt": "ASQUITH AND KRYGOWSKI",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p129-u003",
+      "kind": "paragraph",
+      "page_pdf": 129,
+      "excerpt": "Basis for the technique",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p129-u004",
+      "kind": "paragraph",
+      "page_pdf": 129,
+      "excerpt": "From Chapter 2, the equation relating the SP to fluid resistivities is:",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p129-u005",
+      "kind": "formula",
+      "page_pdf": 129,
+      "excerpt": "$$SP = -K \\times \\log\\left(\\frac{R_{mf}}{R_w}\\right) \\tag{7.9}$$",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p129-u006",
+      "kind": "paragraph",
+      "page_pdf": 129,
+      "excerpt": "In water-bearing zones:",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p129-u007",
+      "kind": "formula",
+      "page_pdf": 129,
+      "excerpt": "$$R_{xo} = F \\times R_{mf} \\quad (\\text{flushed zone}) \\tag{7.10}$$",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p129-u008",
+      "kind": "formula",
+      "page_pdf": 129,
+      "excerpt": "$$R_o = F \\times R_w \\quad (\\text{uninvaded zone}) \\tag{7.11}$$",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p129-u009",
+      "kind": "paragraph",
+      "page_pdf": 129,
+      "excerpt": "Solving Equations 7.2 and 7.3 for $R_{mf}$ and $R_w$ respectively, and substituting the results in Equation 7.1 yields:",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p129-u010",
+      "kind": "formula",
+      "page_pdf": 129,
+      "excerpt": "$$SP = -K \\times \\log\\left(\\frac{R_{xo}}{R_o}\\right) \\tag{7.12}$$",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p129-u011",
+      "kind": "paragraph",
+      "page_pdf": 129,
+      "excerpt": "The $R_{xo}/R_o$ ratio is then related to the SP through a constant. Since $R_o$ is just a special case of $R_t$ ($R_o$ is the resistivity in the undisturbed, water-bearing",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p129-u012",
+      "kind": "paragraph",
+      "page_pdf": 129,
+      "excerpt": "The $R_{xo}$ curve usually used for the ratio is derived from a shallow-reading measurement, such as a microspherically focused log or a microlaterolog. The $R_t$",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p129-u013",
+      "kind": "heading",
+      "page_pdf": 129,
+      "excerpt": "### Apparent water resistivity ($R_{wa}$)",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p129-u014",
+      "kind": "paragraph",
+      "page_pdf": 129,
+      "excerpt": "The $R_{wa}$ technique relies on the comparison of calculated values of water resistivity between intervals in a well. This comparison can be made between different",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p129-u015",
+      "kind": "paragraph",
+      "page_pdf": 129,
+      "excerpt": "Procedure",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p129-u016",
+      "kind": "paragraph",
+      "page_pdf": 129,
+      "excerpt": "1. Calculate an apparent water resistivity ($R_{wa}$) from the porosity and uninvaded zone resistivity measurements. 2. Look for the lowest value of $R_{wa}$ in",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p129-u017",
+      "kind": "paragraph",
+      "page_pdf": 129,
+      "excerpt": "Patterns to observe",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p129-u018",
+      "kind": "paragraph",
+      "page_pdf": 129,
+      "excerpt": "1. The zone with the lowest value of $R_{wa}$ is the most likely to be water-bearing, and the value of $R_{wa}$ is closest to the actual value of $R_w$ in the formation.",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p129-u019",
+      "kind": "paragraph",
+      "page_pdf": 129,
+      "excerpt": "Interpretation pitfalls",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p129-u020",
+      "kind": "paragraph",
+      "page_pdf": 129,
+      "excerpt": "The $R_w$ values in the zones that are compared are assumed to be the same.",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p129-u021",
+      "kind": "paragraph",
+      "page_pdf": 129,
+      "excerpt": "In low-porosity zones (less than about 10% porosity), the $R_{wa}$ value is lower than the actual $R_w$ value.",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p129-u022",
+      "kind": "paragraph",
+      "page_pdf": 129,
+      "excerpt": "Basis for the technique",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p129-u023",
+      "kind": "paragraph",
+      "page_pdf": 129,
+      "excerpt": "Recall from Chapter 1 that",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p129-u024",
+      "kind": "formula",
+      "page_pdf": 129,
+      "excerpt": "$$R_o = F \\times R_w \\tag{7.13}$$",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p129-u025",
+      "kind": "paragraph",
+      "page_pdf": 129,
+      "excerpt": "and",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p129-u026",
+      "kind": "formula",
+      "page_pdf": 129,
+      "excerpt": "$$F = \\frac{a}{\\phi^m} \\tag{7.14}$$",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p129-u027",
+      "kind": "paragraph",
+      "page_pdf": 129,
+      "excerpt": "Combining Equations 7.5 and 7.6, and solving for $R_w$ yields:",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p129-u028",
+      "kind": "formula",
+      "page_pdf": 129,
+      "excerpt": "$$R_w = \\frac{R_o \\times \\phi^m}{a} \\tag{7.15}$$",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p129-u029",
+      "kind": "paragraph",
+      "page_pdf": 129,
+      "excerpt": "From Equation 7.7 above, define apparent water resistivity ($R_{wa}$) as:",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p129-u030",
+      "kind": "formula",
+      "page_pdf": 129,
+      "excerpt": "$$R_{wa} = \\frac{R_t \\times \\phi^m}{a} \\tag{7.16}$$",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p129-u031",
+      "kind": "paragraph",
+      "page_pdf": 129,
+      "excerpt": "When a given zone is water bearing, $R_t$ reverts to the water-bearing resistivity ($R_o$) and $R_{wa}$ equals $R_w$. If the zone contains hydrocarbons, $R_t$ is",
+      "node_ids": [
+        "asquith.p128"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u001",
+      "kind": "paragraph",
+      "page_pdf": 130,
+      "excerpt": "Log Interpretation",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u002",
+      "kind": "paragraph",
+      "page_pdf": 130,
+      "excerpt": "119",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u003",
+      "kind": "paragraph",
+      "page_pdf": 130,
+      "excerpt": "some hydrocarbons, then the other zones contain even more hydrocarbons than anticipated.",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u004",
+      "kind": "paragraph",
+      "page_pdf": 130,
+      "excerpt": "In practice, especially when calculated and displayed as a curve during a logging job, the following values are used for simplicity: $a = 1.0$, $m = 2.0$. The deep",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u005",
+      "kind": "paragraph",
+      "page_pdf": 130,
+      "excerpt": "An Archie water saturation can also be calculated from the ratio of the $R_{wa}$ values.",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u006",
+      "kind": "formula",
+      "page_pdf": 130,
+      "excerpt": "$$S_w = \\sqrt{\\frac{R_{wa\\ minimum}}{R_{wa\\ zone}}} \\tag{7.17}$$",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p130-u007",
+      "kind": "paragraph",
+      "page_pdf": 130,
+      "excerpt": "where the cementation exponent ($n$) in the equation above is assumed to be 2.",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u008",
+      "kind": "paragraph",
+      "page_pdf": 130,
+      "excerpt": "A shortcut to the saturation calculation, used as a scanning aid, is:",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u009",
+      "kind": "paragraph",
+      "page_pdf": 130,
+      "excerpt": "- ($R_{wa\\ zone}/R_{wa\\ minimum}$) = 3 yields $S_w = 0.58$; - ($R_{wa\\ zone}/R_{wa\\ minimum}$) = 4 yields $S_w = 0.50$; - ($R_{wa\\ zone}/R_{wa\\ minimum}$) = 5 yields",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u010",
+      "kind": "paragraph",
+      "page_pdf": 130,
+      "excerpt": "Where $a = 1.0$ and $m = 2.0$.",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u011",
+      "kind": "heading",
+      "page_pdf": 130,
+      "excerpt": "### Conductivity-derived porosity (also referred to as resistivity-porosity)",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u012",
+      "kind": "paragraph",
+      "page_pdf": 130,
+      "excerpt": "Although this technique originated with the use of the conductivity curve (Dresser Atlas, 1975), the conductivity curve is now rarely presented on log displays,",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u013",
+      "kind": "paragraph",
+      "page_pdf": 130,
+      "excerpt": "This technique calculates a porosity from Archie's equation, using the form of the equation for water-bearing zones ($S_w = 1$). The porosity values are generated",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u014",
+      "kind": "heading",
+      "page_pdf": 130,
+      "excerpt": "### Procedure",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u015",
+      "kind": "paragraph",
+      "page_pdf": 130,
+      "excerpt": "1. Calculate the porosity from Archie's equation (assuming $S_w = 1.0$), using the uninvaded zone resistivity measurement. 2. Compare the curve values and the relative",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u016",
+      "kind": "paragraph",
+      "page_pdf": 130,
+      "excerpt": "ty to porosity from one of the porosity measurements (sonic, density, or neutron).",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u017",
+      "kind": "heading",
+      "page_pdf": 130,
+      "excerpt": "### Patterns to observe",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u018",
+      "kind": "paragraph",
+      "page_pdf": 130,
+      "excerpt": "1. In water-bearing zones, the conductivity-derived porosity is high and approximately equal to the true formation porosity. 2. In zones that contain hydrocarbons,",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u019",
+      "kind": "heading",
+      "page_pdf": 130,
+      "excerpt": "### Interpretation pitfalls",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u020",
+      "kind": "paragraph",
+      "page_pdf": 130,
+      "excerpt": "The choice of an incorrect value for $R_w$ would change the value of conductivity-derived porosity, and might make its comparison to true formation porosity inaccurate.",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u021",
+      "kind": "heading",
+      "page_pdf": 130,
+      "excerpt": "### Basis for the technique",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u022",
+      "kind": "paragraph",
+      "page_pdf": 130,
+      "excerpt": "From Chapter 1, Archie's equation can be solved for porosity:",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u023",
+      "kind": "formula",
+      "page_pdf": 130,
+      "excerpt": "$$\\phi = \\left(\\frac{a \\times R_w}{R_t \\times S_w^n}\\right)^{\\frac{1}{m}} \\tag{7.18}$$",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p130-u024",
+      "kind": "paragraph",
+      "page_pdf": 130,
+      "excerpt": "If the water-bearing case is considered, where $S_w = 1$, the equation reduces to:",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u025",
+      "kind": "formula",
+      "page_pdf": 130,
+      "excerpt": "$$\\phi = \\left(\\frac{a \\times R_w}{R_t}\\right)^{\\frac{1}{m}} \\tag{7.19}$$",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p130-u026",
+      "kind": "paragraph",
+      "page_pdf": 130,
+      "excerpt": "By using the form of the equation above (7.19), the water-filled porosity is determined. Where the formation is actually water filled, $R_t$ reverts to the water-bearing",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u027",
+      "kind": "paragraph",
+      "page_pdf": 130,
+      "excerpt": "Traditionally this curve has been plotted in the same log track as the SP curve, and its movement compared to the SP. It can also be plotted in the same track as",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u028",
+      "kind": "paragraph",
+      "page_pdf": 130,
+      "excerpt": "Water saturation can be estimated by the following equation:",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p130-u029",
+      "kind": "formula",
+      "page_pdf": 130,
+      "excerpt": "$$S_w = \\frac{\\phi_{conductivity}}{\\phi_{actual}} \\tag{7.20}$$",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p131-u001",
+      "kind": "paragraph",
+      "page_pdf": 131,
+      "excerpt": "120",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u002",
+      "kind": "paragraph",
+      "page_pdf": 131,
+      "excerpt": "ASQUITH AND KRYGOWSKI",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u003",
+      "kind": "heading",
+      "page_pdf": 131,
+      "excerpt": "### Wet resistivity ($R_o$)",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u004",
+      "kind": "paragraph",
+      "page_pdf": 131,
+      "excerpt": "The wet-resistivity curve ($R_o$) is one of the oldest quick-look techniques. Unlike the other curves, which tend to be compared to the SP curve, it is plotted as",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u005",
+      "kind": "heading",
+      "page_pdf": 131,
+      "excerpt": "### Procedure",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u006",
+      "kind": "paragraph",
+      "page_pdf": 131,
+      "excerpt": "1. Calculate $R_o$ from the porosity and an estimate of formation water resistivity ($R_w$). 2. Plot $R_o$ as a curve at the same scale as the resistivity curves",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u007",
+      "kind": "heading",
+      "page_pdf": 131,
+      "excerpt": "### Patterns to observe",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u008",
+      "kind": "paragraph",
+      "page_pdf": 131,
+      "excerpt": "1. In water-bearing zones, $R_o$ and the deep resistivity should overlay. 2. In hydrocarbon-bearing zones, the deep resistivity is higher than $R_o$, with the separation",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u009",
+      "kind": "heading",
+      "page_pdf": 131,
+      "excerpt": "### Interpretation pitfalls",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u010",
+      "kind": "paragraph",
+      "page_pdf": 131,
+      "excerpt": "If the value of $R_w$ chosen to calculate $R_o$ is incorrect, the curves would not align in water-bearing zones.",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u011",
+      "kind": "heading",
+      "page_pdf": 131,
+      "excerpt": "### Basis for the technique",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u012",
+      "kind": "paragraph",
+      "page_pdf": 131,
+      "excerpt": "Recall from chapter 1 that:",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u013",
+      "kind": "formula",
+      "page_pdf": 131,
+      "excerpt": "$$R_o = F \\times R_w = \\frac{a \\times R_w}{\\phi^m} \\tag{7.21}$$",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p131-u014",
+      "kind": "paragraph",
+      "page_pdf": 131,
+      "excerpt": "$R_o$ is then calculated from a porosity measurement, usually the sonic or density, with an estimate of $R_w$, $a$, and $m$. The curve can be generated and displayed",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u015",
+      "kind": "heading",
+      "page_pdf": 131,
+      "excerpt": "### BULK VOLUME WATER",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u016",
+      "kind": "paragraph",
+      "page_pdf": 131,
+      "excerpt": "The product of a formation's water saturation ($S_w$) and its porosity ($\\phi$) is the bulk volume of water ($BVW$).",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u017",
+      "kind": "formula",
+      "page_pdf": 131,
+      "excerpt": "$$BVW = S_w \\times \\phi \\tag{7.22}$$",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p131-u018",
+      "kind": "paragraph",
+      "page_pdf": 131,
+      "excerpt": "where:",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u019",
+      "kind": "paragraph",
+      "page_pdf": 131,
+      "excerpt": "$BVW$ = bulk volume water",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u020",
+      "kind": "paragraph",
+      "page_pdf": 131,
+      "excerpt": "$S_w$ = water saturation of uninvaded zone",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u021",
+      "kind": "paragraph",
+      "page_pdf": 131,
+      "excerpt": "$\\phi$ = porosity",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u022",
+      "kind": "paragraph",
+      "page_pdf": 131,
+      "excerpt": "If values for bulk volume water, calculated at several depths in a formation, are constant or very close to",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u023",
+      "kind": "paragraph",
+      "page_pdf": 131,
+      "excerpt": "constant, they indicate that the zone is of a single rock type and at irreducible water saturation ($S_{w\\ irr}$). When a zone is at irreducible water saturation,",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u024",
+      "kind": "paragraph",
+      "page_pdf": 131,
+      "excerpt": "A formation not at irreducible water saturation ($S_{w\\ irr}$) exhibits wide variations in bulk volume water values. The Buckles plot (Buckles, 1965) is a graph",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u025",
+      "kind": "paragraph",
+      "page_pdf": 131,
+      "excerpt": "Because the amount of water a formation can hold by capillary pressure increases with decreasing grain size, the bulk volume water also increases with decreasing",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u026",
+      "kind": "paragraph",
+      "page_pdf": 131,
+      "excerpt": "Table 7.1. Bulk volume water ($BVW$) as a function of grain size and lithology. A comparative chart.",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p131-u027",
+      "kind": "table",
+      "page_pdf": 131,
+      "excerpt": "| Lithology | Grain Size (millimeters) | Bulk Volume Water ($BVW$) | | --- | --- | --- | | *Clastics* | | | | Coarse | 1.0 to 0.5 | 0.02 to 0.025 | |",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": "Проверить разметку и значения таблицы по PDF."
+    },
+    {
+      "unit_id": "p131-u028",
+      "kind": "paragraph",
+      "page_pdf": 131,
+      "excerpt": "The bulk volume water values for carbonates should be used only as a very general guide to different types of porosity.",
+      "node_ids": [
+        "asquith.p130"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p132-u001",
+      "kind": "paragraph",
+      "page_pdf": 132,
+      "excerpt": "Log Interpretation 121",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p132-u002",
+      "kind": "heading",
+      "page_pdf": 132,
+      "excerpt": "# SATURATION CROSSPLOTS",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p132-u003",
+      "kind": "paragraph",
+      "page_pdf": 132,
+      "excerpt": "Saturation crossplots, also called resistivity-porosity crossplots (or specifically, Pickett plots and Hingle plots) are similar to the porosity crossplots discussed",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p132-u004",
+      "kind": "heading",
+      "page_pdf": 132,
+      "excerpt": "## Pickett Crossplot Method",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p132-u005",
+      "kind": "paragraph",
+      "page_pdf": 132,
+      "excerpt": "The Pickett plot (Pickett, 1966, 1973) is one of the simplest and most effective crossplot methods in use. This technique estimates water saturation and can also",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p132-u006",
+      "kind": "paragraph",
+      "page_pdf": 132,
+      "excerpt": "- formation water resistivity ($R_w$) - cementation factor ($m$) - matrix parameters for sonic and density logs ($\\Delta t_{ma}$ and $\\rho_{ma}$)",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p132-u007",
+      "kind": "paragraph",
+      "page_pdf": 132,
+      "excerpt": "The Pickett method is based on the observation that true resistivity ($R_t$) is a function of porosity ($\\phi$), water saturation ($S_w$), and cementation exponent",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p132-u008",
+      "kind": "formula",
+      "page_pdf": 132,
+      "excerpt": "$$R_t = \\frac{a \\times R_o}{\\phi^m \\times S_w^n} \\tag{7.23}$$",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p132-u009",
+      "kind": "paragraph",
+      "page_pdf": 132,
+      "excerpt": "Taking the logarithm of the equation produces:",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p132-u010",
+      "kind": "formula",
+      "page_pdf": 132,
+      "excerpt": "$$\\log(R_t) = \\log(a \\times R_w) - m \\log(\\phi) - n \\log(S_w) \\tag{7.24}$$",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p132-u011",
+      "kind": "paragraph",
+      "page_pdf": 132,
+      "excerpt": "If the zone is water-bearing, $S_w = 1$, $\\log(S_w) = 0$, and the equation reduces to:",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p132-u012",
+      "kind": "formula",
+      "page_pdf": 132,
+      "excerpt": "$$\\log(R_t) = \\log(a \\times R_w) - m \\log(\\phi) \\tag{7.25}$$",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p132-u013",
+      "kind": "paragraph",
+      "page_pdf": 132,
+      "excerpt": "This form of the equation ($y = b + mx$) indicates that by plotting $R_t$ on the y-axis (on a logarithmic scale) against porosity ($\\phi$) on the x-axis (on a logarith-",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p132-u014",
+      "kind": "paragraph",
+      "page_pdf": 132,
+      "excerpt": "mic scale), one can determine the product ($a \\times R_w$) from intercept of the line (b), and the cementation exponent ($m$) from the slope of the line ($m$). In",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p132-u015",
+      "kind": "paragraph",
+      "page_pdf": 132,
+      "excerpt": "Using the convention driven by graph-paper availability, the equation becomes:",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p132-u016",
+      "kind": "formula",
+      "page_pdf": 132,
+      "excerpt": "$$\\log(\\phi) = \\log(a \\times R_w) - \\frac{1}{m} \\log(R_t) - n \\log(S_w) \\tag{7.26}$$",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p132-u017",
+      "kind": "paragraph",
+      "page_pdf": 132,
+      "excerpt": "Plotting a mixture of water-bearing and hydrocarbon-bearing points on a Pickett plot results in the following attributes (as shown in Figure 7.4):",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p132-u018",
+      "kind": "paragraph",
+      "page_pdf": 132,
+      "excerpt": "- Water-bearing points of different porosities plot along a straight line with a slope of ($-1/m$) and an intercept (at porosity = 1.0) of ($a \\times R_w$). From",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p132-u019",
+      "kind": "paragraph",
+      "page_pdf": 132,
+      "excerpt": "The power in the Pickett plot is that water resistivity ($R_w$) and cementation exponent ($m$) can be estimated from the data, rather than having to be derived from",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p132-u020",
+      "kind": "paragraph",
+      "page_pdf": 132,
+      "excerpt": "Although porosity is now normally plotted on the Pickett plot, Pickett originally used two other quantities:",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p132-u021",
+      "kind": "paragraph",
+      "page_pdf": 132,
+      "excerpt": "($\\rho_b - \\rho_{ma}$) instead of the density porosity",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p132-u022",
+      "kind": "paragraph",
+      "page_pdf": 132,
+      "excerpt": "where:",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p132-u023",
+      "kind": "paragraph",
+      "page_pdf": 132,
+      "excerpt": "$\\rho_b$ = formation bulk density (from the log)",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p132-u024",
+      "kind": "paragraph",
+      "page_pdf": 132,
+      "excerpt": "$\\rho_{ma}$ = formation matrix density",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p133-u001",
+      "kind": "paragraph",
+      "page_pdf": 133,
+      "excerpt": "122",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p133-u002",
+      "kind": "paragraph",
+      "page_pdf": 133,
+      "excerpt": "ASQUITH AND KRYGOWSKI",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p133-u003",
+      "kind": "paragraph",
+      "page_pdf": 133,
+      "excerpt": "and:",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p133-u004",
+      "kind": "formula",
+      "page_pdf": 133,
+      "excerpt": "$$(\\Delta t - \\Delta t_{ma})$$ instead of the sonic porosity where:",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p133-u005",
+      "kind": "formula",
+      "page_pdf": 133,
+      "excerpt": "$$\\Delta t =$$ formation sonic travel time (from the log)",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p133-u006",
+      "kind": "formula",
+      "page_pdf": 133,
+      "excerpt": "$$\\Delta t_{ma} =$$ formation matrix travel time",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p133-u007",
+      "kind": "paragraph",
+      "page_pdf": 133,
+      "excerpt": "Both quantities are the numerators in porosity equations $$(\\rho_b - \\rho_{ma})$$ from the density porosity equation (Chapter 4, Equation 4.7), and $$(\\Delta t -",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p133-u008",
+      "kind": "paragraph",
+      "page_pdf": 133,
+      "excerpt": "The water saturation of a point plotting away from the water-bearing line can be determined by the equation:",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p133-u009",
+      "kind": "formula",
+      "page_pdf": 133,
+      "excerpt": "$$S_w = \\left(\\frac{R_o}{R_t}\\right)^{\\frac{1}{n}} \\tag{7.27}$$",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p133-u010",
+      "kind": "paragraph",
+      "page_pdf": 133,
+      "excerpt": "In practice, this means reading the resistivity of the point $$(R_t)$$ and the resistivity of the water-bearing line $$(R_o)$$ at the same porosity value as the",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p133-u011",
+      "kind": "paragraph",
+      "page_pdf": 133,
+      "excerpt": "The table below can be used to draw saturation lines on a Pickett plot, as a reference. The technique is:",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p133-u012",
+      "kind": "paragraph",
+      "page_pdf": 133,
+      "excerpt": "- At some value of porosity (0.10 is often convenient), note the resistivity value of the $$R_o$$ line. - Multiply that resistivity value by the factors below, and",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p133-u013",
+      "kind": "paragraph",
+      "page_pdf": 133,
+      "excerpt": "In its fullest use, then, the Pickett plot can be used to determine formation water resistivity ($$R_w$$), cementation exponent (m), and formation matrix values",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p133-u014",
+      "kind": "paragraph",
+      "page_pdf": 133,
+      "excerpt": "Table 7.2. Factors for positioning water-saturation lines on Pickett and Hingle plots.",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p133-u015",
+      "kind": "table",
+      "page_pdf": 133,
+      "excerpt": "| Multiplier | $$S_w$$ (for n = 2.0) | | --- | --- | | 1.56 | 0.80 | | 2.04 | 0.70 | | 2.78 | 0.60 | | 4 | 0.50 | | 6.25 | 0.40 | | 11.11 | 0.30 |",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": "Проверить разметку и значения таблицы по PDF."
+    },
+    {
+      "unit_id": "p133-u016",
+      "kind": "heading",
+      "page_pdf": 133,
+      "excerpt": "### Hingle Crossplot Method",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p133-u017",
+      "kind": "paragraph",
+      "page_pdf": 133,
+      "excerpt": "The oldest of the resistivity-porosity crossplot methods that can be used to determine water saturation ($$S_w$$) is the Hingle (1959) plot. As in other crossplot",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p133-u018",
+      "kind": "paragraph",
+      "page_pdf": 133,
+      "excerpt": "As with the Pickett plot, the Hingle plot seeks to plot resistivity against porosity. Plotting resistivity against porosity on linear scales produces a family of",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p133-u019",
+      "kind": "formula",
+      "page_pdf": 133,
+      "excerpt": "$$\\left(\\frac{a}{R_t}\\right)^{\\frac{1}{m}} = \\left(\\frac{S_w^n}{R_w}\\right)^{\\frac{1}{m}} \\times \\phi \\tag{7.28}$$",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p133-u020",
+      "kind": "paragraph",
+      "page_pdf": 133,
+      "excerpt": "While porosity is plotted on a linear scale, the resistivity is plotted on a very nonlinear scale. In practice, the resistivity is plotted on a grid that has been",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p133-u021",
+      "kind": "paragraph",
+      "page_pdf": 133,
+      "excerpt": "Plotting a mixture of water-bearing and hydrocarbon-bearing points on a Hingle plot results in the following attributes (as shown in Figure 7.7):",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p133-u022",
+      "kind": "paragraph",
+      "page_pdf": 133,
+      "excerpt": "- Water-bearing points of different porosities plot along a straight line. The x-intercept of the line (where conductivity is zero and resistivity is infinite) occurs",
+      "node_ids": [
+        "asquith.p132"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p134-u001",
+      "kind": "paragraph",
+      "page_pdf": 134,
+      "excerpt": "Log Interpretation",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p134-u002",
+      "kind": "paragraph",
+      "page_pdf": 134,
+      "excerpt": "123",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p134-u003",
+      "kind": "paragraph",
+      "page_pdf": 134,
+      "excerpt": "zero. If the bulk density or acoustic travel time of the formation, instead of the porosity, is plotted along the x-axis, the x-intercept predicts the matrix value",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p134-u004",
+      "kind": "paragraph",
+      "page_pdf": 134,
+      "excerpt": "- Hydrocarbon-bearing points lie below the line of 100% water saturation, moved downward from the water-bearing line by their increased resistivity. The vertical",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p134-u005",
+      "kind": "paragraph",
+      "page_pdf": 134,
+      "excerpt": "As with the Pickett plot, the Hingle plot allows the interpreter to predict some of the parameters from the logs rather than estimating them by other methods. The",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p134-u006",
+      "kind": "formula",
+      "page_pdf": 134,
+      "excerpt": "$$R_w = \\frac{R_o \\times \\phi^m}{a} \\tag{7.29}$$",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p134-u007",
+      "kind": "paragraph",
+      "page_pdf": 134,
+      "excerpt": "By plotting the bulk density ($\\rho_b$) or sonic travel time ($\\Delta t$) values on the x-axis, rather than the porosity, the matrix density or matrix travel time",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p134-u008",
+      "kind": "paragraph",
+      "page_pdf": 134,
+      "excerpt": "The water saturation of a point plotting away from the water-bearing line can be determined by Equation 7.26. In practice, this means reading the resistivity of",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p134-u009",
+      "kind": "paragraph",
+      "page_pdf": 134,
+      "excerpt": "mating a value for saturation exponent ($n$), and making the calculation.",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p134-u010",
+      "kind": "paragraph",
+      "page_pdf": 134,
+      "excerpt": "Table 7.2, previously used for the Pickett plot, can be used to draw saturation lines on a Hingle plot. The technique is:",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p134-u011",
+      "kind": "paragraph",
+      "page_pdf": 134,
+      "excerpt": "- At some value of porosity (0.10 is often convenient), note the resistivity value of the $R_o$ line. - Multiply that resistivity value by the factors in Table 7.2,",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p134-u012",
+      "kind": "paragraph",
+      "page_pdf": 134,
+      "excerpt": "In routine analyses, many people favor one of the crossplots over the other, as a matter of personal preference or experience. Bassiouni (1994), however, describes",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p134-u013",
+      "kind": "heading",
+      "page_pdf": 134,
+      "excerpt": "### PERMEABILITY FROM LOGS",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p134-u014",
+      "kind": "paragraph",
+      "page_pdf": 134,
+      "excerpt": "Log-derived permeability formulas are only valid for estimating permeability in formations at irreducible water saturation (Schlumberger, 1977). When a geologist",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p134-u015",
+      "kind": "paragraph",
+      "page_pdf": 134,
+      "excerpt": "Four methods for calculating log-derived permeability are discussed here. Before these formulas can be applied, a geologist must first determine whether or not a",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p135-u001",
+      "kind": "paragraph",
+      "page_pdf": 135,
+      "excerpt": "124",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p135-u002",
+      "kind": "paragraph",
+      "page_pdf": 135,
+      "excerpt": "ASQUITH AND KRYGOWSKI",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p135-u003",
+      "kind": "paragraph",
+      "page_pdf": 135,
+      "excerpt": "Table 7.3. Advantages and Limitations of Pickett and Hingle plots (after Bassiouni, 1994).",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p135-u004",
+      "kind": "table",
+      "page_pdf": 135,
+      "excerpt": "| | *Pickett plots* | *Hingle plots* | | --- | --- | --- | | Advantages | Water saturation can be predicted without prior knowledge of $R_w$, $a$, or $m$. $R_w$",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": "Проверить разметку и значения таблицы по PDF."
+    },
+    {
+      "unit_id": "p135-u005",
+      "kind": "paragraph",
+      "page_pdf": 135,
+      "excerpt": "Table 7.4. Data for use with Pickett plot (Figure 7.4) and Hingle plot (Figure 7.7). Morrow Sandstone, Cimarron County, Oklahoma.",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p135-u006",
+      "kind": "table",
+      "page_pdf": 135,
+      "excerpt": "| Zone number | Depth (ft) | $\\rho_b$ (g/cm³) | $\\phi_D$ (decimal) | $R_t$ (ohm-m) | | --- | --- | --- | --- | --- | | 1 | 4400 | 2.38 | 0.163 | 1.7 | | 2 |",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": "Проверить разметку и значения таблицы по PDF."
+    },
+    {
+      "unit_id": "p135-u007",
+      "kind": "heading",
+      "page_pdf": 135,
+      "excerpt": "## Wyllie and Rose (1950)",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p135-u008",
+      "kind": "paragraph",
+      "page_pdf": 135,
+      "excerpt": "This method for determining permeability utilizes a chart (Figure 7.8) or the two forms of the following formula:",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p135-u009",
+      "kind": "formula",
+      "page_pdf": 135,
+      "excerpt": "$$ K = \\left( 250 \\times \\frac{\\phi^3}{S_{\\text{wirr}}} \\right)^2 \\text{ (medium-gravity oils)} \\tag{7.30} $$",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p135-u010",
+      "kind": "formula",
+      "page_pdf": 135,
+      "excerpt": "$$ K = \\left( 79 \\times \\frac{\\phi^3}{S_{\\text{wirr}}} \\right)^2 \\text{ dry gas)} \\tag{7.31} $$",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p135-u011",
+      "kind": "paragraph",
+      "page_pdf": 135,
+      "excerpt": "where:",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p135-u012",
+      "kind": "paragraph",
+      "page_pdf": 135,
+      "excerpt": "$K =$ permeability in millidarcys",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p135-u013",
+      "kind": "paragraph",
+      "page_pdf": 135,
+      "excerpt": "$\\phi =$ porosity",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p135-u014",
+      "kind": "paragraph",
+      "page_pdf": 135,
+      "excerpt": "$S_{\\text{wirr}} =$ water saturation ($S_w$) of a zone at irreducible water saturation",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p135-u015",
+      "kind": "heading",
+      "page_pdf": 135,
+      "excerpt": "## Timur (1968)",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p135-u016",
+      "kind": "formula",
+      "page_pdf": 135,
+      "excerpt": "$$ K = \\left( \\frac{93 \\times \\phi^{2.2}}{S_{\\text{wirr}}} \\right)^2 \\tag{7.32} $$",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p135-u017",
+      "kind": "heading",
+      "page_pdf": 135,
+      "excerpt": "## Coates and Dumanoir (1973)",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p135-u018",
+      "kind": "paragraph",
+      "page_pdf": 135,
+      "excerpt": "A more complex method for calculating permeability is the Coates and Dumanoir (1973) formula. Unlike the Wyllie and Rose (1950) formulas, hydrocarbon density is",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p135-u019",
+      "kind": "paragraph",
+      "page_pdf": 135,
+      "excerpt": "$R_w =$ formation water resistivity at formation temperature",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p135-u020",
+      "kind": "paragraph",
+      "page_pdf": 135,
+      "excerpt": "$R_{t\\,irr} =$ true formation resistivity from a formation at irreducible water saturation",
+      "node_ids": [
+        "asquith.p134"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u001",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "Log Interpretation",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u002",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "125",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u003",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "$\\rho_{h} =$ hydrocarbon density in $\\mathrm{g / cm^3}$",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u004",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "$\\phi =$ porosity",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u005",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "A first step in the Coates and Dumanoir permeability formula is calculation of values for two constants: $C$ and $W$.",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u006",
+      "kind": "formula",
+      "page_pdf": 136,
+      "excerpt": "$$ C = 23 + 465 \\times \\rho_{h} - 188 \\times \\rho_{h}^{2} \\tag{7.33} $$",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p136-u007",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "where:",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u008",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "$C =$ constant in Coates and Dumanoir permeability formula",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u009",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "$\\rho_{h} =$ hydrocarbon density in $\\mathrm{g / cm^3}$",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u010",
+      "kind": "formula",
+      "page_pdf": 136,
+      "excerpt": "$$ W = \\left\\{(3.75 - \\phi) + \\left[ \\frac{(\\log(R_{w} / R_{t \\text{ irr}}) + 2.2)^{2}}{2.0} \\right] \\right\\}^{\\frac{1}{2}} \\tag{7.34} $$",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p136-u011",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "where:",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u012",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "$W =$ constant in Coates and Dumanoir permeability formula",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u013",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "$\\phi =$ porosity",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u014",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "$R_{w} =$ formation water resistivity at formation temperature",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u015",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "$R_{t \\text{ irr}} =$ deep resistivity from a zone at irreducible water saturation ($S_{w \\text{ irr}}$)",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u016",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "Once determined, the constants $C$ and $W$ can be used to calculate permeability.",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u017",
+      "kind": "formula",
+      "page_pdf": 136,
+      "excerpt": "$$ K = \\left[ \\frac{C \\times \\phi^{2W}}{W^{4} \\times (R_{w} / R_{t \\text{ irr}})} \\right]^{2} \\tag{7.35} $$",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p136-u018",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "where:",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u019",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "$K =$ permeability in millidarcys (md)",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u020",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "$C =$ constant based on hydrocarbon density",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u021",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "$W =$ constant",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u022",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "$\\phi =$ porosity",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u023",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "$R_{t \\text{ irr}} =$ deep resistivity from a zone at irreducible water saturation ($S_{w \\text{ irr}}$)",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u024",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "$R_{w} =$ formation water resistivity at formation temperature",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u025",
+      "kind": "heading",
+      "page_pdf": 136,
+      "excerpt": "## SHALY SAND ANALYSIS",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u026",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "Not long after the work of Archie and others in devising a method to quantify water saturation from logs, it became clear that there were limitations to the method,",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u027",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "other parameters) to account for those effects. As our understanding of geological processes matured, it became understood that *shale* and *clay* are different",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u028",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "Beginning in the late 1960s, the work of Waxman and Smits (1968) and Waxman and Thomas (1974) helped to better understand the physical causes of the responses of",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u029",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "The presence of shale or clay minerals in a reservoir can cause erroneous values for water saturation and porosity derived from logs. These erroneous values are",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u030",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "Essentially all measurements, then, are affected in some way by the presence of clays and/or shales. Hilchie (1978) notes that the most significant effect of shale",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p136-u031",
+      "kind": "paragraph",
+      "page_pdf": 136,
+      "excerpt": "Remember that all shaly sandstone formulas reduce the water saturation value from the value that would be calculated if shale effect were ignored. However, this",
+      "node_ids": [
+        "asquith.p136"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p140-u001",
+      "kind": "paragraph",
+      "page_pdf": 140,
+      "excerpt": "Log Interpretation",
+      "node_ids": [
+        "asquith.p140"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p140-u002",
+      "kind": "paragraph",
+      "page_pdf": 140,
+      "excerpt": "129",
+      "node_ids": [
+        "asquith.p140"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p140-u003",
+      "kind": "figure",
+      "page_pdf": 140,
+      "excerpt": "━━━ FORMAT 11: FLOW / PROCESS DIAGRAM ━━━ ```mermaid graph TD A[Look for clean zones] --> B{Classics} A --> C{Carbonates} B --> D[Look for resistivity]",
+      "node_ids": [
+        "asquith.p140"
+      ],
+      "reason": null,
+      "needs_review": "Описание рисунка подготовлено моделью; сверить со сканом и перерисовать."
+    },
+    {
+      "unit_id": "p140-u004",
+      "kind": "paragraph",
+      "page_pdf": 140,
+      "excerpt": "KEYWORDS: flowchart, reservoir evaluation, pay zone identification, clean zones, resistivity, porosity, baseline comparison, tight zones, detailed analysis",
+      "node_ids": [
+        "asquith.p140"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p140-u005",
+      "kind": "paragraph",
+      "page_pdf": 140,
+      "excerpt": "Figure 7.1. Flowchart for scanning logs to identify zones of interest (both pay and wet). The scanning flowchart has two paths, one for clastics and one for carbonates.",
+      "node_ids": [
+        "asquith.p140"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p140-u006",
+      "kind": "heading",
+      "page_pdf": 140,
+      "excerpt": "# **Clastics:**",
+      "node_ids": [
+        "asquith.p140"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p140-u007",
+      "kind": "paragraph",
+      "page_pdf": 140,
+      "excerpt": "The resistivity log is the primary reconnaissance measurement because clastics tend to consist of reservoirs surrounded by shales whose resistivities vary gradually",
+      "node_ids": [
+        "asquith.p140"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p140-u008",
+      "kind": "heading",
+      "page_pdf": 140,
+      "excerpt": "# **Carbonates:**",
+      "node_ids": [
+        "asquith.p140"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p140-u009",
+      "kind": "paragraph",
+      "page_pdf": 140,
+      "excerpt": "Formation resistivities tend to vary widely with changing rock types, and commonly there are few shales against which to measure changes. In this case, the porosity",
+      "node_ids": [
+        "asquith.p140"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p140-u010",
+      "kind": "paragraph",
+      "page_pdf": 140,
+      "excerpt": "Using this scanning technique in combination with the neutron-density quick-look technique discussed in Chapter 4 (if those logs are available) allows one to identify",
+      "node_ids": [
+        "asquith.p140"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p140-u011",
+      "kind": "paragraph",
+      "page_pdf": 140,
+      "excerpt": "¹ Zones that appear to be shales might be radioactive productive zones. ² Shaly zones might produce oil or gas even if they have low resistivity.",
+      "node_ids": [
+        "asquith.p140"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p140-u012",
+      "kind": "figure",
+      "page_pdf": 140,
+      "excerpt": "━━━ FORMAT 11: FLOW / PROCESS DIAGRAM ━━━ ```mermaid graph TD A[Data Source] --> B[Deep-reading resistivity (ILD, LL D)] A --> C[Shallow-reading resistivity",
+      "node_ids": [
+        "asquith.p140"
+      ],
+      "reason": null,
+      "needs_review": "Описание рисунка подготовлено моделью; сверить со сканом и перерисовать."
+    },
+    {
+      "unit_id": "p140-u013",
+      "kind": "paragraph",
+      "page_pdf": 140,
+      "excerpt": "KEYWORDS: well logging, data flow, petrophysical interpretation, input parameters, output quantities, resistivity, density, neutron, sonic, magnetic resonance, SP,",
+      "node_ids": [
+        "asquith.p140"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p140-u014",
+      "kind": "paragraph",
+      "page_pdf": 140,
+      "excerpt": "Figure 7.2. Flowchart for interpretation.",
+      "node_ids": [
+        "asquith.p140"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p140-u015",
+      "kind": "paragraph",
+      "page_pdf": 140,
+      "excerpt": "The sources of raw data, both well logs and other well-bore information, are shown in the left column. In many cases, the information generated from that raw data",
+      "node_ids": [
+        "asquith.p140"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p140-u016",
+      "kind": "paragraph",
+      "page_pdf": 140,
+      "excerpt": "The chart shows that there are several ways to calculate porosity ($\\phi$) and shale volume ($V_{shale}$) from the raw data.",
+      "node_ids": [
+        "asquith.p140"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p140-u017",
+      "kind": "paragraph",
+      "page_pdf": 140,
+      "excerpt": "The chapters that explain the calculations are listed in the flowchart.",
+      "node_ids": [
+        "asquith.p140"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p141-u001",
+      "kind": "paragraph",
+      "page_pdf": 141,
+      "excerpt": "130",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p141-u002",
+      "kind": "paragraph",
+      "page_pdf": 141,
+      "excerpt": "ASQUITH AND KRYGOWSKI",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p141-u003",
+      "kind": "paragraph",
+      "page_pdf": 141,
+      "excerpt": "Figure 7.3. Buckles plots (porosity vs. water saturation).",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p141-u004",
+      "kind": "paragraph",
+      "page_pdf": 141,
+      "excerpt": "Because production of water in a well can affect a prospect's economics, it is important to know the bulk volume water and whether the formation is at irreducible",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p141-u005",
+      "kind": "paragraph",
+      "page_pdf": 141,
+      "excerpt": "These Buckles plots are taken from the Ordovician Red River B-zone, Beaver Creek Field, Golden Valley County, North Dakota (after Jaafar, 1980).",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p141-u006",
+      "kind": "paragraph",
+      "page_pdf": 141,
+      "excerpt": "With $S_{W}$ and porosity plotted on linear scales, points of equal bulk volume water (BVW) plot as hyperbolic curves. A series of points plotting along a particular",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p141-u007",
+      "kind": "paragraph",
+      "page_pdf": 141,
+      "excerpt": "Figure 7.3a is an example of nearly constant BVW. The formation shown produces 96% oil. Note that all the points plot between 0.04 and 0.05 BVW. The formation is",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p141-u008",
+      "kind": "paragraph",
+      "page_pdf": 141,
+      "excerpt": "Figure 7.3b shows a well producing 68% oil. About half the points cluster around a BVW value of 0.04, but the other half have higher values of BVW, indicating moveable",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p141-u009",
+      "kind": "paragraph",
+      "page_pdf": 141,
+      "excerpt": "Figure 7.3c shows a well producing no oil (all water). Note the scatter of BVW values from the hyperbolic curves, indicating that the formation is not at irreducible",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p142-u001",
+      "kind": "paragraph",
+      "page_pdf": 142,
+      "excerpt": "Log Interpretation",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p142-u002",
+      "kind": "paragraph",
+      "page_pdf": 142,
+      "excerpt": "131",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p142-u003",
+      "kind": "figure",
+      "page_pdf": 142,
+      "excerpt": "━━━ FORMAT 6: XY PLOT / CHART WITH DATA ━━━ - X-axis: True resistivity, Rt, logarithmic scale, range 0.10 to 100.00 (Ω·m). - Y-axis: Density porosity, DPHI, logarithmic",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": "Описание рисунка подготовлено моделью; сверить со сканом и перерисовать."
+    },
+    {
+      "unit_id": "p142-u004",
+      "kind": "paragraph",
+      "page_pdf": 142,
+      "excerpt": "Figure 7.4. Pickett plot (saturation crossplot or resistivity-porosity crossplot) illustrating water-bearing and hydrocarbon-bearing zones in a well.",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p142-u005",
+      "kind": "paragraph",
+      "page_pdf": 142,
+      "excerpt": "Data are from the Morrow Sandstone, Cimarron County, Oklahoma (Table 7.4).",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p142-u006",
+      "kind": "paragraph",
+      "page_pdf": 142,
+      "excerpt": "Density porosity was calculated assuming a matrix density of $2.65\\mathrm{g/cm^3}$ and a fluid density of $1.0\\mathrm{g/cm^3}$. The water-bearing line ($S_w = 100\\%$)",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p142-u007",
+      "kind": "paragraph",
+      "page_pdf": 142,
+      "excerpt": "The intercept of the water-bearing line at $100\\%$ porosity ($\\mathrm{DPHI} = 1.0$) is $a \\times R_{a}$. If the intercept were not off the plot in this illustration,",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p142-u008",
+      "kind": "formula",
+      "page_pdf": 142,
+      "excerpt": "$$ R _ {w} = \\frac {R _ {a} \\times \\phi^ {m}}{a} $$",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p142-u009",
+      "kind": "paragraph",
+      "page_pdf": 142,
+      "excerpt": "Remember that $R_{a}$ is the resistivity in the undisturbed, water-bearing zone, and for all points on the water-bearing line $R_{i} = R_{a}$.",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p142-u010",
+      "kind": "paragraph",
+      "page_pdf": 142,
+      "excerpt": "Procedure to calculate $R_{a}$:",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p142-u011",
+      "kind": "paragraph",
+      "page_pdf": 142,
+      "excerpt": "For some porosity value, read the value of $R_{a}$ from the water-bearing line on the crossplot. In this case, for a porosity of $10\\%$ ($\\mathrm{DPHI} = 0.10$),",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p142-u012",
+      "kind": "paragraph",
+      "page_pdf": 142,
+      "excerpt": "Assume a value of tortuosity factor ($a$). In this case, $a = 1.0$.",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p142-u013",
+      "kind": "paragraph",
+      "page_pdf": 142,
+      "excerpt": "The value of cementation exponent ($m$) is determined from the crossplot. In this case, $m = 2.0$.",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p142-u014",
+      "kind": "paragraph",
+      "page_pdf": 142,
+      "excerpt": "By substitution in the above equation,",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p142-u015",
+      "kind": "formula",
+      "page_pdf": 142,
+      "excerpt": "$$ R _ {w} = \\frac {4 . 6 \\times 0 . 1 0 ^ {3 . 0}}{1 . 0} $$",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p142-u016",
+      "kind": "paragraph",
+      "page_pdf": 142,
+      "excerpt": "$R_{w} = 0.046$ ohm-m at formation temperature",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p142-u017",
+      "kind": "paragraph",
+      "page_pdf": 142,
+      "excerpt": "The water saturation lines are constructed on the plot from the value for $R_{a}$ and the multipliers from Table 7.2. The multipliers are for a saturation exponent",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p142-u018",
+      "kind": "paragraph",
+      "page_pdf": 142,
+      "excerpt": "To determine the water saturation of the anomalous points (with more accuracy than estimating the values from the crossplot), the following equation can be used:",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p142-u019",
+      "kind": "formula",
+      "page_pdf": 142,
+      "excerpt": "$$ S _ {w} = \\left(\\frac {R _ {a}}{R _ {r}}\\right) ^ {\\frac {1}{n}} $$",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p142-u020",
+      "kind": "paragraph",
+      "page_pdf": 142,
+      "excerpt": "In this case, the value for $R_{a}$ is the value at the water-bearing line at the same porosity as the point of interest. For the two points of interest (both having",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p142-u021",
+      "kind": "formula",
+      "page_pdf": 142,
+      "excerpt": "$$ S _ {w} = \\left(\\frac {0 . 8}{4 0}\\right) ^ {\\frac {1}{2 . 0}} $$",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p142-u022",
+      "kind": "formula",
+      "page_pdf": 142,
+      "excerpt": "$$ S _ {w} = 0. 1 4 $$",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p142-u023",
+      "kind": "paragraph",
+      "page_pdf": 142,
+      "excerpt": "For comparison interpretation, Figure 7.7 is a Hingle plot with the same data shown.",
+      "node_ids": [
+        "asquith.p141"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p143-u001",
+      "kind": "paragraph",
+      "page_pdf": 143,
+      "excerpt": "132",
+      "node_ids": [
+        "asquith.p143"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p143-u002",
+      "kind": "paragraph",
+      "page_pdf": 143,
+      "excerpt": "ASQUITH AND KRYGOWSKI",
+      "node_ids": [
+        "asquith.p143"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p143-u003",
+      "kind": "figure",
+      "page_pdf": 143,
+      "excerpt": "━━━ FORMAT 7: NOMOGRAM / ПАЛЕТКА ━━━ Палетка для определения пористости по удельной проводимости и удельному сопротивлению. Ось абсцисс (горизонтальная): Пористость,",
+      "node_ids": [
+        "asquith.p143"
+      ],
+      "reason": null,
+      "needs_review": "Описание рисунка подготовлено моделью; сверить со сканом и перерисовать."
+    },
+    {
+      "unit_id": "p143-u004",
+      "kind": "paragraph",
+      "page_pdf": 143,
+      "excerpt": "Figure 7.5. Hingle plot (saturation crossplot or resistivity-porosity crossplot) generally used for sandstones. (Western Atlas International, Inc., 1995, Chart 7-79)",
+      "node_ids": [
+        "asquith.p143"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p144-u001",
+      "kind": "paragraph",
+      "page_pdf": 144,
+      "excerpt": "Log Interpretation",
+      "node_ids": [
+        "asquith.p143"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p144-u002",
+      "kind": "paragraph",
+      "page_pdf": 144,
+      "excerpt": "133",
+      "node_ids": [
+        "asquith.p143"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p144-u003",
+      "kind": "figure",
+      "page_pdf": 144,
+      "excerpt": "━━━ FORMAT 7: NOMOGRAM / ПАЛЕТКА ━━━ Палетка для определения удельного сопротивления и проводимости. Ось абсцисс (горизонтальная): не указана, но предполагается,",
+      "node_ids": [
+        "asquith.p143"
+      ],
+      "reason": null,
+      "needs_review": "Описание рисунка подготовлено моделью; сверить со сканом и перерисовать."
+    },
+    {
+      "unit_id": "p144-u004",
+      "kind": "paragraph",
+      "page_pdf": 144,
+      "excerpt": "Figure 7.6. Hingle plot (saturation crossplot or resistivity-porosity crossplot) generally used for carbonates. (Western Atlas International, Inc., 1995, Chart 7-80)",
+      "node_ids": [
+        "asquith.p143"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p145-u001",
+      "kind": "paragraph",
+      "page_pdf": 145,
+      "excerpt": "134",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p145-u002",
+      "kind": "paragraph",
+      "page_pdf": 145,
+      "excerpt": "ASQUITH AND KRYGOWSKI",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p145-u003",
+      "kind": "paragraph",
+      "page_pdf": 145,
+      "excerpt": "Figure 7.7. Hingle plot (saturation crossplot or resistivity-porosity crossplot) illustrating water-bearing and hydrocarbon-bearing zones in a well. Data are from",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p145-u004",
+      "kind": "paragraph",
+      "page_pdf": 145,
+      "excerpt": "The Hingle grid using a = 1.0 and m = 2.0 was chosen as the common parameters for sandstones.",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p145-u005",
+      "kind": "paragraph",
+      "page_pdf": 145,
+      "excerpt": "The x-axis has been scaled in bulk density, and the points plotted accordingly. The water-bearing line drawn through the cluster of points intersects the y-axis",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p145-u006",
+      "kind": "paragraph",
+      "page_pdf": 145,
+      "excerpt": "R_w is determined using Equation 7.28:",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p145-u007",
+      "kind": "formula",
+      "page_pdf": 145,
+      "excerpt": "$$R_w = \\frac{R_c \\times \\phi^m}{a}$$",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p145-u008",
+      "kind": "paragraph",
+      "page_pdf": 145,
+      "excerpt": "For some porosity value, read the value of R_a from the water-bearing line on the crossplot. In this case, for a porosity of 10% (bulk density = 2.485 g/cm³), R_a",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p145-u009",
+      "kind": "paragraph",
+      "page_pdf": 145,
+      "excerpt": "The values of tortuosity factor (a) and cementation exponent (m) were assumed by choice of the particular crossplot grid.",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p145-u010",
+      "kind": "paragraph",
+      "page_pdf": 145,
+      "excerpt": "By substitution in the above equation,",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p145-u011",
+      "kind": "formula",
+      "page_pdf": 145,
+      "excerpt": "$$R_w = \\frac{4.1 \\times 0.10^{2.0}}{1.0}$$",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p145-u012",
+      "kind": "paragraph",
+      "page_pdf": 145,
+      "excerpt": "R_w = 0.041 ohm-m at formation temperature",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p145-u013",
+      "kind": "paragraph",
+      "page_pdf": 145,
+      "excerpt": "The water saturation lines are constructed on the plot from the value for R_a and the multipliers from Table 7.2. The multipliers are for a saturation exponent (n)",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p145-u014",
+      "kind": "figure",
+      "page_pdf": 145,
+      "excerpt": "━━━ FORMAT 6: XY PLOT / CHART WITH DATA ━━━ This is a crossplot of bulk density versus conductivity (or resistivity) with water saturation contours. Left Y-axis:",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": "Описание рисунка подготовлено моделью; сверить со сканом и перерисовать."
+    },
+    {
+      "unit_id": "p145-u015",
+      "kind": "paragraph",
+      "page_pdf": 145,
+      "excerpt": "For each line to be plotted, multiply R_a by the multiplier and plot that line so that it intersects the water-bearing line at infinite resistivity. In this example,",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p145-u016",
+      "kind": "paragraph",
+      "page_pdf": 145,
+      "excerpt": "To determine the water saturation of the anomalous points (with more accuracy than estimating the values from the crossplot), the following equation can be used:",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p145-u017",
+      "kind": "formula",
+      "page_pdf": 145,
+      "excerpt": "$$S_w = \\left(\\frac{R_a}{R_s}\\right)^{\\frac{1}{n}}$$",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p145-u018",
+      "kind": "paragraph",
+      "page_pdf": 145,
+      "excerpt": "In this case, the value for R_a is the value at the water-bearing line at the same porosity as the point of interest. For the two points of interest (both having",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p145-u019",
+      "kind": "formula",
+      "page_pdf": 145,
+      "excerpt": "$$S_w = \\left(\\frac{0.83}{40}\\right)^{\\frac{1}{2.0}}$$",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p145-u020",
+      "kind": "formula",
+      "page_pdf": 145,
+      "excerpt": "$$S_w = 0.144$$",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p145-u021",
+      "kind": "paragraph",
+      "page_pdf": 145,
+      "excerpt": "For comparison of interpretation, Figure 7.4 is a Pickett plot with the same data shown.",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p146-u001",
+      "kind": "paragraph",
+      "page_pdf": 146,
+      "excerpt": "Log Interpretation",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p146-u002",
+      "kind": "paragraph",
+      "page_pdf": 146,
+      "excerpt": "135",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p146-u003",
+      "kind": "figure",
+      "page_pdf": 146,
+      "excerpt": "━━━ FORMAT 7: NOMOGRAM / ПАЛЕТКА ━━━ Палетка для определения насыщенности воды в зоне перехода выше водоносного горизонта (S_w, water saturation above transition",
+      "node_ids": [
+        "asquith.p145"
+      ],
+      "reason": null,
+      "needs_review": "Описание рисунка подготовлено моделью; сверить со сканом и перерисовать."
+    }
+  ]
+}

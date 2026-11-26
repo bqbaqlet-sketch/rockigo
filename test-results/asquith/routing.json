@@ -1,0 +1,125 @@
+{
+  "chapter": "asquith",
+  "routes": [
+    {
+      "node_id": "asquith.p126",
+      "format": "текст",
+      "video_scores": {
+        "time": 0,
+        "invisible": 0,
+        "scale": 0,
+        "counterintuitive": 0,
+        "cause_effect": 0
+      },
+      "why": "Чтение и проверка понимания."
+    },
+    {
+      "node_id": "asquith.p128",
+      "format": "текст",
+      "video_scores": {
+        "time": 0,
+        "invisible": 1,
+        "scale": 0,
+        "counterintuitive": 0,
+        "cause_effect": 1
+      },
+      "why": "Чтение и проверка понимания."
+    },
+    {
+      "node_id": "asquith.p130",
+      "format": "текст",
+      "video_scores": {
+        "time": 0,
+        "invisible": 1,
+        "scale": 0,
+        "counterintuitive": 0,
+        "cause_effect": 1
+      },
+      "why": "Чтение и проверка понимания."
+    },
+    {
+      "node_id": "asquith.p132",
+      "format": "текст",
+      "video_scores": {
+        "time": 0,
+        "invisible": 0,
+        "scale": 0,
+        "counterintuitive": 0,
+        "cause_effect": 0
+      },
+      "why": "Чтение и проверка понимания."
+    },
+    {
+      "node_id": "asquith.p134",
+      "format": "текст",
+      "video_scores": {
+        "time": 0,
+        "invisible": 0,
+        "scale": 0,
+        "counterintuitive": 0,
+        "cause_effect": 0
+      },
+      "why": "Чтение и проверка понимания."
+    },
+    {
+      "node_id": "asquith.p136",
+      "format": "текст",
+      "video_scores": {
+        "time": 0,
+        "invisible": 0,
+        "scale": 0,
+        "counterintuitive": 0,
+        "cause_effect": 0
+      },
+      "why": "Чтение и проверка понимания."
+    },
+    {
+      "node_id": "asquith.p140",
+      "format": "текст",
+      "video_scores": {
+        "time": 0,
+        "invisible": 1,
+        "scale": 0,
+        "counterintuitive": 0,
+        "cause_effect": 1
+      },
+      "why": "Чтение и проверка понимания."
+    },
+    {
+      "node_id": "asquith.p141",
+      "format": "текст",
+      "video_scores": {
+        "time": 0,
+        "invisible": 0,
+        "scale": 0,
+        "counterintuitive": 0,
+        "cause_effect": 0
+      },
+      "why": "Чтение и проверка понимания."
+    },
+    {
+      "node_id": "asquith.p143",
+      "format": "текст",
+      "video_scores": {
+        "time": 0,
+        "invisible": 1,
+        "scale": 0,
+        "counterintuitive": 0,
+        "cause_effect": 1
+      },
+      "why": "Чтение и проверка понимания."
+    },
+    {
+      "node_id": "asquith.p145",
+      "format": "текст",
+      "video_scores": {
+        "time": 0,
+        "invisible": 1,
+        "scale": 0,
+        "counterintuitive": 0,
+        "cause_effect": 1
+      },
+      "why": "Чтение и проверка понимания."
+    }
+  ]
+}

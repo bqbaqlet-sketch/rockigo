@@ -1,0 +1,63 @@
+﻿unit_id;kind;page_pdf;excerpt;node_ids;reason;needs_review
+p075-u009;formula;75;$$\frac{1}{r} \frac{\partial}{\partial r} \left( \frac{k \rho}{\mu} r \frac{\partial p}{\partial r} \right) = \phi c \rho \frac{\partial p}{\partial t} \tag{5.1}$$;dake.p075;;Проверить обозначения, индексы и единицы по PDF.
+p076-u008;formula;76;$$\begin{array}{l} \text { Mass flow rate } \\ \text { IN } \end{array} - \begin{array}{l} \text { Mass flow rate } \\ \text { OUT } \end{array} = \begin{array}{l};dake.p075;;Проверить обозначения, индексы и единицы по PDF.
+p076-u010;formula;76;$$\left(q \rho | _ {r} + \frac {\partial (q \rho)}{\partial r} d r - q \rho | _ {r}\right) = 2 \pi r h \phi d r \frac {\partial \rho}{\partial t}$$;dake.p075;;Проверить обозначения, индексы и единицы по PDF.
+p076-u012;formula;76;$$\frac {\partial (q \rho)}{\partial r} = 2 \pi r h \phi \frac {\partial \rho}{\partial t} \tag {5.2}$$;dake.p075;;Проверить обозначения, индексы и единицы по PDF.
+p076-u014;formula;76;$$q = \frac {2 \pi k h r}{\mu} \frac {\partial p}{\partial r}$$;dake.p075;;Проверить обозначения, индексы и единицы по PDF.
+p076-u016;formula;76;$$\frac {\partial}{\partial r} \left(\frac {2 \pi k h r}{\mu} \rho \frac {\partial p}{\partial r}\right) = 2 \pi r h \phi \frac {\partial \rho}{\partial t}$$;dake.p075;;Проверить обозначения, индексы и единицы по PDF.
+p076-u018;formula;76;$$\frac {1}{r} \frac {\partial}{\partial r} \left(\frac {k \rho}{\mu} r \frac {\partial p}{\partial r}\right) = \phi \frac {\partial \rho}{\partial t} \tag {5.3}$$;dake.p075;;Проверить обозначения, индексы и единицы по PDF.
+p076-u020;formula;76;$$c = - \frac {1}{V} \frac {\partial V}{\partial p}$$;dake.p075;;Проверить обозначения, индексы и единицы по PDF.
+p076-u022;formula;76;$$\rho = \frac {m}{V}$$;dake.p075;;Проверить обозначения, индексы и единицы по PDF.
+p076-u024;formula;76;$$c = - \frac {\rho}{m} \frac {\partial \left(\frac {m}{\rho}\right)}{\partial p} = \frac {1}{\rho} \frac {\partial \rho}{\partial p} \tag {5.4}$$;dake.p075;;Проверить обозначения, индексы и единицы по PDF.
+p076-u026;formula;76;$$c \rho \frac {\partial p}{\partial t} = \frac {\partial \rho}{\partial t} \tag {5.5}$$;dake.p075;;Проверить обозначения, индексы и единицы по PDF.
+p076-u028;formula;76;$$\frac {1}{r} \frac {\partial}{\partial r} \left(\frac {k \rho}{\mu} r \frac {\partial p}{\partial r}\right) = \phi c \rho \frac {\partial p}{\partial t} \tag {5.1}$$;dake.p075;;Проверить обозначения, индексы и единицы по PDF.
+p077-u008;formula;77;$$p = g(r,t)$$;dake.p077;;Проверить обозначения, индексы и единицы по PDF.
+p077-u014;formula;77;$$\frac{\partial p}{\partial r} = 0 \quad \text{at} \quad r = r_e \tag{5.6}$$;dake.p077;;Проверить обозначения, индексы и единицы по PDF.
+p077-u016;formula;77;$$\frac{\partial p}{\partial t} \approx \text{constant, for all } r \text{ and } t. \tag{5.7}$$;dake.p077;;Проверить обозначения, индексы и единицы по PDF.
+p077-u018;formula;77;$$cV \frac{dp}{dt} = - \frac{dV}{dt} = - q \tag{5.8}$$;dake.p077;;Проверить обозначения, индексы и единицы по PDF.
+p077-u019;formula;77;$$\text{or} \quad \frac{dp}{dt} = - \frac{q}{cV} \tag{5.9}$$;dake.p077;;Проверить обозначения, индексы и единицы по PDF.
+p077-u021;formula;77;$$\frac{dp}{dt} = - \frac{q}{c \pi r_e^2 h \phi} \tag{5.10}$$;dake.p077;;Проверить обозначения, индексы и единицы по PDF.
+p077-u025;formula;77;$$\bar{p}_{res} = \frac{\sum \bar{p}_i V_i}{\sum V_i} \tag{5.11}$$;dake.p077;;Проверить обозначения, индексы и единицы по PDF.
+p078-u006;formula;78;$$q_i \propto V_i \tag{5.12}$$;dake.p077;;Проверить обозначения, индексы и единицы по PDF.
+p078-u008;formula;78;$$\overline{p}_{res} = \frac{\sum_i \overline{p}_i q_i}{\sum_i q_i} \tag{5.13}$$;dake.p077;;Проверить обозначения, индексы и единицы по PDF.
+p078-u013;formula;78;$$p = p_e = \text{constant, at } r = r_e \tag{5.14}$$;dake.p077;;Проверить обозначения, индексы и единицы по PDF.
+p078-u014;formula;78;$$\text{and } \frac{\partial p}{\partial t} = 0 \text{ for all } r \text{ and } t \tag{5.15}$$;dake.p077;;Проверить обозначения, индексы и единицы по PDF.
+p078-u019;formula;78;$$\frac{1}{r} \left[ \frac{\partial}{\partial r} \left( \frac{k}{\mu} \right) \rho r \frac{\partial p}{\partial r} + \frac{k}{\mu} \frac{\partial p}{\partial r};dake.p077;;Проверить обозначения, индексы и единицы по PDF.
+p078-u021;formula;78;$$c \rho \frac{\partial p}{\partial r} = \frac{\partial p}{\partial r} \tag{5.17}$$;dake.p077;;Проверить обозначения, индексы и единицы по PDF.
+p078-u023;formula;78;$$\frac{1}{r} \left[ \frac{\partial}{\partial r} \left( \frac{k}{\mu} \right) \rho r \frac{\partial p}{\partial r} + \frac{k}{\mu} c \rho r \left( \frac{\partial;dake.p077;;Проверить обозначения, индексы и единицы по PDF.
+p079-u008;formula;79;$$\frac{\partial^2 p}{\partial r^2} + \frac{1}{r} \frac{\partial p}{\partial r} = \frac{\phi \mu c}{k} \frac{\partial p}{\partial t} \tag{5.19}$$;dake.p079;;Проверить обозначения, индексы и единицы по PDF.
+p079-u010;formula;79;$$\frac{1}{r} \frac{\partial}{\partial r} \left( r \frac{\partial p}{\partial r} \right) = \frac{\phi \mu c}{k} \frac{\partial p}{\partial t} \tag{5.20}$$;dake.p079;;Проверить обозначения, индексы и единицы по PDF.
+p079-u013;formula;79;$$cp \ll 1 \tag{5.21}$$;dake.p079;;Проверить обозначения, индексы и единицы по PDF.
+p079-u015;formula;79;$$c_t = c_o S_o + c_w S_{wc} + c_f \tag{5.22}$$;dake.p079;;Проверить обозначения, индексы и единицы по PDF.
+p079-u017;formula;79;$$\begin{array}{ll} c_o = 10 \times 10^{-6} / \text{psi} & S_{wc} = 0.2 \\ c_w = 3 \times 10^{-6} / \text{psi} & p = 3000 \text{ psi} \\ c_f = 6 \times 10^{-6} /;dake.p079;;Проверить обозначения, индексы и единицы по PDF.
+p079-u021;formula;79;$$\phi_{\text{absolute}} \times (c_o S_o + c_w S_{wc} + c_f) \tag{5.23}$$;dake.p079;;Проверить обозначения, индексы и единицы по PDF.
+p079-u023;formula;79;$$\phi_{\text{absolute}} (1 - S_{wc}) \times \frac{(c_o S_o + c_w S_{wc} + c_f)}{(1 - S_{wc})} \tag{5.24}$$;dake.p079;;Проверить обозначения, индексы и единицы по PDF.
+p079-u026;formula;79;$$\frac{1}{r} \frac{\partial}{\partial r} \left( r \frac{\partial T}{\partial r} \right) = \frac{1}{K} \frac{\partial T}{\partial t}$$;dake.p079;;Проверить обозначения, индексы и единицы по PDF.
+p087-u021;formula;87;$$\frac{1}{r} \frac{\partial}{\partial r} \left( r \frac{\partial p}{\partial r} \right) = \frac{\phi \mu c}{k} \frac{\partial p}{\partial t} \tag{5.20}$$;dake.p087;;Проверить обозначения, индексы и единицы по PDF.
+p087-u023;formula;87;$$s = \frac{r^2}{4(\text{Diffusivity constant})t} = \frac{\phi \mu c r^2}{4kt}$$;dake.p087;;Проверить обозначения, индексы и единицы по PDF.
+p087-u025;formula;87;$$\frac{\partial s}{\partial r} = \frac{\phi \mu c r}{2kt} \tag{7.2}$$;dake.p087;;Проверить обозначения, индексы и единицы по PDF.
+p087-u027;formula;87;$$\frac{\partial s}{\partial t} = - \frac{\phi \mu c r^2}{4kt^2} \tag{7.3}$$;dake.p087;;Проверить обозначения, индексы и единицы по PDF.
+p088-u005;formula;88;$$\frac{1}{r} \frac{d}{ds} \left( r \frac{dp}{ds} \frac{\partial s}{\partial r} \right) \frac{\partial s}{\partial r} = \frac{\phi \mu c}{k} \frac{dp}{ds} \frac{\partial;dake.p087;;Проверить обозначения, индексы и единицы по PDF.
+p088-u007;formula;88;$$\frac{1}{r} \frac{\phi \mu c r}{2kt} \frac{d}{ds} \left( \frac{\phi \mu c r^2}{2kt} \frac{dp}{ds} \right) = - \left( \frac{\phi \mu c r}{2kt} \right)^2 \frac{dp}{ds}$$;dake.p087;;Проверить обозначения, индексы и единицы по PDF.
+p088-u009;formula;88;$$\frac{d}{ds} \left( s \frac{dp}{ds} \right) = -s \frac{dp}{ds}$$;dake.p087;;Проверить обозначения, индексы и единицы по PDF.
+p088-u011;formula;88;$$\frac{dp}{ds} + s \frac{d}{ds} \left( \frac{dp}{ds} \right) = -s \frac{dp}{ds}$$;dake.p087;;Проверить обозначения, индексы и единицы по PDF.
+p088-u013;formula;88;$$\frac{dp}{ds} = p'$$;dake.p087;;Проверить обозначения, индексы и единицы по PDF.
+p088-u015;formula;88;$$p' + s \frac{dp'}{ds} = -sp'$$;dake.p087;;Проверить обозначения, индексы и единицы по PDF.
+p088-u016;formula;88;$$\frac{dp'}{p'} = - \frac{(s+1)}{s} ds \tag{7.4}$$;dake.p087;;Проверить обозначения, индексы и единицы по PDF.
+p088-u018;formula;88;$$\ln p' = - \ln s - s + C_1$$;dake.p087;;Проверить обозначения, индексы и единицы по PDF.
+p088-u020;formula;88;$$p' = C_2 \frac{e^{-s}}{s} \tag{7.5}$$;dake.p087;;Проверить обозначения, индексы и единицы по PDF.
+p088-u022;formula;88;$$\lim_{r \to 0} r \frac{\partial p}{\partial r} = \frac{q\mu}{2\pi kh} = r \frac{dp}{ds} \frac{\partial s}{\partial r} = 2s \frac{dp}{ds}$$;dake.p087;;Проверить обозначения, индексы и единицы по PDF.
+p088-u024;formula;88;$$\frac{q\mu}{4\pi kh} = C_2 e^{-s}$$;dake.p087;;Проверить обозначения, индексы и единицы по PDF.
+p088-u026;formula;88;$$C_2 = \frac{q\mu}{4\pi kh}$$;dake.p087;;Проверить обозначения, индексы и единицы по PDF.
+p088-u029;formula;88;$$\int_{p_i}^{p} dp = \frac{q\mu}{4\pi kh} \int_{\infty}^{x} \frac{e^{-s}}{s} ds$$;dake.p087;;Проверить обозначения, индексы и единицы по PDF.
+p088-u031;formula;88;$$\begin{array}{l} p_{r,t} = p_i - \frac{q\mu}{4\pi kh} \int_{\infty}^{\infty} \frac{e^{-s}}{s} ds \tag{7.6} \\ x = \frac{\phi \mu c r^2}{4kt} \end{array}$$;dake.p087;;Проверить обозначения, индексы и единицы по PDF.
+p088-u035;formula;88;$$\int_{x}^{\infty} \frac{e^{-s}}{s} ds = \int_{x}^{\infty} \frac{e^{-s}}{s} ds \quad x = \frac{\phi \mu c r^2}{4kt}$$;dake.p087;;Проверить обозначения, индексы и единицы по PDF.
+p088-u039;formula;88;$$ei(x) \approx - \ln x - 0.5772 \tag{7.8}$$;dake.p087;;Проверить обозначения, индексы и единицы по PDF.
+p089-u005;figure;89;"━━━ FORMAT 6: XY PLOT / CHART WITH DATA ━━━ (a) Vertical axis: $e^{-s}$; scale and units not shown. Horizontal axis: $s$; linear scale; range not labelled. Curve:";dake.p089;;"Описание рисунка подготовлено моделью; сверить со сканом и перерисовать."
+p089-u008;formula;89;$$\gamma = e^{0.5772} = 1.781$$;dake.p089;;Проверить обозначения, индексы и единицы по PDF.
+p089-u010;formula;89;$$ei(x) \approx - \ln (\gamma x)$$;dake.p089;;Проверить обозначения, индексы и единицы по PDF.
+p089-u011;formula;89;$$\text{for } x < 0.01$$;dake.p089;;Проверить обозначения, индексы и единицы по PDF.
+p089-u014;formula;89;$$p_{rw^2} = p_{wf} = p_i - \frac{q\mu}{4\pi kh} \ln \frac{4kt}{\gamma \phi \mu c r_w^2}$$;dake.p089;;Проверить обозначения, индексы и единицы по PDF.
+p089-u016;formula;89;$$p_{wf} = p_i - \frac{q\mu}{4\pi kh} \left( \ln \frac{4kt}{\gamma \phi \mu c r_w^2} + 2S \right) \tag{7.10}$$;dake.p089;;Проверить обозначения, индексы и единицы по PDF.
+p089-u018;figure;89;"━━━ FORMAT 6: XY PLOT / CHART WITH DATA ━━━ Ось абсцисс: $x$, логарифмическая шкала; диапазон от $10^{-3}$ до $10^{0}$. Ось ординат слева: $e_i(x)$, логарифмическая";dake.p089;;"Описание рисунка подготовлено моделью; сверить со сканом и перерисовать."
+p089-u021;formula;89;$$p_{r,t} = p_i - \frac{q\mu}{4\pi kh} e^i \left( \frac{\phi \mu c r^2}{4kt} \right) \tag{7.11}$$;dake.p089;;Проверить обозначения, индексы и единицы по PDF.

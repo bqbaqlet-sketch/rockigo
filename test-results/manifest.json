@@ -1,0 +1,74 @@
+{
+  "asquith": {
+    "title": "Log Interpretation",
+    "book": "Basic Well Log Analysis",
+    "author": "Asquith, Krygowski",
+    "scope": "Markdown 126–136, 140–146",
+    "ranges": [
+      {
+        "from": 126,
+        "to": 136
+      },
+      {
+        "from": 140,
+        "to": 140
+      },
+      {
+        "from": 141,
+        "to": 146
+      }
+    ],
+    "source": "test_asquith.md",
+    "pdf": "asquith.pdf"
+  },
+  "dake": {
+    "title": "Radial Flow in a Porous Medium",
+    "book": "Fundamentals of Reservoir Engineering",
+    "author": "L. P. Dake",
+    "scope": "Markdown 75–79, 87–89",
+    "ranges": [
+      {
+        "from": 75,
+        "to": 79
+      },
+      {
+        "from": 87,
+        "to": 89
+      }
+    ],
+    "source": "test_dake.md",
+    "pdf": "dake.pdf"
+  },
+  "slatt": {
+    "title": "River-Dominated Delta Deposits and Reservoirs",
+    "book": "Stratigraphic Reservoir Characterization",
+    "author": "Roger M. Slatt",
+    "scope": "Markdown 410–423",
+    "ranges": [
+      {
+        "from": 410,
+        "to": 423
+      }
+    ],
+    "source": "test_slatt.md",
+    "pdf": "slatt.pdf"
+  },
+  "basarygin": {
+    "title": "Признаки проявлений и ликвидация нефтегазопроявлений",
+    "book": "Осложнения и аварии при бурении нефтяных и газовых скважин",
+    "author": "Басарыгин, Булатов, Проселков",
+    "scope": "Markdown 231–239, 312–318",
+    "ranges": [
+      {
+        "from": 231,
+        "to": 239
+      },
+      {
+        "from": 312,
+        "to": 318
+      }
+    ],
+    "source": "test_basarygin.md",
+    "pdf": "basarygin.pdf"
+  }
+}

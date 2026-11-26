@@ -1,0 +1,14 @@
+{
+  "chapter": "basarygin",
+  "frozen_templates_used": false,
+  "routing_automatic": {
+    "текст": 9
+  },
+  "authoring_elapsed_minutes_estimate": 2,
+  "manual_media_node_ids": [
+    "basarygin.p231",
+    "basarygin.p233",
+    "basarygin.p314"
+  ],
+  "explanation": "Автоматическая маршрутизация выдала текст для 9 из 9 узлов. Ролик добавлен отдельно как результат ручной доводки."
+}

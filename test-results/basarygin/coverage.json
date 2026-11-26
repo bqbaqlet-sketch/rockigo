@@ -1,0 +1,1468 @@
+{
+  "chapter": "basarygin",
+  "rows": [
+    {
+      "unit_id": "p231-u001",
+      "kind": "paragraph",
+      "page_pdf": 231,
+      "excerpt": "Однако при бурении скважин с уменьшением противодействия на пласты должны быть приняты определенные меры безопасности, основными из которых являются:",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p231-u002",
+      "kind": "paragraph",
+      "page_pdf": 231,
+      "excerpt": "- прогнозирование пластового (порового) давления на всех стадиях проектирования и строительства скважин;",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p231-u003",
+      "kind": "paragraph",
+      "page_pdf": 231,
+      "excerpt": "- разработка надежных методов проектирования конструкций скважин;",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p231-u004",
+      "kind": "paragraph",
+      "page_pdf": 231,
+      "excerpt": "- разработка и производство надежного устьевого оборудования – превенторов, дросселей, сепараторов, дегазаторов, запорной арматуры и др.;",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p231-u005",
+      "kind": "paragraph",
+      "page_pdf": 231,
+      "excerpt": "- создание технических систем для обнаружения флюидопроявлений на ранней стадии их возникновения;",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p231-u006",
+      "kind": "paragraph",
+      "page_pdf": 231,
+      "excerpt": "- разработка более совершенных методов расчета изменения забойного давления при бурении, спускоподъемных операциях, а также во время длительных остановок;",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p231-u007",
+      "kind": "paragraph",
+      "page_pdf": 231,
+      "excerpt": "- разработка и внедрение способов и технических средств ликвидации проявлений.",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p231-u008",
+      "kind": "heading",
+      "page_pdf": 231,
+      "excerpt": "### 4.1.1. ПРИЗНАКИ ПРОЯВЛЕНИЙ",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p231-u009",
+      "kind": "paragraph",
+      "page_pdf": 231,
+      "excerpt": "Поступление пластовых флюидов в ствол бурящейся скважины определенным образом отражается на гидравлических характеристиках циркуляционного потока и свойствах бурового",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p231-u010",
+      "kind": "paragraph",
+      "page_pdf": 231,
+      "excerpt": "Практикой бурения установлены следующие признаки газонефтводопроявлений:",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p231-u011",
+      "kind": "paragraph",
+      "page_pdf": 231,
+      "excerpt": "- увеличение объема (уровня) бурового раствора в емкостях циркуляционной системы;",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p231-u012",
+      "kind": "paragraph",
+      "page_pdf": 231,
+      "excerpt": "- повышение расхода (скорости) выходящего потока бурового раствора из скважины при неизменной подаче буровых насосов;",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p231-u013",
+      "kind": "paragraph",
+      "page_pdf": 231,
+      "excerpt": "- уменьшение против расчетного объема доливаемого в скважину бурового раствора при подъеме бурильной колонны;",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p231-u014",
+      "kind": "paragraph",
+      "page_pdf": 231,
+      "excerpt": "- увеличение против расчетного объема бурового раствора в приемной емкости при спуске бурильной колонны;",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p231-u015",
+      "kind": "paragraph",
+      "page_pdf": 231,
+      "excerpt": "- повышение газосодержания в буровом растворе;",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p231-u016",
+      "kind": "paragraph",
+      "page_pdf": 231,
+      "excerpt": "возрастание механической скорости бурения;",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p231-u017",
+      "kind": "paragraph",
+      "page_pdf": 231,
+      "excerpt": "- изменение показателей свойств бурового раствора;",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p231-u018",
+      "kind": "paragraph",
+      "page_pdf": 231,
+      "excerpt": "изменение давления на буровых насосах.",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p231-u019",
+      "kind": "paragraph",
+      "page_pdf": 231,
+      "excerpt": "229",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p232-u001",
+      "kind": "paragraph",
+      "page_pdf": 232,
+      "excerpt": "Последние три признака могут возникать не только в результате проявлений, но и по другим косвенным причинам.",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p232-u002",
+      "kind": "paragraph",
+      "page_pdf": 232,
+      "excerpt": "*Увеличение механической скорости.* Устойчивое самопроизвольное увеличение механической скорости может служить признаком углубления скважины в зону АВПД с постоянным",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p232-u003",
+      "kind": "paragraph",
+      "page_pdf": 232,
+      "excerpt": "Резкое увеличение механической скорости, так называемый \"скачок проходки\", в переходной зоне свидетельствует, как правило, о быстром возрастании аномальности давления",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p232-u004",
+      "kind": "paragraph",
+      "page_pdf": 232,
+      "excerpt": "График, построенный по результатам механического каротажа одной из скважин Кубани, приведен на рис. 4.1. После увеличения механической скорости бурения при глубине",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p232-u005",
+      "kind": "paragraph",
+      "page_pdf": 232,
+      "excerpt": "\"Скачок проходки\" при бурении следует рассматривать как признак возможного проявления. Такой подход оправдал себя во многих случаях как самая ранняя реакция на неуравновешенность",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p232-u006",
+      "kind": "paragraph",
+      "page_pdf": 232,
+      "excerpt": "Увеличение объема бурового раствора в приемных емкостях, выражающееся повышением его уровня, является прямым признаком притока в скважину пластового флюида. Уровень",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p232-u007",
+      "kind": "paragraph",
+      "page_pdf": 232,
+      "excerpt": "Наиболее совершенные измерительные системы контролируют объем (уровень) в приемных емкостях насосов и об-",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p232-u008",
+      "kind": "paragraph",
+      "page_pdf": 232,
+      "excerpt": "230",
+      "node_ids": [
+        "basarygin.p231"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p233-u001",
+      "kind": "figure",
+      "page_pdf": 233,
+      "excerpt": "Рис. 4.1. График изменения механической скорости бурения $v_n$ с глубиной $\\zeta$ перед выбросом из скважины на Юбилейной площади",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": "Сверить рисунок по PDF; требуется отдельная перерисовка."
+    },
+    {
+      "unit_id": "p233-u002",
+      "kind": "figure",
+      "page_pdf": 233,
+      "excerpt": "Рис. 4.2. Влияние площади уровня жидкости и чувствительности уровня на регистрируемый минимальный объем проявления:",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": "Сверить рисунок по PDF; требуется отдельная перерисовка."
+    },
+    {
+      "unit_id": "p233-u003",
+      "kind": "formula",
+      "page_pdf": 233,
+      "excerpt": "$$1 - S = 20 \\text{ м}^2; 2 - S = 40 \\text{ м}^2; 3 - S = 60 \\text{ м}^2$$",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p233-u004",
+      "kind": "paragraph",
+      "page_pdf": 233,
+      "excerpt": "щий объем бурового раствора в запасных емкостях показывающими приборами с одновременной регистрацией. В аварийных ситуациях предусмотрена звуковая и световая сигнализация.",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p233-u005",
+      "kind": "paragraph",
+      "page_pdf": 233,
+      "excerpt": "Минимальный объем флюида (м³), поступившего в скважину, который может быть зафиксирован устройствами измерения уровня, определяется равенством",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p233-u006",
+      "kind": "formula",
+      "page_pdf": 233,
+      "excerpt": "$$\\Delta V_{\\min} = \\varepsilon S,$$",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p233-u007",
+      "kind": "paragraph",
+      "page_pdf": 233,
+      "excerpt": "где $\\varepsilon$ — абсолютная погрешность датчика уровнемера; $S$ — площадь поверхности жидкости в приемных емкостях.",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p233-u008",
+      "kind": "paragraph",
+      "page_pdf": 233,
+      "excerpt": "Точность реакции уровнемера, таким образом, зависит как от его чувствительности, так и от площади измеряемого уровня жидкости. Посредством изменения площади поверхности",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p233-u009",
+      "kind": "paragraph",
+      "page_pdf": 233,
+      "excerpt": "231",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p234-u001",
+      "kind": "paragraph",
+      "page_pdf": 234,
+      "excerpt": "дельных приемных емкостей равнозначно повышению эффективности уровнемера. Переключение блоков площадью 40 м² на блок 20 м² (выключение одной из двух используемых",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p234-u002",
+      "kind": "paragraph",
+      "page_pdf": 234,
+      "excerpt": "Для своевременного обнаружения притока пластового флюида:",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p234-u003",
+      "kind": "paragraph",
+      "page_pdf": 234,
+      "excerpt": "- изолируют приемную емкость, через которую ведется циркуляция, от других;",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p234-u004",
+      "kind": "paragraph",
+      "page_pdf": 234,
+      "excerpt": "- уменьшают поверхность приемной емкости установкой перегородки;",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p234-u005",
+      "kind": "paragraph",
+      "page_pdf": 234,
+      "excerpt": "- устанавливают исходный уровень бурового раствора после возобновления круговой циркуляции;",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p234-u006",
+      "kind": "paragraph",
+      "page_pdf": 234,
+      "excerpt": "- корректируют положение исходного уровня с учетом объема введенных добавок при обработке и утяжелении бурового раствора, интенсивного выпадения осадков или потерь",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p234-u007",
+      "kind": "paragraph",
+      "page_pdf": 234,
+      "excerpt": "- переключают насосы, приемную емкость, перераспределяют объемы бурового раствора только с ведома бурильщика;",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p234-u008",
+      "kind": "paragraph",
+      "page_pdf": 234,
+      "excerpt": "- останавливают процесс бурения для выполнения указанных работ, если бурят в отложениях, содержащих сероводород.",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p234-u009",
+      "kind": "paragraph",
+      "page_pdf": 234,
+      "excerpt": "*Увеличение скорости потока (расхода) бурового раствора на выходе из скважины.* В результате ограничения потока бурового раствора в скважине жесткими стенками поступление",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p234-u010",
+      "kind": "paragraph",
+      "page_pdf": 234,
+      "excerpt": "Разность объемных скоростей на входе и выходе из скважины измеряется дифференциальными расходомерами. На практике расход (скорость) выходящего потока бурового раствора",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p234-u011",
+      "kind": "paragraph",
+      "page_pdf": 234,
+      "excerpt": "Результаты измерения расхода потока на выходе необходимо сопоставить с данными измерений уровня приемных емкостей, поскольку повышение расхода раствора приводит",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p234-u012",
+      "kind": "paragraph",
+      "page_pdf": 234,
+      "excerpt": "Условие обнаружения проявления с помощью расходомера может быть записано в виде",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p234-u013",
+      "kind": "formula",
+      "page_pdf": 234,
+      "excerpt": "$$ \\Delta Q_{\\min} = \\delta Q_{\\max} / 100, $$",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p234-u014",
+      "kind": "paragraph",
+      "page_pdf": 234,
+      "excerpt": "где $\\delta$ — относительная приведенная погрешность прибора, %;",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p234-u015",
+      "kind": "paragraph",
+      "page_pdf": 234,
+      "excerpt": "232",
+      "node_ids": [
+        "basarygin.p233"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p235-u001",
+      "kind": "paragraph",
+      "page_pdf": 235,
+      "excerpt": "$Q_{\\max}$ — максимальный расход раствора, измеряемый прибором, л/с.",
+      "node_ids": [
+        "basarygin.p235"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p235-u002",
+      "kind": "paragraph",
+      "page_pdf": 235,
+      "excerpt": "Эффективность обнаружения газопроявлений расходомером существенно зависит от подачи насосов. С увеличением подачи время обнаружения проявления при одном и том же",
+      "node_ids": [
+        "basarygin.p235"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p235-u003",
+      "kind": "formula",
+      "page_pdf": 235,
+      "excerpt": "$$\\Delta Q_2 = n \\Delta Q_1,$$",
+      "node_ids": [
+        "basarygin.p235"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p235-u004",
+      "kind": "paragraph",
+      "page_pdf": 235,
+      "excerpt": "где $\\Delta Q_1, \\Delta Q_2$ — приращение расхода на выходе в некоторый момент соответственно при первой и второй подаче насоса, превышающей первую в $n$ раз.",
+      "node_ids": [
+        "basarygin.p235"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p235-u005",
+      "kind": "paragraph",
+      "page_pdf": 235,
+      "excerpt": "*Газирование бурового раствора.* Насыщение бурового раствора газом может происходить по различным причинам — как связанным, так и не связанным с недоуравновешенностью",
+      "node_ids": [
+        "basarygin.p235"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p235-u006",
+      "kind": "paragraph",
+      "page_pdf": 235,
+      "excerpt": "При увеличении в буровом растворе содержания газа выше фонового следует принять меры по его дегазации и выявить причины его поступления.",
+      "node_ids": [
+        "basarygin.p235"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p235-u007",
+      "kind": "paragraph",
+      "page_pdf": 235,
+      "excerpt": "Глины переходной зоны часто загазованы, и их разбуривание сопровождается поступлением в раствор определенного количества газа. При этом газ может поступать как из",
+      "node_ids": [
+        "basarygin.p235"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p235-u008",
+      "kind": "paragraph",
+      "page_pdf": 235,
+      "excerpt": "Признак проявления, т.е. поступления газа из окружающих пород вследствие недостатка противодавления со стороны скважины, — продолжающееся газирование раствора во",
+      "node_ids": [
+        "basarygin.p235"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p235-u009",
+      "kind": "paragraph",
+      "page_pdf": 235,
+      "excerpt": "Газирование раствора возможно из слабопроницаемых непродуктивных коллекторов, залегающих самостоятельно или в глинистой покрышке АВПД. Признаки проявления из подобных",
+      "node_ids": [
+        "basarygin.p235"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p235-u010",
+      "kind": "paragraph",
+      "page_pdf": 235,
+      "excerpt": "Обычно по мере углубления в переходную зону наблюдается устойчивое повышение газосодержания раствора вследствие повышения пористости и давления в газосодержащих",
+      "node_ids": [
+        "basarygin.p235"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p235-u011",
+      "kind": "paragraph",
+      "page_pdf": 235,
+      "excerpt": "233",
+      "node_ids": [
+        "basarygin.p235"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p236-u001",
+      "kind": "paragraph",
+      "page_pdf": 236,
+      "excerpt": "породах. При этом прибегают к ступенчатому утяжелению бурового раствора, так как не исключается встреча с высокопродуктивным локальным скоплением газа, способным",
+      "node_ids": [
+        "basarygin.p235"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p236-u002",
+      "kind": "paragraph",
+      "page_pdf": 236,
+      "excerpt": "В мировой практике при достаточно хорошо изученных геологических условиях в некоторых случаях бурили при постоянном газировании раствора. Отдельные линзы при этом",
+      "node_ids": [
+        "basarygin.p235"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p236-u003",
+      "kind": "paragraph",
+      "page_pdf": 236,
+      "excerpt": "Газ может поступать в раствор вместе с выбуренной породой при проходке газонасыщенных пластов и наличии запаса противодавления. В этом случае остановка бурения приводит",
+      "node_ids": [
+        "basarygin.p235"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p236-u004",
+      "kind": "paragraph",
+      "page_pdf": 236,
+      "excerpt": "Часто выход газированного раствора наблюдается при восстановлении циркуляции после проведения спускоподъемных операций. Причиной этого могут служить чрезмерное снижение",
+      "node_ids": [
+        "basarygin.p235"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p236-u005",
+      "kind": "paragraph",
+      "page_pdf": 236,
+      "excerpt": "Наличие газа только в забойной пачке, наблюдаемое после спуска бурильной колонны и промывки, обычно не приводит к выбросу. Однако в случае снижения давления в бурильных",
+      "node_ids": [
+        "basarygin.p235"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p236-u006",
+      "kind": "paragraph",
+      "page_pdf": 236,
+      "excerpt": "Если отмечается поступление газа в буровой раствор, то содержание его должно постоянно контролироваться. Для этого могут быть использованы станции контроля за бурением",
+      "node_ids": [
+        "basarygin.p235"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p236-u007",
+      "kind": "paragraph",
+      "page_pdf": 236,
+      "excerpt": "Когда содержание газа контролируют по плотности бурового раствора, то дебит газа в атмосферных условиях можно найти по формуле",
+      "node_ids": [
+        "basarygin.p235"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p236-u008",
+      "kind": "formula",
+      "page_pdf": 236,
+      "excerpt": "$$g_1 = Q(\\rho_0/\\rho_{гр} - 1), \\tag{4.1}$$",
+      "node_ids": [
+        "basarygin.p235"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p236-u009",
+      "kind": "paragraph",
+      "page_pdf": 236,
+      "excerpt": "где $Q$ — подача насосов; $\\rho_0$, $\\rho_{гр}$ — плотность негазированного и газированного растворов.",
+      "node_ids": [
+        "basarygin.p235"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p236-u010",
+      "kind": "paragraph",
+      "page_pdf": 236,
+      "excerpt": "234",
+      "node_ids": [
+        "basarygin.p235"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p237-u001",
+      "kind": "paragraph",
+      "page_pdf": 237,
+      "excerpt": "Содержание газа в единице объема раствора в восходящем потоке газа, приведенное к нормальным условиям,",
+      "node_ids": [
+        "basarygin.p237"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p237-u002",
+      "kind": "formula",
+      "page_pdf": 237,
+      "excerpt": "$$a_0 = g_r / Q. \\quad (4.2)$$",
+      "node_ids": [
+        "basarygin.p237"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p237-u003",
+      "kind": "paragraph",
+      "page_pdf": 237,
+      "excerpt": "Появление газа в буровом растворе, хотя и снижает его плотность у устья, но, как было показано ранее, обычно не приводит к существенному падению давления на забое.",
+      "node_ids": [
+        "basarygin.p237"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p237-u004",
+      "kind": "paragraph",
+      "page_pdf": 237,
+      "excerpt": "Выход из скважины газированного раствора, сопровождающийся повышением уровня в приемных емкостях, требует повышения плотности бурового раствора и принятия мер по",
+      "node_ids": [
+        "basarygin.p237"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p237-u005",
+      "kind": "paragraph",
+      "page_pdf": 237,
+      "excerpt": "*Изменения давления на буровых насосах.* Плотность пластовых флюидов, поступающих во время проявления в скважину, ниже плотности бурового раствора. В связи с этим",
+      "node_ids": [
+        "basarygin.p237"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p237-u006",
+      "kind": "paragraph",
+      "page_pdf": 237,
+      "excerpt": "В этом случае уменьшение давления в нагнетательной линии",
+      "node_ids": [
+        "basarygin.p237"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p237-u007",
+      "kind": "formula",
+      "page_pdf": 237,
+      "excerpt": "$$\\Delta p = g l_\\phi (\\rho - \\rho_\\phi),$$",
+      "node_ids": [
+        "basarygin.p237"
+      ],
+      "reason": null,
+      "needs_review": "Проверить обозначения, индексы и единицы по PDF."
+    },
+    {
+      "unit_id": "p237-u008",
+      "kind": "paragraph",
+      "page_pdf": 237,
+      "excerpt": "где $l_\\phi$ — высота столба флюида в кольцевом пространстве; $\\rho$, $\\rho_\\phi$ — плотность бурового раствора и пластового флюида соответственно.",
+      "node_ids": [
+        "basarygin.p237"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p237-u009",
+      "kind": "paragraph",
+      "page_pdf": 237,
+      "excerpt": "Если в скважину поступил газ, то по мере его подъема высота столба увеличивается в результате расширения и давления на насосах постоянно снижается. Снижение давления",
+      "node_ids": [
+        "basarygin.p237"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p237-u010",
+      "kind": "paragraph",
+      "page_pdf": 237,
+      "excerpt": "При высоких значениях пластового давления и продуктивности пласта возможно не снижение, а повышение давления в бурильных трубах. Повышение давления в этих случаях",
+      "node_ids": [
+        "basarygin.p237"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p237-u011",
+      "kind": "paragraph",
+      "page_pdf": 237,
+      "excerpt": "235",
+      "node_ids": [
+        "basarygin.p237"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p238-u001",
+      "kind": "paragraph",
+      "page_pdf": 238,
+      "excerpt": "Если наблюдается только снижение давления на насосах, то это еще не свидетельствует о слабой интенсивности проявлений. Снижение давления может быть вызвано движением",
+      "node_ids": [
+        "basarygin.p237"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p238-u002",
+      "kind": "paragraph",
+      "page_pdf": 238,
+      "excerpt": "*Объем доливаемого и вытесняемого раствора при спускоподъемных операциях.* Известно, что большинство газонефтеводопроявлений и выбросов связано со спускоподъемными",
+      "node_ids": [
+        "basarygin.p237"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p238-u003",
+      "kind": "paragraph",
+      "page_pdf": 238,
+      "excerpt": "Во время подъема бурильной колонны забойное давление уменьшается в результате снижения уровня бурового раствора в скважине и колебаний гидродинамического давления,",
+      "node_ids": [
+        "basarygin.p237"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p238-u004",
+      "kind": "paragraph",
+      "page_pdf": 238,
+      "excerpt": "Поступление флюида из пласта в процессе спускоподъемных операций своевременно обнаруживается при постоянном контроле за уровнем раствора в скважине, объемом доливаемого",
+      "node_ids": [
+        "basarygin.p237"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p238-u005",
+      "kind": "paragraph",
+      "page_pdf": 238,
+      "excerpt": "Проявление, начавшееся в процессе подъема бурильной колонны, распознается по уменьшению объема бурового раствора, доливаемого в скважину, по сравнению с объемом",
+      "node_ids": [
+        "basarygin.p237"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p238-u006",
+      "kind": "paragraph",
+      "page_pdf": 238,
+      "excerpt": "Фактический объем доливаемого в затрубное пространство бурового раствора может быть определен с помощью мерной емкости, оборудованной устройством для измерения уровня.",
+      "node_ids": [
+        "basarygin.p237"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p238-u007",
+      "kind": "paragraph",
+      "page_pdf": 238,
+      "excerpt": "В процессе спуска бурильной или обсадной колонны при-",
+      "node_ids": [
+        "basarygin.p237"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p238-u008",
+      "kind": "paragraph",
+      "page_pdf": 238,
+      "excerpt": "236",
+      "node_ids": [
+        "basarygin.p237"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p239-u001",
+      "kind": "paragraph",
+      "page_pdf": 239,
+      "excerpt": "знак проявления — увеличение объема бурового раствора в приемной емкости против расчетного объема вытеснения. Если вытесняемый объем превышает расчетный и в скважине",
+      "node_ids": [
+        "basarygin.p239"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p239-u002",
+      "kind": "paragraph",
+      "page_pdf": 239,
+      "excerpt": "*Изменение показателей свойств бурового раствора.* При поступлении пластового флюида в ствол бурящейся скважины происходит изменение показателей свойств бурового",
+      "node_ids": [
+        "basarygin.p239"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p239-u003",
+      "kind": "paragraph",
+      "page_pdf": 239,
+      "excerpt": "Информация об изменениях показателей свойств бурового раствора поступает на поверхность с запаздыванием на время, требующееся для продвижения забойных пачек к устью",
+      "node_ids": [
+        "basarygin.p239"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p239-u004",
+      "kind": "heading",
+      "page_pdf": 239,
+      "excerpt": "#### **4.1.2. ПРИЧИНЫ ПОСТУПЛЕНИЯ ПЛАСТОВЫХ ФЛЮИДОВ В СКВАЖИНУ ПРИ БУРЕНИИ**",
+      "node_ids": [
+        "basarygin.p239"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p239-u005",
+      "kind": "paragraph",
+      "page_pdf": 239,
+      "excerpt": "В процессе проводки скважины пластовые флюиды постоянно поступают в скважину, в том числе при превышении забойным давлением $p_{заб}$ пластового $p_{пл}$. Систематизация",
+      "node_ids": [
+        "basarygin.p239"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p239-u006",
+      "kind": "paragraph",
+      "page_pdf": 239,
+      "excerpt": "Конечно, поступление флюидов из пласта в скважину при превышении забойным давлением пластового практически не может привести к созданию предвыбросовой ситуации.",
+      "node_ids": [
+        "basarygin.p239"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p239-u007",
+      "kind": "paragraph",
+      "page_pdf": 239,
+      "excerpt": "237",
+      "node_ids": [
+        "basarygin.p239"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p312-u001",
+      "kind": "paragraph",
+      "page_pdf": 312,
+      "excerpt": "межуточной колонной до вскрытия основного объекта эксплуатации.",
+      "node_ids": [
+        "basarygin.p312"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p312-u002",
+      "kind": "paragraph",
+      "page_pdf": 312,
+      "excerpt": "В ряде нефтепромысловых районов при обосновании конструкций газовых скважин наблюдается стремление укрепить их устьевую часть. Вызвано это тем, что резьбовые соединения",
+      "node_ids": [
+        "basarygin.p312"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p312-u003",
+      "kind": "paragraph",
+      "page_pdf": 312,
+      "excerpt": "Устьевая часть конструкции усиливается за счет дополнительной обсадной колонны перед спуском эксплуатационной.",
+      "node_ids": [
+        "basarygin.p312"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p312-u004",
+      "kind": "heading",
+      "page_pdf": 312,
+      "excerpt": "#### **4.2.14. ЛИКВИДАЦИЯ НЕФТЕГАЗОПРОЯВЛЕНИЙ ПРИ БУРЕНИИ СКВАЖИН**",
+      "node_ids": [
+        "basarygin.p312"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p312-u005",
+      "kind": "paragraph",
+      "page_pdf": 312,
+      "excerpt": "В зарубежной практике бурения скважин в сложных геологических условиях, когда имеется опасность возникновения нефтегазопроявлений для обеспечения надежности на устье",
+      "node_ids": [
+        "basarygin.p312"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p312-u006",
+      "kind": "paragraph",
+      "page_pdf": 312,
+      "excerpt": "На рис. 4.16 представлена схема обвязки устьевого оборудования, применяемого при вскрытии и испытании пластов в глубоких скважинах, бурящихся как на суше, так и",
+      "node_ids": [
+        "basarygin.p312"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p312-u007",
+      "kind": "paragraph",
+      "page_pdf": 312,
+      "excerpt": "Данная компоновка устьевого оборудования позволяет контролировать бурящуюся скважину при высоких пластовых давлениях и ликвидировать возникающие нефте- и газопроявления",
+      "node_ids": [
+        "basarygin.p312"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p312-u008",
+      "kind": "paragraph",
+      "page_pdf": 312,
+      "excerpt": "Такая компоновка устьевого оборудования позволяет ликвидировать осложнения, которые могут возникнуть в скважине как при вскрытии, так и при испытании пластов. Так,",
+      "node_ids": [
+        "basarygin.p312"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p312-u009",
+      "kind": "paragraph",
+      "page_pdf": 312,
+      "excerpt": "312",
+      "node_ids": [
+        "basarygin.p312"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p313-u001",
+      "kind": "figure",
+      "page_pdf": 313,
+      "excerpt": "Рис. 4.16. Схема обвязки устьевого оборудования, применяемого при вскрытии и испытании пластов",
+      "node_ids": [
+        "basarygin.p312"
+      ],
+      "reason": null,
+      "needs_review": "Сверить рисунок по PDF; требуется отдельная перерисовка."
+    },
+    {
+      "unit_id": "p314-u001",
+      "kind": "paragraph",
+      "page_pdf": 314,
+      "excerpt": "глушить образовавшийся приток (выброс). После того как скважина перекрыта, прекращается дальнейшее поступление (пластовой) жидкости в скважину. Интенсивность притока",
+      "node_ids": [
+        "basarygin.p314"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p314-u002",
+      "kind": "paragraph",
+      "page_pdf": 314,
+      "excerpt": "При таких ситуациях очень важно знать давление, возникшее в бурильных трубах и кольцевом пространстве скважины. Эти давления позволяют определить ряд важных параметров,",
+      "node_ids": [
+        "basarygin.p314"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p314-u003",
+      "kind": "paragraph",
+      "page_pdf": 314,
+      "excerpt": "Поэтапные работы, связанные с перекрытием скважины, зависят от типа скважины, места ее расположения (на суше или на море), буровой установки (стационарные, морские",
+      "node_ids": [
+        "basarygin.p314"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p314-u004",
+      "kind": "paragraph",
+      "page_pdf": 314,
+      "excerpt": "В случае получения сигнала или предупреждения о возникновении проявления вскрываемого или испытываемого пласта процесс бурения (испытания) прекращают, рабочую трубу",
+      "node_ids": [
+        "basarygin.p314"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p314-u005",
+      "kind": "paragraph",
+      "page_pdf": 314,
+      "excerpt": "314",
+      "node_ids": [
+        "basarygin.p314"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p315-u001",
+      "kind": "paragraph",
+      "page_pdf": 315,
+      "excerpt": "гическая операция выполняется при помощи устьевого оборудования или штуцеров.",
+      "node_ids": [
+        "basarygin.p314"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p315-u002",
+      "kind": "paragraph",
+      "page_pdf": 315,
+      "excerpt": "Перекрытие скважины может осуществляться при помощи устьевой арматуры. В этом случае задвижку 10 (см. рис. 4.16) штуцерной линии 9 закрывают, а затем закрывают и",
+      "node_ids": [
+        "basarygin.p314"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p315-u003",
+      "kind": "paragraph",
+      "page_pdf": 315,
+      "excerpt": "Однако при этом в скважине возникают значительные колебания давления. Эти колебания могут привести к неправильному определению значений основных параметров контроля",
+      "node_ids": [
+        "basarygin.p314"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p315-u004",
+      "kind": "paragraph",
+      "page_pdf": 315,
+      "excerpt": "Поэтому наряду с использованием устьевой арматуры производят перекрытие скважины с использованием штуцеров. В данном случае для \"мягкого\" перекрытия скважины задвижку",
+      "node_ids": [
+        "basarygin.p314"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p315-u005",
+      "kind": "paragraph",
+      "page_pdf": 315,
+      "excerpt": "Недостатком \"мягкого\" перекрытия скважины является большая продолжительность процесса, и большие объемы жидкости из пласта поступают в скважину. Это затрудняет контроль",
+      "node_ids": [
+        "basarygin.p314"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p315-u006",
+      "kind": "paragraph",
+      "page_pdf": 315,
+      "excerpt": "Выбор способа перекрытия производится с учетом опыта на данном месторождении и конкретных условий бурения (испытания) скважины, т.е. с учетом разницы между плотностями",
+      "node_ids": [
+        "basarygin.p314"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p315-u007",
+      "kind": "paragraph",
+      "page_pdf": 315,
+      "excerpt": "Входящие в компоновку устьевого оборудования клапаны,",
+      "node_ids": [
+        "basarygin.p314"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p315-u008",
+      "kind": "paragraph",
+      "page_pdf": 315,
+      "excerpt": "315",
+      "node_ids": [
+        "basarygin.p314"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p316-u001",
+      "kind": "paragraph",
+      "page_pdf": 316,
+      "excerpt": "установленные на штуцерной линии 9 и дополнительной штуцерной линии 15, во время работы находятся в открытом положении и используются в случае возникновения аварии",
+      "node_ids": [
+        "basarygin.p316"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p316-u002",
+      "kind": "paragraph",
+      "page_pdf": 316,
+      "excerpt": "После перекрытия скважины, регистрации и определения необходимых параметров надо удалить из скважины жидкость (газ), поступившую из пласта, и закачать необходимый",
+      "node_ids": [
+        "basarygin.p316"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p316-u003",
+      "kind": "paragraph",
+      "page_pdf": 316,
+      "excerpt": "Основа \"Метода бурильщика\" заключается в следующем. При создании циркуляции включают насос, открывают штуцер 5 (см. рис. 4.16) и его клапан регулируют таким образом,",
+      "node_ids": [
+        "basarygin.p316"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p316-u004",
+      "kind": "paragraph",
+      "page_pdf": 316,
+      "excerpt": "В течение всего времени, когда насос развивает запланированную скорость циркуляции, в кольцевом пространстве и бурильных трубах поддерживается постоянное давление.",
+      "node_ids": [
+        "basarygin.p316"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p316-u005",
+      "kind": "paragraph",
+      "page_pdf": 316,
+      "excerpt": "316",
+      "node_ids": [
+        "basarygin.p316"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p317-u001",
+      "kind": "paragraph",
+      "page_pdf": 317,
+      "excerpt": "поддерживать давление в бурильных трубах постоянным. Когда разговариваная пачка бурового раствора выйдет из скважины, циркуляцию прекращают и скважину выдерживают",
+      "node_ids": [
+        "basarygin.p316"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p317-u002",
+      "kind": "paragraph",
+      "page_pdf": 317,
+      "excerpt": "При глушении скважины \"Методом ожидания и веса\" все работы проводят в один этап. Отличительной особенностью данного метода является использование для циркуляции",
+      "node_ids": [
+        "basarygin.p316"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p317-u003",
+      "kind": "paragraph",
+      "page_pdf": 317,
+      "excerpt": "317",
+      "node_ids": [
+        "basarygin.p316"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p318-u001",
+      "kind": "paragraph",
+      "page_pdf": 318,
+      "excerpt": "вом пространстве скважины было равно давлению на устье закрытой скважины после обнаружения выброса плюс давление, обеспечивающее коэффициент безопасности. В зависимости",
+      "node_ids": [
+        "basarygin.p318"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p318-u002",
+      "kind": "paragraph",
+      "page_pdf": 318,
+      "excerpt": "Следует отметить, что если выброс возник в конце испытания пласта перед подъемом испытателя пластов из скважины, то циркуляцию раствора при глушении производят через",
+      "node_ids": [
+        "basarygin.p318"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p318-u003",
+      "kind": "paragraph",
+      "page_pdf": 318,
+      "excerpt": "Указанные выше методы глушения скважины нашли наиболее широкое применение на зарубежных месторождениях. Значительно реже применяется сопутствующий метод контроля",
+      "node_ids": [
+        "basarygin.p318"
+      ],
+      "reason": null,
+      "needs_review": null
+    },
+    {
+      "unit_id": "p318-u004",
+      "kind": "paragraph",
+      "page_pdf": 318,
+      "excerpt": "318",
+      "node_ids": [
+        "basarygin.p318"
+      ],
+      "reason": null,
+      "needs_review": null
+    }
+  ]
+}

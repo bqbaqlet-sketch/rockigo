@@ -1,0 +1,89 @@
+{
+  "chapter": "slatt",
+  "routes": [
+    {
+      "node_id": "slatt.p410",
+      "format": "текст",
+      "video_scores": {
+        "time": 1,
+        "invisible": 0,
+        "scale": 0,
+        "counterintuitive": 0,
+        "cause_effect": 0
+      },
+      "why": "Чтение и проверка понимания."
+    },
+    {
+      "node_id": "slatt.p412",
+      "format": "текст",
+      "video_scores": {
+        "time": 0,
+        "invisible": 0,
+        "scale": 1,
+        "counterintuitive": 0,
+        "cause_effect": 0
+      },
+      "why": "Чтение и проверка понимания."
+    },
+    {
+      "node_id": "slatt.p414",
+      "format": "текст",
+      "video_scores": {
+        "time": 0,
+        "invisible": 0,
+        "scale": 1,
+        "counterintuitive": 0,
+        "cause_effect": 0
+      },
+      "why": "Чтение и проверка понимания."
+    },
+    {
+      "node_id": "slatt.p416",
+      "format": "текст",
+      "video_scores": {
+        "time": 1,
+        "invisible": 1,
+        "scale": 0,
+        "counterintuitive": 0,
+        "cause_effect": 1
+      },
+      "why": "Чтение и проверка понимания."
+    },
+    {
+      "node_id": "slatt.p418",
+      "format": "текст",
+      "video_scores": {
+        "time": 0,
+        "invisible": 0,
+        "scale": 1,
+        "counterintuitive": 0,
+        "cause_effect": 0
+      },
+      "why": "Чтение и проверка понимания."
+    },
+    {
+      "node_id": "slatt.p420",
+      "format": "карточки",
+      "video_scores": {
+        "time": 0,
+        "invisible": 0,
+        "scale": 0,
+        "counterintuitive": 0,
+        "cause_effect": 0
+      },
+      "why": "Повторение признака, термина или ограничения по фрагменту источника."
+    },
+    {
+      "node_id": "slatt.p422",
+      "format": "текст",
+      "video_scores": {
+        "time": 0,
+        "invisible": 0,
+        "scale": 1,
+        "counterintuitive": 0,
+        "cause_effect": 0
+      },
+      "why": "Чтение и проверка понимания."
+    }
+  ]
+}
