@@ -11,9 +11,10 @@ const main = document.getElementById("main");
 const nav = document.getElementById("nav");
 if(chapter)nav.classList.add("chapter-nav");
 const [landingRoute, landingParams] = location.hash.slice(1).split("?",2);
+const launchParams = new URLSearchParams(landingParams);
 const bookSourceStorage = "rockigo.book-sources.v1";
 const driveBookIds = (()=>{
-  const supplied = new URLSearchParams(landingParams).get("sources");
+  const supplied = launchParams.get("sources");
   let saved;
   try { saved=sessionStorage.getItem(bookSourceStorage); } catch (_) {}
   const keys=Object.keys(books);
@@ -22,7 +23,8 @@ const driveBookIds = (()=>{
   if(supplied)try { sessionStorage.setItem(bookSourceStorage,supplied); } catch (_) {}
   return Object.fromEntries(keys.map((key,index)=>[key,ids[index]]));
 })();
-let state = load(), route = chapter?"chapter":["project","rocky","videos","books"].includes(landingRoute)?landingRoute:"home", quiz, result, bookSelection;
+let state = load(), route = chapter?"chapter":["project","rocky","videos","books","tasks"].includes(landingRoute)?landingRoute:"home", quiz, result, bookSelection;
+if(!chapter && route==="tasks")fieldMode=launchParams.get("view")==="special";
 let assistantAvailable = false, assistantChat = false, assistantBusy = false, storageWorks = true;
 let assistantModel = "Qwen 2.5";
 const chat = [];
@@ -252,6 +254,7 @@ function navigate(next, detail) {
   if (!Object.hasOwn(routes,next)) return;
   route = next; quiz=null; result=null;
   if (next==="books") bookSelection=detail ?? null;
+  if (next==="tasks") fieldMode=detail==="special";
   render();
   main.focus();
   window.scrollTo({top:0,behavior:"instant"});
@@ -564,7 +567,9 @@ function bookFact(unit, fact, index) {
 
   disclosure("plainWords", "plain", () => txt("p", fact.plain));
   if (fact.scene) disclosure("example3D", "scene", () => bookModel(fact));
-  return div("read-fact", txt("p", fact.explanation), actions, content);
+  const entry = div("read-fact", txt("p", fact.explanation), actions, content);
+  entry.dataset.sourcePage = fact.page;
+  return entry;
 }
 function bookView() {
   const content = Object.entries(books).map(([id,book])=>div("card read",txt("h2",book.title),
@@ -1007,6 +1012,7 @@ function updateMode() {
 }
 
 function render(draft) {
+  if(!chapter)unmountFieldStage();
   testMapObserver?.disconnect();
   testMapObserver=null;
   main.classList.toggle("test-map-screen",!!state.name&&route==="tests"&&!quiz&&!result);
@@ -1020,7 +1026,7 @@ function render(draft) {
   if(quiz)main.replaceChildren(questionScreen());
   else if(result)main.replaceChildren(resultView());
   else {
-    const views={home,course:courseView,tasks:practiceList,tests:testMap,rocky,books:bookView,videos:videoView,profile,project:projectView};
+    const views={home,course:courseView,tasks:chapter?practiceList:practiceHub,tests:testMap,rocky,books:bookView,videos:videoView,profile,project:projectView};
     main.replaceChildren(...[route==="chapter"?chapterView():views[route]()].flat(2));
   }
   if(!storageWorks)main.append(txt("p",t("offline"),"hint"));

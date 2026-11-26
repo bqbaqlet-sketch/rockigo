@@ -6,9 +6,10 @@ import { ui } from "./ui.mjs";
 import { books, units, levels, xpReward } from "./lessons.mjs";
 import { modules } from "./curriculum.mjs";
 import { videos } from "./video-lessons.mjs";
+import { fieldExercises, fieldModels } from "./field-exercises.mjs";
 
-const files = ["template.html","style.css","brand.css","tests.css","app.js","book-models.js","test-map-art.js","course.css","course-ui.js","browser-ai.js"];
-const [template, style, brand, tests, script, bookModels, mapArt, courseStyle, courseScript, browserScript] = await Promise.all(files.map(file => readFile(new URL(file,import.meta.url),"utf8")));
+const files = ["template.html","style.css","brand.css","tests.css","app.js","book-models.js","test-map-art.js","course.css","course-ui.js","browser-ai.js","field.css","field-ui.js"];
+const [template, style, brand, tests, script, bookModels, mapArt, courseStyle, courseScript, browserScript, fieldStyle, fieldScript] = await Promise.all(files.map(file => readFile(new URL(file,import.meta.url),"utf8")));
 const questions = units.flatMap(unit => unit.questions);
 assert.equal(new Set(questions.map(q=>q.id)).size,questions.length);
 assert.deepEqual(levels.map(l=>l.threshold),xpReward.map((_,index)=>xpReward.slice(0,index).reduce((sum,points)=>sum+points,0)));
@@ -44,6 +45,12 @@ for (const q of questions) {
   assert.ok(q.options?.every(text=>text.length===3) ?? true);
   if(q.type==="blank") assert.equal(q.key.length,3);
 }
+assert.equal(new Set(fieldExercises.map(exercise=>exercise.id)).size,fieldExercises.length);
+for(const exercise of fieldExercises){
+  const unit=units.find(item=>item.id===exercise.unit);
+  assert.ok(unit?.facts.some(fact=>fact.page===exercise.page),`Missing book reference for ${exercise.id}`);
+  assert.ok(Object.hasOwn(fieldModels,exercise.model)&&Number.isFinite(exercise.answer));
+}
 const args=process.argv.slice(2);
 const publicPage=args.includes("--public");
 const chapterPath=args.find(arg=>arg.startsWith("--chapter="))?.slice("--chapter=".length);
@@ -69,6 +76,25 @@ for(const [key,[file,mime]] of Object.entries(assetFiles)){
   }
 }
 if(publicPage)await copyFile(new URL("assets/LICENSE-model-viewer.txt",import.meta.url),join(dirname(output),"assets","LICENSE-model-viewer.txt"));
+if(!chapter){
+  const vendor="media/logging/vendor/";
+  const renderer="field-scene.mjs";
+  if(publicPage){
+    await mkdir(join(dirname(output),vendor),{recursive:true});
+    for(const path of [renderer,vendor+"three.module.min.js",vendor+"three.core.min.js",vendor+"LICENSE"]){
+      const source=fileURLToPath(new URL(path,import.meta.url));
+      const destination=join(dirname(output),path);
+      if(source!==destination)await copyFile(source,destination);
+    }
+    assets.fieldScene="./"+renderer;
+  }else{
+    const code=path=>readFile(new URL(path,import.meta.url),"utf8");
+    const moduleUrl=source=>"data:text/javascript;base64,"+Buffer.from(source).toString("base64");
+    const [sceneCode,three,core,license]=await Promise.all([code(renderer),code(vendor+"three.module.min.js"),code(vendor+"three.core.min.js"),code(vendor+"LICENSE")]);
+    const threeUrl=moduleUrl(three.replaceAll("./three.core.min.js",moduleUrl(core)));
+    assets.fieldScene=moduleUrl("/*\n"+license+"\n*/\n"+sceneCode.replace("./"+vendor+"three.module.min.js",threeUrl));
+  }
+}
 const siteBooks=Object.fromEntries(await Promise.all(Object.entries(books).map(async([key,{file,...book}])=>{
   const path=`./source/${file}`;
   if(!publicPage && !chapter && await access(resolve(dirname(output),path)).then(()=>true,()=>false)){
@@ -82,7 +108,7 @@ const browserAI=publicPage?{
   model:"Qwen3.5-0.8B"
 }:null;
 const model = JSON.stringify({ui,assets,books:siteBooks,units,levels,xpReward,modules,...(chapter?{chapter}:{}),
-  ...(browserAI?{browserAI}:{}),videos:chapter?[]:videos}).replaceAll("<","\\u003c");
+  ...(browserAI?{browserAI}:{}),...(chapter?{}:{fieldExercises,fieldModels}),videos:chapter?[]:videos}).replaceAll("<","\\u003c");
 const publicApi="https://rockigo-chat.bqbaqlet.workers.dev";
 const api=chapter?null:(process.env.ROCKIGO_API_URL?.trim()??(publicPage?publicApi:""));
 let apiMeta="";
@@ -91,9 +117,9 @@ if(api){
   assert.ok(url.protocol==="https:"&&!url.username&&!url.password&&!url.search&&!url.hash,"The Rocky API address must be an HTTPS base URL.");
   apiMeta=url.href.replace(/"/g,"&quot;");
 }
-const html=template.replace("/* ROCKIGO_STYLE */",()=>[style,brand,tests,courseStyle,chapterStyle].filter(Boolean).join("\n"))
+const html=template.replace("/* ROCKIGO_STYLE */",()=>[style,brand,tests,courseStyle,!chapter&&fieldStyle,chapterStyle].filter(Boolean).join("\n"))
   .replace('name="rockigo-api" content=""',()=>`name="rockigo-api" content="${apiMeta}"`)
-  .replace("/* ROCKIGO_DATA */",()=>model).replace("/* ROCKIGO_UI */",()=>[chapterScript,courseScript,publicPage&&browserScript,script,bookModels,mapArt].filter(Boolean).join("\n"));
+  .replace("/* ROCKIGO_DATA */",()=>model).replace("/* ROCKIGO_UI */",()=>[chapterScript,courseScript,publicPage&&browserScript,!chapter&&fieldScript,script,bookModels,mapArt].filter(Boolean).join("\n"));
 if(chapter)assert.ok(Buffer.byteLength(html,"utf8")<=30_000_000,"Offline course exceeds the 30 MB chapter budget.");
 await mkdir(dirname(output),{recursive:true});
 await writeFile(output,html,"utf8");
