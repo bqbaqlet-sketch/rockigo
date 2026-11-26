@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Конвейер · RockiGo</title>
+  <link rel="stylesheet" href="./runner.css">
+  <script type="module" src="./runner.js"></script>
+</head>
+<body>
+  <header><div class="wrap bar"><a href="../" class="brand"><img src="../assets/logo.jpg" alt="">RockiGo</a><a href="../#project">О проекте</a></div></header>
+  <main class="wrap">
+    <section class="intro">
+      <h1>Глава → курс</h1>
+      <p>Загрузи Markdown и PDF одной главы. Конвейер соберёт учебный слой, проверит ссылки на страницы и подготовит офлайн-курс.</p>
+    </section>
+    <div class="layout">
+      <form id="source" class="card">
+        <h2>Исходные файлы</h2>
+        <div class="files">
+          <label>Markdown <input type="file" name="markdown" accept=".md,.markdown,text/markdown" required></label>
+          <label>PDF <input type="file" name="pdf" accept=".pdf,application/pdf" required></label>
+        </div>
+        <label>Страницы PDF <input name="pages" placeholder="Например, 9–14, 20–30" maxlength="120"></label>
+        <p class="hint">Оставь поле пустым, если Markdown уже содержит только нужную главу. Нужны отметки вида <code>&lt;!-- page 9 --&gt;</code>.</p>
+        <details>
+          <summary>Данные главы</summary>
+          <div class="details-grid">
+            <label>Название <input name="title" maxlength="140"></label>
+            <label>Автор <input name="author" maxlength="140"></label>
+            <label>Книга <input name="book" maxlength="140"></label>
+            <label>Номер первой страницы загруженного PDF <input name="firstPdfPage" type="number" min="1" max="99999" value="1"></label>
+            <label>Начальный заголовок <input name="startHeading" maxlength="140" placeholder="Включается в главу"></label>
+            <label>Заголовок следующего раздела <input name="endHeading" maxlength="140" placeholder="Исключается из главы"></label>
+          </div>
+          <p class="hint">Для полного PDF оставь 1. Если файл начинается, например, со страницы 90 по Markdown, укажи 90.</p>
+        </details>
+        <div class="actions"><button id="run">Собрать курс</button><button type="button" class="secondary" id="sample">Пример</button></div>
+        <p class="hint privacy">Файлы главы обрабатываются на устройстве. Для первого запуска среде Python нужен интернет.</p>
+      </form>
+      <section class="card" id="output" aria-labelledby="output-title">
+        <h2 id="output-title">Результаты</h2>
+        <p id="status" role="status">Загрузи свою главу или запусти пример.</p>
+        <progress id="work" hidden aria-label="Сборка курса"></progress>
+        <div id="result" hidden>
+          <dl id="stats"></dl>
+          <div id="downloads"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

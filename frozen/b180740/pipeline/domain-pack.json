@@ -1,0 +1,12 @@
+{
+  "cues": {
+    "М": ["механизм", "распростран", "fluid flow", "mechanism", "circulation", "циркуляц", "перераспредел"],
+    "В": ["возраст", "эволюц", "геологическ", "deposition", "evolution", "geologic time", "последовательность осад"],
+    "И": ["каротаж", "измерен", "logging", "measurement", "resistivity", "сопротивлен", "sensor"],
+    "Ф": ["уравнен", "формул", "equation", "model", "dimensionless", "коэффициент", "boundary condition"],
+    "П": ["разрез", "геометри", "cross-section", "geometry", "reef", "дельт", "structure"],
+    "Пр": ["порядок действ", "операци", "drilling", "procedure", "workflow", "бурени", "установка"],
+    "Н": ["неопредел", "допущен", "uncertainty", "assumption", "огранич", "ambiguous", "accuracy"],
+    "Р": ["классификац", "пород", "фаци", "facies", "classification", "specimen", "литологи"]
+  }
+}
