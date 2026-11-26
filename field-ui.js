@@ -16,6 +16,7 @@ function practiceHub() {
   switcher.setAttribute("aria-label", t("tasks"));
   ordinary.setAttribute("aria-pressed", String(!fieldMode));
   special.setAttribute("aria-pressed", String(fieldMode));
+  const actions = div("field-actions",switcher,assemblyActions("tasks"));
   function switchPractice(mode) {
     if (mode === fieldMode) return;
     fieldMode = mode;
@@ -25,7 +26,7 @@ function practiceHub() {
 
   if (!fieldMode) {
     const [title, list] = practiceList();
-    return [title, switcher, list];
+    return [title, actions, list];
   }
   const exercises = data.fieldExercises;
   const completed = exercises.filter(exercise => state.fieldPractice?.[exercise.id]).length;
@@ -47,7 +48,7 @@ function practiceHub() {
   picker.setAttribute("aria-label", t("fieldSpecial"));
   const intro = div("field-intro", txt("p", t("fieldIntro")),
     txt("span", t("fieldCompleted", {done:completed, total:exercises.length}), "field-count"));
-  return [heading("tasks"), switcher, intro, picker, fieldExercise(exercises[fieldIndex])];
+  return [heading("tasks"), actions, intro, picker, fieldExercise(exercises[fieldIndex])];
 }
 
 function fieldExercise(exercise) {

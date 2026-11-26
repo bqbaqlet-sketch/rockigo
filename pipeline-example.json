@@ -1,0 +1,500 @@
+{
+  "course": {
+    "id": "chapter-dd9275d0593c",
+    "title": "Измерения в учебной скважине",
+    "author": "RockiGo",
+    "book": "Учебный пример",
+    "steps": [
+      {
+        "id": "chapter-dd9275d0593c.p001",
+        "title": "Purpose of the well logs",
+        "pages": [
+          1,
+          2
+        ],
+        "minutes": 3,
+        "summary": "A well log records a measured response along a borehole. A geologist compares responses recorded at the same depth before interpreting the type of rock.",
+        "prerequisite": null,
+        "evidence": {
+          "page_pdf": 1
+        },
+        "tasks": [
+          {
+            "id": "chapter-dd9275d0593c.p001.idea",
+            "step_id": "chapter-dd9275d0593c.p001",
+            "claim_ids": [
+              "chapter-dd9275d0593c.p001#c1"
+            ],
+            "type": "single",
+            "prompt": "Какой вывод относится к этому шагу?",
+            "answer": "0",
+            "explanation": "A well log records a measured response along a borehole. A geologist compares responses recorded at the same depth before interpreting the type of rock.",
+            "options": [
+              {
+                "id": "0",
+                "text": "A well log records a measured response along a borehole. A geologist compares responses recorded at the same depth before interpreting the type of rock."
+              },
+              {
+                "id": "1",
+                "text": "A gamma-ray tool detects the natural radiation emitted by the surrounding rock. Some shale has a high gamma response, and some other rock can produce a high response"
+              },
+              {
+                "id": "2",
+                "text": "Resistivity describes opposition to electric current. The measured response can depend on the rock, pore fluids and conditions near the borehole."
+              }
+            ]
+          },
+          {
+            "id": "chapter-dd9275d0593c.p001.term",
+            "step_id": "chapter-dd9275d0593c.p001",
+            "claim_ids": [
+              "chapter-dd9275d0593c.p001#c1"
+            ],
+            "type": "gap",
+            "prompt": "Впиши ключевое понятие этого шага.",
+            "answer": [
+              "well"
+            ],
+            "explanation": "Ключевое понятие: well."
+          },
+          {
+            "id": "chapter-dd9275d0593c.p001.process",
+            "step_id": "chapter-dd9275d0593c.p001",
+            "claim_ids": [
+              "chapter-dd9275d0593c.p001#c1"
+            ],
+            "type": "order",
+            "prompt": "Расставь этапы работы с источником.",
+            "answer": [
+              "1",
+              "2",
+              "0"
+            ],
+            "explanation": "Сначала нужны признаки, затем правило и только потом вывод.",
+            "options": [
+              {
+                "id": "0",
+                "text": "Записать вывод и его ограничение"
+              },
+              {
+                "id": "1",
+                "text": "Найти исходные признаки"
+              },
+              {
+                "id": "2",
+                "text": "Применить правило из книги"
+              }
+            ]
+          },
+          {
+            "id": "chapter-dd9275d0593c.p001.limits",
+            "step_id": "chapter-dd9275d0593c.p001",
+            "claim_ids": [
+              "chapter-dd9275d0593c.p001#c1"
+            ],
+            "type": "multiple",
+            "prompt": "Что нужно сохранить вместе с выводом?",
+            "answer": [
+              "0",
+              "2"
+            ],
+            "explanation": "У вывода должны быть условия применения и проверяемый источник.",
+            "options": [
+              {
+                "id": "0",
+                "text": "Условия, при которых применимо правило"
+              },
+              {
+                "id": "1",
+                "text": "Гарантию того же результата во всех скважинах"
+              },
+              {
+                "id": "2",
+                "text": "Страницу, на которой описан пример"
+              }
+            ]
+          }
+        ],
+        "taskSources": {
+          "chapter-dd9275d0593c.p001#c1": 1,
+          "chapter-dd9275d0593c.p001#c2": 1,
+          "chapter-dd9275d0593c.p001#c3": 2,
+          "chapter-dd9275d0593c.p001#c4": 2
+        },
+        "format": "текст"
+      },
+      {
+        "id": "chapter-dd9275d0593c.p003",
+        "title": "Natural gamma radiation",
+        "pages": [
+          3,
+          4
+        ],
+        "minutes": 3,
+        "summary": "A gamma-ray tool detects the natural radiation emitted by the surrounding rock. Some shale has a high gamma response, and some other rock can produce a high response",
+        "prerequisite": "chapter-dd9275d0593c.p001",
+        "evidence": {
+          "page_pdf": 3
+        },
+        "tasks": [
+          {
+            "id": "chapter-dd9275d0593c.p003.idea",
+            "step_id": "chapter-dd9275d0593c.p003",
+            "claim_ids": [
+              "chapter-dd9275d0593c.p003#c1"
+            ],
+            "type": "single",
+            "prompt": "Какой вывод относится к этому шагу?",
+            "answer": "1",
+            "explanation": "A gamma-ray tool detects the natural radiation emitted by the surrounding rock. Some shale has a high gamma response, and some other rock can produce a high response",
+            "options": [
+              {
+                "id": "0",
+                "text": "A well log records a measured response along a borehole. A geologist compares responses recorded at the same depth before interpreting the type of rock."
+              },
+              {
+                "id": "1",
+                "text": "A gamma-ray tool detects the natural radiation emitted by the surrounding rock. Some shale has a high gamma response, and some other rock can produce a high response"
+              },
+              {
+                "id": "2",
+                "text": "Resistivity describes opposition to electric current. The measured response can depend on the rock, pore fluids and conditions near the borehole."
+              }
+            ]
+          },
+          {
+            "id": "chapter-dd9275d0593c.p003.term",
+            "step_id": "chapter-dd9275d0593c.p003",
+            "claim_ids": [
+              "chapter-dd9275d0593c.p003#c1"
+            ],
+            "type": "gap",
+            "prompt": "Впиши ключевое понятие этого шага.",
+            "answer": [
+              "gamma"
+            ],
+            "explanation": "Ключевое понятие: gamma."
+          }
+        ],
+        "taskSources": {
+          "chapter-dd9275d0593c.p003#c1": 3,
+          "chapter-dd9275d0593c.p003#c2": 3,
+          "chapter-dd9275d0593c.p003#c3": 4,
+          "chapter-dd9275d0593c.p003#c4": 4
+        },
+        "format": "текст"
+      },
+      {
+        "id": "chapter-dd9275d0593c.p005",
+        "title": "A resistivity reading",
+        "pages": [
+          5,
+          6
+        ],
+        "minutes": 3,
+        "summary": "Resistivity describes opposition to electric current. The measured response can depend on the rock, pore fluids and conditions near the borehole.",
+        "prerequisite": "chapter-dd9275d0593c.p003",
+        "evidence": {
+          "page_pdf": 5
+        },
+        "tasks": [
+          {
+            "id": "chapter-dd9275d0593c.p005.idea",
+            "step_id": "chapter-dd9275d0593c.p005",
+            "claim_ids": [
+              "chapter-dd9275d0593c.p005#c1"
+            ],
+            "type": "single",
+            "prompt": "Какой вывод относится к этому шагу?",
+            "answer": "2",
+            "explanation": "Resistivity describes opposition to electric current. The measured response can depend on the rock, pore fluids and conditions near the borehole.",
+            "options": [
+              {
+                "id": "0",
+                "text": "A well log records a measured response along a borehole. A geologist compares responses recorded at the same depth before interpreting the type of rock."
+              },
+              {
+                "id": "1",
+                "text": "A gamma-ray tool detects the natural radiation emitted by the surrounding rock. Some shale has a high gamma response, and some other rock can produce a high response"
+              },
+              {
+                "id": "2",
+                "text": "Resistivity describes opposition to electric current. The measured response can depend on the rock, pore fluids and conditions near the borehole."
+              }
+            ]
+          },
+          {
+            "id": "chapter-dd9275d0593c.p005.term",
+            "step_id": "chapter-dd9275d0593c.p005",
+            "claim_ids": [
+              "chapter-dd9275d0593c.p005#c1"
+            ],
+            "type": "gap",
+            "prompt": "Впиши ключевое понятие этого шага.",
+            "answer": [
+              "resistivity"
+            ],
+            "explanation": "Ключевое понятие: resistivity."
+          }
+        ],
+        "taskSources": {
+          "chapter-dd9275d0593c.p005#c1": 5,
+          "chapter-dd9275d0593c.p005#c2": 5,
+          "chapter-dd9275d0593c.p005#c3": 6,
+          "chapter-dd9275d0593c.p005#c4": 6
+        },
+        "format": "текст"
+      },
+      {
+        "id": "chapter-dd9275d0593c.p007",
+        "title": "Pore space in rock",
+        "pages": [
+          7,
+          8
+        ],
+        "minutes": 3,
+        "summary": "Porosity is the fraction of rock volume occupied by pores. The size and connectivity of those pores influence how easily fluid can move.",
+        "prerequisite": "chapter-dd9275d0593c.p005",
+        "evidence": {
+          "page_pdf": 7
+        },
+        "tasks": [
+          {
+            "id": "chapter-dd9275d0593c.p007.idea",
+            "step_id": "chapter-dd9275d0593c.p007",
+            "claim_ids": [
+              "chapter-dd9275d0593c.p007#c1"
+            ],
+            "type": "single",
+            "prompt": "Какой вывод относится к этому шагу?",
+            "answer": "0",
+            "explanation": "Porosity is the fraction of rock volume occupied by pores. The size and connectivity of those pores influence how easily fluid can move.",
+            "options": [
+              {
+                "id": "0",
+                "text": "Porosity is the fraction of rock volume occupied by pores. The size and connectivity of those pores influence how easily fluid can move."
+              },
+              {
+                "id": "1",
+                "text": "A well log records a measured response along a borehole. A geologist compares responses recorded at the same depth before interpreting the type of rock."
+              },
+              {
+                "id": "2",
+                "text": "A gamma-ray tool detects the natural radiation emitted by the surrounding rock. Some shale has a high gamma response, and some other rock can produce a high response"
+              }
+            ]
+          },
+          {
+            "id": "chapter-dd9275d0593c.p007.term",
+            "step_id": "chapter-dd9275d0593c.p007",
+            "claim_ids": [
+              "chapter-dd9275d0593c.p007#c1"
+            ],
+            "type": "gap",
+            "prompt": "Впиши ключевое понятие этого шага.",
+            "answer": [
+              "porosity"
+            ],
+            "explanation": "Ключевое понятие: porosity."
+          }
+        ],
+        "taskSources": {
+          "chapter-dd9275d0593c.p007#c1": 7,
+          "chapter-dd9275d0593c.p007#c2": 7,
+          "chapter-dd9275d0593c.p007#c3": 8,
+          "chapter-dd9275d0593c.p007#c4": 8
+        },
+        "format": "текст"
+      },
+      {
+        "id": "chapter-dd9275d0593c.p009",
+        "title": "Changes near the borehole",
+        "pages": [
+          9,
+          10
+        ],
+        "minutes": 3,
+        "summary": "When the borehole pressure exceeds formation pressure, some drilling-fluid filtrate can enter permeable rock. The effect depends on pressure, rock properties and",
+        "prerequisite": "chapter-dd9275d0593c.p007",
+        "evidence": {
+          "page_pdf": 9
+        },
+        "tasks": [
+          {
+            "id": "chapter-dd9275d0593c.p009.idea",
+            "step_id": "chapter-dd9275d0593c.p009",
+            "claim_ids": [
+              "chapter-dd9275d0593c.p009#c1"
+            ],
+            "type": "single",
+            "prompt": "Какой вывод относится к этому шагу?",
+            "answer": "1",
+            "explanation": "When the borehole pressure exceeds formation pressure, some drilling-fluid filtrate can enter permeable rock. The effect depends on pressure, rock properties and",
+            "options": [
+              {
+                "id": "0",
+                "text": "A well log records a measured response along a borehole. A geologist compares responses recorded at the same depth before interpreting the type of rock."
+              },
+              {
+                "id": "1",
+                "text": "When the borehole pressure exceeds formation pressure, some drilling-fluid filtrate can enter permeable rock. The effect depends on pressure, rock properties and"
+              },
+              {
+                "id": "2",
+                "text": "A gamma-ray tool detects the natural radiation emitted by the surrounding rock. Some shale has a high gamma response, and some other rock can produce a high response"
+              }
+            ]
+          },
+          {
+            "id": "chapter-dd9275d0593c.p009.term",
+            "step_id": "chapter-dd9275d0593c.p009",
+            "claim_ids": [
+              "chapter-dd9275d0593c.p009#c1"
+            ],
+            "type": "gap",
+            "prompt": "Впиши ключевое понятие этого шага.",
+            "answer": [
+              "when"
+            ],
+            "explanation": "Ключевое понятие: when."
+          }
+        ],
+        "taskSources": {
+          "chapter-dd9275d0593c.p009#c1": 9,
+          "chapter-dd9275d0593c.p009#c2": 9,
+          "chapter-dd9275d0593c.p009#c3": 10,
+          "chapter-dd9275d0593c.p009#c4": 10
+        },
+        "format": "текст"
+      },
+      {
+        "id": "chapter-dd9275d0593c.p011",
+        "title": "Evidence for a decision",
+        "pages": [
+          11,
+          12
+        ],
+        "minutes": 3,
+        "summary": "A proposed formation boundary should be consistent with the depth-aligned curves and with other observations when available. Record which evidence supports the interpretation.",
+        "prerequisite": "chapter-dd9275d0593c.p009",
+        "evidence": {
+          "page_pdf": 11
+        },
+        "tasks": [
+          {
+            "id": "chapter-dd9275d0593c.p011.idea",
+            "step_id": "chapter-dd9275d0593c.p011",
+            "claim_ids": [
+              "chapter-dd9275d0593c.p011#c1"
+            ],
+            "type": "single",
+            "prompt": "Какой вывод относится к этому шагу?",
+            "answer": "2",
+            "explanation": "A proposed formation boundary should be consistent with the depth-aligned curves and with other observations when available. Record which evidence supports the interpretation.",
+            "options": [
+              {
+                "id": "0",
+                "text": "A well log records a measured response along a borehole. A geologist compares responses recorded at the same depth before interpreting the type of rock."
+              },
+              {
+                "id": "1",
+                "text": "A gamma-ray tool detects the natural radiation emitted by the surrounding rock. Some shale has a high gamma response, and some other rock can produce a high response"
+              },
+              {
+                "id": "2",
+                "text": "A proposed formation boundary should be consistent with the depth-aligned curves and with other observations when available. Record which evidence supports the interpretation."
+              }
+            ]
+          },
+          {
+            "id": "chapter-dd9275d0593c.p011.term",
+            "step_id": "chapter-dd9275d0593c.p011",
+            "claim_ids": [
+              "chapter-dd9275d0593c.p011#c1"
+            ],
+            "type": "gap",
+            "prompt": "Впиши ключевое понятие этого шага.",
+            "answer": [
+              "proposed"
+            ],
+            "explanation": "Ключевое понятие: proposed."
+          }
+        ],
+        "taskSources": {
+          "chapter-dd9275d0593c.p011#c1": 11,
+          "chapter-dd9275d0593c.p011#c2": 11,
+          "chapter-dd9275d0593c.p011#c3": 12,
+          "chapter-dd9275d0593c.p011#c4": 12
+        },
+        "format": "текст"
+      },
+      {
+        "id": "chapter-dd9275d0593c.p013",
+        "title": "Recording the limits",
+        "pages": [
+          13,
+          14
+        ],
+        "minutes": 3,
+        "summary": "An interpretation is useful when its assumptions are available to the next reader. Record the depth interval, the curves used, and the reason for excluding competing",
+        "prerequisite": "chapter-dd9275d0593c.p011",
+        "evidence": {
+          "page_pdf": 13
+        },
+        "tasks": [
+          {
+            "id": "chapter-dd9275d0593c.p013.idea",
+            "step_id": "chapter-dd9275d0593c.p013",
+            "claim_ids": [
+              "chapter-dd9275d0593c.p013#c1"
+            ],
+            "type": "single",
+            "prompt": "Какой вывод относится к этому шагу?",
+            "answer": "0",
+            "explanation": "An interpretation is useful when its assumptions are available to the next reader. Record the depth interval, the curves used, and the reason for excluding competing",
+            "options": [
+              {
+                "id": "0",
+                "text": "An interpretation is useful when its assumptions are available to the next reader. Record the depth interval, the curves used, and the reason for excluding competing"
+              },
+              {
+                "id": "1",
+                "text": "A well log records a measured response along a borehole. A geologist compares responses recorded at the same depth before interpreting the type of rock."
+              },
+              {
+                "id": "2",
+                "text": "A gamma-ray tool detects the natural radiation emitted by the surrounding rock. Some shale has a high gamma response, and some other rock can produce a high response"
+              }
+            ]
+          },
+          {
+            "id": "chapter-dd9275d0593c.p013.term",
+            "step_id": "chapter-dd9275d0593c.p013",
+            "claim_ids": [
+              "chapter-dd9275d0593c.p013#c1"
+            ],
+            "type": "gap",
+            "prompt": "Впиши ключевое понятие этого шага.",
+            "answer": [
+              "interpretation"
+            ],
+            "explanation": "Ключевое понятие: interpretation."
+          }
+        ],
+        "taskSources": {
+          "chapter-dd9275d0593c.p013#c1": 13,
+          "chapter-dd9275d0593c.p013#c2": 13,
+          "chapter-dd9275d0593c.p013#c3": 14,
+          "chapter-dd9275d0593c.p013#c4": 14
+        },
+        "format": "карточки"
+      }
+    ]
+  },
+  "report": {
+    "pages": 14,
+    "nodes": 7,
+    "tasks": 16,
+    "needs_visual_review": 0
+  }
+}

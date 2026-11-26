@@ -23,7 +23,7 @@ const driveBookIds = (()=>{
   if(supplied)try { sessionStorage.setItem(bookSourceStorage,supplied); } catch (_) {}
   return Object.fromEntries(keys.map((key,index)=>[key,ids[index]]));
 })();
-let state = load(), route = chapter?"chapter":["project","rocky","videos","books","tasks"].includes(landingRoute)?landingRoute:"home", quiz, result, bookSelection;
+let state = load(), route = chapter?"chapter":["project","rocky","videos","books","tasks","tests"].includes(landingRoute)?landingRoute:"home", quiz, result, bookSelection;
 if(!chapter && route==="tasks")fieldMode=launchParams.get("view")==="special";
 let assistantAvailable = false, assistantChat = false, assistantBusy = false, storageWorks = true;
 let assistantModel = "Qwen 2.5";
@@ -499,7 +499,7 @@ function testMap() {
   const summary=div("test-route-summary",txt("strong",`${passed} / ${levels.length}`),txt("span",t("testsCompleted")));
   const nextStep=missingXP>0?div("test-route-next",txt("p",t("testRouteXP",{n:missingXP})),
     btn(t("tasks"),()=>navigate("tasks"),"soft")):[];
-  const header=div("test-map-intro",div("test-route-header",heading("tests","testsText"),summary,nextStep,bookLibraryLinks()),
+  const header=div("test-map-intro",div("test-route-header",heading("tests","testsText"),summary,nextStep,bookLibraryLinks(),assemblyActions("tests")),
     assets?.model?mascot("tests",false):[]);
 
   const stops=levels.map((item,index)=>testStop(item,index,current));
@@ -595,7 +595,7 @@ function bookmark(id) {
   notify(t("bookmarked"));
 }
 function videoView() {
-  return [heading("videoTitle","videoText"),div("video-list",videos.map(lesson=>{
+  return [heading("videoTitle","videoText"),assemblyActions("videos"),div("video-list",videos.map(lesson=>{
     const script=txt("details","","video-transcript");
     script.append(txt("summary",t("videoScript")));
     for (const paragraph of lesson.script) {
@@ -1012,10 +1012,11 @@ function updateMode() {
 }
 
 function render(draft) {
-  if(!chapter)unmountFieldStage();
+  if(!chapter){unmountFieldStage();stopAssemblyVideo();}
   testMapObserver?.disconnect();
   testMapObserver=null;
-  main.classList.toggle("test-map-screen",!!state.name&&route==="tests"&&!quiz&&!result);
+  const assembled = !chapter && showingAssembly(route);
+  main.classList.toggle("test-map-screen",!!state.name&&route==="tests"&&!quiz&&!result&&!assembled);
   document.documentElement.lang=state.lang;
   document.documentElement.dataset.theme=state.theme;
   document.getElementById("skip").textContent=t("skip");
@@ -1025,6 +1026,7 @@ function render(draft) {
   bottom();
   if(quiz)main.replaceChildren(questionScreen());
   else if(result)main.replaceChildren(resultView());
+  else if(assembled)main.replaceChildren(assemblyView(route));
   else {
     const views={home,course:courseView,tasks:chapter?practiceList:practiceHub,tests:testMap,rocky,books:bookView,videos:videoView,profile,project:projectView};
     main.replaceChildren(...[route==="chapter"?chapterView():views[route]()].flat(2));

@@ -8,8 +8,8 @@ import { modules } from "./curriculum.mjs";
 import { videos } from "./video-lessons.mjs";
 import { fieldExercises, fieldModels } from "./field-exercises.mjs";
 
-const files = ["template.html","style.css","brand.css","tests.css","app.js","book-models.js","test-map-art.js","course.css","course-ui.js","browser-ai.js","field.css","field-ui.js"];
-const [template, style, brand, tests, script, bookModels, mapArt, courseStyle, courseScript, browserScript, fieldStyle, fieldScript] = await Promise.all(files.map(file => readFile(new URL(file,import.meta.url),"utf8")));
+const files = ["template.html","style.css","brand.css","tests.css","app.js","book-models.js","test-map-art.js","course.css","course-ui.js","browser-ai.js","field.css","field-ui.js","pipeline-ui.css","pipeline-ui.js","pipeline-video.js"];
+const [template, style, brand, tests, script, bookModels, mapArt, courseStyle, courseScript, browserScript, fieldStyle, fieldScript, assemblyStyle, assemblyScript, assemblyVideo] = await Promise.all(files.map(file => readFile(new URL(file,import.meta.url),"utf8")));
 const questions = units.flatMap(unit => unit.questions);
 assert.equal(new Set(questions.map(q=>q.id)).size,questions.length);
 assert.deepEqual(levels.map(l=>l.threshold),xpReward.map((_,index)=>xpReward.slice(0,index).reduce((sum,points)=>sum+points,0)));
@@ -107,8 +107,14 @@ const browserAI=publicPage?{
   weights:"https://huggingface.co/ggml-org/Qwen3.5-0.8B-GGUF/resolve/004fd086eccea9f7cf867aa07ba328773beef81d/Qwen3.5-0.8B-Q4_0.gguf",
   model:"Qwen3.5-0.8B"
 }:null;
+const frozenPipeline = "./frozen/b180740/pipeline/";
+const samplePdf = frozenPipeline + "sample.pdf";
+const assembly = chapter ? null : publicPage ? {worker:frozenPipeline+"runner-worker.js",pdf:samplePdf} : {
+  example:JSON.parse(await readFile(new URL("pipeline-example.json",import.meta.url),"utf8")),
+  pdf:"data:application/pdf;base64,"+(await readFile(new URL(samplePdf,import.meta.url))).toString("base64")
+};
 const model = JSON.stringify({ui,assets,books:siteBooks,units,levels,xpReward,modules,...(chapter?{chapter}:{}),
-  ...(browserAI?{browserAI}:{}),...(chapter?{}:{fieldExercises,fieldModels}),videos:chapter?[]:videos}).replaceAll("<","\\u003c");
+  ...(browserAI?{browserAI}:{}),...(chapter?{}:{fieldExercises,fieldModels,assembly}),videos:chapter?[]:videos}).replaceAll("<","\\u003c");
 const publicApi="https://rockigo-chat.bqbaqlet.workers.dev";
 const api=chapter?null:(process.env.ROCKIGO_API_URL?.trim()??(publicPage?publicApi:""));
 let apiMeta="";
@@ -117,9 +123,9 @@ if(api){
   assert.ok(url.protocol==="https:"&&!url.username&&!url.password&&!url.search&&!url.hash,"The Rocky API address must be an HTTPS base URL.");
   apiMeta=url.href.replace(/"/g,"&quot;");
 }
-const html=template.replace("/* ROCKIGO_STYLE */",()=>[style,brand,tests,courseStyle,!chapter&&fieldStyle,chapterStyle].filter(Boolean).join("\n"))
+const html=template.replace("/* ROCKIGO_STYLE */",()=>[style,brand,tests,courseStyle,!chapter&&fieldStyle,!chapter&&assemblyStyle,chapterStyle].filter(Boolean).join("\n"))
   .replace('name="rockigo-api" content=""',()=>`name="rockigo-api" content="${apiMeta}"`)
-  .replace("/* ROCKIGO_DATA */",()=>model).replace("/* ROCKIGO_UI */",()=>[chapterScript,courseScript,publicPage&&browserScript,!chapter&&fieldScript,script,bookModels,mapArt].filter(Boolean).join("\n"));
+  .replace("/* ROCKIGO_DATA */",()=>model).replace("/* ROCKIGO_UI */",()=>[chapterScript,courseScript,publicPage&&browserScript,!chapter&&fieldScript,!chapter&&assemblyScript,!chapter&&assemblyVideo,script,bookModels,mapArt].filter(Boolean).join("\n"));
 if(chapter)assert.ok(Buffer.byteLength(html,"utf8")<=30_000_000,"Offline course exceeds the 30 MB chapter budget.");
 await mkdir(dirname(output),{recursive:true});
 await writeFile(output,html,"utf8");

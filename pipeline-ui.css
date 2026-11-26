@@ -1,0 +1,84 @@
+.assembly-actions,.assembly-tabs { display:flex; align-items:center; flex-wrap:wrap; gap:7px; }
+.assembly-actions { margin-bottom:14px; }
+.assembly-launch.btn { background:var(--accent-2); color:var(--accent); border-color:var(--line); }
+.test-route-header .assembly-actions { margin:10px 0 4px; }
+.field-actions { display:flex; align-items:flex-start; flex-wrap:wrap; gap:0 10px; }
+
+.assembly-dialog {
+  width:min(calc(100% - 24px),540px);
+  max-height:calc(100dvh - 30px);
+  padding:clamp(14px,4vw,22px);
+  border:1px solid var(--line);
+  border-radius:17px;
+  background:var(--paper);
+  color:var(--ink);
+  box-shadow:0 15px 60px #080b2340;
+}
+.assembly-dialog::backdrop { background:#15152a9c; }
+.assembly-dialog-head { display:flex; align-items:start; justify-content:space-between; gap:12px; }
+.assembly-dialog-head h2 { margin:4px 0; font-size:1.3rem; line-height:1.2; }
+.assembly-dialog p { margin:9px 0 12px; }
+.assembly-dialog progress { width:100%; margin-top:10px; accent-color:var(--accent); }
+.assembly-dialog .assembly-status { margin-bottom:0; overflow-wrap:anywhere; }
+.assembly-status:empty { display:none; }
+.assembly-inputs { padding-top:8px; margin-top:11px; border-top:1px solid var(--line); }
+.assembly-inputs summary { padding:10px 0; cursor:pointer; font-weight:720; }
+.assembly-inputs form { display:grid; gap:9px; }
+.assembly-inputs .field { width:100%; min-width:0; }
+.assembly-inputs form .btn { justify-self:start; }
+.assembly-inputs .assembly-help { margin:0; font-size:.83rem; }
+
+.assembly-view { min-width:0; }
+.assembly-heading { padding:clamp(14px,3.5vw,30px); margin-bottom:18px; border:1px solid var(--line); border-radius:18px; background:linear-gradient(125deg,var(--accent-2),var(--paper)); }
+.assembly-heading h1 { margin:3px 0 7px; font-size:clamp(1.55rem,4vw,2.6rem); line-height:1.09; overflow-wrap:anywhere; }
+.assembly-heading p { margin:0 0 10px; }
+.assembly-heading p:last-child { margin:8px 0 0; }
+.assembly-heading .assembly-kicker { color:var(--accent); font-size:.84rem; font-weight:750; margin-bottom:6px; }
+.assembly-tabs { width:fit-content; max-width:100%; padding:4px; margin-bottom:9px; border:1px solid var(--line); border-radius:12px; background:var(--paper); }
+.assembly-tabs .btn { min-height:36px; font-size:.88rem; }
+.assembly-tabs .btn[aria-current] { opacity:1; background:var(--accent-2); }
+
+.assembly-path { display:grid; gap:12px; list-style:none; margin:0; padding:0; }
+.assembly-node { display:grid; grid-template-columns:36px minmax(0,1fr); gap:10px; position:relative; }
+.assembly-node:not(:last-child)::before { content:""; position:absolute; left:17px; top:21px; bottom:-20px; border-left:2px dashed var(--line); }
+.assembly-node-number { z-index:1; align-self:start; display:grid; place-items:center; width:36px; height:36px; margin-top:10px; border-radius:11px; border:1px solid var(--line); background:var(--accent-2); color:var(--accent); font-weight:800; }
+.assembly-node-content { padding:11px 14px; min-width:0; }
+.assembly-node-content summary { cursor:pointer; padding:3px 0; }
+.assembly-node-content summary strong { margin-inline-start:4px; overflow-wrap:anywhere; }
+.assembly-node-content summary span { display:block; margin:3px 0 0 18px; font-size:.8rem; }
+.assembly-node-content p { margin:9px 0; overflow-wrap:anywhere; }
+.assembly-node-content .assembly-actions { margin:10px 0 0; }
+.assembly-format { width:fit-content; padding:3px 7px; border-radius:5px; background:var(--accent-2); color:var(--accent); font-size:.8rem; }
+.assembly-citation { display:inline-block; margin-bottom:1px; font-size:.85rem; }
+
+.assembly-practice { display:grid; gap:11px; }
+.assembly-practice select,.assembly-film-footer select { width:100%; min-width:0; }
+.assembly-practice-progress { margin:6px 0 0; }
+.assembly-task fieldset { border:0; padding:0; margin:0 0 10px; min-width:0; }
+.assembly-task legend { margin-bottom:8px; font-weight:700; overflow-wrap:anywhere; }
+.assembly-task .option { margin-bottom:5px; overflow-wrap:anywhere; }
+.assembly-task .review { margin-top:10px; overflow-wrap:anywhere; }
+.assembly-order li { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+.assembly-order-buttons { display:flex; flex:none; gap:4px; }
+.assembly-order-buttons .btn { margin:0; padding:4px 7px; min-width:34px; min-height:34px; }
+
+.assembly-video { padding:0; overflow:hidden; }
+.assembly-film { display:block; width:100%; height:auto; aspect-ratio:16 / 9; background:#172740; }
+.assembly-film-controls { display:grid; align-items:center; grid-template-columns:auto minmax(60px,1fr) auto; gap:9px; padding:11px 14px; border-bottom:1px solid var(--line); }
+.assembly-film-seek { width:100%; min-width:0; accent-color:var(--accent); }
+.assembly-film-time { font-size:.8rem; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.assembly-film-text { padding:13px 14px 8px; overflow-wrap:anywhere; }
+.assembly-film-text h2 { margin:0 0 7px; font-size:clamp(1.14rem,3vw,1.55rem); }
+.assembly-film-text p { margin:0 0 8px; }
+.assembly-film-footer { display:flex; flex-wrap:wrap; align-items:flex-end; gap:9px; padding:5px 14px 14px; }
+.assembly-film-footer label { flex:1 1 235px; min-width:0; }
+.assembly-film-status { margin:0 14px 11px; }
+.assembly-film-status:empty { display:none; }
+
+@media(max-width:430px) {
+  .assembly-node { grid-template-columns:27px minmax(0,1fr); gap:7px; }
+  .assembly-node-number { width:27px; height:30px; }
+  .assembly-node:not(:last-child)::before { left:13px; }
+  .assembly-film-controls .btn { min-height:35px; padding:5px 7px; font-size:.83rem; }
+  .assembly-film-controls { padding-inline:9px; gap:6px; }
+}
